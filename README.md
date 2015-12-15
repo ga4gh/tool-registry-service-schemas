@@ -20,6 +20,26 @@ Pending a less CWL-specific blurb, we have [this](http://ga4gh.org/#/cwf-team):
 
 The Common Workflow Language (CWL) is an informal, multi-vendor working group consisting of various organizations and individuals that have an interest in portability of data analysis workflows. Our goal is to create specifications that enable data scientists to describe analysis tools and workflows that are powerful, easy to use, portable, and support reproducibility. CWL can be used to describe workflows for a variety of problem areas including data-intensive science like bioinformatics, physics, and astronomy; and business analytics such as log analysis, data mining, and ETL. This group was born out of the BOSC 2014 codefest.
 
+What is this?
+------------
+
+Currently, this is the home of the Registry API proposal. The registry API is a minimal common API describing tools that we proposal for support by multiple registries like [Dockstore](https://www.dockstore.org/) and [Agora](https://github.com/broadinstitute/agora) for the purposes of exchange, indexing, and searching. 
+
+Our current proposal is to start with a read-only API due to potentially different views and approaches to registration/security.
+
+Key features of the current API proposal:
+
+* read-only API
+* May serve up CWl, WDL, to describe a tool depending on what is available
+* ID:  globally unique across systems and also identifies the system that it came from (ex: 123456323@agora.broadinstitute.org )
+
+Outstanding questions: 
+
+* How do we track authorship? Should we track authorship of the tool metadata, the Docker image, or the underlying algorithm, or all of above?
+* How to describe indexing and external services like an external [sparql](https://github.com/common-workflow-language/workflows#sparql) service. 
+* Versioning
+* Terminology discussion (do we describe triples separately from tools? should we describe them as aggregations of tools for just the case that CWL documents have more than one tool? etc.)
+
 
 How to view
 ------------
@@ -27,6 +47,8 @@ How to view
 See the swagger editor to view our [schema in progress](http://editor.swagger.io/#/?import=https://raw.githubusercontent.com/ga4gh/tool-registry-schemas/develop/src/main/resources/swagger/ga4gh-tool-discovery.yaml).
 
 If the current schema fails to validate, visit [debugging](http://online.swagger.io/validator/debug?url=https://raw.githubusercontent.com/ga4gh/tool-registry-schemas/develop/src/main/resources/swagger/ga4gh-tool-discovery.yaml)
+
+
 
 How to contribute changes
 -------------------------
