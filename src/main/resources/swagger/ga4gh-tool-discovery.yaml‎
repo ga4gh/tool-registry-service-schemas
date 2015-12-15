@@ -1,0 +1,200 @@
+swagger: '2.0'
+info:
+  title: GA4GH Tool Discovery API
+  description: 'Proposed API for GA4GH tool repositories. A tool consists of a (currently Docker) image paired with a document that describes how to use that image (currently CWL or WDL) and a Dockerfile that describes how to re-produce the image in the future. We use the following terminology, an "image" describes a (Docker) container as stored on a filesystem, a "tool" describes one of the triples as described above, and a "container" should only be used to describe a running image'
+  version: 1.0.0
+produces:
+  - application/json
+  - text/plain
+basePath: /api/v1
+paths:
+  /tools:
+    get:
+      summary: List all tools
+      description: >
+        This endpoint returns all tools available or a filtered subset using
+        metadata query parameters.
+      parameters:
+        - name: id
+          in: query
+          type: string
+          description: A globally unique identifier of the tool.
+        - name: registry
+          in: query
+          type: string
+          description: The image registry that contains the image.
+        - name: organization
+          in: query
+          type: string
+          description: The organization in the registry that published the image.
+        - name: name
+          in: query
+          type: string
+          description: The name of the image.
+        - name: toolname
+          in: query
+          type: string
+          description: The name of the tool.
+        - name: description
+          in: query
+          type: string
+          description: The description of the tool.
+        - name: author
+          in: query
+          type: string
+          description: 'The author of the tool (TODO a thought occurs, are we assuming that the author of the CWL and the image are the same?).'
+      responses:
+        '200':
+          description: An array of methods that match the filter.
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/Tool'
+  /tools/query:
+    get:
+      summary: Seach for tools using a query.
+      description: Return all of the tools that match the query.
+      parameters:
+        - name: query
+          in: query
+          description: The search query.
+          required: true
+          type: string
+      responses:
+        '200':
+          description: The tools that match the query.
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/Tool'
+  '/tools/{id}/descriptor':
+    get:
+      summary: Get the tool descriptor (CWL/WDL) for the specified tool.
+      description: Returns the CWL or WDL descriptor for the specified tool.
+      parameters:
+        - name: format
+          in: query
+          description: The output type of the descriptor. If not specified it is up to the underlying implementation to determine which output format to return.
+          type: string
+          enum:
+            - CWL
+            - WDL
+        - name: id
+          in: path
+          description: The unique identifier for the tool.
+          required: true
+          type: string
+      responses:
+        '200':
+          description: The tool descriptor.
+          schema:
+            $ref: '#/definitions/ToolDescriptor'
+        '501':
+          description: The tool can not be output in the specified format.
+          schema:
+            $ref: '#/definitions/Error'
+  '/tools/{id}/dockerfile':
+    get:
+      summary: Get the dockerfile for the specified image.
+      description: Returns the dockerfile for the specified image.
+      parameters:
+        - name: id
+          in: path
+          description: The unique identifier for the image.
+          required: true
+          type: string
+      responses:
+        '200':
+          description: The tool payload.
+          schema:
+            $ref: '#/definitions/ToolDockerfile'
+        '400':
+          description: The tool payload is not present in the service.
+          schema:
+            $ref: '#/definitions/Error'
+definitions:
+  
+  Tool:
+    description: A tool (or described tool) describes one pairing of a tool as described in a descriptor file (which potentially describes multiple tools) and a Docker image. 
+    required: 
+      - id 
+      - registry
+      - organization 
+      - name
+      - author
+      - meta-version
+    properties:
+      id:
+        type: string
+        description: The unique identifier for the image. (Proposed - This id should be globally unique across systems and should also identify the system that it comes from for example 123456323@agora.broadinstitute.org)
+      registry:
+        type: string
+        description: The registry that contains the image.
+      organization:
+        type: string
+        description: The organization that published the image.
+      name:
+        type: string
+        description: The name of the image.
+      toolname:
+        type: string
+        description: The name of the tool.
+      description:
+        type: string
+        description: The description of the tool.
+      author:
+        type: string
+        description: The author of the tool.
+      meta-version:
+        type: string
+        description: The version of this entry of the registry. Iterates when fields like the description, author, etc. are updated. 
+      versions:
+        type: array
+        items:
+          $ref: '#/definitions/ToolVersion'
+  ToolVersion:
+    description: A tool version describes a particular iteration of a tool as described by a reference to a specific image and dockerfile. 
+    required: 
+      - id
+      - descriptor
+      - image
+    properties:
+      name:
+        type: string
+        description: The name of the version.
+      id:
+        type: string
+        description: The unique identifier for this version of a tool. (Proposed - This id should be globally unique across systems and should also identify the system that it comes from for example 123456323@agora.broadinstitute.org)
+      descriptor:
+        $ref: '#/definitions/ToolDescriptor'
+      image:
+        type: string
+        description: The docker path to the image (and version) for this tool. (e.g. quay.io/seqware/seqware_full/1.1)
+      dockerfile:
+        type: string
+        description: The url to the dockerfile used to build this image, should include version information (e.g. https://github.com/ICGC-TCGA-PanCancer/pcawg_delly_workflow/blob/master/delly_docker/Dockerfile ) 
+  ToolDescriptor:
+    description: A tool descriptor is a metadata document that describes one or more tools. 
+    required:
+      - descriptor
+    properties:
+      descriptor:
+        type: string
+        description: The descriptor that represents this version of the tool. (CWL or WDL)
+  ToolDockerfile:
+    description: A tool dockerfile is a document that describes how to build a particular Docker image.
+    required: 
+      - dockerfile
+    properties:
+      dockerfile:
+        type: string
+        description: The dockerfile content for this tool.
+  Error:
+    properties:
+      code:
+        type: integer
+        format: int32
+        default: 500
+      message:
+        type: string
+        default: Internal Server Error
