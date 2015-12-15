@@ -3,12 +3,12 @@
 Schemas for the Data Working Group - Containers and Workflows Task Team
 =======================================================================
 
-![](http://online.swagger.io/validator?url=https://raw.githubusercontent.com/ga4gh/tool-registry-schemas/develop/src/main/resources/swagger/ga4gh-tool-discovery.yaml)
+![](http://online.swagger.io/validator/?url=https://raw.githubusercontent.com/ga4gh/tool-registry-schemas/develop/src/main/resources/swagger/ga4gh-tool-discovery.yaml)
 
-The [Global Alliance for Genomics and Health] is an international
+The [Global Alliance for Genomics and Health](http://genomicsandhealth.org/) is an international
 coalition, formed to enable the sharing of genomic and clinical data.
 
-The [Data Working Group] concentrates on data representation, storage,
+The [Data Working Group](http://ga4gh.org/#/) concentrates on data representation, storage,
 and analysis, including working with platform development partners and
 industry leaders to develop standards that will facilitate
 interoperability.
