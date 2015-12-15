@@ -1,4 +1,4 @@
-![ga4gh logo][http://genomicsandhealth.org/files/logo_ga.png]
+![ga4gh logo](http://genomicsandhealth.org/files/logo_ga.png)
 
 Schemas for the Data Working Group - Containers and Workflows Task Team
 =======================================================================
