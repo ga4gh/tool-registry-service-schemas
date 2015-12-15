@@ -21,11 +21,12 @@ Pending a less CWL-specific blurb, we have [this](http://ga4gh.org/#/cwf-team):
 The Common Workflow Language (CWL) is an informal, multi-vendor working group consisting of various organizations and individuals that have an interest in portability of data analysis workflows. Our goal is to create specifications that enable data scientists to describe analysis tools and workflows that are powerful, easy to use, portable, and support reproducibility. CWL can be used to describe workflows for a variety of problem areas including data-intensive science like bioinformatics, physics, and astronomy; and business analytics such as log analysis, data mining, and ETL. This group was born out of the BOSC 2014 codefest.
 
 
-How to build
+How to view
 ------------
 
-See [INSTALL.md] for instructions on how to build the schemas and their
-documentation.
+See the swagger editor to view our [schema in progress](http://editor.swagger.io/#/?import=https://raw.githubusercontent.com/ga4gh/tool-registry-schemas/develop/src/main/resources/swagger/ga4gh-tool-discovery.yaml).
+
+If the current schema fails to validate, visit [debugging](http://online.swagger.io/validator/debug?url=https://raw.githubusercontent.com/ga4gh/tool-registry-schemas/develop/src/main/resources/swagger/ga4gh-tool-discovery.yaml)
 
 How to contribute changes
 -------------------------
