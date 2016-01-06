@@ -4,12 +4,46 @@ layout: default
 
 <div class="home">
 
-  <h1 class="page-heading">Posts</h1>
+	
+  <h2><a id="user-content-what-is-this" class="anchor" href="#what-is-this" aria-hidden="true"><span class="octicon octicon-link"></span></a>What is this?</h2>
+
+  <p>Currently, this is the home of the Registry API proposal. The registry API is a minimal common API describing tools that we proposal for support by multiple registries like <a href="https://www.dockstore.org/">Dockstore</a> and <a href="https://github.com/broadinstitute/agora">Agora</a> for the purposes of exchange, indexing, and searching. </p>
+
+  <p>Our current proposal is to start with a read-only API due to potentially different views and approaches to registration/security.</p>
+
+  <p>Key features of the current API proposal:</p>
+
+  <ul>
+	  <li>read-only API</li>
+	  <li>May serve up CWl, WDL, to describe a tool depending on what is available</li>
+	  <li>ID:  globally unique across systems and also identifies the system that it came from (ex: <a href="mailto:123456323@agora.broadinstitute.org">123456323@agora.broadinstitute.org</a> )</li>
+  </ul>
+
+  <p>Outstanding questions: </p>
+
+  <ul>
+	  <li>How do we track authorship? Should we track authorship of the tool metadata, the Docker image, or the underlying algorithm, or all of above?</li>
+	  <li>How to describe indexing and external services like an external <a href="https://github.com/common-workflow-language/workflows#sparql">sparql</a> service. </li>
+	  <li>Versioning</li>
+	  <li>Terminology discussion (do we describe triples separately from tools? should we describe them as aggregations of tools for just the case that CWL documents have more than one tool? etc.)</li>
+  </ul>
+
+  <h2><a id="user-content-how-to-view" class="anchor" href="#how-to-view" aria-hidden="true"><span class="octicon octicon-link"></span></a>How to view</h2>
+
+  <p>See the swagger editor to view our <a href="http://editor.swagger.io/#/?import=https://raw.githubusercontent.com/ga4gh/tool-registry-schemas/develop/src/main/resources/swagger/ga4gh-tool-discovery.yaml">schema in progress</a>.</p>
+
+  <p>If the current schema fails to validate, visit <a href="http://online.swagger.io/validator/debug?url=https://raw.githubusercontent.com/ga4gh/tool-registry-schemas/develop/src/main/resources/swagger/ga4gh-tool-discovery.yaml">debugging</a></p>
+
+  <h2><a id="user-content-how-to-contribute-changes" class="anchor" href="#how-to-contribute-changes" aria-hidden="true"><span class="octicon octicon-link"></span></a>How to contribute changes</h2>
+
+  <p>Take cues for now from the <a href="https://github.com/ga4gh/schemas/blob/master/CONTRIBUTING.rst">ga4gh/schemas</a> document.</p>
+
+  <h1 class="page-heading">Sections</h1>
 
   <ul class="post-list">
-    {% for post in site.posts %}
+    {% for post in site.posts reversed %}
       <li>
-        <span class="post-meta">{{ post.date | date: "%b %-d, %Y" }}</span>
+        <span class="post-meta">{{ post.section }}</span>
 
         <h2>
           <a class="post-link" href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a>
@@ -18,6 +52,7 @@ layout: default
     {% endfor %}
   </ul>
 
-  <p class="rss-subscribe">subscribe <a href="{{ "/feed.xml" | prepend: site.baseurl }}">via RSS</a></p>
+  <!-- <p class="rss-subscribe">subscribe <a href="{{ "/feed.xml" | prepend: site.baseurl }}">via RSS</a></p> -->
+
 
 </div>
