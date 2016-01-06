@@ -41,12 +41,13 @@ layout: default
   <h1 class="page-heading">Sections</h1>
 
   <ul class="post-list">
-    {% for post in site.posts reversed %}
+    {% assign items = site.sections | sort: 'section' %}
+    {% for item in items %}
       <li>
-        <span class="post-meta">{{ post.section }}</span>
+        <span class="post-meta">{{ item.section }}</span>
 
         <h2>
-          <a class="post-link" href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a>
+          <a class="post-link" href="{{ item.url | prepend: site.baseurl }}">{{ item.title }}</a>
         </h2>
       </li>
     {% endfor %}

@@ -15,5 +15,8 @@ url: "https://ga4gh.github.io" # the base hostname & protocol for your site
 twitter_username: jekyllrb
 github_username:  jekyll
 
+collections:
+ - sections
+
 # Build settings
 markdown: kramdown
