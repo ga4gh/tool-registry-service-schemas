@@ -16,7 +16,8 @@ twitter_username: jekyllrb
 github_username:  jekyll
 
 collections:
- - sections
+  sections:
+    output: true
 
 # Build settings
 markdown: kramdown
