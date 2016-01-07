@@ -12,8 +12,8 @@ description: > # this means to ignore newlines until "baseurl:"
   APIs for discovering genomics tools, their metadata and their containers 
 baseurl: "/tool-registry-schemas" # the subpath of your site, e.g. /blog
 url: "https://ga4gh.github.io" # the base hostname & protocol for your site
-twitter_username: jekyllrb
-github_username:  jekyll
+twitter_username: ga4gh
+github_username: ga4gh
 
 collections:
   sections:
