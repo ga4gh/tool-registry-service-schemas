@@ -1,8 +1,0 @@
----
-layout: post
-title:  "Introduction"
-section: 1.0.0
-date: 01-01-07
----
-
-{% gist denis-yuen/5c0e8fc356ceace85c72t  %}

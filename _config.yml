@@ -5,6 +5,9 @@
 # For technical reasons, this file is *NOT* reloaded automatically when you use
 # 'jekyll serve'. If you change this file, please restart the server process.
 
+# extra gems
+gems: [jekyll-gist]
+
 # Site settings
 title: GA4GH Tool Registry API 
 email: theglobalalliance@genomicsandhealth.org
@@ -21,3 +24,7 @@ collections:
 
 # Build settings
 markdown: kramdown
+
+kramdown:
+  input: GFM
+
