@@ -139,7 +139,7 @@ definitions:
     properties:
       id:
         type: string
-        description: The unique identifier for the image. (Proposed - This id should be globally unique across systems and should also identify the system that it comes from for example 123456323@agora.broadinstitute.org)
+        description: The unique identifier for the image. (Proposed - This id should be globally unique across systems and should also identify the system that it comes from for example This id should be globally unique across systems, should also identify the system that it comes from, and be a URL that resolves for example http://agora.broadinstitute.org/tools/123456)
       registry:
         type: string
         description: The registry that contains the image.
@@ -164,6 +164,11 @@ definitions:
       meta-version:
         type: string
         description: 'The version of this entry of the registry. Iterates when fields like the description, author, etc. are updated.'
+      contains:
+        description: An array of IDs for the applications that are stored inside this tool (for example https://bio.tools/tool/mytum.de/SNAP2/1 )
+        type: array
+        items: 
+           type: string
       versions:
         type: array
         items:
@@ -180,7 +185,7 @@ definitions:
         description: The name of the version.
       id:
         type: string
-        description: The unique identifier for this version of a tool. (Proposed - This id should be globally unique across systems and should also identify the system that it comes from for example 123456323@agora.broadinstitute.org)
+        description: The unique identifier for this version of a tool. (Proposed - This id should be globally unique across systems and should also identify the system that it comes from for example This id should be globally unique across systems, should also identify the system that it comes from, and be a URL that resolves for example http://agora.broadinstitute.org/tools/123456/v1)
       descriptor:
         $ref: '#/definitions/ToolDescriptor'
       image:
