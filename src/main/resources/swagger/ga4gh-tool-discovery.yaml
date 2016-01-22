@@ -89,7 +89,7 @@ paths:
           description: The tool descriptor.
           schema:
             $ref: '#/definitions/ToolDescriptor'
-        '501':
+        '404':
           description: The tool can not be output in the specified format.
           schema:
             $ref: '#/definitions/Error'
@@ -108,7 +108,7 @@ paths:
           description: The tool payload.
           schema:
             $ref: '#/definitions/ToolDockerfile'
-        '400':
+        '404':
           description: The tool payload is not present in the service.
           schema:
             $ref: '#/definitions/Error'
