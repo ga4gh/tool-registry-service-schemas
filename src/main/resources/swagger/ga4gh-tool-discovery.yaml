@@ -67,7 +67,7 @@ paths:
             type: array
             items:
               $ref: '#/definitions/Tool'
-  '/tools/{id}/descriptor':
+  '/tools/descriptor':
     get:
       summary: Get the tool descriptor (CWL/WDL) for the specified tool.
       description: Returns the CWL or WDL descriptor for the specified tool.
@@ -80,8 +80,8 @@ paths:
             - CWL
             - WDL
         - name: id
-          in: path
-          description: The unique identifier for the tool.
+          in: query
+          description: The unique identifier for the tool (potentially including the version).
           required: true
           type: string
       responses:
@@ -93,14 +93,14 @@ paths:
           description: The tool can not be output in the specified format.
           schema:
             $ref: '#/definitions/Error'
-  '/tools/{id}/dockerfile':
+  '/tools/dockerfile':
     get:
       summary: Get the dockerfile for the specified image.
       description: Returns the dockerfile for the specified image.
       parameters:
         - name: id
-          in: path
-          description: The unique identifier for the image.
+          in: query
+          description: The unique identifier for the tool (potentially including the version).
           required: true
           type: string
       responses:
@@ -139,7 +139,7 @@ definitions:
     properties:
       id:
         type: string
-        description: The unique identifier for the image. (Proposed - This id should be globally unique across systems and should also identify the system that it comes from for example This id should be globally unique across systems, should also identify the system that it comes from, and be a URL that resolves for example http://agora.broadinstitute.org/tools/123456)
+        description: The unique identifier for the image. (Proposed - This id should be globally unique across systems and should also identify the system that it comes from for example 123456323@agora.broadinstitute.org)
       registry:
         type: string
         description: The registry that contains the image.
@@ -185,7 +185,7 @@ definitions:
         description: The name of the version.
       id:
         type: string
-        description: The unique identifier for this version of a tool. (Proposed - This id should be globally unique across systems and should also identify the system that it comes from for example This id should be globally unique across systems, should also identify the system that it comes from, and be a URL that resolves for example http://agora.broadinstitute.org/tools/123456/v1)
+        description: The unique identifier for this version of a tool. (Proposed - This id should be globally unique across systems and should also identify the system that it comes from for example 123456323@agora.broadinstitute.org)
       descriptor:
         $ref: '#/definitions/ToolDescriptor'
       image:
