@@ -27,7 +27,6 @@ paths:
         '200':
           description: An array of methods that match the filter.
           schema:
-            type: array
             items:
               $ref: '#/definitions/Tool'
   /tools:
