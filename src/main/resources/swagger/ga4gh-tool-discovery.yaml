@@ -13,6 +13,25 @@ tags:
 paths:
   /tools:
     get:
+      summary: List one specific tool (or tool version)
+      description: >
+        This endpoint returns one specific tool (or tool version depending on the nature of the ID) 
+      tags:
+        - GA4GH
+      parameters:
+        - name: id
+          in: query
+          type: string
+          description: A globally unique identifier of the tool.
+      responses:
+        '200':
+          description: An array of methods that match the filter.
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/Tool'
+  /tools:
+    get:
       summary: List all tools
       description: >
         This endpoint returns all tools available or a filtered subset using
