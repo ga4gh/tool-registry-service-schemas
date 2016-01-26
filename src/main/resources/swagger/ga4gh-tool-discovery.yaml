@@ -7,6 +7,9 @@ produces:
   - application/json
   - text/plain
 basePath: /api/v1
+tags:
+  - name: GA4GH
+    description: A curated subset of resources proposed as a common standard for tool repositories
 paths:
   /tools:
     get:
@@ -14,6 +17,8 @@ paths:
       description: >
         This endpoint returns all tools available or a filtered subset using
         metadata query parameters.
+      tags:
+        - GA4GH
       parameters:
         - name: id
           in: query
@@ -50,27 +55,12 @@ paths:
             type: array
             items:
               $ref: '#/definitions/Tool'
-  /tools/query:
-    get:
-      summary: Seach for tools using a query.
-      description: Return all of the tools that match the query.
-      parameters:
-        - name: query
-          in: query
-          description: The search query.
-          required: true
-          type: string
-      responses:
-        '200':
-          description: The tools that match the query.
-          schema:
-            type: array
-            items:
-              $ref: '#/definitions/Tool'
   '/tools/descriptor':
     get:
       summary: Get the tool descriptor (CWL/WDL) for the specified tool.
       description: Returns the CWL or WDL descriptor for the specified tool.
+      tags:
+        - GA4GH
       parameters:
         - name: format
           in: query
@@ -97,6 +87,8 @@ paths:
     get:
       summary: Get the dockerfile for the specified image.
       description: Returns the dockerfile for the specified image.
+      tags:
+        - GA4GH
       parameters:
         - name: id
           in: query
@@ -219,4 +211,6 @@ definitions:
       message:
         type: string
         default: Internal Server Error
-
+externalDocs:
+  description: Description of GA4GH Tool Registry (Exchange) Schema 
+  url: 'https://github.com/ga4gh/tool-registry-schemas'
