@@ -11,7 +11,7 @@ tags:
   - name: GA4GH
     description: A curated subset of resources proposed as a common standard for tool repositories
 paths:
-  /tools:
+  /tools/tool:
     get:
       summary: List one specific tool (or tool version)
       description: >
