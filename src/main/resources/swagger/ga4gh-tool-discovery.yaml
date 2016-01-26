@@ -9,20 +9,20 @@ produces:
 basePath: /api/v1
 tags:
   - name: GA4GH
-    description: A curated subset of resources proposed as a common standard for tool repositories
+    description: A set of resources proposed as a common standard for tool repositories
 paths:
-  /tools/tool:
+  /tools/{registry-id}:
     get:
-      summary: List one specific tool (or tool version)
-      description: >
-        This endpoint returns one specific tool (or tool version depending on the nature of the ID) 
+      summary: List one specific tool (or tool version), acts as an anchor for self references
+      description: This endpoint returns one specific tool
       tags:
         - GA4GH
       parameters:
-        - name: id
-          in: query
+        - name: registry-id
+          in: path
+          required: true
           type: string
-          description: A globally unique identifier of the tool.
+          description: A unique identifier of the tool for this particular tool registry, for example `123456` or `123456_v1`
       responses:
         '200':
           description: An array of methods that match the filter.
@@ -39,10 +39,10 @@ paths:
       tags:
         - GA4GH
       parameters:
-        - name: id
-          in: query
+        - name: registry-id 
           type: string
-          description: A globally unique identifier of the tool.
+          in: query
+          description: A unique identifier of the tool for this particular tool registry, for example `123456` or `123456_v1`
         - name: registry
           in: query
           type: string
@@ -74,7 +74,7 @@ paths:
             type: array
             items:
               $ref: '#/definitions/Tool'
-  '/tools/{id}/descriptor':
+  /tools/{registry-id}/descriptor:
     get:
       summary: Get the tool descriptor (CWL/WDL) for the specified tool.
       description: Returns the CWL or WDL descriptor for the specified tool.
@@ -88,9 +88,9 @@ paths:
           enum:
             - CWL
             - WDL
-        - name: id
+        - name: registry-id
           in: path
-          description: The unique identifier for the tool.
+          description: A unique identifier of the tool for this particular tool registry, for example `123456` or `123456_v1`
           required: true
           type: string
       responses:
@@ -102,16 +102,16 @@ paths:
           description: The tool can not be output in the specified format.
           schema:
             $ref: '#/definitions/Error'
-  '/tools/{id}/dockerfile':
+  /tools/{registry-id}/dockerfile:
     get:
       summary: Get the dockerfile for the specified image.
       description: Returns the dockerfile for the specified image.
       tags:
         - GA4GH
       parameters:
-        - name: id
+        - name: registry-id
           in: path
-          description: The unique identifier for the image.
+          description: A unique identifier of the tool for this particular tool registry, for example `123456` or `123456_v1`
           required: true
           type: string
       responses:
@@ -140,7 +140,8 @@ definitions:
   Tool:
     description: A tool (or described tool) describes one pairing of a tool as described in a descriptor file (which potentially describes multiple tools) and a Docker image.
     required:
-      - id
+      - global-id
+      - registry-id
       - registry
       - organization
       - name
@@ -148,9 +149,12 @@ definitions:
       - meta-version
       - tooltype
     properties:
-      id:
+      global-id:
         type: string
-        description: The unique identifier for the image. (Proposed - This id should be globally unique across systems and should also identify the system that it comes from for example This id should be globally unique across systems, should also identify the system that it comes from, and be a URL that resolves for example http://agora.broadinstitute.org/tools/123456)
+        description: The unique identifier for the image. (Proposed - This id should be globally unique across systems and should also identify the system that it comes from for example This id should be globally unique across systems, should also identify the system that it comes from, and be a URL that resolves for example `http://agora.broadinstitute.org/tools/123456`)
+      registry-id: 
+        type: string
+        description: A unique identifier of the tool for this particular tool registry, for example `123456` or `123456_v1`
       registry:
         type: string
         description: The registry that contains the image.
@@ -176,7 +180,7 @@ definitions:
         type: string
         description: 'The version of this entry of the registry. Iterates when fields like the description, author, etc. are updated.'
       contains:
-        description: An array of IDs for the applications that are stored inside this tool (for example https://bio.tools/tool/mytum.de/SNAP2/1 )
+        description: An array of IDs for the applications that are stored inside this tool (for example `https://bio.tools/tool/mytum.de/SNAP2/1`)
         type: array
         items: 
            type: string
@@ -187,16 +191,19 @@ definitions:
   ToolVersion:
     description: A tool version describes a particular iteration of a tool as described by a reference to a specific image and dockerfile.
     required:
-      - id
+      - global-id
       - descriptor
       - image
     properties:
       name:
         type: string
         description: The name of the version.
-      id:
+      global-id:
         type: string
-        description: The unique identifier for this version of a tool. (Proposed - This id should be globally unique across systems and should also identify the system that it comes from for example This id should be globally unique across systems, should also identify the system that it comes from, and be a URL that resolves for example http://agora.broadinstitute.org/tools/123456/v1)
+        description: The unique identifier for this version of a tool. (Proposed - This id should be globally unique across systems and should also identify the system that it comes from for example This id should be globally unique across systems, should also identify the system that it comes from, and be a URL that resolves for example `http://agora.broadinstitute.org/tools/123456/v1` This can be the same as the registry-id depending on the structure of your registry)
+      registry-id:
+        type: string
+        description: A unique identifier of the tool for this particular tool registry, for example `123456` or `123456_v1`
       descriptor:
         $ref: '#/definitions/ToolDescriptor'
       image:
@@ -233,3 +240,4 @@ definitions:
 externalDocs:
   description: Description of GA4GH Tool Registry (Exchange) Schema 
   url: 'https://github.com/ga4gh/tool-registry-schemas'
+
