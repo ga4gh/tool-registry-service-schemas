@@ -27,7 +27,6 @@ paths:
         '200':
           description: A tool.
           schema:
-            items:
               $ref: '#/definitions/Tool'
   
   /tools/{registry-id}/version/{version-id}:
