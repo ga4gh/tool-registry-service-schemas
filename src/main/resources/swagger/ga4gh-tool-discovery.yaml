@@ -167,7 +167,6 @@ paths:
         '200':
           description: A Metadata object describing this service.
           schema:
-            items:
               $ref: '#/definitions/Metadata'
 
 definitions:
