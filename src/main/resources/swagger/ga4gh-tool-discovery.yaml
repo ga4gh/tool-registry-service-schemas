@@ -2,7 +2,7 @@ swagger: '2.0'
 info:
   title: GA4GH Tool Discovery API
   description: 'Proposed API for GA4GH tool repositories. A tool consists of a (currently Docker) image paired with a document that describes how to use that image (currently CWL or WDL) and a Dockerfile that describes how to re-produce the image in the future. We use the following terminology, an "image" describes a (Docker) container as stored on a filesystem, a "tool" describes one of the triples as described above, and a "container" should only be used to describe a running image'
-  version: 1.0.0
+  version: 0.2.0
 produces:
   - application/json
   - text/plain
@@ -13,8 +13,8 @@ tags:
 paths:
   /tools/{registry-id}:
     get:
-      summary: List one specific tool (or tool version), acts as an anchor for self references
-      description: This endpoint returns one specific tool
+      summary: List one specific tool, acts as an anchor for self references
+      description: This endpoint returns one specific tool (which has ToolVersions nested inside it)
       tags:
         - GA4GH
       parameters:
@@ -22,13 +22,37 @@ paths:
           in: path
           required: true
           type: string
-          description: A unique identifier of the tool for this particular tool registry, for example `123456` or `123456_v1`
+          description: A unique identifier of the tool for this particular tool registry, for example `123456` 
       responses:
         '200':
-          description: An array of methods that match the filter.
+          description: A tool.
           schema:
             items:
               $ref: '#/definitions/Tool'
+  
+  /tools/{registry-id}/version/{version-id}:
+    get:
+      summary: List one specific tool version, acts as an anchor for self references
+      description: This endpoint returns one specific tool version
+      tags:
+        - GA4GH
+      parameters:
+        - name: registry-id
+          in: path
+          required: true
+          type: string
+          description: A unique identifier of the tool for this particular tool registry, for example `123456` 
+        - name: version-id
+          in: path
+          required: true
+          type: string
+          description: An identifier of the tool version for this particular tool registry, for example `v1`
+      responses:
+        '200':
+          description: A tool version.
+          schema:
+              $ref: '#/definitions/ToolVersion'
+  
   /tools:
     get:
       summary: List all tools
@@ -41,7 +65,7 @@ paths:
         - name: registry-id 
           type: string
           in: query
-          description: A unique identifier of the tool for this particular tool registry, for example `123456` or `123456_v1`
+          description: A unique identifier of the tool for this particular tool registry, for example `123456`
         - name: registry
           in: query
           type: string
@@ -73,7 +97,7 @@ paths:
             type: array
             items:
               $ref: '#/definitions/Tool'
-  /tools/{registry-id}/descriptor:
+  /tools/{registry-id}/version/{version-id}/descriptor:
     get:
       summary: Get the tool descriptor (CWL/WDL) for the specified tool.
       description: Returns the CWL or WDL descriptor for the specified tool.
@@ -89,9 +113,14 @@ paths:
             - WDL
         - name: registry-id
           in: path
-          description: A unique identifier of the tool for this particular tool registry, for example `123456` or `123456_v1`
+          description: A unique identifier of the tool for this particular tool registry, for example `123456`
           required: true
           type: string
+        - name: version-id
+          in: path
+          required: true
+          type: string
+          description: An identifier of the tool version for this particular tool registry, for example `v1`
       responses:
         '200':
           description: The tool descriptor.
@@ -101,7 +130,7 @@ paths:
           description: The tool can not be output in the specified format.
           schema:
             $ref: '#/definitions/Error'
-  /tools/{registry-id}/dockerfile:
+  /tools/{registry-id}/version/{version-id}/dockerfile:
     get:
       summary: Get the dockerfile for the specified image.
       description: Returns the dockerfile for the specified image.
@@ -110,9 +139,14 @@ paths:
       parameters:
         - name: registry-id
           in: path
-          description: A unique identifier of the tool for this particular tool registry, for example `123456` or `123456_v1`
+          description: A unique identifier of the tool for this particular tool registry, for example `123456`
           required: true
           type: string
+        - name: version-id
+          in: path
+          required: true
+          type: string
+          description: An identifier of the tool version for this particular tool registry, for example `v1`
       responses:
         '200':
           description: The tool payload.
@@ -122,6 +156,20 @@ paths:
           description: The tool payload is not present in the service.
           schema:
             $ref: '#/definitions/Error'
+            
+  /tools/metadata:
+    get:
+      summary: Return some metadata that is useful for describing this registry
+      description: Return some metadata that is useful for describing this registry
+      tags:
+        - GA4GH
+      responses:
+        '200':
+          description: A Metadata object describing this service.
+          schema:
+            items:
+              $ref: '#/definitions/Metadata'
+
 definitions:
   ToolType:
     # thought. it would be nicer if ToolTypes are consistent across registries. How would we accomplish this? Operate a MIME-type like list? 
@@ -174,10 +222,10 @@ definitions:
         description: The description of the tool.
       author:
         type: string
-        description: The author of the tool.
+        description: Contact information for the author of this tool entry in the registry. (More complex authorship information is handled by the descriptor) 
       meta-version:
         type: string
-        description: 'The version of this entry of the registry. Iterates when fields like the description, author, etc. are updated.'
+        description: 'The version of this tool in the registry. Iterates when fields like the description, author, etc. are updated.'
       contains:
         description: An array of IDs for the applications that are stored inside this tool (for example `https://bio.tools/tool/mytum.de/SNAP2/1`)
         type: array
@@ -202,7 +250,7 @@ definitions:
         description: The unique identifier for this version of a tool. (Proposed - This id should be globally unique across systems and should also identify the system that it comes from for example This id should be globally unique across systems, should also identify the system that it comes from, and be a URL that resolves for example `http://agora.broadinstitute.org/tools/123456/v1` This can be the same as the registry-id depending on the structure of your registry)
       registry-id:
         type: string
-        description: A unique identifier of the tool for this particular tool registry, for example `123456` or `123456_v1`
+        description: An identifier of the version of this tool for this particular tool registry, for example `v1`
       descriptor:
         $ref: '#/definitions/ToolDescriptor'
       image:
@@ -211,6 +259,9 @@ definitions:
       dockerfile:
         type: string
         description: 'The url to the dockerfile used to build this image, should include version information (e.g. https://github.com/ICGC-TCGA-PanCancer/pcawg_delly_workflow/blob/master/delly_docker/Dockerfile )'
+      meta-version:
+        type: string
+        description: 'The version of this tool version in the registry. Iterates when fields like the description, author, etc. are updated.'
   ToolDescriptor:
     description: A tool descriptor is a metadata document that describes one or more tools.
     required:
@@ -227,6 +278,21 @@ definitions:
       dockerfile:
         type: string
         description: The dockerfile content for this tool.
+  Metadata:
+    description: Describes this registry to better allow for mirroring and indexing.
+    required:
+      - version
+    properties:
+      version:
+        type: string
+        description: The version of this registry
+      country:
+        type: string
+        description: A country code for the registry (ISO 3166-1 alpha-3)
+      friendly-name:
+        type: string
+        description: A friendly name that can be used in addition to the hostname to describe a registry
+
   Error:
     properties:
       code:
@@ -239,4 +305,6 @@ definitions:
 externalDocs:
   description: Description of GA4GH Tool Registry (Exchange) Schema 
   url: 'https://github.com/ga4gh/tool-registry-schemas'
+
+
 
