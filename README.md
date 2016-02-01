@@ -25,7 +25,7 @@ Together, these two specifications cover a very wide spectrum of analysis use ca
 What is this?
 ------------
 
-Currently, this is the home of the Registry API proposal. The registry API is a minimal common API describing tools that we proposal for support by multiple registries like [Dockstore](https://www.dockstore.org/) and [Agora](https://github.com/broadinstitute/agora) for the purposes of exchange, indexing, and searching. 
+Currently, this is the home of the Registry API proposal. The registry API is a minimal common API describing tools that we proposal for support by multiple registries like [Dockstore](https://www.dockstore.org/), [BioShadock](https://docker-ui.genouest.org/app/#/), and [Agora](https://github.com/broadinstitute/agora) for the purposes of exchange, indexing, and searching. 
 
 Our current proposal is to start with a read-only API due to potentially different views and approaches to registration/security.
 
