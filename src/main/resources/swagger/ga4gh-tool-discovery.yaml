@@ -185,7 +185,7 @@ definitions:
   Tool:
     description: A tool (or described tool) describes one pairing of a tool as described in a descriptor file (which potentially describes multiple tools) and a Docker image.
     required:
-      - global-id
+      - url
       - id
       - registry
       - organization
@@ -194,9 +194,9 @@ definitions:
       - meta-version
       - tooltype
     properties:
-      global-id:
+      url:
         type: string
-        description: The unique identifier for the image. (Proposed - This id should be globally unique across systems and should also identify the system that it comes from for example This id should be globally unique across systems, should also identify the system that it comes from, and be a URL that resolves for example `http://agora.broadinstitute.org/tools/123456`)
+        description: The URL for this tool in this registry, for example `http://agora.broadinstitute.org/tools/123456`
       id:
         type: string
         description: A unique identifier of the tool, scoped to this registry, for example `123456` or `123456_v1`
@@ -235,7 +235,7 @@ definitions:
   ToolVersion:
     description: A tool version describes a particular iteration of a tool as described by a reference to a specific image and dockerfile.
     required:
-      - global-id
+      - url
       - descriptor
       - id
       - image
@@ -244,9 +244,9 @@ definitions:
       name:
         type: string
         description: The name of the version.
-      global-id:
+      url:
         type: string
-        description: The unique identifier for this version of a tool. (Proposed - This id should be globally unique across systems and should also identify the system that it comes from for example This id should be globally unique across systems, should also identify the system that it comes from, and be a URL that resolves for example `http://agora.broadinstitute.org/tools/123456/v1` This can be the same as the id depending on the structure of your registry)
+        description: The URL for this tool in this registry, for example `http://agora.broadinstitute.org/tools/123456/1`
       id:
         type: string
         description: An identifier of the version of this tool for this particular tool registry, for example `v1`
