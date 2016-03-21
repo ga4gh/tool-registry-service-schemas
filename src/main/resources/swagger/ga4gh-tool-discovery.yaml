@@ -29,6 +29,26 @@ paths:
           schema:
               $ref: '#/definitions/Tool'
 
+  /tools/{id}/versions:
+    get:
+      summary: List versions of a tool
+      description: Returns all versions of the specified tool
+      tags:
+        - GA4GH
+      parameters:
+        - name: id
+          in: path
+          required: true
+          type: string
+          description: A unique identifier of the tool, scoped to this registry, for example `123456`
+      responses:
+        '200':
+          description: An array of tool versions
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/ToolVersion'
+
   /tools/{id}/versions/{version-id}:
     get:
       summary: List one specific tool version, acts as an anchor for self references
@@ -222,10 +242,6 @@ definitions:
         type: array
         items:
            type: string
-      versions:
-        type: array
-        items:
-          $ref: '#/definitions/ToolVersion'
   ToolVersion:
     description: A tool version describes a particular iteration of a tool as described by a reference to a specific image and dockerfile.
     required:
@@ -305,6 +321,3 @@ definitions:
 externalDocs:
   description: Description of GA4GH Tool Registry (Exchange) Schema
   url: 'https://github.com/ga4gh/tool-registry-schemas'
-
-
-
