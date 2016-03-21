@@ -29,7 +29,7 @@ paths:
           schema:
               $ref: '#/definitions/Tool'
 
-  /tools/{id}/version/{version-id}:
+  /tools/{id}/versions/{version-id}:
     get:
       summary: List one specific tool version, acts as an anchor for self references
       description: This endpoint returns one specific tool version
@@ -96,7 +96,7 @@ paths:
             type: array
             items:
               $ref: '#/definitions/Tool'
-  /tools/{id}/version/{version-id}/descriptor:
+  /tools/{id}/versions/{version-id}/descriptor:
     get:
       summary: Get the tool descriptor (CWL/WDL) for the specified tool.
       description: Returns the CWL or WDL descriptor for the specified tool.
@@ -129,7 +129,7 @@ paths:
           description: The tool can not be output in the specified format.
           schema:
             $ref: '#/definitions/Error'
-  /tools/{id}/version/{version-id}/dockerfile:
+  /tools/{id}/versions/{version-id}/dockerfile:
     get:
       summary: Get the dockerfile for the specified image.
       description: Returns the dockerfile for the specified image.
