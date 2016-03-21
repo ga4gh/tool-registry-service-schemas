@@ -200,15 +200,9 @@ definitions:
       id:
         type: string
         description: A unique identifier of the tool, scoped to this registry, for example `123456` or `123456_v1`
-      registry:
-        type: string
-        description: The registry that contains the image.
       organization:
         type: string
         description: The organization that published the image.
-      name:
-        type: string
-        description: The name of the image.
       toolname:
         type: string
         description: The name of the tool.
