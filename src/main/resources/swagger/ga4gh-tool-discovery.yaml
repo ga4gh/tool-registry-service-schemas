@@ -269,7 +269,7 @@ definitions:
         type: string
         description: The descriptor that represents this version of the tool. (CWL or WDL)
       format: 
-        description: The output type of the descriptor. If not specified it is up to the underlying implementation to determine which output format to return.
+        description: The output type of the descriptor.
         type: string
         enum:
             - CWL
