@@ -171,7 +171,7 @@ paths:
 definitions:
   ToolType:
     # thought. it would be nicer if ToolTypes are consistent across registries. How would we accomplish this? Operate a MIME-type like list? 
-    description: Describes a type of tool allowing us to categorize workflows, the language of the workflow, tools, and maybe even other entities separately
+    description: Describes a type of tool allowing us to categorize workflows, tools, and maybe even other entities (such as services) separately
     properties:
       id:
         type: string
