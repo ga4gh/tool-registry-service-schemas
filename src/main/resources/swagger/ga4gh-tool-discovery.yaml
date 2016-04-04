@@ -207,9 +207,7 @@ definitions:
     required:
       - url
       - id
-      - registry
       - organization
-      - name
       - author
       - meta-version
       - tooltype
@@ -246,7 +244,7 @@ definitions:
     description: A tool version describes a particular iteration of a tool as described by a reference to a specific image and dockerfile.
     required:
       - url
-      - descriptor
+      - descriptors
       - id
       - image
       - meta-version
