@@ -282,10 +282,8 @@ definitions:
            type: string
       versions:
         description: A list of versions for this tool
-        type: array
         items:
           $ref: '#/definitions/ToolVersion'
-          type: string
   ToolVersion:
     description: A tool version describes a particular iteration of a tool as described by a reference to a specific image and dockerfile.
     required:
@@ -308,7 +306,6 @@ definitions:
         type: string
         description: The docker path to the image (and version) for this tool. (e.g. quay.io/seqware/seqware_full/1.1)
       descriptors:
-        description: A back-reference to the main descriptor that for this version
         $ref: '#/definitions/ToolDescriptor'
       dockerfile:
         $ref: '#/definitions/ToolDockerfile'
