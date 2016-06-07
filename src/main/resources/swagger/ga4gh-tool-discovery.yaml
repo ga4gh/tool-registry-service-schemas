@@ -191,7 +191,7 @@ paths:
 definitions:
   ToolType:
     # thought. it would be nicer if ToolTypes are consistent across registries. How would we accomplish this? Operate a MIME-type like list?
-    description: Describes a type of tool allowing us to categorize workflows, the language of the workflow, tools, and maybe even other entities separately
+    description: Describes a type of tool allowing us to categorize workflows, tools, and maybe even other entities (such as services) separately
     properties:
       id:
         type: string
@@ -284,6 +284,12 @@ definitions:
       descriptor:
         type: string
         description: The descriptor that represents this version of the tool. (CWL or WDL)
+      format: 
+        description: The output type of the descriptor.
+        type: string
+        enum:
+            - CWL
+            - WDL
       url:
         type: string
         description: 'Optional url to the tool descriptor used to build this image, should include version information, and can include a git hash (e.g. https://raw.githubusercontent.com/ICGC-TCGA-PanCancer/pcawg_delly_workflow/ea2a5db69bd20a42976838790bc29294df3af02b/delly_docker/Delly.cwl )'
