@@ -216,7 +216,7 @@ paths:
           schema:
             $ref: '#/definitions/Error'
 
-  /tools/metadata:
+  /metadata:
     get:
       summary: Return some metadata that is useful for describing this registry
       description: Return some metadata that is useful for describing this registry
