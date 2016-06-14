@@ -149,6 +149,46 @@ paths:
           description: The tool can not be output in the specified format.
           schema:
             $ref: '#/definitions/Error'
+  
+  /tools/{id}/versions/{version-id}/descriptor/{relative-path}:
+    get:
+      summary: Get additional tool descriptor files (CWL/WDL) relative to the main file
+      description: Returns additional CWL or WDL descriptors for the specified tool in the same or subdirectories
+      tags:
+        - GA4GH
+      parameters:
+        - name: format
+          in: query
+          description: The output type of the descriptor. If not specified it is up to the underlying implementation to determine which output format to return.
+          type: string
+          enum:
+            - CWL
+            - WDL
+        - name: id
+          in: path
+          description: A unique identifier of the tool, scoped to this registry, for example `123456`
+          required: true
+          type: string
+        - name: version-id
+          in: path
+          required: true
+          type: string
+          description: An identifier of the tool version for this particular tool registry, for example `v1`
+        - name: relative-path
+          in: path
+          required: true
+          type: string
+          description: A relative path to the additional file (same directory or subdirectories), for example 'foo.cwl' would return a 'foo.cwl' from the same directory as the main descriptor 
+      responses:
+        '200':
+          description: The tool descriptor.
+          schema:
+            $ref: '#/definitions/ToolDescriptor'
+        '404':
+          description: The tool can not be output in the specified format.
+          schema:
+            $ref: '#/definitions/Error'
+            
   /tools/{id}/versions/{version-id}/dockerfile:
     get:
       summary: Get the dockerfile for the specified image.
@@ -176,7 +216,7 @@ paths:
           schema:
             $ref: '#/definitions/Error'
 
-  /tools/metadata:
+  /metadata:
     get:
       summary: Return some metadata that is useful for describing this registry
       description: Return some metadata that is useful for describing this registry
@@ -211,6 +251,7 @@ definitions:
       - author
       - meta-version
       - tooltype
+      - versions
     properties:
       url:
         type: string
@@ -240,11 +281,16 @@ definitions:
         type: array
         items:
            type: string
+      versions:
+        description: A list of versions for this tool
+        type: array
+        items:
+          $ref: '#/definitions/ToolVersion'
   ToolVersion:
     description: A tool version describes a particular iteration of a tool as described by a reference to a specific image and dockerfile.
     required:
       - url
-      - descriptors
+      - descriptor
       - id
       - image
       - meta-version
@@ -261,10 +307,8 @@ definitions:
       image:
         type: string
         description: The docker path to the image (and version) for this tool. (e.g. quay.io/seqware/seqware_full/1.1)
-      descriptors:
-        type: array
-        items:
-          $ref: '#/definitions/ToolDescriptor'
+      descriptor:
+        $ref: '#/definitions/ToolDescriptor'
       dockerfile:
         $ref: '#/definitions/ToolDockerfile'
       meta-version:
