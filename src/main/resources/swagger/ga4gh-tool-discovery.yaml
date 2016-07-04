@@ -233,6 +233,21 @@ paths:
           description: A Metadata object describing this service.
           schema:
               $ref: '#/definitions/Metadata'
+              
+  /tool-types:
+    get:
+      summary: List all tool types
+      description: >
+        This endpoint returns all tool-types available
+      tags:
+        - GA4GH
+      responses:
+        '200':
+          description: An array of methods that match the filter.
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/ToolType'
 
 definitions:
   ToolType:
