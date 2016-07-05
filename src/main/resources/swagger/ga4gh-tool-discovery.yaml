@@ -116,17 +116,17 @@ paths:
             type: array
             items:
               $ref: '#/definitions/Tool'
-  /tools/{id}/versions/{version-id}/{format}/descriptor:
+  /tools/{id}/versions/{version-id}/{type}/descriptor:
     get:
       summary: Get the tool descriptor (CWL/WDL) for the specified tool.
       description: Returns the CWL or WDL descriptor for the specified tool.
       tags:
         - GA4GH
       parameters:
-        - name: format
+        - name: type
           required: true
           in: path
-          description: The output type of the descriptor. If not specified it is up to the underlying implementation to determine which output format to return. Plain formats return the bare descriptor while the "non-plain" formats return a descriptor wrapped 
+          description: The output type of the descriptor. If not specified it is up to the underlying implementation to determine which output type to return. Plain types return the bare descriptor while the "non-plain" types return a descriptor wrapped 
             with metadata
           type: string
           enum:
@@ -150,21 +150,21 @@ paths:
           schema:
             $ref: '#/definitions/ToolDescriptor'
         '404':
-          description: The tool can not be output in the specified format.
+          description: The tool can not be output in the specified type.
           schema:
             $ref: '#/definitions/Error'
   
-  /tools/{id}/versions/{version-id}/{format}/descriptor/{relative-path}:
+  /tools/{id}/versions/{version-id}/{type}/descriptor/{relative-path}:
     get:
       summary: Get additional tool descriptor files (CWL/WDL) relative to the main file
       description: Returns additional CWL or WDL descriptors for the specified tool in the same or subdirectories
       tags:
         - GA4GH
       parameters:
-        - name: format
+        - name: type
           in: path
           required: true
-          description: The output type of the descriptor. If not specified it is up to the underlying implementation to determine which output format to return.  Plain formats return the bare descriptor while the "non-plain" formats return a descriptor wrapped 
+          description: The output type of the descriptor. If not specified it is up to the underlying implementation to determine which output type to return.  Plain types return the bare descriptor while the "non-plain" types return a descriptor wrapped 
             with metadata
           type: string
           enum:
@@ -193,7 +193,7 @@ paths:
           schema:
             $ref: '#/definitions/ToolDescriptor'
         '404':
-          description: The tool can not be output in the specified format.
+          description: The tool can not be output in the specified type.
           schema:
             $ref: '#/definitions/Error'
             
