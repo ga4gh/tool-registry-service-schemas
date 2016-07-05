@@ -2,7 +2,7 @@ swagger: '2.0'
 info:
   title: GA4GH Tool Discovery API
   description: 'Proposed API for GA4GH tool repositories. A tool consists of a (currently Docker) image paired with a document that describes how to use that image (currently CWL or WDL) and a Dockerfile that describes how to re-produce the image in the future. We use the following terminology, an "image" describes a (Docker) container as stored on a filesystem, a "tool" describes one of the triples as described above, and a "container" should only be used to describe a running image'
-  version: 0.2.0
+  version: 1.0
 produces:
   - application/json
   - text/plain
@@ -116,7 +116,7 @@ paths:
             type: array
             items:
               $ref: '#/definitions/Tool'
-  /tools/{id}/versions/{version-id}/descriptor:
+  /tools/{id}/versions/{version-id}/{format}/descriptor:
     get:
       summary: Get the tool descriptor (CWL/WDL) for the specified tool.
       description: Returns the CWL or WDL descriptor for the specified tool.
@@ -124,7 +124,8 @@ paths:
         - GA4GH
       parameters:
         - name: format
-          in: query
+          required: true
+          in: path
           description: The output type of the descriptor. If not specified it is up to the underlying implementation to determine which output format to return. Plain formats return the bare descriptor while the "non-plain" formats return a descriptor wrapped 
             with metadata
           type: string
@@ -153,7 +154,7 @@ paths:
           schema:
             $ref: '#/definitions/Error'
   
-  /tools/{id}/versions/{version-id}/descriptor/{relative-path}:
+  /tools/{id}/versions/{version-id}/{format}/descriptor/{relative-path}:
     get:
       summary: Get additional tool descriptor files (CWL/WDL) relative to the main file
       description: Returns additional CWL or WDL descriptors for the specified tool in the same or subdirectories
@@ -161,7 +162,8 @@ paths:
         - GA4GH
       parameters:
         - name: format
-          in: query
+          in: path
+          required: true
           description: The output type of the descriptor. If not specified it is up to the underlying implementation to determine which output format to return.  Plain formats return the bare descriptor while the "non-plain" formats return a descriptor wrapped 
             with metadata
           type: string
