@@ -387,7 +387,7 @@ definitions:
         description: The version of this registry
       api-version:
         type: string
-        description: The version of the GA4GH supported by this registry
+        description: The version of the GA4GH tool-registry API supported by this registry
       country:
         type: string
         description: A country code for the registry (ISO 3166-1 alpha-3)
