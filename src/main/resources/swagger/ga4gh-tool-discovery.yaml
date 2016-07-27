@@ -253,7 +253,7 @@ paths:
 
 definitions:
   ToolClass:
-    # thought. it would be nicer if ToolClasss are consistent across registries. How would we accomplish this? Operate a MIME-type like list?
+    # thought. it would be nicer if ToolClasses are consistent across registries. How would we accomplish this? Operate a MIME-type like list?
     description: Describes a class (type) of tool allowing us to categorize workflows, tools, and maybe even other entities (such as services) separately
     properties:
       id:
@@ -321,7 +321,6 @@ definitions:
       - url
       - descriptor
       - id
-      - image
       - meta-version
     properties:
       name:
