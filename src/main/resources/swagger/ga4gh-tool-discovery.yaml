@@ -236,11 +236,11 @@ paths:
           schema:
               $ref: '#/definitions/Metadata'
 
-  /tool-types:
+  /tool-classes:
     get:
       summary: List all tool types
       description: >
-        This endpoint returns all tool-types available
+        This endpoint returns all tool-classes available
       tags:
         - GA4GH
       responses:
