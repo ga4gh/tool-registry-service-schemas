@@ -1,3 +1,5 @@
 {
-  "dockstore" : "https://www.dockstore.org:8443"
+  "dockstore" : [
+      "https://www.dockstore.org:8443/api/v1/metadata"
+    ]
 }
