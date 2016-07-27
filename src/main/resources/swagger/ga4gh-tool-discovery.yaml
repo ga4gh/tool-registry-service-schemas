@@ -126,7 +126,7 @@ paths:
         - name: type
           required: true
           in: path
-          description: The output type of the descriptor. If not specified it is up to the underlying implementation to determine which output type to return. Plain types return the bare descriptor while the "non-plain" types return a descriptor wrapped 
+          description: The output type of the descriptor. If not specified it is up to the underlying implementation to determine which output type to return. Plain types return the bare descriptor while the "non-plain" types return a descriptor wrapped
             with metadata
           type: string
           enum:
@@ -153,7 +153,7 @@ paths:
           description: The tool can not be output in the specified type.
           schema:
             $ref: '#/definitions/Error'
-  
+
   /tools/{id}/versions/{version-id}/{type}/descriptor/{relative-path}:
     get:
       summary: Get additional tool descriptor files (CWL/WDL) relative to the main file
@@ -164,7 +164,7 @@ paths:
         - name: type
           in: path
           required: true
-          description: The output type of the descriptor. If not specified it is up to the underlying implementation to determine which output type to return.  Plain types return the bare descriptor while the "non-plain" types return a descriptor wrapped 
+          description: The output type of the descriptor. If not specified it is up to the underlying implementation to determine which output type to return.  Plain types return the bare descriptor while the "non-plain" types return a descriptor wrapped
             with metadata
           type: string
           enum:
@@ -186,7 +186,7 @@ paths:
           in: path
           required: true
           type: string
-          description: A relative path to the additional file (same directory or subdirectories), for example 'foo.cwl' would return a 'foo.cwl' from the same directory as the main descriptor 
+          description: A relative path to the additional file (same directory or subdirectories), for example 'foo.cwl' would return a 'foo.cwl' from the same directory as the main descriptor
       responses:
         '200':
           description: The tool descriptor.
@@ -196,7 +196,7 @@ paths:
           description: The tool can not be output in the specified type.
           schema:
             $ref: '#/definitions/Error'
-            
+
   /tools/{id}/versions/{version-id}/dockerfile:
     get:
       summary: Get the dockerfile for the specified image.
@@ -235,7 +235,7 @@ paths:
           description: A Metadata object describing this service.
           schema:
               $ref: '#/definitions/Metadata'
-              
+
   /tool-types:
     get:
       summary: List all tool types
@@ -249,22 +249,22 @@ paths:
           schema:
             type: array
             items:
-              $ref: '#/definitions/ToolType'
+              $ref: '#/definitions/ToolClass'
 
 definitions:
-  ToolType:
-    # thought. it would be nicer if ToolTypes are consistent across registries. How would we accomplish this? Operate a MIME-type like list?
-    description: Describes a type of tool allowing us to categorize workflows, tools, and maybe even other entities (such as services) separately
+  ToolClass:
+    # thought. it would be nicer if ToolClasss are consistent across registries. How would we accomplish this? Operate a MIME-type like list?
+    description: Describes a class (type) of tool allowing us to categorize workflows, tools, and maybe even other entities (such as services) separately
     properties:
       id:
         type: string
-        description: The unique identifier for the type
+        description: The unique identifier for the class
       name:
         type: string
-        description: A short friendly name for the type
+        description: A short friendly name for the class
       description:
         type: string
-        description: A longer explanation of what this type is and what it can accomplish
+        description: A longer explanation of what this class is and what it can accomplish
   Tool:
     description: A tool (or described tool) describes one pairing of a tool as described in a descriptor file (which potentially describes multiple tools) and a Docker image.
     required:
@@ -273,7 +273,7 @@ definitions:
       - organization
       - author
       - meta-version
-      - tooltype
+      - toolclass
       - versions
     properties:
       url:
@@ -288,8 +288,8 @@ definitions:
       toolname:
         type: string
         description: The name of the tool.
-      tooltype:
-        $ref: '#/definitions/ToolType'
+      toolclass:
+        $ref: '#/definitions/ToolClass'
       description:
         type: string
         description: The description of the tool.
@@ -308,7 +308,7 @@ definitions:
         type: boolean
         description: Reports whether this tool has been verified by a specific organization or individual
       verified-source:
-        type: string 
+        type: string
         description: Source of metadata that can support a verified tool, such as an email or URL
       versions:
         description: A list of versions for this tool
@@ -347,7 +347,7 @@ definitions:
         type: boolean
         description: Reports whether this tool has been verified by a specific organization or individual
       verified-source:
-        type: string 
+        type: string
         description: Source of metadata that can support a verified tool, such as an email or URL
   ToolDescriptor:
     description: A tool descriptor is a metadata document that describes one or more tools.
@@ -381,10 +381,14 @@ definitions:
     description: Describes this registry to better allow for mirroring and indexing.
     required:
       - version
+      - api-version
     properties:
       version:
         type: string
         description: The version of this registry
+      api-version:
+        type: string
+        description: The version of the GA4GH supported by this registry
       country:
         type: string
         description: A country code for the registry (ISO 3166-1 alpha-3)
