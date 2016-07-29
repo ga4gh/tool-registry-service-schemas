@@ -113,18 +113,33 @@ paths:
         - $ref: '#/parameters/limit'
       responses:
         '200':
-          description: An array of methods that match the filter.
+          description: An array of Tools that match the filter.
           schema:
             type: array
             items:
-              $ref: '#/headers/next-page'
-              $ref: '#/headers/previous-page'
-              $ref: '#/headers/first-page'
-              $ref: '#/headers/last-page'
-              $ref: '#/headers/current-offset'
-              $ref: '#/headers/current-limit'
+              $ref: '#/definitions/Tool'
           headers:
-            $ref: ''
+            next-page:
+              description: A URL that can be used to reach the next page based on the current offset and page record limit
+              type: string
+            previous-page:
+              description: A URL that can be used to reach the next page based on the current offset and page record limit
+              type: string
+            first-page:
+              description: A URL that can be used to reach the first page using the current page record limit
+              type: string
+            last-page:
+              description: A URL that can be used to reach the last page based on the current page record limit
+              type: string
+            current-offset:
+              description: The current start index of the paging used for this result
+              type: string
+            current-limit:
+              description: The current page record limit used for this result
+              type: integer
+
+
+
   /tools/{id}/versions/{version-id}/{type}/descriptor:
     get:
       summary: Get the tool descriptor (CWL/WDL) for the specified tool.
@@ -249,7 +264,7 @@ paths:
     get:
       summary: List all tool types
       description: >
-        This endpoint returns all tool-classes available  
+        This endpoint returns all tool-classes available
       tags:
         - GA4GH
       responses:
@@ -426,29 +441,8 @@ parameters:
   offset:
       name: offset
       in: query
-      description: Start index of paging. If this exceeds the current result set return an empty set.  If not specified in the request this is 0.
-      type: integer
-      format: int32  
-
-headers:
-  next-page:
-    description: A URL that can be used to reach the next page based on the current offset and page record limit.
-    type: string
-  previous-page:
-    description: A URL that can be used to reach the next page based on the current offset and page record limit.
-    type: string
-  first-page:
-    description: A URL that can be used to reach the first page using the current page record limit.
-    type: string
-  last-page:
-    description: A URL that can be used to reach the last page based on the current offset and page record limit.  If not specified this is 1000.
-    type: string
-  current-offset:
-    description: The current start index of the paging used for this result.  If not specified in the request this is 0.
-    type: int32
-  current-limit:
-    description: The current page record limit used for this result.
-    type: int32    
+      description: Start index of paging. Pagination results can be based on numbers or other values chosen by the registry implementor (for example, SHA values). If this exceeds the current result set return an empty set.  If not specified in the request this will start at the beginning of the results.
+      type: string
 
 externalDocs:
   description: Description of GA4GH Tool Registry (Exchange) Schema
