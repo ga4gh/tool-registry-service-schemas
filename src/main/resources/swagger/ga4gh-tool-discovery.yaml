@@ -109,15 +109,22 @@ paths:
           in: query
           type: string
           description: 'The author of the tool (TODO a thought occurs, are we assuming that the author of the CWL and the image are the same?).'
-        - $ref: "#/parameters/offset"
-        - $ref: "#/parameters/limit"
+        - $ref: '#/parameters/offset'
+        - $ref: '#/parameters/limit'
       responses:
         '200':
           description: An array of methods that match the filter.
           schema:
             type: array
             items:
-              $ref: '#/definitions/Tool'
+              $ref: '#/headers/next-page'
+              $ref: '#/headers/previous-page'
+              $ref: '#/headers/first-page'
+              $ref: '#/headers/last-page'
+              $ref: '#/headers/current-offset'
+              $ref: '#/headers/current-limit'
+          headers:
+            $ref: ''
   /tools/{id}/versions/{version-id}/{type}/descriptor:
     get:
       summary: Get the tool descriptor (CWL/WDL) for the specified tool.
@@ -413,15 +420,35 @@ parameters:
   limit:
       name: limit
       in: query
-      description: Amount of records to return
+      description: Amount of records to return in a given page.  By default it is 1000.
       type: integer
       format: int32
   offset:
       name: offset
       in: query
-      description: Start index of paging
+      description: Start index of paging. If this exceeds the current result set return an empty set.  If not specified in the request this is 0.
       type: integer
       format: int32  
+
+headers:
+  next-page:
+    description: A URL that can be used to reach the next page based on the current offset and page record limit.
+    type: string
+  previous-page:
+    description: A URL that can be used to reach the next page based on the current offset and page record limit.
+    type: string
+  first-page:
+    description: A URL that can be used to reach the first page using the current page record limit.
+    type: string
+  last-page:
+    description: A URL that can be used to reach the last page based on the current offset and page record limit.  If not specified this is 1000.
+    type: string
+  current-offset:
+    description: The current start index of the paging used for this result.  If not specified in the request this is 0.
+    type: int32
+  current-limit:
+    description: The current page record limit used for this result.
+    type: int32    
 
 externalDocs:
   description: Description of GA4GH Tool Registry (Exchange) Schema
