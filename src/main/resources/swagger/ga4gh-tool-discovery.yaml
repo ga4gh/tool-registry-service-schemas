@@ -122,12 +122,6 @@ paths:
             next-page:
               description: A URL that can be used to reach the next page based on the current offset and page record limit
               type: string
-            previous-page:
-              description: A URL that can be used to reach the next page based on the current offset and page record limit
-              type: string
-            first-page:
-              description: A URL that can be used to reach the first page using the current page record limit
-              type: string
             last-page:
               description: A URL that can be used to reach the last page based on the current page record limit
               type: string
@@ -447,3 +441,4 @@ parameters:
 externalDocs:
   description: Description of GA4GH Tool Registry (Exchange) Schema
   url: 'https://github.com/ga4gh/tool-registry-schemas'
+
