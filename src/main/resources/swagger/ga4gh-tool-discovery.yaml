@@ -6,7 +6,7 @@ info:
 produces:
   - application/json
   - text/plain
-basePath: /api/v1
+basePath: /api/ga4gh/v1
 tags:
   - name: GA4GH
     description: A set of resources proposed as a common standard for tool repositories
