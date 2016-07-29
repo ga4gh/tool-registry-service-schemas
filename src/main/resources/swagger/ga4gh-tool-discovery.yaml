@@ -109,6 +109,8 @@ paths:
           in: query
           type: string
           description: 'The author of the tool (TODO a thought occurs, are we assuming that the author of the CWL and the image are the same?).'
+        - $ref: "#/parameters/offset"
+        - $ref: "#/parameters/limit"
       responses:
         '200':
           description: An array of methods that match the filter.
@@ -406,6 +408,21 @@ definitions:
       message:
         type: string
         default: Internal Server Error
+
+parameters:
+  limit:
+      name: limit
+      in: query
+      description: Amount of records to return
+      type: integer
+      format: int32
+  offset:
+      name: offset
+      in: query
+      description: Start index of paging
+      type: integer
+      format: int32  
+
 externalDocs:
   description: Description of GA4GH Tool Registry (Exchange) Schema
   url: 'https://github.com/ga4gh/tool-registry-schemas'
