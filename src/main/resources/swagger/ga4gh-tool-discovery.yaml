@@ -127,12 +127,10 @@ paths:
               type: string
             current-offset:
               description: The current start index of the paging used for this result
-              type: integer
-              format: int32
+              type: string
             current-limit:
               description: The current page record limit used for this result
               type: integer
-              format: int32
 
 
 
