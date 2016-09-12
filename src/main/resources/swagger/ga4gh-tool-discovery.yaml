@@ -353,10 +353,16 @@ definitions:
       image:
         type: string
         description: The docker path to the image (and version) for this tool. (e.g. quay.io/seqware/seqware_full/1.1)
-      descriptor:
-        $ref: '#/definitions/ToolDescriptor'
+      descriptor-type:
+        type: array
+        description: The type (or types) of descriptors available.
+        items:
+          enum:
+            - CWL
+            - WDL
       dockerfile:
-        $ref: '#/definitions/ToolDockerfile'
+        type: boolean
+        description: Reports if this tool has a dockerfile available.
       meta-version:
         type: string
         description: 'The version of this tool version in the registry. Iterates when fields like the description, author, etc. are updated.'
