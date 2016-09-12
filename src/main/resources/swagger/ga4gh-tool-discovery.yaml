@@ -398,6 +398,7 @@ definitions:
         type: array
         description: The type (or types) of descriptors available.
         items:
+          type: string
           enum:
             - CWL
             - WDL
