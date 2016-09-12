@@ -245,9 +245,10 @@ paths:
       responses:
         '200':
           description: The tool test JSON response.
-          type: array
-          items:
-            $ref: '#/definitions/ToolTests'
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/ToolTests'
         '404':
           description: The tool can not be output in the specified type.
           schema:
