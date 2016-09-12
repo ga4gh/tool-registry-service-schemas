@@ -215,6 +215,44 @@ paths:
           schema:
             $ref: '#/definitions/Error'
 
+/tools/{id}/versions/{version-id}/{type}/tests:
+    get:
+      summary: Get an array of test JSONs suitable for use with this descriptor type.
+      tags:
+        - GA4GH
+      parameters:
+        - name: type
+          required: true
+          in: path
+          description: The output type of the descriptor. If not specified it is up to the underlying implementation to determine which output type to return. Plain types return the bare descriptor while the "non-plain" types return a descriptor wrapped
+            with metadata
+          type: string
+          enum:
+            - CWL
+            - WDL
+            - plain-CWL
+            - plain-WDL
+        - name: id
+          in: path
+          description: A unique identifier of the tool, scoped to this registry, for example `123456`
+          required: true
+          type: string
+        - name: version-id
+          in: path
+          required: true
+          type: string
+          description: An identifier of the tool version for this particular tool registry, for example `v1`
+      responses:
+        '200':
+          description: The tool test JSON response.
+          type: array
+          items:
+            $ref: '#/definitions/ToolTests'
+        '404':
+          description: The tool can not be output in the specified type.
+          schema:
+            $ref: '#/definitions/Error'
+
   /tools/{id}/versions/{version-id}/dockerfile:
     get:
       summary: Get the dockerfile for the specified image.
@@ -392,6 +430,17 @@ definitions:
       url:
         type: string
         description: 'Optional url to the tool descriptor used to build this image, should include version information, and can include a git hash (e.g. https://raw.githubusercontent.com/ICGC-TCGA-PanCancer/pcawg_delly_workflow/ea2a5db69bd20a42976838790bc29294df3af02b/delly_docker/Delly.cwl )'
+  ToolTests:
+    description: A tool document that describes how to test with one or more sample test JSON.
+    required:
+      - test
+    properties:
+      test:
+        type: string
+        description: The test JSON content for this tool.
+      url:
+        type: string
+        description: 'Optional url to the test JSON used to test this tool'
   ToolDockerfile:
     description: A tool dockerfile is a document that describes how to build a particular Docker image.
     required:
