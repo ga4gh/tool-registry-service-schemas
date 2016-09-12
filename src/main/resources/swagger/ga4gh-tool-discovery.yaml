@@ -215,7 +215,7 @@ paths:
           schema:
             $ref: '#/definitions/Error'
 
-/tools/{id}/versions/{version-id}/{type}/tests:
+  /tools/{id}/versions/{version-id}/{type}/tests:
     get:
       summary: Get an array of test JSONs suitable for use with this descriptor type.
       tags:
@@ -379,7 +379,6 @@ definitions:
     description: A tool version describes a particular iteration of a tool as described by a reference to a specific image and dockerfile.
     required:
       - url
-      - descriptor
       - id
       - meta-version
     properties:
