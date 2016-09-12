@@ -328,6 +328,9 @@ definitions:
       verified-source:
         type: string
         description: Source of metadata that can support a verified tool, such as an email or URL
+      signed:
+        type: boolean
+        description: Reports whether this tool has been signed.
       versions:
         description: A list of versions for this tool
         type: array
