@@ -2,11 +2,27 @@ swagger: '2.0'
 info:
   title: GA4GH Tool Discovery API
   description: 'Proposed API for GA4GH tool repositories. A tool consists of a (currently Docker) image paired with a document that describes how to use that image (currently CWL or WDL) and a Dockerfile that describes how to re-produce the image in the future. We use the following terminology, an "image" describes a (Docker) container as stored on a filesystem, a "tool" describes one of the triples as described above, and a "container" should only be used to describe a running image'
-  version: "1.0.0"
+  version: "1.1.0"
+  contact:
+    name: GA4GH Containers and Workflows Task Team
+    url: https://github.com/ga4gh/tool-registry-schemas
+    email: ga4gh-dwg-containers-workflows@genomicsandhealth.org
+  license:
+    name: Apache 2.0
+    url: http://www.apache.org/licenses/LICENSE-2.0.html
 produces:
   - application/json
   - text/plain
 basePath: /api/ga4gh/v1
+
+securityDefinitions:
+  tool_auth:
+    type: oauth2
+    authorizationUrl: "this is api dependent"
+    flow: implicit
+    scopes:
+      write_tools: modify tools in your account
+
 tags:
   - name: GA4GH
     description: A set of resources proposed as a common standard for tool repositories
@@ -29,6 +45,30 @@ paths:
           schema:
               $ref: '#/definitions/Tool'
 
+    put:
+      summary: Update one tool
+      description: This endpoint returns the tool that has been updated
+      tags:
+       - GA4GH
+      parameters:
+        - name: id
+          in: path
+          required: true
+          type: string
+          description: A unique identifier of the tool, scoped to this registry, for example `123456`
+      consumes:
+        - application/json
+      security:
+        - tool_auth:
+          - write_tools
+      responses:
+        "200":
+          description: A tool.
+          schema:
+            $ref: '#/definitions/Tool'
+            
+    
+
   /tools/{id}/versions:
     get:
       summary: List versions of a tool
@@ -48,6 +88,7 @@ paths:
             type: array
             items:
               $ref: '#/definitions/ToolVersion'
+    
 
   /tools/{id}/versions/{version-id}:
     get:
@@ -131,7 +172,22 @@ paths:
             current-limit:
               description: The current page record limit used for this result
               type: integer
-
+  
+    post:
+      summary: Create one tool
+      description: This endpoint returns the tool that has been created
+      tags:
+       - GA4GH
+      consumes:
+        - application/json
+      security:
+        - tool_auth:
+          - write_tools
+      responses:
+        "200":
+          description: A tool.
+          schema:
+            $ref: '#/definitions/Tool'
 
 
   /tools/{id}/versions/{version-id}/{type}/descriptor:
@@ -394,6 +450,9 @@ definitions:
       image:
         type: string
         description: The docker path to the image (and version) for this tool. (e.g. quay.io/seqware/seqware_full/1.1)
+      image-ready:
+        type: boolean
+        description: Optional value that indicates whether the `image` is ready to be used. For registries like Docker Hub and quay.io, this can indicate whether an automated build is complete. For an archive, this can indicate whether its upload is complete. 
       descriptor-type:
         type: array
         description: The type (or types) of descriptors available.
@@ -500,4 +559,5 @@ parameters:
 externalDocs:
   description: Description of GA4GH Tool Registry (Exchange) Schema
   url: 'https://github.com/ga4gh/tool-registry-schemas'
+
 
