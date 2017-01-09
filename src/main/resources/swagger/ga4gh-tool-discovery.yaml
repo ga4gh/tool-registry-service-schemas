@@ -18,7 +18,7 @@ basePath: /api/ga4gh/v1
 securityDefinitions:
   tool_auth:
     type: oauth2
-    authorizationUrl: "this is api dependent"
+    authorizationUrl: "https://<your domain name here>/"
     flow: implicit
     scopes:
       write_tools: modify tools in your account
@@ -26,6 +26,9 @@ securityDefinitions:
 tags:
   - name: GA4GH
     description: A set of resources proposed as a common standard for tool repositories
+  - name: GA4GH-optional-write
+    description: A set of resources proposed as an optional extension to allow for writeable tool repositories
+    
 paths:
   /tools/{id}:
     get:
@@ -47,9 +50,10 @@ paths:
 
     put:
       summary: Update one tool
-      description: This endpoint returns the tool that has been updated
+      description: This endpoint updates the fields for a tool and returns the tool after it has been updated
       tags:
        - GA4GH
+       - GA4GH-optional-write
       parameters:
         - name: id
           in: path
@@ -88,6 +92,26 @@ paths:
             type: array
             items:
               $ref: '#/definitions/ToolVersion'
+    post:
+      summary: Create one tool version.
+      description: This endpoint creates a version of a tool and returns the tool version that has been created.
+      tags:
+        - GA4GH
+        - GA4GH-optional-write
+      parameters:
+        - name: id
+          in: path
+          required: true
+          type: string
+          description: A unique identifier of the tool, scoped to this registry, for example `123456`
+      responses:
+        '200':
+          description: An array of tool versions
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/ToolVersion'          
+    
     
 
   /tools/{id}/versions/{version-id}:
@@ -96,6 +120,28 @@ paths:
       description: This endpoint returns one specific tool version
       tags:
         - GA4GH
+      parameters:
+        - name: id
+          in: path
+          required: true
+          type: string
+          description: A unique identifier of the tool, scoped to this registry, for example `123456`
+        - name: version-id
+          in: path
+          required: true
+          type: string
+          description: An identifier of the tool version, scoped to this registry, for example `v1`
+      responses:
+        '200':
+          description: A tool version.
+          schema:
+              $ref: '#/definitions/ToolVersion'
+    put:
+      summary: Update one tool version
+      description: This endpoint updates the fields of a tool version and returns the tool version that has been updated.
+      tags:
+        - GA4GH
+        - GA4GH-optional-write
       parameters:
         - name: id
           in: path
@@ -175,9 +221,10 @@ paths:
   
     post:
       summary: Create one tool
-      description: This endpoint returns the tool that has been created
+      description: This endpoint creates one tool and returns the tool that has been created
       tags:
        - GA4GH
+       - GA4GH-optional-write
       consumes:
         - application/json
       security:
@@ -559,5 +606,4 @@ parameters:
 externalDocs:
   description: Description of GA4GH Tool Registry (Exchange) Schema
   url: 'https://github.com/ga4gh/tool-registry-schemas'
-
 
