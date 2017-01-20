@@ -250,7 +250,7 @@ paths:
           description: content of the new tool
           in: body
           required: true
-          schema: {$ref: '#/definitions/ToolVersion'}
+          schema: {$ref: '#/definitions/Tool'}
       responses:
         "200":
           description: A tool.
