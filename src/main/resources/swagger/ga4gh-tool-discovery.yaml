@@ -60,6 +60,11 @@ paths:
           required: true
           type: string
           description: A unique identifier of the tool, scoped to this registry, for example `123456`
+        - name: body
+          description: content of the new tool
+          in: body
+          required: true
+          schema: {$ref: '#/definitions/Tool'}
       consumes:
         - application/json
       security:
@@ -104,6 +109,11 @@ paths:
           required: true
           type: string
           description: A unique identifier of the tool, scoped to this registry, for example `123456`
+        - name: body
+          description: content of the new tool
+          in: body
+          required: true
+          schema: {$ref: '#/definitions/ToolVersion'}
       responses:
         '200':
           description: An array of tool versions
@@ -153,6 +163,11 @@ paths:
           required: true
           type: string
           description: An identifier of the tool version, scoped to this registry, for example `v1`
+        - name: body
+          description: content of the new tool
+          in: body
+          required: true
+          schema: {$ref: '#/definitions/ToolVersion'}
       responses:
         '200':
           description: A tool version.
@@ -230,6 +245,12 @@ paths:
       security:
         - tool_auth:
           - write_tools
+      parameters:
+        - name: body
+          description: content of the new tool
+          in: body
+          required: true
+          schema: {$ref: '#/definitions/ToolVersion'}
       responses:
         "200":
           description: A tool.
