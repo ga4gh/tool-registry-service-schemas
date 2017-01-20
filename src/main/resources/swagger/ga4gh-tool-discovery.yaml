@@ -274,6 +274,41 @@ paths:
           description: The tool can not be output in the specified type.
           schema:
             $ref: '#/definitions/Error'
+    post:
+      summary: Create the tool descriptor (CWL/WDL) for the specified tool.
+      description: Creates and returns the CWL or WDL descriptor for the specified tool, replaces an existing descriptor
+      tags:
+        - GA4GH
+        - GA4GH-optional-write
+      parameters:
+        - name: type
+          required: true
+          in: path
+          description: The output type of the descriptor. If not specified it is up to the underlying implementation to determine which output type to return. Plain types return the bare descriptor while the "non-plain" types return a descriptor wrapped
+            with metadata
+          type: string
+          enum:
+            - CWL
+            - WDL
+        - name: id
+          in: path
+          description: A unique identifier of the tool, scoped to this registry, for example `123456`
+          required: true
+          type: string
+        - name: version-id
+          in: path
+          required: true
+          type: string
+          description: An identifier of the tool version for this particular tool registry, for example `v1`
+      responses:
+        '200':
+          description: The tool descriptor.
+          schema:
+            $ref: '#/definitions/ToolDescriptor'
+        '404':
+          description: The tool can not be output in the specified type.
+          schema:
+            $ref: '#/definitions/Error'
 
   /tools/{id}/versions/{version-id}/{type}/descriptor/{relative-path}:
     get:
@@ -293,6 +328,46 @@ paths:
             - WDL
             - plain-CWL
             - plain-WDL
+        - name: id
+          in: path
+          description: A unique identifier of the tool, scoped to this registry, for example `123456`
+          required: true
+          type: string
+        - name: version-id
+          in: path
+          required: true
+          type: string
+          description: An identifier of the tool version for this particular tool registry, for example `v1`
+        - name: relative-path
+          in: path
+          required: true
+          type: string
+          description: A relative path to the additional file (same directory or subdirectories), for example 'foo.cwl' would return a 'foo.cwl' from the same directory as the main descriptor
+      responses:
+        '200':
+          description: The tool descriptor.
+          schema:
+            $ref: '#/definitions/ToolDescriptor'
+        '404':
+          description: The tool can not be output in the specified type.
+          schema:
+            $ref: '#/definitions/Error'
+    post:
+      summary: Create additional tool descriptor files (CWL/WDL) relative to the main file
+      description: Creates additional CWL or WDL descriptors for the specified tool in the same or subdirectories, replaces existing ones
+      tags:
+        - GA4GH
+        - GA4GH-optional-write
+      parameters:
+        - name: type
+          in: path
+          required: true
+          description: The output type of the descriptor. If not specified it is up to the underlying implementation to determine which output type to return.  Plain types return the bare descriptor while the "non-plain" types return a descriptor wrapped
+            with metadata
+          type: string
+          enum:
+            - CWL
+            - WDL
         - name: id
           in: path
           description: A unique identifier of the tool, scoped to this registry, for example `123456`
@@ -359,8 +434,8 @@ paths:
 
   /tools/{id}/versions/{version-id}/dockerfile:
     get:
-      summary: Get the dockerfile for the specified image.
-      description: Returns the dockerfile for the specified image.
+      summary: Get the Dockerfile for the specified tool
+      description: Returns the dockerfile for the specified tool.
       tags:
         - GA4GH
       parameters:
@@ -383,6 +458,33 @@ paths:
           description: The tool payload is not present in the service.
           schema:
             $ref: '#/definitions/Error'
+    post:
+      summary: Create one Dockerfile for the specified tool
+      description: This endpoint creates one Dockerfile and returns the Dockerfile that was created. Replaces an existing one.
+      tags:
+       - GA4GH
+       - GA4GH-optional-write
+      parameters:
+        - name: id
+          in: path
+          description: A unique identifier of the tool, scoped to this registry, for example `123456`
+          required: true
+          type: string
+        - name: version-id
+          in: path
+          required: true
+          type: string
+          description: An identifier of the tool version for this particular tool registry, for example `v1`
+      responses:
+        '200':
+          description: The tool payload.
+          schema:
+            $ref: '#/definitions/ToolDockerfile'
+        '404':
+          description: The tool payload is not present in the service.
+          schema:
+            $ref: '#/definitions/Error'
+            
 
   /metadata:
     get:
