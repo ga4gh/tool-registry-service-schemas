@@ -52,7 +52,6 @@ paths:
       summary: Update one tool
       description: This endpoint updates the fields for a tool and returns the tool after it has been updated
       tags:
-       - GA4GH
        - GA4GH-optional-write
       parameters:
         - name: id
@@ -101,7 +100,6 @@ paths:
       summary: Create one tool version.
       description: This endpoint creates a version of a tool and returns the tool version that has been created.
       tags:
-        - GA4GH
         - GA4GH-optional-write
       parameters:
         - name: id
@@ -150,7 +148,6 @@ paths:
       summary: Update one tool version
       description: This endpoint updates the fields of a tool version and returns the tool version that has been updated.
       tags:
-        - GA4GH
         - GA4GH-optional-write
       parameters:
         - name: id
@@ -238,7 +235,6 @@ paths:
       summary: Create one tool
       description: This endpoint creates one tool and returns the tool that has been created
       tags:
-       - GA4GH
        - GA4GH-optional-write
       consumes:
         - application/json
@@ -299,7 +295,6 @@ paths:
       summary: Create the tool descriptor (CWL/WDL) for the specified tool.
       description: Creates and returns the CWL or WDL descriptor for the specified tool, replaces an existing descriptor
       tags:
-        - GA4GH
         - GA4GH-optional-write
       parameters:
         - name: type
@@ -377,7 +372,6 @@ paths:
       summary: Create additional tool descriptor files (CWL/WDL) relative to the main file
       description: Creates additional CWL or WDL descriptors for the specified tool in the same or subdirectories, replaces existing ones
       tags:
-        - GA4GH
         - GA4GH-optional-write
       parameters:
         - name: type
@@ -483,7 +477,6 @@ paths:
       summary: Create one Dockerfile for the specified tool
       description: This endpoint creates one Dockerfile and returns the Dockerfile that was created. Replaces an existing one.
       tags:
-       - GA4GH
        - GA4GH-optional-write
       parameters:
         - name: id
