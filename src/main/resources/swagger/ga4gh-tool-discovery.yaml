@@ -446,6 +446,44 @@ paths:
           description: The tool can not be output in the specified type.
           schema:
             $ref: '#/definitions/Error'
+  
+    put:
+      summary: Update an array of test JSONs suitable for use with this descriptor type, replaces existing tests. 
+      tags:
+        - GA4GH-optional-write
+      parameters:
+        - name: type
+          required: true
+          in: path
+          description: The output type of the descriptor. If not specified it is up to the underlying implementation to determine which output type to return. Plain types return the bare descriptor while the "non-plain" types return a descriptor wrapped
+            with metadata
+          type: string
+          enum:
+            - CWL
+            - WDL
+            - plain-CWL
+            - plain-WDL
+        - name: id
+          in: path
+          description: A unique identifier of the tool, scoped to this registry, for example `123456`
+          required: true
+          type: string
+        - name: version-id
+          in: path
+          required: true
+          type: string
+          description: An identifier of the tool version for this particular tool registry, for example `v1`
+      responses:
+        '200':
+          description: The tool test JSON response.
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/ToolTests'
+        '404':
+          description: The tool can not be output in the specified type.
+          schema:
+            $ref: '#/definitions/Error'
 
   /tools/{id}/versions/{version-id}/dockerfile:
     get:
