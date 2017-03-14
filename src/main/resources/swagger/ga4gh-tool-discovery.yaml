@@ -316,6 +316,11 @@ paths:
           required: true
           type: string
           description: An identifier of the tool version for this particular tool registry, for example `v1`
+        - name: body
+          description: content of the new tool descriptor
+          in: body
+          required: true
+          schema: {$ref: '#/definitions/ToolDescriptor'}
       responses:
         '200':
           description: The tool descriptor.
@@ -398,6 +403,11 @@ paths:
           required: true
           type: string
           description: A relative path to the additional file (same directory or subdirectories), for example 'foo.cwl' would return a 'foo.cwl' from the same directory as the main descriptor
+        - name: body
+          description: content of the new descriptor
+          in: body
+          required: true
+          schema: {$ref: '#/definitions/ToolDescriptor'}
       responses:
         '200':
           description: The tool descriptor.
@@ -473,6 +483,14 @@ paths:
           required: true
           type: string
           description: An identifier of the tool version for this particular tool registry, for example `v1`
+        - name: body
+          description: content of the new tool descriptor
+          in: body
+          required: true
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/ToolTests'
       responses:
         '200':
           description: The tool test JSON response.
@@ -527,6 +545,11 @@ paths:
           required: true
           type: string
           description: An identifier of the tool version for this particular tool registry, for example `v1`
+        - name: body
+          description: content of the new Dockerfile
+          in: body
+          required: true
+          schema: {$ref: '#/definitions/ToolDockerfile'}
       responses:
         '200':
           description: The tool payload.
