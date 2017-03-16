@@ -114,11 +114,9 @@ paths:
           schema: {$ref: '#/definitions/ToolVersion'}
       responses:
         '200':
-          description: An array of tool versions
+          description: A tool version.
           schema:
-            type: array
-            items:
-              $ref: '#/definitions/ToolVersion'          
+              $ref: '#/definitions/ToolVersion'    
     
     
 
