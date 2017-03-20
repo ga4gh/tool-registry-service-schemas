@@ -27,7 +27,7 @@ tags:
   - name: GA4GH
     description: A set of resources proposed as a common standard for tool repositories
   - name: GA4GH-optional-write
-    description: A set of resources proposed as an optional extension to allow for writeable tool repositories
+    description: A set of resources proposed as an optional extension to allow for writeable tool repositories. Writeable tool registries can have their own behaviour. For example, one may build Dockerfiles on a user's behalf on a specific service, another might simply be a listing for images that are already built. 
     
 paths:
   /tools/{id}:
