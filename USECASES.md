@@ -7,10 +7,10 @@ This schema generalizes this approach and aims to let use communicate with other
 Our use case was as follows, we needed: 
 
 * sharing: we needed to share descriptions of tools and the parameters for how to run them
-* transparency: it should be simple to understand how a tool was constructed and what binaries went into it in order to facilitate modification
-* Docker: not necessarily Docker, but at the time Docker was the most mature way of distributing and running the tools that we had in the form of "fat Dockers" that had a large amount of code and services within them. While we added support for things like workflows of "small Dockers" via CWL, our use-case is still focused around "fat Dockers" so this use-case must be well served
-* test parameters: In order to ensure that a workflow works reliably, we needed to test a workflow with a "known good" set of parameters
-* descriptions of workflows: how much does a workflow need in terms of resources? Who is currently maintaining a workflow? 
+  * how much does a workflow need in terms of resources? Who is currently maintaining a workflow? i.e. a tool should be encouraged to describe a certain set of metadata including who wrote a tool, who is maintaining a tool, how much in the way of resources does a tool require, and what are the types of input files that it requires 
+* transparency: it should be simple to understand how a tool was constructed and what binaries went into it in order to facilitate modification 
+* Docker: not necessarily Docker, but at the time Docker was the most mature way of distributing and running the tools that we had in the form of "fat Dockers" that had a large amount of code and services within them. While we added support for things like workflows of "small Dockers" via CWL, our use-case is still focused around "fat Dockers" so this use-case must be well served i.e. the tool registry should make it easy to share command-line tools based on larger Docker contaienrs
+* test parameters: In order to ensure that a workflow works reliably, we needed to test a workflow with a "known good" set of parameters. i.e. it should be trivial to determine what parameters "should" invoke a tool successfully
 
 ## Reference Materials
 
