@@ -205,3 +205,191 @@ bio.tools
 ```
 
 ## Resource Details
+
+TRS
+
+```
+todo
+```
+
+bio.tools
+
+```
+{
+   "id" : "signalp",
+   "contact" : [
+      {
+         "name" : "Henrik Nielsen",
+         "url" : null,
+         "email" : "hnielsen@cbs.dtu.dk",
+         "tel" : null
+      }
+   ],
+   "toolType" : [
+      "Command-line tool",
+      "Web application"
+   ],
+   "owner" : "cbs_admin",
+   "license" : null,
+   "maturity" : "Mature",
+   "additionDate" : "2015-12-17T14:23:00Z",
+   "canonicalID" : null,
+   "collectionID" : [
+      "CBS"
+   ],
+   "lastUpdate" : "2017-08-17T11:46:29Z",
+   "link" : [
+      {
+         "type" : "Repository",
+         "comment" : null,
+         "url" : "http://www.cbs.dtu.dk/cgi-bin/sw_request?signalp"
+      }
+   ],
+   "topic" : [
+      {
+         "uri" : "http://edamontology.org/topic_3510",
+         "term" : "Protein sites, features and motifs"
+      }
+   ],
+   "credit" : [
+      {
+         "typeRole" : "Developer",
+         "orcidId" : null,
+         "gridId" : null,
+         "name" : "TN Petersen",
+         "typeEntity" : "Person",
+         "url" : null,
+         "email" : null,
+         "comment" : null
+      },
+      {
+         "orcidId" : null,
+         "typeRole" : "Provider",
+         "email" : null,
+         "comment" : null,
+         "name" : "CBS",
+         "gridId" : null,
+         "typeEntity" : "Institute",
+         "url" : null
+      },
+      {
+         "typeRole" : "Developer",
+         "orcidId" : null,
+         "name" : "Henrik Nielsen",
+         "gridId" : null,
+         "url" : null,
+         "typeEntity" : null,
+         "comment" : null,
+         "email" : "hnielsen@cbs.dtu.dk"
+      }
+   ],
+   "editPermission" : {
+      "authors" : [
+         "CBS"
+      ],
+      "type" : "group"
+   },
+   "accessibility" : [],
+   "documentation" : [
+      {
+         "type" : "General",
+         "comment" : null,
+         "url" : "http://www.cbs.dtu.dk/services/SignalP"
+      }
+   ],
+   "homepage" : "http://cbs.dtu.dk/services/SignalP/",
+   "publication" : [
+      {
+         "type" : "Primary",
+         "pmcid" : null,
+         "pmid" : "21959131",
+         "doi" : null,
+         "version" : null
+      },
+      {
+         "type" : "Other",
+         "version" : null,
+         "doi" : "doi:10.1038/nmeth.1701",
+         "pmid" : null,
+         "pmcid" : null
+      }
+   ],
+   "description" : "Prediction of the presence and location of signal peptide cleavage sites in amino acid sequences from different organisms.",
+   "elixirInfo" : null,
+   "availability" : null,
+   "cost" : "Free of charge (with restrictions)",
+   "version" : "4.1",
+   "downtime" : null,
+   "download" : [
+      {
+         "url" : "http://www.cbs.dtu.dk/cgi-bin/sw_request?signalp",
+         "type" : "Source code",
+         "comment" : null
+      },
+      {
+         "comment" : null,
+         "type" : "Binaries",
+         "url" : "http://www.cbs.dtu.dk/cgi-bin/sw_request?signalp"
+      }
+   ],
+   "function" : [
+      {
+         "output" : [
+            {
+               "data" : {
+                  "term" : "Protein features",
+                  "uri" : "http://edamontology.org/data_1277"
+               },
+               "format" : [
+                  {
+                     "uri" : "http://edamontology.org/format_2305",
+                     "term" : "GFF"
+                  }
+               ]
+            },
+            {
+               "data" : {
+                  "term" : "Sequence report",
+                  "uri" : "http://edamontology.org/data_2955"
+               },
+               "format" : []
+            }
+         ],
+         "operation" : [
+            {
+               "term" : "Protein signal peptide detection",
+               "uri" : "http://edamontology.org/operation_0418"
+            },
+            {
+               "uri" : "http://edamontology.org/operation_0422",
+               "term" : "Protein cleavage site prediction"
+            }
+         ],
+         "input" : [
+            {
+               "format" : [
+                  {
+                     "uri" : "http://edamontology.org/format_1929",
+                     "term" : "FASTA"
+                  }
+               ],
+               "data" : {
+                  "uri" : "http://edamontology.org/data_2044",
+                  "term" : "Sequence"
+               }
+            }
+         ],
+         "comment" : "predicts the presence and location of signal peptide cleavage sites in amino acid sequences from different organisms"
+      }
+   ],
+   "validated" : 0,
+   "version_hash" : null,
+   "operatingSystem" : [
+      "Linux",
+      "Mac"
+   ],
+   "language" : [],
+   "name" : "SignalP"
+}
+
+```
