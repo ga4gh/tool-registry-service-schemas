@@ -51,7 +51,7 @@ paths:
             items:
               $ref: '#/definitions/ToolVersion'
 
-  /tools/{id}/versions/{version-id}:
+  /tools/{id}/versions/{version_id}:
     get:
       summary: List one specific tool version, acts as an anchor for self references
       description: This endpoint returns one specific tool version
@@ -64,7 +64,7 @@ paths:
           type: string
           description: A unique identifier of the tool, scoped to this registry, for example `123456`
           x-example: 'registry.hub.docker.com/sequenza/sequenza'
-        - name: version-id
+        - name: version_id
           in: path
           required: true
           type: string
@@ -138,7 +138,7 @@ paths:
 
 
 
-  /tools/{id}/versions/{version-id}/{type}/descriptor:
+  /tools/{id}/versions/{version_id}/{type}/descriptor:
     get:
       summary: Get the tool descriptor (CWL/WDL) for the specified tool.
       description: Returns the CWL or WDL descriptor for the specified tool.
@@ -163,7 +163,7 @@ paths:
           required: true
           type: string
           x-example: 'registry.hub.docker.com/sequenza/sequenza'
-        - name: version-id
+        - name: version_id
           in: path
           required: true
           type: string
@@ -179,7 +179,7 @@ paths:
           schema:
             $ref: '#/definitions/Error'
 
-  /tools/{id}/versions/{version-id}/{type}/descriptor/{relative-path}:
+  /tools/{id}/versions/{version_id}/{type}/descriptor/{relative_path}:
     get:
       summary: Get additional tool descriptor files (CWL/WDL) relative to the main file
       description: Returns additional CWL or WDL descriptors for the specified tool in the same or subdirectories
@@ -204,13 +204,13 @@ paths:
           required: true
           type: string
           x-example: 'registry.hub.docker.com/sequenza/sequenza'
-        - name: version-id
+        - name: version_id
           in: path
           required: true
           type: string
           description: An identifier of the tool version for this particular tool registry, for example `v1`
           x-example: 'latest'
-        - name: relative-path
+        - name: relative_path
           in: path
           required: true
           type: string
@@ -226,7 +226,7 @@ paths:
           schema:
             $ref: '#/definitions/Error'
 
-  /tools/{id}/versions/{version-id}/{type}/tests:
+  /tools/{id}/versions/{version_id}/{type}/tests:
     get:
       summary: Get an array of test JSONs suitable for use with this descriptor type.
       tags:
@@ -250,7 +250,7 @@ paths:
           required: true
           type: string
           x-example: 'registry.hub.docker.com/sequenza/sequenza'
-        - name: version-id
+        - name: version_id
           in: path
           required: true
           type: string
@@ -268,7 +268,7 @@ paths:
           schema:
             $ref: '#/definitions/Error'
 
-  /tools/{id}/versions/{version-id}/dockerfile:
+  /tools/{id}/versions/{version_id}/dockerfile:
     get:
       summary: Get the dockerfile for the specified image.
       description: Returns the dockerfile for the specified image.
@@ -281,7 +281,7 @@ paths:
           required: true
           type: string
           x-example: 'registry.hub.docker.com/sequenza/sequenza'
-        - name: version-id
+        - name: version_id
           in: path
           required: true
           type: string
