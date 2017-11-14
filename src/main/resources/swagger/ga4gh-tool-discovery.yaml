@@ -23,6 +23,7 @@ paths:
           required: true
           type: string
           description: A unique identifier of the tool, scoped to this registry, for example `123456`
+          x-example: 'registry.hub.docker.com/sequenza/sequenza'
       responses:
         '200':
           description: A tool.
@@ -41,6 +42,7 @@ paths:
           required: true
           type: string
           description: A unique identifier of the tool, scoped to this registry, for example `123456`
+          x-example: 'registry.hub.docker.com/sequenza/sequenza'
       responses:
         '200':
           description: An array of tool versions
@@ -61,11 +63,13 @@ paths:
           required: true
           type: string
           description: A unique identifier of the tool, scoped to this registry, for example `123456`
+          x-example: 'registry.hub.docker.com/sequenza/sequenza'
         - name: version-id
           in: path
           required: true
           type: string
           description: An identifier of the tool version, scoped to this registry, for example `v1`
+          x-example: 'latest'
       responses:
         '200':
           description: A tool version.
@@ -152,16 +156,19 @@ paths:
             - WDL
             - plain-CWL
             - plain-WDL
+          x-example: 'CWL'
         - name: id
           in: path
           description: A unique identifier of the tool, scoped to this registry, for example `123456`
           required: true
           type: string
+          x-example: 'registry.hub.docker.com/sequenza/sequenza'
         - name: version-id
           in: path
           required: true
           type: string
           description: An identifier of the tool version for this particular tool registry, for example `v1`
+          x-example: 'latest'
       responses:
         '200':
           description: The tool descriptor.
@@ -190,21 +197,25 @@ paths:
             - WDL
             - plain-CWL
             - plain-WDL
+          x-example: 'CWL'
         - name: id
           in: path
           description: A unique identifier of the tool, scoped to this registry, for example `123456`
           required: true
           type: string
+          x-example: 'registry.hub.docker.com/sequenza/sequenza'
         - name: version-id
           in: path
           required: true
           type: string
           description: An identifier of the tool version for this particular tool registry, for example `v1`
+          x-example: 'latest'
         - name: relative-path
           in: path
           required: true
           type: string
           description: A relative path to the additional file (same directory or subdirectories), for example 'foo.cwl' would return a 'foo.cwl' from the same directory as the main descriptor
+          x-example: '/sequenza.cwl'
       responses:
         '200':
           description: The tool descriptor.
@@ -232,16 +243,19 @@ paths:
             - WDL
             - plain-CWL
             - plain-WDL
+          x-example: 'CWL'
         - name: id
           in: path
           description: A unique identifier of the tool, scoped to this registry, for example `123456`
           required: true
           type: string
+          x-example: 'registry.hub.docker.com/sequenza/sequenza'
         - name: version-id
           in: path
           required: true
           type: string
           description: An identifier of the tool version for this particular tool registry, for example `v1`
+          x-example: 'latest'
       responses:
         '200':
           description: The tool test JSON response.
@@ -266,11 +280,13 @@ paths:
           description: A unique identifier of the tool, scoped to this registry, for example `123456`
           required: true
           type: string
+          x-example: 'registry.hub.docker.com/sequenza/sequenza'
         - name: version-id
           in: path
           required: true
           type: string
           description: An identifier of the tool version for this particular tool registry, for example `v1`
+          x-example: 'latest'
       responses:
         '200':
           description: The tool payload.
@@ -500,4 +516,3 @@ parameters:
 externalDocs:
   description: Description of GA4GH Tool Registry (Exchange) Schema
   url: 'https://github.com/ga4gh/tool-registry-schemas'
-
