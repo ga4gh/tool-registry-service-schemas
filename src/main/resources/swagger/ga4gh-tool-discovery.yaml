@@ -123,16 +123,16 @@ paths:
             items:
               $ref: '#/definitions/Tool'
           headers:
-            next-page:
+            next_page:
               description: A URL that can be used to reach the next page based on the current offset and page record limit
               type: string
-            last-page:
+            last_page:
               description: A URL that can be used to reach the last page based on the current page record limit
               type: string
-            current-offset:
+            current_offset:
               description: The current start index of the paging used for this result
               type: string
-            current-limit:
+            current_limit:
               description: The current page record limit used for this result
               type: integer
 
@@ -309,7 +309,7 @@ paths:
           schema:
               $ref: '#/definitions/Metadata'
 
-  /tool-classes:
+  /toolClasses:
     get:
       summary: List all tool types
       description: >
@@ -347,7 +347,7 @@ definitions:
       - id
       - organization
       - author
-      - meta-version
+      - meta_version
       - toolclass
       - versions
     properties:
@@ -371,7 +371,7 @@ definitions:
       author:
         type: string
         description: Contact information for the author of this tool entry in the registry. (More complex authorship information is handled by the descriptor)
-      meta-version:
+      meta_version:
         type: string
         description: 'The version of this tool in the registry. Iterates when fields like the description, author, etc. are updated.'
       contains:
@@ -399,7 +399,7 @@ definitions:
     required:
       - url
       - id
-      - meta-version
+      - meta_version
     properties:
       name:
         type: string
@@ -413,7 +413,7 @@ definitions:
       image:
         type: string
         description: The docker path to the image (and version) for this tool. (e.g. quay.io/seqware/seqware_full/1.1)
-      descriptor-type:
+      descriptor_type:
         type: array
         description: The type (or types) of descriptors available.
         items:
@@ -424,13 +424,13 @@ definitions:
       dockerfile:
         type: boolean
         description: Reports if this tool has a dockerfile available.
-      meta-version:
+      meta_version:
         type: string
         description: 'The version of this tool version in the registry. Iterates when fields like the description, author, etc. are updated.'
       verified:
         type: boolean
         description: Reports whether this tool has been verified by a specific organization or individual
-      verified-source:
+      verified_source:
         type: string
         description: Source of metadata that can support a verified tool, such as an email or URL
   ToolDescriptor:
@@ -480,18 +480,18 @@ definitions:
     description: Describes this registry to better allow for mirroring and indexing.
     required:
       - version
-      - api-version
+      - api_version
     properties:
       version:
         type: string
         description: The version of this registry
-      api-version:
+      api_version:
         type: string
         description: The version of the GA4GH tool-registry API supported by this registry
       country:
         type: string
         description: A country code for the registry (ISO 3166-1 alpha-3)
-      friendly-name:
+      friendly_name:
         type: string
         description: A friendly name that can be used in addition to the hostname to describe a registry
 
