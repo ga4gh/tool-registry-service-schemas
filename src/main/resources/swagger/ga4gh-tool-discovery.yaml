@@ -326,6 +326,7 @@ paths:
 
 definitions:
   ToolClass:
+    type: object
     # thought. it would be nicer if ToolClasses are consistent across registries. How would we accomplish this? Operate a MIME-type like list?
     description: Describes a class (type) of tool allowing us to categorize workflows, tools, and maybe even other entities (such as services) separately
     properties:
@@ -339,6 +340,7 @@ definitions:
         type: string
         description: A longer explanation of what this class is and what it can accomplish
   Tool:
+    type: object
     description: A tool (or described tool) describes one pairing of a tool as described in a descriptor file (which potentially describes multiple tools) and a Docker image.
     required:
       - url
@@ -392,6 +394,7 @@ definitions:
         items:
           $ref: '#/definitions/ToolVersion'
   ToolVersion:
+    type: object
     description: A tool version describes a particular iteration of a tool as described by a reference to a specific image and dockerfile.
     required:
       - url
@@ -431,6 +434,7 @@ definitions:
         type: string
         description: Source of metadata that can support a verified tool, such as an email or URL
   ToolDescriptor:
+    type: object
     description: A tool descriptor is a metadata document that describes one or more tools.
     required:
       - type
@@ -448,6 +452,7 @@ definitions:
         type: string
         description: 'Optional url to the tool descriptor used to build this image, should include version information, and can include a git hash (e.g. https://raw.githubusercontent.com/ICGC-TCGA-PanCancer/pcawg_delly_workflow/ea2a5db69bd20a42976838790bc29294df3af02b/delly_docker/Delly.cwl )'
   ToolTests:
+    type: object
     description: A tool document that describes how to test with one or more sample test JSON.
     required:
       - test
@@ -459,6 +464,7 @@ definitions:
         type: string
         description: 'Optional url to the test JSON used to test this tool'
   ToolDockerfile:
+    type: object
     description: A tool dockerfile is a document that describes how to build a particular Docker image.
     required:
       - dockerfile
@@ -470,6 +476,7 @@ definitions:
         type: string
         description: 'Optional url to the dockerfile used to build this image, should include version information, and can include a git hash  (e.g. https://raw.githubusercontent.com/ICGC-TCGA-PanCancer/pcawg_delly_workflow/c83478829802b4d36374870843821abe1b625a71/delly_docker/Dockerfile )'
   Metadata:
+    type: object
     description: Describes this registry to better allow for mirroring and indexing.
     required:
       - version
@@ -489,6 +496,7 @@ definitions:
         description: A friendly name that can be used in addition to the hostname to describe a registry
 
   Error:
+    type: object
     required:
      - code
     properties:
