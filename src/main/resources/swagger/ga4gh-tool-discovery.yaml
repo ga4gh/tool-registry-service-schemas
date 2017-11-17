@@ -154,8 +154,8 @@ paths:
           enum:
             - CWL
             - WDL
-            - plain-CWL
-            - plain-WDL
+            - PLAIN_CWL
+            - PLAIN_WDL
         - name: id
           in: path
           description: A unique identifier of the tool, scoped to this registry, for example `123456`
@@ -194,8 +194,8 @@ paths:
           enum:
             - CWL
             - WDL
-            - plain-CWL
-            - plain-WDL
+            - PLAIN_CWL
+            - PLAIN_WDL
         - name: id
           in: path
           description: A unique identifier of the tool, scoped to this registry, for example `123456`
@@ -239,8 +239,8 @@ paths:
           enum:
             - CWL
             - WDL
-            - plain-CWL
-            - plain-WDL
+            - PLAIN_CWL
+            - PLAIN_WDL
         - name: id
           in: path
           description: A unique identifier of the tool, scoped to this registry, for example `123456`
@@ -379,7 +379,7 @@ definitions:
       verified:
         type: boolean
         description: Reports whether this tool has been verified by a specific organization or individual
-      verified-source:
+      verified_source:
         type: string
         description: Source of metadata that can support a verified tool, such as an email or URL
       signed:
