@@ -401,10 +401,7 @@ definitions:
         type: array
         description: The type (or types) of descriptors available.
         items:
-          type: string
-          enum:
-            - CWL
-            - WDL
+          $ref: '#/definitions/DescriptorType'
       dockerfile:
         type: boolean
         description: Reports if this tool has a dockerfile available.
@@ -417,6 +414,11 @@ definitions:
       verified_source:
         type: string
         description: Source of metadata that can support a verified tool, such as an email or URL
+  DescriptorType:
+    type: string
+    enum:
+      - CWL
+      - WDL
   ToolDescriptor:
     type: object
     description: A tool descriptor is a metadata document that describes one or more tools.
@@ -425,10 +427,7 @@ definitions:
       - descriptor
     properties:
       type:
-        type: string
-        enum:
-          - CWL
-          - WDL
+        $ref: '#/definitions/DescriptorType'
       descriptor:
         type: string
         description: The descriptor that represents this version of the tool. (CWL or WDL)
