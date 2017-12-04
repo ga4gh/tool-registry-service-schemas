@@ -134,7 +134,7 @@ paths:
 
 
 
-  /tools/{id}/versions/{version_id}/descriptor:
+  /tools/{id}/versions/{version_id}/{type}/descriptor:
     get:
       summary: Get the tool descriptor (CWL/WDL) for the specified tool.
       description: Returns the CWL or WDL descriptor for the specified tool.
@@ -143,15 +143,9 @@ paths:
       parameters:
         - name: type
           required: true
-          in: query
-          description: The output type of the descriptor. If not specified it is up to the underlying implementation to determine which output type to return. Plain types return the bare descriptor while the "non-plain" types return a descriptor wrapped
-            with metadata
+          in: path
+          description: The output type of the descriptor. If not specified it is up to the underlying implementation to determine which output type to return. Plain types return the bare descriptor while the "non-plain" types return a descriptor wrapped with metadata. Allowable values are "CWL", "WDL", "PLAIN_CWL", "PLAIN_WDL".
           type: string
-          enum:
-            - CWL
-            - WDL
-            - PLAIN_CWL
-            - PLAIN_WDL
         - name: id
           in: path
           description: A unique identifier of the tool, scoped to this registry, for example `123456`
@@ -172,7 +166,7 @@ paths:
           schema:
             $ref: '#/definitions/Error'
 
-  /tools/{id}/versions/{version_id}/descriptor/{relative_path}:
+  /tools/{id}/versions/{version_id}/{type}/descriptor/{relative_path}:
     get:
       summary: Get additional tool descriptor files (CWL/WDL) relative to the main file
       description: Returns additional CWL or WDL descriptors for the specified tool in the same or subdirectories
@@ -180,16 +174,10 @@ paths:
         - GA4GH
       parameters:
         - name: type
-          in: query
+          in: path
           required: true
-          description: The output type of the descriptor. If not specified it is up to the underlying implementation to determine which output type to return.  Plain types return the bare descriptor while the "non-plain" types return a descriptor wrapped
-            with metadata
+          description: The output type of the descriptor. If not specified it is up to the underlying implementation to determine which output type to return. Plain types return the bare descriptor while the "non-plain" types return a descriptor wrapped with metadata. Allowable values are "CWL", "WDL", "PLAIN_CWL", "PLAIN_WDL".
           type: string
-          enum:
-            - CWL
-            - WDL
-            - PLAIN_CWL
-            - PLAIN_WDL
         - name: id
           in: path
           description: A unique identifier of the tool, scoped to this registry, for example `123456`
@@ -215,7 +203,7 @@ paths:
           schema:
             $ref: '#/definitions/Error'
 
-  /tools/{id}/versions/{version_id}/tests:
+  /tools/{id}/versions/{version_id}/{type}/tests:
     get:
       summary: Get an array of test JSONs suitable for use with this descriptor type.
       tags:
@@ -223,15 +211,9 @@ paths:
       parameters:
         - name: type
           required: true
-          in: query
-          description: The output type of the descriptor. If not specified it is up to the underlying implementation to determine which output type to return. Plain types return the bare descriptor while the "non-plain" types return a descriptor wrapped
-            with metadata
+          in: path
+          description: The output type of the descriptor. If not specified it is up to the underlying implementation to determine which output type to return. Plain types return the bare descriptor while the "non-plain" types return a descriptor wrapped with metadata. Allowable values are "CWL", "WDL", "PLAIN_CWL", "PLAIN_WDL".
           type: string
-          enum:
-            - CWL
-            - WDL
-            - PLAIN_CWL
-            - PLAIN_WDL
         - name: id
           in: path
           description: A unique identifier of the tool, scoped to this registry, for example `123456`
