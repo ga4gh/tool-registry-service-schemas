@@ -235,6 +235,38 @@ paths:
           description: The tool can not be output in the specified type.
           schema:
             $ref: '#/definitions/Error'
+  /tools/{id}/versions/{version_id}/{type}/files:
+    get:
+      summary: Get an array of test JSONs suitable for use with this descriptor type.
+      tags:
+        - GA4GH
+      parameters:
+        - name: type
+          required: true
+          in: path
+          description: The output type of the descriptor. If not specified it is up to the underlying implementation to determine which output type to return. Plain types return the bare descriptor while the "non-plain" types return a descriptor wrapped with metadata. Allowable values are "CWL", "WDL", "PLAIN_CWL", "PLAIN_WDL".
+          type: string
+        - name: id
+          in: path
+          description: A unique identifier of the tool, scoped to this registry, for example `123456`
+          required: true
+          type: string
+        - name: version_id
+          in: path
+          required: true
+          type: string
+          description: An identifier of the tool version for this particular tool registry, for example `v1`
+      responses:
+        '200':
+          description: The tool test JSON response.
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/File'
+        '404':
+          description: The tool can not be output in the specified type.
+          schema:
+            $ref: '#/definitions/Error'
 
   /tools/{id}/versions/{version_id}/dockerfile:
     get:
@@ -291,6 +323,18 @@ paths:
               $ref: '#/definitions/ToolClass'
 
 definitions:
+  File:
+    type: object
+    properties:
+      path: 
+        type: string 
+        description: path of the file
+      file_type: 
+        type: string
+        enum:
+          - TEST_FILE
+          - PRIMARY_DESCRIPTOR
+          - SECONDARY_DESCRIPTOR
   ToolClass:
     type: object
     # thought. it would be nicer if ToolClasses are consistent across registries. How would we accomplish this? Operate a MIME-type like list?
@@ -489,4 +533,5 @@ parameters:
 externalDocs:
   description: Description of GA4GH Tool Registry (Exchange) Schema
   url: 'https://github.com/ga4gh/tool-registry-schemas'
+
 
