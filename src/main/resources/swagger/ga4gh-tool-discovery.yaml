@@ -427,7 +427,7 @@ definitions:
         description: Optional test JSON content for this tool. (Note that one of test and URL are required)
       url:
         type: string
-        description: Optional url to the test JSON used to test this tool
+        description: Optional url to the test JSON used to test this tool. Note that this URL should resolve to the raw unwrapped content that would otherwise be available in test.
       test-tool-url:
         type: string
         description: Optional url to the test workflow that will exit successfully if this workflow produced the expected result given this test data. 
