@@ -2,7 +2,7 @@ swagger: '2.0'
 info:
   title: GA4GH Tool Discovery API
   description: 'Proposed API for GA4GH tool repositories. A tool consists of a (currently Docker) image paired with a document that describes how to use that image (currently CWL or WDL) and a Dockerfile that describes how to re-produce the image in the future. We use the following terminology, an "image" describes a (Docker) container as stored on a filesystem, a "tool" describes one of the triples as described above, and a "container" should only be used to describe a running image'
-  version: "1.0.0"
+  version: "2.0.0"
 produces:
   - application/json
   - text/plain
