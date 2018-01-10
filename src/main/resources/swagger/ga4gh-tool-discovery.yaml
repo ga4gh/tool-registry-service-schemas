@@ -6,7 +6,7 @@ info:
 produces:
   - application/json
   - text/plain
-basePath: /api/ga4gh/v1
+basePath: /api/ga4gh/v2
 tags:
   - name: GA4GH
     description: A set of resources proposed as a common standard for tool repositories
@@ -49,7 +49,7 @@ paths:
             items:
               $ref: '#/definitions/ToolVersion'
 
-  /tools/{id}/versions/{version-id}:
+  /tools/{id}/versions/{version_id}:
     get:
       summary: List one specific tool version, acts as an anchor for self references
       description: This endpoint returns one specific tool version
@@ -61,7 +61,7 @@ paths:
           required: true
           type: string
           description: A unique identifier of the tool, scoped to this registry, for example `123456`
-        - name: version-id
+        - name: version_id
           in: path
           required: true
           type: string
@@ -119,22 +119,22 @@ paths:
             items:
               $ref: '#/definitions/Tool'
           headers:
-            next-page:
+            next_page:
               description: A URL that can be used to reach the next page based on the current offset and page record limit
               type: string
-            last-page:
+            last_page:
               description: A URL that can be used to reach the last page based on the current page record limit
               type: string
-            current-offset:
+            current_offset:
               description: The current start index of the paging used for this result
               type: string
-            current-limit:
+            current_limit:
               description: The current page record limit used for this result
               type: integer
 
 
 
-  /tools/{id}/versions/{version-id}/{type}/descriptor:
+  /tools/{id}/versions/{version_id}/{type}/descriptor:
     get:
       summary: Get the tool descriptor (CWL/WDL) for the specified tool.
       description: Returns the CWL or WDL descriptor for the specified tool.
@@ -144,20 +144,14 @@ paths:
         - name: type
           required: true
           in: path
-          description: The output type of the descriptor. If not specified it is up to the underlying implementation to determine which output type to return. Plain types return the bare descriptor while the "non-plain" types return a descriptor wrapped
-            with metadata
+          description: The output type of the descriptor. If not specified it is up to the underlying implementation to determine which output type to return. Plain types return the bare descriptor while the "non-plain" types return a descriptor wrapped with metadata. Allowable values are "CWL", "WDL", "PLAIN_CWL", "PLAIN_WDL".
           type: string
-          enum:
-            - CWL
-            - WDL
-            - plain-CWL
-            - plain-WDL
         - name: id
           in: path
           description: A unique identifier of the tool, scoped to this registry, for example `123456`
           required: true
           type: string
-        - name: version-id
+        - name: version_id
           in: path
           required: true
           type: string
@@ -172,7 +166,7 @@ paths:
           schema:
             $ref: '#/definitions/Error'
 
-  /tools/{id}/versions/{version-id}/{type}/descriptor/{relative-path}:
+  /tools/{id}/versions/{version_id}/{type}/descriptor/{relative_path}:
     get:
       summary: Get additional tool descriptor files (CWL/WDL) relative to the main file
       description: Returns additional CWL or WDL descriptors for the specified tool in the same or subdirectories
@@ -182,25 +176,19 @@ paths:
         - name: type
           in: path
           required: true
-          description: The output type of the descriptor. If not specified it is up to the underlying implementation to determine which output type to return.  Plain types return the bare descriptor while the "non-plain" types return a descriptor wrapped
-            with metadata
+          description: The output type of the descriptor. If not specified it is up to the underlying implementation to determine which output type to return. Plain types return the bare descriptor while the "non-plain" types return a descriptor wrapped with metadata. Allowable values are "CWL", "WDL", "PLAIN_CWL", "PLAIN_WDL".
           type: string
-          enum:
-            - CWL
-            - WDL
-            - plain-CWL
-            - plain-WDL
         - name: id
           in: path
           description: A unique identifier of the tool, scoped to this registry, for example `123456`
           required: true
           type: string
-        - name: version-id
+        - name: version_id
           in: path
           required: true
           type: string
           description: An identifier of the tool version for this particular tool registry, for example `v1`
-        - name: relative-path
+        - name: relative_path
           in: path
           required: true
           type: string
@@ -215,7 +203,7 @@ paths:
           schema:
             $ref: '#/definitions/Error'
 
-  /tools/{id}/versions/{version-id}/{type}/tests:
+  /tools/{id}/versions/{version_id}/{type}/tests:
     get:
       summary: Get an array of test JSONs suitable for use with this descriptor type.
       tags:
@@ -224,20 +212,14 @@ paths:
         - name: type
           required: true
           in: path
-          description: The output type of the descriptor. If not specified it is up to the underlying implementation to determine which output type to return. Plain types return the bare descriptor while the "non-plain" types return a descriptor wrapped
-            with metadata
+          description: The output type of the descriptor. If not specified it is up to the underlying implementation to determine which output type to return. Plain types return the bare descriptor while the "non-plain" types return a descriptor wrapped with metadata. Allowable values are "CWL", "WDL", "PLAIN_CWL", "PLAIN_WDL".
           type: string
-          enum:
-            - CWL
-            - WDL
-            - plain-CWL
-            - plain-WDL
         - name: id
           in: path
           description: A unique identifier of the tool, scoped to this registry, for example `123456`
           required: true
           type: string
-        - name: version-id
+        - name: version_id
           in: path
           required: true
           type: string
@@ -254,7 +236,7 @@ paths:
           schema:
             $ref: '#/definitions/Error'
 
-  /tools/{id}/versions/{version-id}/dockerfile:
+  /tools/{id}/versions/{version_id}/dockerfile:
     get:
       summary: Get the dockerfile for the specified image.
       description: Returns the dockerfile for the specified image.
@@ -266,7 +248,7 @@ paths:
           description: A unique identifier of the tool, scoped to this registry, for example `123456`
           required: true
           type: string
-        - name: version-id
+        - name: version_id
           in: path
           required: true
           type: string
@@ -293,7 +275,7 @@ paths:
           schema:
               $ref: '#/definitions/Metadata'
 
-  /tool-classes:
+  /toolClasses:
     get:
       summary: List all tool types
       description: >
@@ -310,6 +292,7 @@ paths:
 
 definitions:
   ToolClass:
+    type: object
     # thought. it would be nicer if ToolClasses are consistent across registries. How would we accomplish this? Operate a MIME-type like list?
     description: Describes a class (type) of tool allowing us to categorize workflows, tools, and maybe even other entities (such as services) separately
     properties:
@@ -323,13 +306,14 @@ definitions:
         type: string
         description: A longer explanation of what this class is and what it can accomplish
   Tool:
+    type: object
     description: A tool (or described tool) describes one pairing of a tool as described in a descriptor file (which potentially describes multiple tools) and a Docker image.
     required:
       - url
       - id
       - organization
       - author
-      - meta-version
+      - meta_version
       - toolclass
       - versions
     properties:
@@ -353,7 +337,7 @@ definitions:
       author:
         type: string
         description: Contact information for the author of this tool entry in the registry. (More complex authorship information is handled by the descriptor)
-      meta-version:
+      meta_version:
         type: string
         description: 'The version of this tool in the registry. Iterates when fields like the description, author, etc. are updated.'
       contains:
@@ -364,7 +348,7 @@ definitions:
       verified:
         type: boolean
         description: Reports whether this tool has been verified by a specific organization or individual
-      verified-source:
+      verified_source:
         type: string
         description: Source of metadata that can support a verified tool, such as an email or URL
       signed:
@@ -376,11 +360,12 @@ definitions:
         items:
           $ref: '#/definitions/ToolVersion'
   ToolVersion:
+    type: object
     description: A tool version describes a particular iteration of a tool as described by a reference to a specific image and dockerfile.
     required:
       - url
       - id
-      - meta-version
+      - meta_version
     properties:
       name:
         type: string
@@ -394,37 +379,37 @@ definitions:
       image:
         type: string
         description: The docker path to the image (and version) for this tool. (e.g. quay.io/seqware/seqware_full/1.1)
-      descriptor-type:
+      descriptor_type:
         type: array
         description: The type (or types) of descriptors available.
         items:
-          type: string
-          enum:
-            - CWL
-            - WDL
+          $ref: '#/definitions/DescriptorType'
       dockerfile:
         type: boolean
         description: Reports if this tool has a dockerfile available.
-      meta-version:
+      meta_version:
         type: string
         description: 'The version of this tool version in the registry. Iterates when fields like the description, author, etc. are updated.'
       verified:
         type: boolean
         description: Reports whether this tool has been verified by a specific organization or individual
-      verified-source:
+      verified_source:
         type: string
         description: Source of metadata that can support a verified tool, such as an email or URL
+  DescriptorType:
+    type: string
+    enum:
+      - CWL
+      - WDL
   ToolDescriptor:
+    type: object
     description: A tool descriptor is a metadata document that describes one or more tools.
     required:
       - type
       - descriptor
     properties:
       type:
-        type: string
-        enum:
-          - CWL
-          - WDL
+        $ref: '#/definitions/DescriptorType'
       descriptor:
         type: string
         description: The descriptor that represents this version of the tool. (CWL or WDL)
@@ -432,6 +417,7 @@ definitions:
         type: string
         description: 'Optional url to the tool descriptor used to build this image, should include version information, and can include a git hash (e.g. https://raw.githubusercontent.com/ICGC-TCGA-PanCancer/pcawg_delly_workflow/ea2a5db69bd20a42976838790bc29294df3af02b/delly_docker/Delly.cwl )'
   ToolTests:
+    type: object
     description: A tool document that describes how to test with one or more sample test JSON.
     required:
       - test
@@ -443,6 +429,7 @@ definitions:
         type: string
         description: 'Optional url to the test JSON used to test this tool'
   ToolDockerfile:
+    type: object
     description: A tool dockerfile is a document that describes how to build a particular Docker image.
     required:
       - dockerfile
@@ -454,25 +441,27 @@ definitions:
         type: string
         description: 'Optional url to the dockerfile used to build this image, should include version information, and can include a git hash  (e.g. https://raw.githubusercontent.com/ICGC-TCGA-PanCancer/pcawg_delly_workflow/c83478829802b4d36374870843821abe1b625a71/delly_docker/Dockerfile )'
   Metadata:
+    type: object
     description: Describes this registry to better allow for mirroring and indexing.
     required:
       - version
-      - api-version
+      - api_version
     properties:
       version:
         type: string
         description: The version of this registry
-      api-version:
+      api_version:
         type: string
         description: The version of the GA4GH tool-registry API supported by this registry
       country:
         type: string
         description: A country code for the registry (ISO 3166-1 alpha-3)
-      friendly-name:
+      friendly_name:
         type: string
         description: A friendly name that can be used in addition to the hostname to describe a registry
 
   Error:
+    type: object
     required:
      - code
     properties:
