@@ -452,9 +452,9 @@ definitions:
         description: The type (or types) of descriptors available.
         items:
           $ref: '#/definitions/DescriptorType'
-      dockerfile:
+      containerfile:
         type: boolean
-        description: Reports if this tool has a dockerfile available.
+        description: Reports if this tool has a containerfile available.
       meta_version:
         type: string
         description: >-
