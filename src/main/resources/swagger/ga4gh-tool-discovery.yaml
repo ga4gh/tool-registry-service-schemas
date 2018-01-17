@@ -2,8 +2,16 @@ swagger: '2.0'
 info:
   title: GA4GH Tool Discovery API
   description: >-
-    Proposed API for GA4GH tool repositories. A tool consists of a set of container images that are paired with a set of documents (examples include CWL or WDL) that describes how to use those images and a set of specifications for those images (examples are Dockerfiles or Singularity recipes) that describe how to re-produce those images in the future. We use the following terminology, an "container image" describes a container as stored at rest on a filesystem, a "tool" describes one of the triples as described above. In practice, examples of "tools" include CWL CommandLineTools, CWL Workflows, WDL workflows, and Nextflow workflows that reference containers in formats such as Docker or Singularity. 
-    
+    Proposed API for GA4GH (Global Alliance for Genomics & Health) tool repositories. A tool consists of a set of
+    container images that are paired with a set of documents (examples include
+    CWL (Common Workflow Language) or WDL (Workflow Description Language) or NFL (Nextflow)) that describe how to use those images and a set of
+    specifications for those images (examples are Dockerfiles or Singularity
+    recipes) that describe how to re-produce those images in the future. We use
+    the following terminology, a "container image" describes a container as
+    stored at rest on a filesystem, a "tool" describes one of the triples as
+    described above. In practice, examples of "tools" include CWL
+    CommandLineTools, CWL Workflows, WDL workflows, and Nextflow workflows that
+    reference containers in formats such as Docker or Singularity. 
   version: 2.0.0
 produces:
   - application/json
@@ -17,7 +25,8 @@ paths:
     get:
       summary: 'List one specific tool, acts as an anchor for self references'
       description: >-
-        This endpoint returns one specific tool (which has ToolVersions nested inside it)
+        This endpoint returns one specific tool (which has ToolVersions nested
+        inside it)
       tags:
         - GA4GH
       parameters:
@@ -33,6 +42,10 @@ paths:
           description: A tool.
           schema:
             $ref: '#/definitions/Tool'
+        '404':
+          description: The tool can not be found.
+          schema:
+            $ref: '#/definitions/Error'
   '/tools/{id}/versions':
     get:
       summary: List versions of a tool
@@ -80,6 +93,10 @@ paths:
           description: A tool version.
           schema:
             $ref: '#/definitions/ToolVersion'
+        '404':
+          description: The tool can not be found.
+          schema:
+            $ref: '#/definitions/Error'
   /tools:
     get:
       summary: List all tools
@@ -141,16 +158,23 @@ paths:
                 A URL that can be used to reach the last page based on the
                 current page record limit
               type: string
+            self_link:
+              description: >-
+                A URL that can be used to return to the current page later
+              type: string
             current_offset:
               description: The current start index of the paging used for this result
               type: string
             current_limit:
               description: The current page record limit used for this result
               type: integer
+            
   '/tools/{id}/versions/{version_id}/{type}/descriptor':
     get:
       summary: Get the tool descriptor for the specified tool.
-      description: Returns the descriptor for the specified tool (examples include WDL, CWL, or Nextflow documents).
+      description: >-
+        Returns the descriptor for the specified tool (examples include WDL,
+        CWL, or Nextflow documents).
       tags:
         - GA4GH
       parameters:
@@ -184,14 +208,20 @@ paths:
           schema:
             $ref: '#/definitions/ToolDescriptor'
         '404':
-          description: The tool can not be output in the specified type.
+          description: The tool descriptor can not be found.
           schema:
             $ref: '#/definitions/Error'
+  
   '/tools/{id}/versions/{version_id}/{type}/descriptor/{relative_path}':
     get:
       summary: Get additional tool descriptor files relative to the main file
       description: >-
-        Descriptors can often include imports that refer to additional descriptors. This returns additional descriptors for the specified tool in the same or other directories that can be reached as a relative path. This endpoint can be useful for workflow engine implementations like cwltool to programmatically download all the descriptors for a tool and run it
+        Descriptors can often include imports that refer to additional
+        descriptors. This returns additional descriptors for the specified tool
+        in the same or other directories that can be reached as a relative path.
+        This endpoint can be useful for workflow engine implementations like
+        cwltool to programmatically download all the descriptors for a tool and
+        run it
       tags:
         - GA4GH
       parameters:
@@ -208,7 +238,8 @@ paths:
         - name: id
           in: path
           description: >-
-            A unique identifier of the tool, scoped to this registry, for example `123456`
+            A unique identifier of the tool, scoped to this registry, for
+            example `123456`
           required: true
           type: string
         - name: version_id
@@ -216,7 +247,8 @@ paths:
           required: true
           type: string
           description: >-
-            An identifier of the tool version for this particular tool registry, for example `v1`
+            An identifier of the tool version for this particular tool registry,
+            for example `v1`
         - name: relative_path
           in: path
           required: true
@@ -224,8 +256,8 @@ paths:
           description: >-
             A relative path to the additional file (same directory or
             subdirectories), for example 'foo.cwl' would return a 'foo.cwl' from
-            the same directory as the main descriptor. 'nestedDirectory/foo.cwl' would return the file 
-            from a nested subdirectory
+            the same directory as the main descriptor. 'nestedDirectory/foo.cwl'
+            would return the file  from a nested subdirectory
       responses:
         '200':
           description: The tool descriptor.
@@ -237,7 +269,7 @@ paths:
             $ref: '#/definitions/Error'
   '/tools/{id}/versions/{version_id}/{type}/tests':
     get:
-      summary: Get an array of test JSONs suitable for use with this descriptor type.
+      summary: Get an array of test JSONs (these allow you to execute the tool successfully) suitable for use with this descriptor type.
       tags:
         - GA4GH
       parameters:
@@ -245,11 +277,10 @@ paths:
           required: true
           in: path
           description: >-
-            The output type of the descriptor. If not specified it is up to the
-            underlying implementation to determine which output type to return.
-            Plain types return the bare descriptor while the "non-plain" types
-            return a descriptor wrapped with metadata. Allowable values are
-            "CWL", "WDL", "NFL", "PLAIN_CWL", "PLAIN_WDL", and "PLAIN_NFL"
+            The type of the underlying descriptor. Allowable values include
+            "CWL", "WDL", "NFL", "PLAIN_CWL", "PLAIN_WDL", "PLAIN_NFL". For example,
+            "CWL" would return an array of ToolTests objects while "PLAIN_CWL" would
+            return a bare JSON array with the content of the tests. 
           type: string
         - name: id
           in: path
@@ -279,7 +310,11 @@ paths:
   '/tools/{id}/versions/{version_id}/containerfile':
     get:
       summary: Get the container specification(s) for the specified image.
-      description: Returns the container specifications(s) for the specified image. For example, a CWL CommandlineTool can be associated with one specification for a container, a CWL Workflow can be associated with multiple specifications for containers 
+      description: >-
+        Returns the container specifications(s) for the specified image. For
+        example, a CWL CommandlineTool can be associated with one specification
+        for a container, a CWL Workflow can be associated with multiple
+        specifications for containers
       tags:
         - GA4GH
       parameters:
@@ -352,8 +387,9 @@ definitions:
   Tool:
     type: object
     description: >-
-      A tool (or described tool) is defined as a tuple of a descriptor file (which potentially 
-      consists of multiple files), a set of container image, and a set of instructions for creating those images.
+      A tool (or described tool) is defined as a tuple of a descriptor file
+      (which potentially  consists of multiple files), a set of container image,
+      and a set of instructions for creating those images.
     required:
       - url
       - id
@@ -447,6 +483,14 @@ definitions:
         description: >-
           The docker path to the image (and version) for this tool. (e.g.
           quay.io/seqware/seqware_full/1.1)
+      registry_url:
+        type: string
+        description: >-
+          A URL to a Singularity registry is provided when a specific type of image does not use ids in the Docker format. Used along with image_name to locate a specific image.
+      image_name:
+        type: string
+        description: >-
+          Used in conjunction with a registry_url if provided to locate images
       descriptor_type:
         type: array
         description: The type (or types) of descriptors available.
@@ -491,7 +535,7 @@ definitions:
       url:
         type: string
         description: >-
-          Optional url to the tool descriptor used to build this image, should
+          Optional url to the underlying tool descriptor, should
           include version information, and can include a git hash (e.g.
           https://raw.githubusercontent.com/ICGC-TCGA-PanCancer/pcawg_delly_workflow/ea2a5db69bd20a42976838790bc29294df3af02b/delly_docker/Delly.cwl
           )
@@ -512,7 +556,9 @@ definitions:
   ToolContainerfile:
     type: object
     description: >-
-      A containerfile is a document that describes how to build a particular container image. Examples include Dockerfiles for creating Docker images and Singularity recipes for Singularity images
+      A containerfile is a document that describes how to build a particular
+      container image. Examples include Dockerfiles for creating Docker images
+      and Singularity recipes for Singularity images
     required:
       - containerfile
     properties:
@@ -522,8 +568,8 @@ definitions:
       url:
         type: string
         description: >-
-          Optional url to the file used to build this image, should
-          include version information, and can include a git hash  (e.g.
+          Optional url to the file used to build this image, should include
+          version information, and can include a git hash  (e.g.
           https://raw.githubusercontent.com/ICGC-TCGA-PanCancer/pcawg_delly_workflow/c83478829802b4d36374870843821abe1b625a71/delly_docker/Dockerfile
           )
   Metadata:
