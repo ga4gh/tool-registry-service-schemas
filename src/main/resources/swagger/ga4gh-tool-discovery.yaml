@@ -2,7 +2,7 @@ swagger: '2.0'
 info:
   title: GA4GH Tool Discovery API
   description: 'Proposed API for GA4GH tool repositories. A tool consists of a (currently Docker) image paired with a document that describes how to use that image (currently CWL or WDL) and a Dockerfile that describes how to re-produce the image in the future. We use the following terminology, an "image" describes a (Docker) container as stored on a filesystem, a "tool" describes one of the triples as described above, and a "container" should only be used to describe a running image'
-  version: "1.0.0"
+  version: "2.0.0"
 produces:
   - application/json
   - text/plain
@@ -235,6 +235,38 @@ paths:
           description: The tool can not be output in the specified type.
           schema:
             $ref: '#/definitions/Error'
+  /tools/{id}/versions/{version_id}/{type}/files:
+    get:
+      summary: Get an array of objects that contain the relative path and file type.  The descriptors are intended for use with the /tools/{id}/versions/{version_id}/{type}/descriptor/{relative_path} endpoint.
+      tags:
+        - GA4GH
+      parameters:
+        - name: type
+          required: true
+          in: path
+          description: The output type of the descriptor. Allowable values are "CWL" and "WDL".
+          type: string
+        - name: id
+          in: path
+          description: A unique identifier of the tool, scoped to this registry, for example `123456`
+          required: true
+          type: string
+        - name: version_id
+          in: path
+          required: true
+          type: string
+          description: An identifier of the tool version for this particular tool registry, for example `v1`
+      responses:
+        '200':
+          description: The array of File JSON responses.
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/ToolFile'
+        '404':
+          description: The tool can not be output in the specified type.
+          schema:
+            $ref: '#/definitions/Error'
 
   /tools/{id}/versions/{version_id}/dockerfile:
     get:
@@ -291,6 +323,20 @@ paths:
               $ref: '#/definitions/ToolClass'
 
 definitions:
+  ToolFile:
+    type: object
+    properties:
+      path: 
+        type: string 
+        description: Relative path of the file.  A descriptor's path can be used with the GA4GH .../{type}/descriptor/{relative_path} endpoint
+      file_type: 
+        type: string
+        enum:
+          - TEST_FILE
+          - PRIMARY_DESCRIPTOR
+          - SECONDARY_DESCRIPTOR
+          - DOCKERFILE
+          - OTHER
   ToolClass:
     type: object
     # thought. it would be nicer if ToolClasses are consistent across registries. How would we accomplish this? Operate a MIME-type like list?
@@ -398,6 +444,7 @@ definitions:
         description: Source of metadata that can support a verified tool, such as an email or URL
   DescriptorType:
     type: string
+    description: The type of descriptor that represents this version of the tool (CWL or WDL).
     enum:
       - CWL
       - WDL
@@ -406,16 +453,15 @@ definitions:
     description: A tool descriptor is a metadata document that describes one or more tools.
     required:
       - type
-      - descriptor
     properties:
       type:
         $ref: '#/definitions/DescriptorType'
       descriptor:
         type: string
-        description: The descriptor that represents this version of the tool. (CWL or WDL)
+        description: The descriptor content for this tool. One of url or descriptor is required.
       url:
         type: string
-        description: 'Optional url to the tool descriptor used to build this image, should include version information, and can include a git hash (e.g. https://raw.githubusercontent.com/ICGC-TCGA-PanCancer/pcawg_delly_workflow/ea2a5db69bd20a42976838790bc29294df3af02b/delly_docker/Delly.cwl )'
+        description: URL to the tool descriptor used to build this image, should include version information, and can include a git hash (e.g. https://raw.githubusercontent.com/ICGC-TCGA-PanCancer/pcawg_delly_workflow/ea2a5db69bd20a42976838790bc29294df3af02b/delly_docker/Delly.cwl ). One of url or descriptor is required.
   ToolTests:
     type: object
     description: A tool document that describes how to test with one or more sample test JSON.
@@ -431,15 +477,13 @@ definitions:
   ToolDockerfile:
     type: object
     description: A tool dockerfile is a document that describes how to build a particular Docker image.
-    required:
-      - dockerfile
     properties:
       dockerfile:
         type: string
-        description: The dockerfile content for this tool.
+        description: The dockerfile content for this tool. One of url or dockerfile is required.
       url:
         type: string
-        description: 'Optional url to the dockerfile used to build this image, should include version information, and can include a git hash  (e.g. https://raw.githubusercontent.com/ICGC-TCGA-PanCancer/pcawg_delly_workflow/c83478829802b4d36374870843821abe1b625a71/delly_docker/Dockerfile )'
+        description: Optional url to the dockerfile used to build this image, should include version information, and can include a git hash  (e.g. https://raw.githubusercontent.com/ICGC-TCGA-PanCancer/pcawg_delly_workflow/c83478829802b4d36374870843821abe1b625a71/delly_docker/Dockerfile ). One of url or dockerfile is required.
   Metadata:
     type: object
     description: Describes this registry to better allow for mirroring and indexing.
@@ -489,4 +533,6 @@ parameters:
 externalDocs:
   description: Description of GA4GH Tool Registry (Exchange) Schema
   url: 'https://github.com/ga4gh/tool-registry-schemas'
+
+
 
