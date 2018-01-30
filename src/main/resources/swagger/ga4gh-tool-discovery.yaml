@@ -2,16 +2,18 @@ swagger: '2.0'
 info:
   title: GA4GH Tool Discovery API
   description: >-
-    Proposed API for GA4GH (Global Alliance for Genomics & Health) tool repositories. A tool consists of a set of
-    container images that are paired with a set of documents (examples include
-    CWL (Common Workflow Language) or WDL (Workflow Description Language) or NFL (Nextflow)) that describe how to use those images and a set of
-    specifications for those images (examples are Dockerfiles or Singularity
-    recipes) that describe how to re-produce those images in the future. We use
-    the following terminology, a "container image" describes a container as
-    stored at rest on a filesystem, a "tool" describes one of the triples as
-    described above. In practice, examples of "tools" include CWL
-    CommandLineTools, CWL Workflows, WDL workflows, and Nextflow workflows that
-    reference containers in formats such as Docker or Singularity. 
+    Proposed API for GA4GH (Global Alliance for Genomics & Health) tool
+    repositories. A tool consists of a set of container images that are paired
+    with a set of documents (examples include CWL (Common Workflow Language) or
+    WDL (Workflow Description Language) or NFL (Nextflow)) that describe how to
+    use those images and a set of specifications for those images (examples are
+    Dockerfiles or Singularity recipes) that describe how to re-produce those
+    images in the future. We use the following terminology, a "container image"
+    describes a container as stored at rest on a filesystem, a "tool" describes
+    one of the triples as described above. In practice, examples of "tools"
+    include CWL CommandLineTools, CWL Workflows, WDL workflows, and Nextflow
+    workflows that reference containers in formats such as Docker or
+    Singularity. 
   version: 2.0.0
 produces:
   - application/json
@@ -159,8 +161,7 @@ paths:
                 current page record limit
               type: string
             self_link:
-              description: >-
-                A URL that can be used to return to the current page later
+              description: A URL that can be used to return to the current page later
               type: string
             current_offset:
               description: The current start index of the paging used for this result
@@ -168,7 +169,6 @@ paths:
             current_limit:
               description: The current page record limit used for this result
               type: integer
-            
   '/tools/{id}/versions/{version_id}/{type}/descriptor':
     get:
       summary: Get the tool descriptor for the specified tool.
@@ -211,7 +211,6 @@ paths:
           description: The tool descriptor can not be found.
           schema:
             $ref: '#/definitions/Error'
-  
   '/tools/{id}/versions/{version_id}/{type}/descriptor/{relative_path}':
     get:
       summary: Get additional tool descriptor files relative to the main file
@@ -269,7 +268,9 @@ paths:
             $ref: '#/definitions/Error'
   '/tools/{id}/versions/{version_id}/{type}/tests':
     get:
-      summary: Get an array of test JSONs (these allow you to execute the tool successfully) suitable for use with this descriptor type.
+      summary: >-
+        Get an array of test JSONs (these allow you to execute the tool
+        successfully) suitable for use with this descriptor type.
       tags:
         - GA4GH
       parameters:
@@ -278,9 +279,10 @@ paths:
           in: path
           description: >-
             The type of the underlying descriptor. Allowable values include
-            "CWL", "WDL", "NFL", "PLAIN_CWL", "PLAIN_WDL", "PLAIN_NFL". For example,
-            "CWL" would return an array of ToolTests objects while "PLAIN_CWL" would
-            return a bare JSON array with the content of the tests. 
+            "CWL", "WDL", "NFL", "PLAIN_CWL", "PLAIN_WDL", "PLAIN_NFL". For
+            example, "CWL" would return an array of ToolTests objects while
+            "PLAIN_CWL" would return a bare JSON array with the content of the
+            tests. 
           type: string
         - name: id
           in: path
@@ -307,27 +309,37 @@ paths:
           description: The tool can not be output in the specified type.
           schema:
             $ref: '#/definitions/Error'
-  /tools/{id}/versions/{version_id}/{type}/files:
+  '/tools/{id}/versions/{version_id}/{type}/files':
     get:
-      summary: Get an array of objects that contain the relative path and file type.  The descriptors are intended for use with the /tools/{id}/versions/{version_id}/{type}/descriptor/{relative_path} endpoint.
+      summary: >-
+        Get an array of objects that contain the relative path and file type. 
+        The descriptors are intended for use with the
+        /tools/{id}/versions/{version_id}/{type}/descriptor/{relative_path}
+        endpoint.
       tags:
         - GA4GH
       parameters:
         - name: type
           required: true
           in: path
-          description: The output type of the descriptor. Allowable values are "CWL" and "WDL".
+          description: >-
+            The output type of the descriptor. Examples of allowable values are "CWL",
+            "WDL", and "NextFlow."
           type: string
         - name: id
           in: path
-          description: A unique identifier of the tool, scoped to this registry, for example `123456`
+          description: >-
+            A unique identifier of the tool, scoped to this registry, for
+            example `123456`
           required: true
           type: string
         - name: version_id
           in: path
           required: true
           type: string
-          description: An identifier of the tool version for this particular tool registry, for example `v1`
+          description: >-
+            An identifier of the tool version for this particular tool registry,
+            for example `v1`
       responses:
         '200':
           description: The array of File JSON responses.
@@ -339,8 +351,7 @@ paths:
           description: The tool can not be output in the specified type.
           schema:
             $ref: '#/definitions/Error'
-
-  /tools/{id}/versions/{version_id}/containerfile:
+  '/tools/{id}/versions/{version_id}/containerfile':
     get:
       summary: Get the container specification(s) for the specified image.
       description: >-
@@ -405,16 +416,18 @@ definitions:
   ToolFile:
     type: object
     properties:
-      path: 
-        type: string 
-        description: Relative path of the file.  A descriptor's path can be used with the GA4GH .../{type}/descriptor/{relative_path} endpoint
-      file_type: 
+      path:
+        type: string
+        description: >-
+          Relative path of the file.  A descriptor's path can be used with the
+          GA4GH .../{type}/descriptor/{relative_path} endpoint
+      file_type:
         type: string
         enum:
           - TEST_FILE
           - PRIMARY_DESCRIPTOR
           - SECONDARY_DESCRIPTOR
-          - DOCKERFILE
+          - CONTAINERFILE
           - OTHER
   ToolClass:
     type: object
@@ -533,11 +546,12 @@ definitions:
       registry_url:
         type: string
         description: >-
-          A URL to a Singularity registry is provided when a specific type of image does not use ids in the Docker format. Used along with image_name to locate a specific image.
+          A URL to a Singularity registry is provided when a specific type of
+          image does not use ids in the Docker format. Used along with
+          image_name to locate a specific image.
       image_name:
         type: string
-        description: >-
-          Used in conjunction with a registry_url if provided to locate images
+        description: Used in conjunction with a registry_url if provided to locate images
       descriptor_type:
         type: array
         description: The type (or types) of descriptors available.
@@ -563,7 +577,9 @@ definitions:
           or URL
   DescriptorType:
     type: string
-    description: The type of descriptor that represents this version of the tool (CWL or WDL).
+    description: >-
+      The type of descriptor that represents this version of the tool (CWL or
+      WDL).
     enum:
       - CWL
       - WDL
@@ -582,8 +598,8 @@ definitions:
       url:
         type: string
         description: >-
-          Optional url to the underlying tool descriptor, should
-          include version information, and can include a git hash (e.g.
+          Optional url to the underlying tool descriptor, should include version
+          information, and can include a git hash (e.g.
           https://raw.githubusercontent.com/ICGC-TCGA-PanCancer/pcawg_delly_workflow/ea2a5db69bd20a42976838790bc29294df3af02b/delly_docker/Delly.cwl
           )
   ToolTests:
