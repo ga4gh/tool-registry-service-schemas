@@ -307,7 +307,40 @@ paths:
           description: The tool can not be output in the specified type.
           schema:
             $ref: '#/definitions/Error'
-  '/tools/{id}/versions/{version_id}/containerfile':
+  /tools/{id}/versions/{version_id}/{type}/files:
+    get:
+      summary: Get an array of objects that contain the relative path and file type.  The descriptors are intended for use with the /tools/{id}/versions/{version_id}/{type}/descriptor/{relative_path} endpoint.
+      tags:
+        - GA4GH
+      parameters:
+        - name: type
+          required: true
+          in: path
+          description: The output type of the descriptor. Allowable values are "CWL" and "WDL".
+          type: string
+        - name: id
+          in: path
+          description: A unique identifier of the tool, scoped to this registry, for example `123456`
+          required: true
+          type: string
+        - name: version_id
+          in: path
+          required: true
+          type: string
+          description: An identifier of the tool version for this particular tool registry, for example `v1`
+      responses:
+        '200':
+          description: The array of File JSON responses.
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/ToolFile'
+        '404':
+          description: The tool can not be output in the specified type.
+          schema:
+            $ref: '#/definitions/Error'
+
+  /tools/{id}/versions/{version_id}/containerfile:
     get:
       summary: Get the container specification(s) for the specified image.
       description: >-
@@ -369,6 +402,20 @@ paths:
             items:
               $ref: '#/definitions/ToolClass'
 definitions:
+  ToolFile:
+    type: object
+    properties:
+      path: 
+        type: string 
+        description: Relative path of the file.  A descriptor's path can be used with the GA4GH .../{type}/descriptor/{relative_path} endpoint
+      file_type: 
+        type: string
+        enum:
+          - TEST_FILE
+          - PRIMARY_DESCRIPTOR
+          - SECONDARY_DESCRIPTOR
+          - DOCKERFILE
+          - OTHER
   ToolClass:
     type: object
     description: >-
@@ -516,6 +563,7 @@ definitions:
           or URL
   DescriptorType:
     type: string
+    description: The type of descriptor that represents this version of the tool (CWL or WDL).
     enum:
       - CWL
       - WDL
@@ -525,7 +573,6 @@ definitions:
     description: A tool descriptor is a metadata document that describes one or more tools.
     required:
       - type
-      - descriptor
     properties:
       type:
         $ref: '#/definitions/DescriptorType'
