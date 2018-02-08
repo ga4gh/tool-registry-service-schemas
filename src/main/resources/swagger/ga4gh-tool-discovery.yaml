@@ -448,7 +448,7 @@ definitions:
     type: object
     description: >-
       A tool (or described tool) is defined as a tuple of a descriptor file
-      (which potentially  consists of multiple files), a set of container image,
+      (which potentially consists of multiple files), a set of container images,
       and a set of instructions for creating those images.
     required:
       - url
@@ -578,8 +578,8 @@ definitions:
   DescriptorType:
     type: string
     description: >-
-      The type of descriptor that represents this version of the tool (CWL or
-      WDL).
+      The type of descriptor that represents this version of the tool (e.g. CWL,
+      WDL, or NFL).
     enum:
       - CWL
       - WDL
