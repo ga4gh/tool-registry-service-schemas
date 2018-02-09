@@ -1,4 +1,4 @@
-![ga4gh logo](http://genomicsandhealth.org/files/logo_ga.png)
+![ga4gh logo](https://github.com/dockstore/dockstore-ui2/raw/develop/src/assets/images/sponsors/coloured/ga4gh.png)
 
 Schemas for the GA4GH Tool Registry API
 =======================================
