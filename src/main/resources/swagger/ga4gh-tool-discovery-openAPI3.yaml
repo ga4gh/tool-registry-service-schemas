@@ -17,6 +17,7 @@ info:
     workflows that reference containers in formats such as Docker or
     Singularity. 
   version: 2.0.0
+  termsOfService: https://example.com/terms/
 tags:
   - name: GA4GH
     description: A set of resources proposed as a common standard for tool repositories
