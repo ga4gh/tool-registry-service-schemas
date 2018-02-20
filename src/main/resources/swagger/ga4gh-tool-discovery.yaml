@@ -4,16 +4,16 @@ info:
   description: >-
     Proposed API for GA4GH (Global Alliance for Genomics & Health) tool
     repositories. A tool consists of a set of container images that are paired
-    with a set of documents (examples include CWL (Common Workflow Language) or
-    WDL (Workflow Description Language) or NFL (Nextflow)) that describe how to
-    use those images and a set of specifications for those images (examples are
-    Dockerfiles or Singularity recipes) that describe how to re-produce those
-    images in the future. We use the following terminology, a "container image"
-    describes a container as stored at rest on a filesystem, a "tool" describes
-    one of the triples as described above. In practice, examples of "tools"
-    include CWL CommandLineTools, CWL Workflows, WDL workflows, and Nextflow
-    workflows that reference containers in formats such as Docker or
-    Singularity. 
+    with a set of documents. Examples of documents include CWL (Common Workflow
+    Language) or WDL (Workflow Description Language) or NFL (Nextflow) that
+    describe how to use those images and a set of specifications for those
+    images (examples are Dockerfiles or Singularity recipes) that describe how
+    to reproduce those images in the future. We use the following terminology, a
+    "container image" describes a container as stored at rest on a filesystem, a
+    "tool" describes one of the triples as described above. In practice,
+    examples of "tools" include CWL CommandLineTools, CWL Workflows, WDL
+    workflows, and Nextflow workflows that reference containers in formats such
+    as Docker or Singularity. 
   version: 2.0.0
 produces:
   - application/json
@@ -171,10 +171,10 @@ paths:
               type: integer
   '/tools/{id}/versions/{version_id}/{type}/descriptor':
     get:
-      summary: Get the tool descriptor for the specified tool.
+      summary: Get the tool descriptor for the specified tool
       description: >-
-        Returns the descriptor for the specified tool (examples include WDL,
-        CWL, or Nextflow documents).
+        Returns the descriptor for the specified tool (examples include CWL,
+        WDL, or Nextflow documents).
       tags:
         - GA4GH
       parameters:
@@ -182,7 +182,7 @@ paths:
           required: true
           in: path
           description: >-
-            The output type of the descriptor. If not specified it is up to the
+            The output type of the descriptor. If not specified, it is up to the
             underlying implementation to determine which output type to return.
             Plain types return the bare descriptor while the "non-plain" types
             return a descriptor wrapped with metadata. Allowable values include
@@ -200,8 +200,8 @@ paths:
           required: true
           type: string
           description: >-
-            An identifier of the tool version for this particular tool registry,
-            for example `v1`
+            An identifier of the tool version, scoped to this registry, for
+            example `v1`
       responses:
         '200':
           description: The tool descriptor.
@@ -228,7 +228,7 @@ paths:
           in: path
           required: true
           description: >-
-            The output type of the descriptor. If not specified it is up to the
+            The output type of the descriptor. If not specified, it is up to the
             underlying implementation to determine which output type to return.
             Plain types return the bare descriptor while the "non-plain" types
             return a descriptor wrapped with metadata. Allowable values are
@@ -268,8 +268,9 @@ paths:
             $ref: '#/definitions/Error'
   '/tools/{id}/versions/{version_id}/{type}/tests':
     get:
-      summary: >-
-        Get an array of test JSONs (these allow you to execute the tool
+      summary: Get a list of test JSONs
+      description: >-
+        Get a list of test JSONs (these allow you to execute the tool
         successfully) suitable for use with this descriptor type.
       tags:
         - GA4GH
@@ -280,8 +281,8 @@ paths:
           description: >-
             The type of the underlying descriptor. Allowable values include
             "CWL", "WDL", "NFL", "PLAIN_CWL", "PLAIN_WDL", "PLAIN_NFL". For
-            example, "CWL" would return an array of ToolTests objects while
-            "PLAIN_CWL" would return a bare JSON array with the content of the
+            example, "CWL" would return an list of ToolTests objects while
+            "PLAIN_CWL" would return a bare JSON list with the content of the
             tests. 
           type: string
         - name: id
@@ -311,9 +312,10 @@ paths:
             $ref: '#/definitions/Error'
   '/tools/{id}/versions/{version_id}/{type}/files':
     get:
-      summary: >-
-        Get an array of objects that contain the relative path and file type. 
-        The descriptors are intended for use with the
+      summary: Get a list of objects that contain the relative path and file type
+      description: >-
+        Get a list of objects that contain the relative path and file type. The
+        descriptors are intended for use with the
         /tools/{id}/versions/{version_id}/{type}/descriptor/{relative_path}
         endpoint.
       tags:
@@ -323,8 +325,8 @@ paths:
           required: true
           in: path
           description: >-
-            The output type of the descriptor. Examples of allowable values are "CWL",
-            "WDL", and "NextFlow."
+            The output type of the descriptor. Examples of allowable values are
+            "CWL", "WDL", and "NextFlow."
           type: string
         - name: id
           in: path
@@ -461,14 +463,12 @@ definitions:
     properties:
       url:
         type: string
-        description: >-
-          The URL for this tool in this registry, for example
-          `http://agora.broadinstitute.org/tools/123456`
+        example: 'http://agora.broadinstitute.org/tools/123456'
+        description: The URL for this tool in this registry
       id:
         type: string
-        description: >-
-          A unique identifier of the tool, scoped to this registry, for example
-          `123456` or `123456_v1`
+        example: 123456
+        description: 'A unique identifier of the tool, scoped to this registry'
       organization:
         type: string
         description: The organization that published the image.
@@ -491,9 +491,8 @@ definitions:
           The version of this tool in the registry. Iterates when fields like
           the description, author, etc. are updated.
       contains:
-        description: >-
-          An array of IDs for the applications that are stored inside this tool
-          (for example `https://bio.tools/tool/mytum.de/SNAP2/1`)
+        description: An array of IDs for the applications that are stored inside this tool
+        example: 'https://bio.tools/tool/mytum.de/SNAP2/1'
         type: array
         items:
           type: string
@@ -530,19 +529,18 @@ definitions:
         description: The name of the version.
       url:
         type: string
-        description: >-
-          The URL for this tool in this registry, for example
-          `http://agora.broadinstitute.org/tools/123456/1`
+        description: The URL for this tool in this registry
+        example: 'http://agora.broadinstitute.org/tools/123456/1'
       id:
         type: string
         description: >-
           An identifier of the version of this tool for this particular tool
-          registry, for example `v1`
+          registry
+        example: v1
       image:
         type: string
-        description: >-
-          The docker path to the image (and version) for this tool. (e.g.
-          quay.io/seqware/seqware_full/1.1)
+        description: The docker path to the image (and version) for this tool
+        example: quay.io/seqware/seqware_full/1.1
       registry_url:
         type: string
         description: >-
@@ -599,9 +597,9 @@ definitions:
         type: string
         description: >-
           Optional url to the underlying tool descriptor, should include version
-          information, and can include a git hash (e.g.
+          information, and can include a git hash
+        example: >-
           https://raw.githubusercontent.com/ICGC-TCGA-PanCancer/pcawg_delly_workflow/ea2a5db69bd20a42976838790bc29294df3af02b/delly_docker/Delly.cwl
-          )
   ToolTests:
     type: object
     description: >-
@@ -610,13 +608,20 @@ definitions:
     properties:
       test:
         type: string
-        description: Optional test JSON content for this tool. (Note that one of test and URL are required)
+        description: >-
+          Optional test JSON content for this tool. (Note that one of test and
+          URL are required)
       url:
         type: string
-        description: Optional url to the test JSON used to test this tool. Note that this URL should resolve to the raw unwrapped content that would otherwise be available in test.
-      test-tool-url:
+        description: >-
+          Optional url to the test JSON used to test this tool. Note that this
+          URL should resolve to the raw unwrapped content that would otherwise
+          be available in test.
+      test_tool_url:
         type: string
-        description: Optional url to the test workflow that will exit successfully if this workflow produced the expected result given this test data. 
+        description: >-
+          Optional url to the test workflow that will exit successfully if this
+          workflow produced the expected result given this test data.
   ToolContainerfile:
     type: object
     description: >-
@@ -633,9 +638,9 @@ definitions:
         type: string
         description: >-
           Optional url to the file used to build this image, should include
-          version information, and can include a git hash  (e.g.
+          version information, and can include a git hash
+        example: >-
           https://raw.githubusercontent.com/ICGC-TCGA-PanCancer/pcawg_delly_workflow/c83478829802b4d36374870843821abe1b625a71/delly_docker/Dockerfile
-          )
   Metadata:
     type: object
     description: Describes this registry to better allow for mirroring and indexing.
@@ -673,7 +678,8 @@ parameters:
   limit:
     name: limit
     in: query
-    description: Amount of records to return in a given page.  By default it is 1000.
+    description: Amount of records to return in a given page.
+    default: 1000
     type: integer
     format: int32
   offset:
@@ -683,8 +689,9 @@ parameters:
       Start index of paging. Pagination results can be based on numbers or other
       values chosen by the registry implementor (for example, SHA values). If
       this exceeds the current result set return an empty set.  If not specified
-      in the request this will start at the beginning of the results.
+      in the request, this will start at the beginning of the results.
     type: string
 externalDocs:
   description: Description of GA4GH Tool Registry (Exchange) Schema
   url: 'https://github.com/ga4gh/tool-registry-schemas'
+
