@@ -26,6 +26,7 @@ paths:
   '/tools/{id}':
     get:
       summary: 'List one specific tool, acts as an anchor for self references'
+      operationId: toolsIdGet
       description: >-
         This endpoint returns one specific tool (which has ToolVersions nested
         inside it)
@@ -51,6 +52,7 @@ paths:
   '/tools/{id}/versions':
     get:
       summary: List versions of a tool
+      operationId: toolsIdVersionsGet
       description: Returns all versions of the specified tool
       tags:
         - GA4GH
@@ -72,6 +74,7 @@ paths:
   '/tools/{id}/versions/{version_id}':
     get:
       summary: 'List one specific tool version, acts as an anchor for self references'
+      operationId: toolsIdVersionsVersionIdGet
       description: This endpoint returns one specific tool version
       tags:
         - GA4GH
@@ -102,6 +105,7 @@ paths:
   /tools:
     get:
       summary: List all tools
+      operationId: toolsGet
       description: >
         This endpoint returns all tools available or a filtered subset using
         metadata query parameters.
@@ -172,6 +176,7 @@ paths:
   '/tools/{id}/versions/{version_id}/{type}/descriptor':
     get:
       summary: Get the tool descriptor for the specified tool
+      operationId: toolsIdVersionsVersionIdTypeDescriptorGet
       description: >-
         Returns the descriptor for the specified tool (examples include CWL,
         WDL, or Nextflow documents).
@@ -214,6 +219,7 @@ paths:
   '/tools/{id}/versions/{version_id}/{type}/descriptor/{relative_path}':
     get:
       summary: Get additional tool descriptor files relative to the main file
+      operationId: toolsIdVersionsVersionIdTypeDescriptorRelativePathGet
       description: >-
         Descriptors can often include imports that refer to additional
         descriptors. This returns additional descriptors for the specified tool
@@ -269,6 +275,7 @@ paths:
   '/tools/{id}/versions/{version_id}/{type}/tests':
     get:
       summary: Get a list of test JSONs
+      operationId: toolsIdVersionsVersionIdTypeTestsGet
       description: >-
         Get a list of test JSONs (these allow you to execute the tool
         successfully) suitable for use with this descriptor type.
@@ -318,6 +325,7 @@ paths:
         descriptors are intended for use with the
         /tools/{id}/versions/{version_id}/{type}/descriptor/{relative_path}
         endpoint.
+      operationId: toolsIdVersionsVersionIdTypeFilesGet
       tags:
         - GA4GH
       parameters:
@@ -356,6 +364,7 @@ paths:
   '/tools/{id}/versions/{version_id}/containerfile':
     get:
       summary: Get the container specification(s) for the specified image.
+      operationId: toolsIdVersionsVersionIdContainerfileGet
       description: >-
         Returns the container specifications(s) for the specified image. For
         example, a CWL CommandlineTool can be associated with one specification
@@ -392,6 +401,7 @@ paths:
   /metadata:
     get:
       summary: Return some metadata that is useful for describing this registry
+      operationId: metadataGet
       description: Return some metadata that is useful for describing this registry
       tags:
         - GA4GH
@@ -403,6 +413,7 @@ paths:
   /toolClasses:
     get:
       summary: List all tool types
+      operationId: toolClassesGet
       description: |
         This endpoint returns all tool-classes available
       tags:
@@ -694,4 +705,3 @@ parameters:
 externalDocs:
   description: Description of GA4GH Tool Registry (Exchange) Schema
   url: 'https://github.com/ga4gh/tool-registry-schemas'
-
