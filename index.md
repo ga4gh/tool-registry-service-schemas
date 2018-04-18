@@ -2,7 +2,7 @@
 layout: page
 title: Tool Registry Service Validator
 ---
-This tool registry validator checks tool registry service URLs to determine if it conforms to the [ga4gh-tool-discovery.yaml](https://github.com/ga4gh/tool-registry-schemas/blob/feature/trsv_changes/src/main/resources/swagger/ga4gh-tool-discovery.yaml) swagger specification.  For each endpoint, the validator checks if:
+This tool registry validator checks tool registry service URLs to determine if it conforms to the [ga4gh-tool-discovery.yaml](https://raw.githubusercontent.com/ga4gh/tool-registry-service-schemas/2.0.0-beta.1/src/main/resources/swagger/ga4gh-tool-discovery.yaml) swagger specification.  For each endpoint, the validator checks if:
 - the endpoint is reachable
 - the header info (such as content-type) is available and correct
 - the response objects contain all required properties
