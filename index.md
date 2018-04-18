@@ -22,18 +22,19 @@ See [environment]({{site.validation-server-url}}/environment) of the validation 
 ### Tool Registry Service Validation Status
 Below is a list of tool registry services and its validation status:
 
-Dockstore Snapshot 1.4.0-alpha [![Validator Running]({{site.validation-server-url}}/trs/validator?url=http://142.1.177.94:8080)]({{site.validation-server-url}}/trs/validator/debug?url=http://142.1.177.94:8080) 
+Dockstore Staging [![Validator Running]({{site.validation-server-url}}/trs/validator?url=https://staging.dockstore.org:8443)]({{site.validation-server-url}}/trs/validator/debug?url=https://staging.dockstore.org:8443) 
 
 Dockstore [![Validator Running]({{site.validation-server-url}}/trs/validator?url=https://dockstore.org:8443)]({{site.validation-server-url}}/trs/validator/debug?url=https://dockstore.org:8443) 
 
-{placeholder_name} | [![Validator Running]({{site.validation-server-url}}/trs/validator?url={placeholder_url})]({{site.validation-server-url}}/trs/validator/debug?url={placeholder_url})      
 
 ---
 ### Validator Info
 
 #### Instructions to add your tool registry service to this validator
 
-Make another entry by copying the placeholder line above and simply changing {placeholder_name} to your service name and {placeholder_url} to your service's URL
+Make another entry by copying the placeholder line below and simply changing {placeholder_name} to your service name and {placeholder_url} to your service's URL and then adding it to the above "Tool Registry Service Validation Status" section.
+
+{placeholder_name} [![Validator Running]({{site.validation-server-url}}/trs/validator?url={placeholder_url})]({{site.validation-server-url}}/trs/validator/debug?url={placeholder_url})
 
 #### Description of badges
 
