@@ -22,6 +22,10 @@ production_url : https://ga4gh.github.io/tool-registry-service-schemas/
 # Tell Github to use the kramdown markdown interpreter
 # (see https://help.github.com/articles/migrating-your-pages-site-from-maruku)
 markdown: kramdown
+
+sass:
+    style: compressed
+theme: minima
 validation-server-url: http://142.1.177.188:8080
 # All Jekyll-Bootstrap specific configurations are namespaced into this hash
 #
