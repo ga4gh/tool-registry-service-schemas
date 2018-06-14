@@ -262,7 +262,9 @@ paths:
             A relative path to the additional file (same directory or
             subdirectories), for example 'foo.cwl' would return a 'foo.cwl' from
             the same directory as the main descriptor. 'nestedDirectory/foo.cwl'
-            would return the file  from a nested subdirectory
+            would return the file  from a nested subdirectory.  Unencoded paths
+            such 'sampleDirectory/foo.cwl' should also be allowed
+          pattern: .+
       responses:
         '200':
           description: The tool descriptor.
