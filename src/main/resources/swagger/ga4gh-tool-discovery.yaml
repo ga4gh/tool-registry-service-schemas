@@ -144,6 +144,10 @@ paths:
           description: >-
             The author of the tool (TODO a thought occurs, are we assuming that
             the author of the CWL and the image are the same?).
+        - name: checker
+          in: query
+          type: boolean
+          description: Return only checker workflows
         - $ref: '#/parameters/offset'
         - $ref: '#/parameters/limit'
       responses:
