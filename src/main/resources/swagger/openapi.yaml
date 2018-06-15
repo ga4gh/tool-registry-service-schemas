@@ -632,7 +632,6 @@ components:
         - id
         - organization
         - author
-        - meta_version
         - toolclass
         - versions
       properties:
@@ -708,7 +707,6 @@ components:
       required:
         - url
         - id
-        - meta_version
       properties:
         name:
           type: string
