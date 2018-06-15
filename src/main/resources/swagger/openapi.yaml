@@ -178,6 +178,11 @@ paths:
             the author of the CWL and the image are the same?).
           schema:
             type: string
+        - name: checker
+          in: query
+          description: Return only checker workflows
+          schema:
+            type: boolean
         - $ref: '#/components/parameters/offset'
         - $ref: '#/components/parameters/limit'
       responses:
