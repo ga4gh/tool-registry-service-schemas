@@ -474,7 +474,6 @@ definitions:
       - id
       - organization
       - author
-      - meta_version
       - toolclass
       - versions
     properties:
@@ -548,7 +547,6 @@ definitions:
     required:
       - url
       - id
-      - meta_version
     properties:
       name:
         type: string
