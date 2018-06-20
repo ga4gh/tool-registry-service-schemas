@@ -146,6 +146,13 @@ paths:
             example `123456`
           schema:
             type: string
+        - name: alias
+          in: query
+          description: |-
+            OPTIONAL for tool registries that support aliases
+            If provided will only return Data Objects with the given alias.
+          schema:
+            type: string
         - name: registry
           in: query
           description: The image registry that contains the image.
@@ -643,6 +650,19 @@ components:
           type: string
           example: 123456
           description: 'A unique identifier of the tool, scoped to this registry'
+        aliases:
+          type: array
+          items:
+            type: string
+          description: >-
+            OPTIONAL
+
+            A list of strings that can be used to identify this tool.
+
+            This can be used to expose alternative ids (such as GUIDs) for a
+            tool
+
+            for registries. Can be used to match tools across registries.
         organization:
           type: string
           description: The organization that published the image.
