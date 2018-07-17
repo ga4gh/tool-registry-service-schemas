@@ -118,6 +118,12 @@ paths:
           description: >-
             A unique identifier of the tool, scoped to this registry, for
             example `123456`
+        - name: alias
+          type: string
+          in: query
+          description: |-
+            OPTIONAL for tool registries that support aliases
+            If provided will only return Data Objects with the given alias.
         - name: registry
           in: query
           type: string
@@ -144,6 +150,10 @@ paths:
           description: >-
             The author of the tool (TODO a thought occurs, are we assuming that
             the author of the CWL and the image are the same?).
+        - name: checker
+          in: query
+          type: boolean
+          description: Return only checker workflows
         - $ref: '#/parameters/offset'
         - $ref: '#/parameters/limit'
       responses:
@@ -470,7 +480,6 @@ definitions:
       - id
       - organization
       - author
-      - meta_version
       - toolclass
       - versions
     properties:
@@ -482,6 +491,15 @@ definitions:
         type: string
         example: 123456
         description: 'A unique identifier of the tool, scoped to this registry'
+      aliases:
+        type: array
+        items:
+          type: string
+        description: |-
+          OPTIONAL
+          A list of strings that can be used to identify this tool.
+          This can be used to expose alternative ids (such as GUIDs) for a tool
+          for registries. Can be used to match tools across registries.
       organization:
         type: string
         description: The organization that published the image.
@@ -544,7 +562,6 @@ definitions:
     required:
       - url
       - id
-      - meta_version
     properties:
       name:
         type: string
