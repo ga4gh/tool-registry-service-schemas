@@ -629,7 +629,7 @@ definitions:
     properties:
       type:
         $ref: '#/definitions/DescriptorType'
-      descriptor:
+      content:
         type: string
         description: The descriptor that represents this version of the tool.
       url:
@@ -645,7 +645,7 @@ definitions:
       A tool document that describes how to test with one or more sample test
       JSON.
     properties:
-      test:
+      content:
         type: string
         description: >-
           Optional test JSON content for this tool. (Note that one of test and
@@ -665,7 +665,7 @@ definitions:
     required:
       - containerfile
     properties:
-      containerfile:
+      content:
         type: string
         description: The container specification for this tool.
       url:
