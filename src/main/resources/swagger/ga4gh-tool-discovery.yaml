@@ -616,7 +616,8 @@ definitions:
     type: string
     description: >-
       The type of descriptor that represents this version of the tool (e.g. CWL,
-      WDL, or NFL).
+      WDL, or NFL). Note that these files can also include associated Docker/container files 
+      and test parameters that further describe a version of a tool
     enum:
       - CWL
       - WDL
@@ -629,7 +630,7 @@ definitions:
     properties:
       type:
         $ref: '#/definitions/DescriptorType'
-      descriptor:
+      content:
         type: string
         description: The descriptor that represents this version of the tool.
       url:
@@ -645,7 +646,9 @@ definitions:
       A tool document that describes how to test with one or more sample test
       JSON.
     properties:
-      test:
+      type:
+        $ref: '#/definitions/DescriptorType'
+      content:
         type: string
         description: >-
           Optional test JSON content for this tool. (Note that one of test and
@@ -665,7 +668,9 @@ definitions:
     required:
       - containerfile
     properties:
-      containerfile:
+      type:
+        $ref: '#/definitions/DescriptorType'
+      content:
         type: string
         description: The container specification for this tool.
       url:
