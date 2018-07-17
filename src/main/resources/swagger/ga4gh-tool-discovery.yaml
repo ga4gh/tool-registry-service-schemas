@@ -630,7 +630,7 @@ definitions:
     properties:
       type:
         $ref: '#/definitions/DescriptorType'
-      descriptor:
+      content:
         type: string
         description: The descriptor that represents this version of the tool.
       url:
