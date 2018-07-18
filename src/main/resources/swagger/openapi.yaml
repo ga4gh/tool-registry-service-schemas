@@ -274,10 +274,10 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/File'
+                $ref: '#/components/schemas/FileWrapper'
             text/plain:
               schema:
-                $ref: '#/components/schemas/File'
+                $ref: '#/components/schemas/FileWrapper'
         '404':
           description: The tool descriptor can not be found.
           content:
@@ -346,10 +346,10 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/File'
+                $ref: '#/components/schemas/FileWrapper'
             text/plain:
               schema:
-                $ref: '#/components/schemas/File'
+                $ref: '#/components/schemas/FileWrapper'
         '404':
           description: The tool can not be output in the specified type.
           content:
@@ -404,12 +404,12 @@ paths:
               schema:
                 type: array
                 items:
-                  $ref: '#/components/schemas/File'
+                  $ref: '#/components/schemas/FileWrapper'
             text/plain:
               schema:
                 type: array
                 items:
-                  $ref: '#/components/schemas/File'
+                  $ref: '#/components/schemas/FileWrapper'
         '404':
           description: The tool can not be output in the specified type.
           content:
@@ -514,12 +514,12 @@ paths:
               schema:
                 type: array
                 items:
-                  $ref: '#/components/schemas/File'
+                  $ref: '#/components/schemas/FileWrapper'
             text/plain:
               schema:
                 type: array
                 items:
-                  $ref: '#/components/schemas/File'
+                  $ref: '#/components/schemas/FileWrapper'
         '404':
           description: There are no container specifications for this tool
           content:
@@ -788,7 +788,7 @@ components:
         - CWL
         - WDL
         - NFL
-    File:
+    FileWrapper:
       type: object
       description: >-
         A file provides content for one of; - A tool descriptor is a metadata
