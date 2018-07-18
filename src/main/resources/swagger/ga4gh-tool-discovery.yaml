@@ -221,7 +221,7 @@ paths:
         '200':
           description: The tool descriptor.
           schema:
-            $ref: '#/definitions/File'
+            $ref: '#/definitions/FileWrapper'
         '404':
           description: The tool descriptor can not be found.
           schema:
@@ -279,7 +279,7 @@ paths:
         '200':
           description: The tool descriptor.
           schema:
-            $ref: '#/definitions/File'
+            $ref: '#/definitions/FileWrapper'
         '404':
           description: The tool can not be output in the specified type.
           schema:
@@ -324,7 +324,7 @@ paths:
           schema:
             type: array
             items:
-              $ref: '#/definitions/File'
+              $ref: '#/definitions/FileWrapper'
         '404':
           description: The tool can not be output in the specified type.
           schema:
@@ -405,7 +405,7 @@ paths:
           schema:
             type: array
             items:
-              $ref: '#/definitions/File'
+              $ref: '#/definitions/FileWrapper'
         '404':
           description: There are no container specifications for this tool
           schema:
@@ -622,7 +622,7 @@ definitions:
       - CWL
       - WDL
       - NFL
-  File:
+  FileWrapper:
     type: object
     description: A file provides content for one of; 
       - A tool descriptor is a metadata document that describes one or more tools.
@@ -636,7 +636,7 @@ definitions:
     properties:
       type:
         $ref: '#/definitions/DescriptorType'
-      descriptor:
+      content:
         type: string
         description: The content of the file itself.
       url:
