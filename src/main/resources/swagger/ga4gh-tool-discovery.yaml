@@ -123,7 +123,7 @@ paths:
           in: query
           description: |-
             OPTIONAL for tool registries that support aliases
-            If provided will only return Data Objects with the given alias.
+            If provided will only return entries with the given alias.
         - name: registry
           in: query
           type: string
