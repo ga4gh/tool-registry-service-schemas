@@ -802,7 +802,7 @@ components:
       properties:
         type:
           $ref: '#/components/schemas/DescriptorType'
-        descriptor:
+        content:
           type: string
           description: >-
             The content of the file itself. One of url or descriptor is
