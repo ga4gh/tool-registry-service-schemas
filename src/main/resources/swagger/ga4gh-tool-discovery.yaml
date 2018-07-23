@@ -636,7 +636,7 @@ definitions:
     properties:
       type:
         $ref: '#/definitions/DescriptorType'
-      descriptor:
+      content:
         type: string
         description: The content of the file itself. One of url or descriptor is required.
       url:
