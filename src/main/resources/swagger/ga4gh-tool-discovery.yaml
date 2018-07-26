@@ -495,6 +495,7 @@ definitions:
         type: array
         items:
           type: string
+          example: ['630d31c3-381e-488d-b639-ce5d047a0142','dockstore.org:630d31c3-381e-488d-b639-ce5d047a0142','bio.tools:630d31c3-381e-488d-b639-ce5d047a0142']
         description: |-
           OPTIONAL
           A list of strings that can be used to identify this tool.
@@ -638,7 +639,7 @@ definitions:
         $ref: '#/definitions/DescriptorType'
       content:
         type: string
-        description: The content of the file itself. One of url or descriptor is required.
+        description: The content of the file itself. One of url or content is required.
       url:
         type: string
         description: >-
@@ -648,9 +649,9 @@ definitions:
           be available in content. One of url or descriptor is required.
         example:
           descriptorfile:
-            value: https://raw.githubusercontent.com/ICGC-TCGA-PanCancer/pcawg_delly_workflow/ea2a5db69bd20a42976838790bc29294df3af02b/delly_docker/Delly.cwl
+            url: https://raw.githubusercontent.com/ICGC-TCGA-PanCancer/pcawg_delly_workflow/ea2a5db69bd20a42976838790bc29294df3af02b/delly_docker/Delly.cwl
           containerfile:
-            value: https://raw.githubusercontent.com/ICGC-TCGA-PanCancer/pcawg_delly_workflow/c83478829802b4d36374870843821abe1b625a71/delly_docker/Dockerfile
+            url: https://raw.githubusercontent.com/ICGC-TCGA-PanCancer/pcawg_delly_workflow/c83478829802b4d36374870843821abe1b625a71/delly_docker/Dockerfile
   Metadata:
     type: object
     description: Describes this registry to better allow for mirroring and indexing.
