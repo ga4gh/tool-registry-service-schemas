@@ -43,7 +43,8 @@ Outstanding questions:
 How to view
 ------------
 
-See the swagger editor to view our [schema in progress](http://editor.swagger.io/#/?import=https://raw.githubusercontent.com/ga4gh/tool-registry-schemas/develop/src/main/resources/swagger/ga4gh-tool-discovery.yaml).
+- Follow this link to the [swagger editor](http://editor.swagger.io/).
+- Choose `File` / `Import URL` / and enter: `https://raw.githubusercontent.com/ga4gh/tool-registry-schemas/develop/src/main/resources/swagger/ga4gh-tool-discovery.yaml`
 
 
 How to contribute changes
