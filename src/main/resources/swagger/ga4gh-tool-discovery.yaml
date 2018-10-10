@@ -584,7 +584,9 @@ definitions:
         description: >-
           All known docker images (and versions/hashes) used by this tool.
           If the tool has to evaluate any of the docker images strings at runtime, those ones cannot be reported here.
-        example: quay.io/seqware/seqware_full/1.1
+        example:
+          - quay.io/seqware/seqware_full/1.1
+          - ubuntu:latest
       registry_url:
         type: string
         description: >-

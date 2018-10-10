@@ -746,10 +746,15 @@ components:
             An identifier of the version of this tool for this particular tool
             registry
           example: v1
-        image:
-          type: string
-          description: The docker path to the image (and version) for this tool
-          example: quay.io/seqware/seqware_full/1.1
+        images:
+          type: array
+          items: string
+          description: >-
+            All known docker images (and versions/hashes) used by this tool.
+            If the tool has to evaluate any of the docker images strings at runtime, those ones cannot be reported here.
+          example:
+            - quay.io/seqware/seqware_full/1.1
+            - ubuntu:latest
         registry_url:
           type: string
           description: >-
