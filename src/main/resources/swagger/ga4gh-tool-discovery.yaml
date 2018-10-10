@@ -623,11 +623,15 @@ definitions:
     type: object
     description: >-
       An input parameter for a tool or workflow.
+    required:
+      - name
+      - valueType
+      - optional
     properties:
       name:
         type: string
         description: The name of this input value (formatted as expected by the tool)
-      valuetype:
+      valueType:
         $ref: '#/definitions/ValueType'
       optional:
         type: boolean
@@ -637,57 +641,40 @@ definitions:
         description: The in-language expression used to evaluate a default value for this parameter, if
           none is supplied.
   ValueType:
+    description: The type expected for a given value.
     type: object
-    description: The type expected for a given input or output value.
-    enum:
-      - String
-      - Int
-      - Float
-      - Boolean
-      - File
-      - Directory
-      - $ref: '#/definitions/OptionalValueType'
-      - $ref: '#/definitions/ArrayValueType'
-      - $ref: '#/definitions/MapValueType'
-      - $ref: '#/definitions/TupleValueType'
-      - $ref: '#/definitions/ObjectValueType'
-  OptionalValueType:
-    type: object
-    description: A value of another type which may also be null.
+    required:
+      - valueType
+    maxProperties: 2
     properties:
+      valueType:
+        type: string
+        description: The type of this value
+        enum:
+          - String
+          - File
+          - Directory
+          - Float
+          - Int
+          - Boolean
+          - Array
+          - Tuple
+          - Map
+          - Object
       optionalType:
         $ref: '#/definitions/ValueType'
-  ArrayValueType:
-    type: object
-    description: A value of arrays of another type.
-    properties:
       arrayType:
         $ref: '#/definitions/ValueType'
-  MapValueType:
-    type: object
-    description: A type representing a map from one type to another.
-    properties:
-      keyType:
-        $ref: '#/definitions/ValueType'
-      valueType:
-        $ref: '#/definitions/ValueType'
-  TupleValueType:
-    type: object
-    description: A type representing a map from one type to another.
-    properties:
+      mapType:
+        $ref: '#/definitions/MapValueType'
       tupleTypes:
         type: array
         items:
           $ref: '#/definitions/ValueType'
-  ObjectValueType:
-    type: object
-    description: A type representing a map from one type to another.
-    properties:
-      fields:
+      objectFieldTypes:
         type: array
         items:
           type: object
-          description: A field within an object
           properties:
             fieldName:
               type: string
@@ -695,6 +682,18 @@ definitions:
               type: array
               items:
                 $ref: '#/definitions/ToolParameter'
+  MapValueType:
+    type: object
+    description: A type representing a map from one type to another.
+    required:
+      - keyType
+      - valueType
+    properties:
+      keyType:
+        $ref: '#/definitions/ValueType'
+      valueType:
+        $ref: '#/definitions/ValueType'
+
   DescriptorType:
     type: string
     description: >-
