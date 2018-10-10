@@ -614,6 +614,87 @@ definitions:
         description: >-
           Source of metadata that can support a verified tool, such as an email
           or URL
+      inputs:
+        description: A list of inputs for this tool
+        type: array
+        items:
+          $ref: '#/definitions/ToolParameter'
+  ToolParameter:
+    type: object
+    description: >-
+      An input parameter for a tool or workflow.
+    properties:
+      name:
+        type: string
+        description: The name of this input value (formatted as expected by the tool)
+      valuetype:
+        $ref: '#/definitions/ValueType'
+      optional:
+        type: boolean
+        description: Whether the tool allows this value to not be specified
+      default:
+        type: string
+        description: The in-language expression used to evaluate a default value for this parameter, if
+          none is supplied.
+  ValueType:
+    type: object
+    description: The type expected for a given input or output value.
+    enum:
+      - String
+      - Int
+      - Float
+      - Boolean
+      - File
+      - Directory
+      - $ref: '#/definitions/OptionalValueType'
+      - $ref: '#/definitions/ArrayValueType'
+      - $ref: '#/definitions/MapValueType'
+      - $ref: '#/definitions/TupleValueType'
+      - $ref: '#/definitions/ObjectValueType'
+  OptionalValueType:
+    type: object
+    description: A value of another type which may also be null.
+    properties:
+      optionalType:
+        $ref: '#/definitions/ValueType'
+  ArrayValueType:
+    type: object
+    description: A value of arrays of another type.
+    properties:
+      arrayType:
+        $ref: '#/definitions/ValueType'
+  MapValueType:
+    type: object
+    description: A type representing a map from one type to another.
+    properties:
+      keyType:
+        $ref: '#/definitions/ValueType'
+      valueType:
+        $ref: '#/definitions/ValueType'
+  TupleValueType:
+    type: object
+    description: A type representing a map from one type to another.
+    properties:
+      tupleTypes:
+        type: array
+        items:
+          $ref: '#/definitions/ValueType'
+  ObjectValueType:
+    type: object
+    description: A type representing a map from one type to another.
+    properties:
+      fields:
+        type: array
+        items:
+          type: object
+          description: A field within an object
+          properties:
+            fieldName:
+              type: string
+            fieldDescription:
+              type: array
+              items:
+                $ref: '#/definitions/ToolParameter'
   DescriptorType:
     type: string
     description: >-
