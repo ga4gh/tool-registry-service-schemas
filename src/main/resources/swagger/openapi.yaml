@@ -783,16 +783,23 @@ components:
             Source of metadata that can support a verified tool, such as an
             email or URL
     DescriptorType:
-      type: string
+      type: object
       description: >-
-        The type of descriptor that represents this version of the tool (e.g.
-        CWL, WDL, or NFL). Note that these files can also include associated
-        Docker/container files  and test parameters that further describe a
-        version of a tool
-      enum:
-        - CWL
-        - WDL
-        - NFL
+        The type of descriptor that represents this version of the tool (e.g. CWL,
+        WDL, or NFL). Note that these files can also include associated Docker/container files
+        and test parameters that further describe a version of a tool
+      properties:
+        language:
+          type: string
+          description: The descriptor language - CWL, WDL or NFL
+          enum:
+            - CWL
+            - WDL
+            - NFL
+        languageVersion:
+          type: string
+          description: The version of the descriptor language (if applicable)
+          example: v1.0
     FileWrapper:
       type: object
       description: >
