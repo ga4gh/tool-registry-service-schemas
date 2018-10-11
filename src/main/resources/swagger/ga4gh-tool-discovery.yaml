@@ -640,6 +640,9 @@ definitions:
         type: string
         description: The in-language expression used to evaluate a default value for this parameter, if
           none is supplied.
+      documentation:
+        type: string
+        description: Documentation for this parameter provided in the tool descriptor file.
   ValueType:
     description: The type expected for a given value.
     type: object
