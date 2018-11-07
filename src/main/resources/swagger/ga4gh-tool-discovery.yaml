@@ -615,25 +615,15 @@ definitions:
           Source of metadata that can support a verified tool, such as an email
           or URL
   DescriptorType:
-    type: object
+    type: string
     description: >-
       The type of descriptor that represents this version of the tool (e.g. CWL,
-      WDL, or NFL). Note that these files can also include associated Docker/container files
+      WDL, or NFL). Note that these files can also include associated Docker/container files 
       and test parameters that further describe a version of a tool
-    required:
-      - language
-    properties:
-      language:
-        type: string
-        description: The descriptor language - CWL, WDL or NFL
-        enum:
-          - CWL
-          - WDL
-          - NFL
-      languageVersion:
-        type: string
-        description: The version of the descriptor language (if applicable)
-        example: v1.0
+    enum:
+      - CWL
+      - WDL
+      - NFL
   FileWrapper:
     type: object
     description: |
@@ -645,6 +635,12 @@ definitions:
       container image. Examples include Dockerfiles for creating Docker images
       and Singularity recipes for Singularity images
     properties:
+      filetype: 
+        $ref: '#/definitions/DescriptorType'
+      filetype_version: 
+        type: string
+        description: The version of the descriptor language (if applicable)
+        example: v1.0
       content:
         type: string
         description: The content of the file itself. One of url or content is required.
