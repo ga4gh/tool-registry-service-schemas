@@ -9,7 +9,7 @@ jobs:
         - swagger2openapi src/main/resources/swagger/ga4gh-tool-discovery.yaml -o src/main/resources/swagger/openapi.yaml
       after_success:
         - git checkout -B ${TRAVIS_BRANCH}
-        - bash deploy.sh
+        - bash scripts/update-openAPI3.sh
     - stage: build_pages
       language: java
       jdk: oraclejdk8
@@ -18,4 +18,4 @@ jobs:
       - "chmod +x gradlew"
       - "./gradlew installSwagger buildSwagger asciidoctor"
       after_success:
-        - bash update-ghpages.sh
+        - bash scripts/update-ghpages.sh
