@@ -12,6 +12,7 @@ git checkout gh-pages
 rm -rf "${BRANCH_PATH}"
 mkdir -p "${BRANCH_PATH}"
 mv docs "${BRANCH_PATH}"
+git status
 if [[ -n "$(git status --porcelain "${BRANCH_PATH}")" && ${TRAVIS_PULL_REQUEST} == "false" ]]; then
   openssl aes-256-cbc -K "$encrypted_3f2a53f14146_key" -iv "$encrypted_3f2a53f14146_iv" -in github_deploy_key.enc -out github_deploy_key -d
   eval "$(ssh-agent)"
