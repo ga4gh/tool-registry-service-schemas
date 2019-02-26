@@ -7,7 +7,7 @@ set -o xtrace
 if ! git diff --exit-code src/main/resources/swagger/openapi.yaml
   then
     git diff src/main/resources/swagger/openapi.yaml
-    openssl aes-256-cbc -K $encrypted_f356a5c69655_key -iv $encrypted_f356a5c69655_iv -in github_deploy_key.enc -out github_deploy_key -d
+    openssl aes-256-cbc -K $encrypted_3f2a53f14146_key -iv $encrypted_3f2a53f14146_iv -in github_deploy_key.enc -out github_deploy_key -d
     eval "$(ssh-agent)"
     chmod 600 github_deploy_key
     ssh-add github_deploy_key
