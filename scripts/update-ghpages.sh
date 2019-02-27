@@ -18,7 +18,10 @@ if [[ -n "$(git status --porcelain "${BRANCH_PATH}")" && ${TRAVIS_PULL_REQUEST} 
   eval "$(ssh-agent)"
   chmod 600 github_deploy_key
   ssh-add github_deploy_key
-  git add "${BRANCH_PATH}"
+  bash scripts/create-table-of-contents.sh
+  bash scripts/remove-docs-for-deleted-branches.sh
+  git add preview
+  git add index.md
   git commit -m "Docs changed for "${TRAVIS_BRANCH}""
   git push git@github.com:"${TRAVIS_REPO_SLUG}" gh-pages
 else
