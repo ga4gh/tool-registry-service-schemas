@@ -5,7 +5,9 @@ Schemas for the GA4GH Tool Registry API
 
 This repository is the home for the schema for the GA4GH Tool Registry API.  The goal of the API is to provide a standardized way to describe the availability of tools and workflows.  In this way, we can have multiple repositories that share Docker-based tools and WDL/CWL-based workflows and have a consistent way to interact, search, and retrieve information from these various registries.  The end goal is to make it much easier to share scientific tools and workflows, enhancing our ability to make research reproducible, sharable, and transparent.
 
-**[View in the Swagger Editor](https://editor.swagger.io/?url=https://raw.githubusercontent.com/ga4gh/tool-registry-schemas/develop/src/main/resources/swagger/ga4gh-tool-discovery.yaml).**  *Manually load the JSON if working from a non-develop branch version.*
+**See the human-readable [Reference Documentation](https://ga4gh.github.io/tool-registry-service-schemas/Introduction/). You can also explore the specification in the [Swagger Editor](https://editor.swagger.io/?url=https://raw.githubusercontent.com/ga4gh/tool-registry-schemas/develop/src/main/resources/swagger/ga4gh-tool-discovery.yaml).**  *Manually load the JSON if working from a non-develop branch version.*
+
+See our generated doc
 
 The [Global Alliance for Genomics and Health](http://genomicsandhealth.org/) (GA4GH) is an international
 coalition, formed to enable the sharing of genomic and clinical data.
