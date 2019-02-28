@@ -14,6 +14,6 @@ if ! git diff --exit-code src/main/resources/swagger/openapi.yaml
     git add src/main/resources/swagger/openapi.yaml
     git commit -m "OpenAPI changed"
     echo "Pushing changes"
-    git push git@github.com:ga4gh/tool-registry-service-schemas ${TRAVIS_BRANCH}
+    git push git@github.com:"${TRAVIS_REPO_SLUG}" ${TRAVIS_BRANCH}
 fi
 
