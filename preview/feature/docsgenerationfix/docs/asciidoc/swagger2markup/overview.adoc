@@ -1,0 +1,30 @@
+= GA4GH Tool Discovery API
+
+
+[[_overview]]
+== Overview
+Proposed API for GA4GH (Global Alliance for Genomics &amp; Health) tool repositories. A tool consists of a set of container images that are paired with a set of documents. Examples of documents include CWL (Common Workflow Language) or WDL (Workflow Description Language) or NFL (Nextflow) that describe how to use those images and a set of specifications for those images (examples are Dockerfiles or Singularity recipes) that describe how to reproduce those images in the future. We use the following terminology, a "container image" describes a container as stored at rest on a filesystem, a "tool" describes one of the triples as described above. In practice, examples of "tools" include CWL CommandLineTools, CWL Workflows, WDL workflows, and Nextflow workflows that reference containers in formats such as Docker or Singularity.
+
+
+=== Version information
+[%hardbreaks]
+__Version__ : 2.0.0
+
+
+=== URI scheme
+[%hardbreaks]
+__BasePath__ : /api/ga4gh/v2
+
+
+=== Tags
+
+* GA4GH : A set of resources proposed as a common standard for tool repositories
+
+
+=== Produces
+
+* `application/json`
+* `text/plain`
+
+
+

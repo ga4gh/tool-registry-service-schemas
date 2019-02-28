@@ -1,0 +1,181 @@
+
+[[_definitions]]
+== Definitions
+
+[[_descriptortype]]
+=== DescriptorType
+The type of descriptor that represents this version of the tool (e.g. CWL, WDL, or NFL). Note that these files can also include associated Docker/container files and test parameters that further describe a version of a tool
+
+__Type__ : enum (CWL, WDL, NFL)
+
+
+[[_error]]
+=== Error
+
+[options="header", cols=".^3,.^11,.^4"]
+|===
+|Name|Description|Schema
+|**code** +
+__required__|**Default** : `500`|integer (int32)
+|**message** +
+__optional__|**Default** : `"Internal Server Error"`|string
+|===
+
+
+[[_filewrapper]]
+=== FileWrapper
+A file provides content for one of
+- A tool descriptor is a metadata document that describes one or more tools.
+- A tool document that describes how to test with one or more sample test
+JSON.
+- A containerfile is a document that describes how to build a particular
+container image. Examples include Dockerfiles for creating Docker images
+and Singularity recipes for Singularity images
+
+
+[options="header", cols=".^3,.^11,.^4"]
+|===
+|Name|Description|Schema
+|**content** +
+__optional__|The content of the file itself. One of url or content is required.|string
+|**url** +
+__optional__|Optional url to the underlying content, should include version information, and can include a git hash. Note that this URL should resolve to the raw unwrapped content that would otherwise be available in content. One of url or content is required. +
+**Example** : `""`|string
+|===
+
+
+[[_metadata]]
+=== Metadata
+Describes this registry to better allow for mirroring and indexing.
+
+
+[options="header", cols=".^3,.^11,.^4"]
+|===
+|Name|Description|Schema
+|**api_version** +
+__required__|The version of the GA4GH tool-registry API supported by this registry|string
+|**country** +
+__optional__|A country code for the registry (ISO 3166-1 alpha-3)|string
+|**friendly_name** +
+__optional__|A friendly name that can be used in addition to the hostname to describe a registry|string
+|**version** +
+__required__|The version of this registry|string
+|===
+
+
+[[_tool]]
+=== Tool
+A tool (or described tool) is defined as a tuple of a descriptor file (which potentially consists of multiple files), a set of container images, and a set of instructions for creating those images.
+
+
+[options="header", cols=".^3,.^11,.^4"]
+|===
+|Name|Description|Schema
+|**aliases** +
+__optional__|OPTIONAL
+A list of strings that can be used to identify this tool.
+This can be used to expose alternative ids (such as GUIDs) for a tool
+for registries. Can be used to match tools across registries.|< string > array
+|**author** +
+__required__|Contact information for the author of this tool entry in the registry. (More complex authorship information is handled by the descriptor)|string
+|**checker_url** +
+__optional__|Optional url to the checker tool that will exit successfully if this tool produced the expected result given test data.|string
+|**contains** +
+__optional__|An array of IDs for the applications that are stored inside this tool +
+**Example** : `"https://bio.tools/tool/mytum.de/SNAP2/1"`|< string > array
+|**description** +
+__optional__|The description of the tool.|string
+|**has_checker** +
+__optional__|Whether this tool has a checker tool associated with it|boolean
+|**id** +
+__required__|A unique identifier of the tool, scoped to this registry +
+**Example** : `"123456"`|string
+|**meta_version** +
+__optional__|The version of this tool in the registry. Iterates when fields like the description, author, etc. are updated.|string
+|**organization** +
+__required__|The organization that published the image.|string
+|**signed** +
+__optional__|Reports whether this tool has been signed.|boolean
+|**toolclass** +
+__required__||<<_toolclass,ToolClass>>
+|**toolname** +
+__optional__|The name of the tool.|string
+|**url** +
+__required__|The URL for this tool in this registry +
+**Example** : `"http://agora.broadinstitute.org/tools/123456"`|string
+|**verified** +
+__optional__|Reports whether this tool has been verified by a specific organization or individual|boolean
+|**verified_source** +
+__optional__|Source of metadata that can support a verified tool, such as an email or URL|string
+|**versions** +
+__required__|A list of versions for this tool|< <<_toolversion,ToolVersion>> > array
+|===
+
+
+[[_toolclass]]
+=== ToolClass
+Describes a class (type) of tool allowing us to categorize workflows, tasks, and maybe even other entities (such as services) separately
+
+
+[options="header", cols=".^3,.^11,.^4"]
+|===
+|Name|Description|Schema
+|**description** +
+__optional__|A longer explanation of what this class is and what it can accomplish|string
+|**id** +
+__optional__|The unique identifier for the class|string
+|**name** +
+__optional__|A short friendly name for the class|string
+|===
+
+
+[[_toolfile]]
+=== ToolFile
+
+[options="header", cols=".^3,.^11,.^4"]
+|===
+|Name|Description|Schema
+|**file_type** +
+__optional__||enum (TEST_FILE, PRIMARY_DESCRIPTOR, SECONDARY_DESCRIPTOR, CONTAINERFILE, OTHER)
+|**path** +
+__optional__|Relative path of the file. A descriptor's path can be used with the GA4GH …/{type}/descriptor/{relative_path} endpoint|string
+|===
+
+
+[[_toolversion]]
+=== ToolVersion
+A tool version describes a particular iteration of a tool as described by a reference to a specific image and/or documents.
+
+
+[options="header", cols=".^3,.^11,.^4"]
+|===
+|Name|Description|Schema
+|**containerfile** +
+__optional__|Reports if this tool has a containerfile available.|boolean
+|**descriptor_type** +
+__optional__|The type (or types) of descriptors available.|< <<_descriptortype,DescriptorType>> > array
+|**id** +
+__required__|An identifier of the version of this tool for this particular tool registry +
+**Example** : `"v1"`|string
+|**image** +
+__optional__|The docker path to the image (and version) for this tool +
+**Example** : `"quay.io/seqware/seqware_full/1.1"`|string
+|**image_name** +
+__optional__|Used in conjunction with a registry_url if provided to locate images|string
+|**meta_version** +
+__optional__|The version of this tool version in the registry. Iterates when fields like the description, author, etc. are updated.|string
+|**name** +
+__optional__|The name of the version.|string
+|**registry_url** +
+__optional__|A URL to a Singularity registry is provided when a specific type of image does not use ids in the Docker format. Used along with image_name to locate a specific image.|string
+|**url** +
+__required__|The URL for this tool in this registry +
+**Example** : `"http://agora.broadinstitute.org/tools/123456/1"`|string
+|**verified** +
+__optional__|Reports whether this tool has been verified by a specific organization or individual|boolean
+|**verified_source** +
+__optional__|Source of metadata that can support a verified tool, such as an email or URL|string
+|===
+
+
+
