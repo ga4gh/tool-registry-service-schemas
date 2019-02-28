@@ -8,7 +8,7 @@ title: Table of Contents
 [html5](preview/master/docs/html5)
 [pdf](preview/matser/docs/pdf/index.pdf)
 #### Other branches:
-feature/docsGenerationFix: 
-[swagger-ui](preview/feature/docsGenerationFix/docs/web_deploy/swagger-ui)
-[html5](preview/feature/docsGenerationFix/docs/html5)
-[pdf](preview/feature/docsGenerationFix/docs/pdf/index.pdf)
+develop: 
+[swagger-ui](preview/develop/docs/web_deploy/swagger-ui)
+[html5](preview/develop/docs/html5)
+[pdf](preview/develop/docs/pdf/index.pdf)
