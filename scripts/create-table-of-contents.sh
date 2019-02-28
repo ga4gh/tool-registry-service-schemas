@@ -14,16 +14,16 @@ set -o pipefail
   echo "title: Table of Contents"
   echo "---"
   echo "### Table of Contents"
-  echo "#### Latest API release from the \`master\` branch:"
-  echo "[swagger-ui](preview/master/docs/web_deploy/swagger-ui)"
-  echo "[html5](preview/master/docs/html5)"
-  echo "[pdf](preview/matser/docs/pdf/index.pdf)"
+  echo "#### Latest V2 API release from the \`develop\` branch:"
+  echo "[swagger-ui](preview/develop/docs/web_deploy/swagger-ui)"
+  echo "[html5](preview/develop/docs/html5)"
+  echo "[pdf](preview/develop/docs/pdf/index.pdf)"
 } >> index.md
 
 # Loop through Git branches and add links
 for branch in $(git branch | cut -c 3-);
 do
-	if [[ $branch != 'gh-pages' && $branch != 'master' ]];
+	if [[ $branch != 'gh-pages' && $branch != 'develop' ]];
 	then
 		{ 
 		  echo "#### Other branches:"
