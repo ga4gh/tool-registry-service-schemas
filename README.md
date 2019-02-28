@@ -49,7 +49,7 @@ See the swagger editor to view our [schema in progress](https://editor.swagger.i
 How to contribute changes
 -------------------------
 
-Take cues for now from the [ga4gh/schemas](https://github.com/ga4gh/schemas/blob/master/CONTRIBUTING.rst) document.
+Take cues for now from the [CONTRIBUTING.md]https://github.com/ga4gh/tool-registry-service-schemas/blob/develop/CONTRIBUTING.md) document.
 
 At the very least, create an issue in our [Github tracker](https://github.com/ga4gh/tool-registry-schemas/issues).
 
