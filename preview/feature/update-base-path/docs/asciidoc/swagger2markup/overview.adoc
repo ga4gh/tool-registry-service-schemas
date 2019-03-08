@@ -13,7 +13,7 @@ __Version__ : 2.0.0
 
 === URI scheme
 [%hardbreaks]
-__BasePath__ : /api/ga4gh/v2
+__BasePath__ : /ga4gh/trs/v2
 
 
 === Tags
