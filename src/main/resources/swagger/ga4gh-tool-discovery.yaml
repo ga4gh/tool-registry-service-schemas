@@ -18,7 +18,7 @@ info:
 produces:
   - application/json
   - text/plain
-basePath: /api/ga4gh/v2
+basePath: /ga4gh/trs/v2
 tags:
   - name: GA4GH
     description: A set of resources proposed as a common standard for tool repositories
