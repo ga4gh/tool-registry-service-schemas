@@ -362,7 +362,7 @@ Get a list of objects that contain the relative path and file type. The descript
 |**Path**|**id** +
 __required__|A unique identifier of the tool, scoped to this registry, for example `123456`|string
 |**Path**|**type** +
-__required__|The output type of the descriptor. Examples of allowable values are "CWL", "WDL", and "NextFlow."|string
+__required__|The output type of the descriptor. Examples of allowable values are "CWL", "WDL", and "NFL".|string
 |**Path**|**version_id** +
 __required__|An identifier of the tool version for this particular tool registry, for example `v1`|string
 |===
