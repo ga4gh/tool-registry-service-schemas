@@ -347,7 +347,7 @@ paths:
           in: path
           description: >-
             The output type of the descriptor. Examples of allowable values are
-            "CWL", "WDL", and "NextFlow."
+            "CWL", "WDL", and "NFL".
           type: string
         - name: id
           in: path
