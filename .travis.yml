@@ -1,23 +1,21 @@
-language: node_js
-node_js:
-  - "lts/*"
-
-install:
-  - npm i -g swagger2openapi
-
-script:
-  - swagger2openapi src/main/resources/swagger/ga4gh-tool-discovery.yaml -o src/main/resources/swagger/openapi.yaml
-
-before_install:
-  - openssl aes-256-cbc -K $encrypted_f356a5c69655_key -iv $encrypted_f356a5c69655_iv -in github_deploy_key.enc -out github_deploy_key -d
-
-after_success:
-  - eval "$(ssh-agent)"
-  - chmod 600 github_deploy_key 
-  - ssh-add github_deploy_key
-  - git checkout -B ${TRAVIS_BRANCH}
-  - git add src/main/resources/swagger/openapi.yaml
-  - git commit -m "OpenAPI changed"
-  - echo "Pushing changes"
-  - git push git@github.com:ga4gh/tool-registry-service-schemas ${TRAVIS_BRANCH}
-
+jobs:
+  include:
+    - stage: check-links
+      install: npm i -g markdown-link-check
+      script: markdown-link-check ./README.md
+    - stage: commit-OpenAPI
+      install: npm i -g swagger2openapi
+      script:
+        - swagger2openapi src/main/resources/swagger/ga4gh-tool-discovery.yaml -o src/main/resources/swagger/openapi.yaml
+      after_success:
+        - git checkout -B ${TRAVIS_BRANCH}
+        - bash scripts/update-openAPI3.sh
+    - stage: build_pages
+      language: java
+      jdk: oraclejdk8
+      script:
+      - "gradle wrapper"
+      - "chmod +x gradlew"
+      - "./gradlew installSwagger buildSwagger asciidoctor"
+      after_success:
+        - bash scripts/update-ghpages.sh
