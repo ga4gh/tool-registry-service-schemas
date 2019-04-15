@@ -39,10 +39,7 @@ Outstanding questions:
 
 * How do we track authorship? Should we track authorship of the tool metadata, the Docker image, or the underlying algorithm, or all of above?
 * How to describe indexing and external services like an external [sparql](https://github.com/common-workflow-language/workflows#sparql) service.
-* Terminology discussion (do we describe triples separately from tools? should we describe them as aggregations of tools for just the case that 
-
-
-cdocuments have more than one tool? etc.)
+* Terminology discussion (do we describe triples separately from tools? should we describe them as aggregations of tools for just the case that documents have more than one tool? etc.)
 
 
 How to view
