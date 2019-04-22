@@ -3,7 +3,7 @@
 Schemas for the GA4GH Tool Registry API
 =======================================
 
-This repository is the home for the schema for the GA4GH Tool Registry API.  The goal of the API is to provide a standardized way to describe the availability of tools and workflows.  In this way, we can have multiple repositories that share Docker-based tools and WDL/CWL-based workflows and have a consistent way to interact, search, and retrieve information from these various registries.  The end goal is to make it much easier to share scientific tools and workflows, enhancing our ability to make research reproducible, sharable, and transparent.
+This repository is the home for the schema for the GA4GH Tool Registry API.  The goal of the API is to provide a standardized way to describe the availability of tools and workflows.  In this way, we can have multiple repositories that share Docker-based tools and WDL/CWL/Nextflow-based workflows and have a consistent way to interact, search, and retrieve information from these various registries.  The end goal is to make it much easier to share scientific tools and workflows, enhancing our ability to make research reproducible, sharable, and transparent.
 
 **See the human-readable [Reference Documentation](https://ga4gh.github.io/tool-registry-service-schemas/Introduction/). You can also explore the specification in the [Swagger Editor](https://editor.swagger.io/?url=https://raw.githubusercontent.com/ga4gh/tool-registry-schemas/develop/src/main/resources/swagger/ga4gh-tool-discovery.yaml).**  *Manually load the JSON if working from a non-develop branch version.*
 
@@ -25,21 +25,21 @@ The Containers & Workflows working group is an informal, multi-vendor working gr
 What is the Tool Registry API Schema?
 -------------------------------------
 
-This is the home of the schema for the GA4GH Tool Registry API. The GA4GH Tool Registry API is a standard for listing and describing available tools (both stand-alone, Docker-based tools as well as workflows in CWL or WDL) in a given registry. This defines a minimal, common API describing tools that we propose for support by multiple tool/workflow registries like [Dockstore](https://www.dockstore.org/), [BioContainers](https://biocontainers.pro), and [Agora](https://github.com/broadinstitute/agora) for the purposes of exchange, indexing, and searching.
+This is the home of the schema for the GA4GH Tool Registry API. The GA4GH Tool Registry API is a standard for listing and describing available tools (both stand-alone, Docker-based tools as well as workflows in CWL, WDL or Nextflow) in a given registry. This defines a minimal, common API describing tools that we propose for support by multiple tool/workflow registries like [Dockstore](https://www.dockstore.org/), [BioContainers](https://biocontainers.pro), and [Agora](https://github.com/broadinstitute/agora) for the purposes of exchange, indexing, and searching.
 
 Our current proposal is to start with a read-only API due to potentially different views and approaches to registration/security.
 
 Key features of the current API proposal:
 
 * read-only API
-* May serve up CWl or WDL to describe a tool or represent a workflow depending on the tool/workflow submitter
+* May serve up CWL, WDL or Nextflow to describe a tool or represent a workflow depending on the tool/workflow submitter
 * ID:  globally unique across systems and also identifies the system that it came from (ex: 123456323@agora.broadinstitute.org )
 
 Outstanding questions:
 
 * How do we track authorship? Should we track authorship of the tool metadata, the Docker image, or the underlying algorithm, or all of above?
 * How to describe indexing and external services like an external [sparql](https://github.com/common-workflow-language/workflows#sparql) service.
-* Terminology discussion (do we describe triples separately from tools? should we describe them as aggregations of tools for just the case that CWL documents have more than one tool? etc.)
+* Terminology discussion (do we describe triples separately from tools? should we describe them as aggregations of tools for just the case that documents have more than one tool? etc.)
 
 
 How to view
