@@ -527,11 +527,13 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <li><a href="#_descriptortype">3.1. DescriptorType</a></li>
 <li><a href="#_error">3.2. Error</a></li>
 <li><a href="#_filewrapper">3.3. FileWrapper</a></li>
-<li><a href="#_metadata">3.4. Metadata</a></li>
-<li><a href="#_tool">3.5. Tool</a></li>
-<li><a href="#_toolclass">3.6. ToolClass</a></li>
-<li><a href="#_toolfile">3.7. ToolFile</a></li>
-<li><a href="#_toolversion">3.8. ToolVersion</a></li>
+<li><a href="#_imagedata">3.4. ImageData</a></li>
+<li><a href="#_imagetype">3.5. ImageType</a></li>
+<li><a href="#_metadata">3.6. Metadata</a></li>
+<li><a href="#_tool">3.7. Tool</a></li>
+<li><a href="#_toolclass">3.8. ToolClass</a></li>
+<li><a href="#_toolfile">3.9. ToolFile</a></li>
+<li><a href="#_toolversion">3.10. ToolVersion</a></li>
 </ul>
 </li>
 </ul>
@@ -1653,7 +1655,70 @@ and Singularity recipes for Singularity images</p>
 </table>
 </div>
 <div class="sect2">
-<h3 id="_metadata"><a class="anchor" href="#_metadata"></a><a class="link" href="#_metadata">3.4. Metadata</a></h3>
+<h3 id="_imagedata"><a class="anchor" href="#_imagedata"></a><a class="link" href="#_imagedata">3.4. ImageData</a></h3>
+<div class="paragraph">
+<p>Describes one container image</p>
+</div>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 16.6666%;">
+<col style="width: 61.1111%;">
+<col style="width: 22.2223%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-middle">Name</th>
+<th class="tableblock halign-left valign-middle">Description</th>
+<th class="tableblock halign-left valign-middle">Schema</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>image_name</strong><br>
+<em>optional</em></p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">Used in conjunction with a registry_url if provided to locate images<br>
+<strong>Example</strong> : <code>""</code></p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">string</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>image_type</strong><br>
+<em>optional</em></p></td>
+<td class="tableblock halign-left valign-middle"></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><a href="#_imagetype">ImageType</a></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>registry_host</strong><br>
+<em>optional</em></p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">A docker registry or a URL to a Singularity registry. Used along with image_name to locate a specific image.<br>
+<strong>Example</strong> : <code>""</code></p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">string</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>size</strong><br>
+<em>optional</em></p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">Size of the container in bytes</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">integer</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>updated</strong><br>
+<em>optional</em></p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">Last time the container was updated.</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">string</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect2">
+<h3 id="_imagetype"><a class="anchor" href="#_imagetype"></a><a class="link" href="#_imagetype">3.5. ImageType</a></h3>
+<div class="paragraph">
+<p>Indicates what kind of container is this image is</p>
+</div>
+<div class="paragraph">
+<p><em>Type</em> : enum (Docker, Singularity, Conda)</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_metadata"><a class="anchor" href="#_metadata"></a><a class="link" href="#_metadata">3.6. Metadata</a></h3>
 <div class="paragraph">
 <p>Describes this registry to better allow for mirroring and indexing.</p>
 </div>
@@ -1699,7 +1764,7 @@ and Singularity recipes for Singularity images</p>
 </table>
 </div>
 <div class="sect2">
-<h3 id="_tool"><a class="anchor" href="#_tool"></a><a class="link" href="#_tool">3.5. Tool</a></h3>
+<h3 id="_tool"><a class="anchor" href="#_tool"></a><a class="link" href="#_tool">3.7. Tool</a></h3>
 <div class="paragraph">
 <p>A tool (or described tool) is defined as a tuple of a descriptor file (which potentially consists of multiple files), a set of container images, and a set of instructions for creating those images.</p>
 </div>
@@ -1823,7 +1888,7 @@ for registries. Can be used to match tools across registries.</p></td>
 </table>
 </div>
 <div class="sect2">
-<h3 id="_toolclass"><a class="anchor" href="#_toolclass"></a><a class="link" href="#_toolclass">3.6. ToolClass</a></h3>
+<h3 id="_toolclass"><a class="anchor" href="#_toolclass"></a><a class="link" href="#_toolclass">3.8. ToolClass</a></h3>
 <div class="paragraph">
 <p>Describes a class (type) of tool allowing us to categorize workflows, tasks, and maybe even other entities (such as services) separately</p>
 </div>
@@ -1863,7 +1928,7 @@ for registries. Can be used to match tools across registries.</p></td>
 </table>
 </div>
 <div class="sect2">
-<h3 id="_toolfile"><a class="anchor" href="#_toolfile"></a><a class="link" href="#_toolfile">3.7. ToolFile</a></h3>
+<h3 id="_toolfile"><a class="anchor" href="#_toolfile"></a><a class="link" href="#_toolfile">3.9. ToolFile</a></h3>
 <table class="tableblock frame-all grid-all spread">
 <colgroup>
 <col style="width: 16.6666%;">
@@ -1894,7 +1959,7 @@ for registries. Can be used to match tools across registries.</p></td>
 </table>
 </div>
 <div class="sect2">
-<h3 id="_toolversion"><a class="anchor" href="#_toolversion"></a><a class="link" href="#_toolversion">3.8. ToolVersion</a></h3>
+<h3 id="_toolversion"><a class="anchor" href="#_toolversion"></a><a class="link" href="#_toolversion">3.10. ToolVersion</a></h3>
 <div class="paragraph">
 <p>A tool version describes a particular iteration of a tool as described by a reference to a specific image and/or documents.</p>
 </div>
@@ -1932,17 +1997,10 @@ for registries. Can be used to match tools across registries.</p></td>
 <td class="tableblock halign-left valign-middle"><p class="tableblock">string</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>image</strong><br>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>images</strong><br>
 <em>optional</em></p></td>
-<td class="tableblock halign-left valign-middle"><p class="tableblock">The docker path to the image (and version) for this tool<br>
-<strong>Example</strong> : <code>"quay.io/seqware/seqware_full/1.1"</code></p></td>
-<td class="tableblock halign-left valign-middle"><p class="tableblock">string</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>image_name</strong><br>
-<em>optional</em></p></td>
-<td class="tableblock halign-left valign-middle"><p class="tableblock">Used in conjunction with a registry_url if provided to locate images</p></td>
-<td class="tableblock halign-left valign-middle"><p class="tableblock">string</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">All known docker images (and versions/hashes) used by this tool. If the tool has to evaluate any of the docker images strings at runtime, those ones cannot be reported here.</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">&lt; <a href="#_imagedata">ImageData</a> &gt; array</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>meta_version</strong><br>
@@ -1954,12 +2012,6 @@ for registries. Can be used to match tools across registries.</p></td>
 <td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>name</strong><br>
 <em>optional</em></p></td>
 <td class="tableblock halign-left valign-middle"><p class="tableblock">The name of the version.</p></td>
-<td class="tableblock halign-left valign-middle"><p class="tableblock">string</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>registry_url</strong><br>
-<em>optional</em></p></td>
-<td class="tableblock halign-left valign-middle"><p class="tableblock">A URL to a Singularity registry is provided when a specific type of image does not use ids in the Docker format. Used along with image_name to locate a specific image.</p></td>
 <td class="tableblock halign-left valign-middle"><p class="tableblock">string</p></td>
 </tr>
 <tr>
@@ -1989,7 +2041,7 @@ for registries. Can be used to match tools across registries.</p></td>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2019-04-02 18:51:38 UTC
+Last updated 2019-04-22 22:02:27 UTC
 </div>
 </div>
 </body>

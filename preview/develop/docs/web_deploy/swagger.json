@@ -935,18 +935,12 @@
             "description": "An identifier of the version of this tool for this particular tool registry",
             "example": "v1"
           },
-          "image": {
-            "type": "string",
-            "description": "The docker path to the image (and version) for this tool",
-            "example": "quay.io/seqware/seqware_full/1.1"
-          },
-          "registry_url": {
-            "type": "string",
-            "description": "A URL to a Singularity registry is provided when a specific type of image does not use ids in the Docker format. Used along with image_name to locate a specific image."
-          },
-          "image_name": {
-            "type": "string",
-            "description": "Used in conjunction with a registry_url if provided to locate images"
+          "images": {
+            "description": "All known docker images (and versions/hashes) used by this tool. If the tool has to evaluate any of the docker images strings at runtime, those ones cannot be reported here.",
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ImageData"
+            }
           },
           "descriptor_type": {
             "type": "array",
@@ -972,6 +966,47 @@
             "description": "Source of metadata that can support a verified tool, such as an email or URL"
           }
         }
+      },
+      "ImageData": {
+        "type": "object",
+        "description": "Describes one container image",
+        "properties": {
+          "registry_host": {
+            "type": "string",
+            "description": "A docker registry or a URL to a Singularity registry. Used along with image_name to locate a specific image.",
+            "example": [
+              "registry.hub.docker.com"
+            ]
+          },
+          "image_name": {
+            "type": "string",
+            "description": "Used in conjunction with a registry_url if provided to locate images",
+            "example": [
+              "quay.io/seqware/seqware_full/1.1",
+              "ubuntu:latest"
+            ]
+          },
+          "size": {
+            "type": "integer",
+            "description": "Size of the container in bytes"
+          },
+          "updated": {
+            "type": "string",
+            "description": "Last time the container was updated."
+          },
+          "image_type": {
+            "$ref": "#/components/schemas/ImageType"
+          }
+        }
+      },
+      "ImageType": {
+        "type": "string",
+        "description": "Indicates what kind of container is this image is",
+        "enum": [
+          "Docker",
+          "Singularity",
+          "Conda"
+        ]
       },
       "DescriptorType": {
         "type": "string",

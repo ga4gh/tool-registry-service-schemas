@@ -44,6 +44,36 @@ __optional__|Optional url to the underlying content, should include version info
 |===
 
 
+[[_imagedata]]
+=== ImageData
+Describes one container image
+
+
+[options="header", cols=".^3,.^11,.^4"]
+|===
+|Name|Description|Schema
+|**image_name** +
+__optional__|Used in conjunction with a registry_url if provided to locate images +
+**Example** : `""`|string
+|**image_type** +
+__optional__||<<_imagetype,ImageType>>
+|**registry_host** +
+__optional__|A docker registry or a URL to a Singularity registry. Used along with image_name to locate a specific image. +
+**Example** : `""`|string
+|**size** +
+__optional__|Size of the container in bytes|integer
+|**updated** +
+__optional__|Last time the container was updated.|string
+|===
+
+
+[[_imagetype]]
+=== ImageType
+Indicates what kind of container is this image is
+
+__Type__ : enum (Docker, Singularity, Conda)
+
+
 [[_metadata]]
 === Metadata
 Describes this registry to better allow for mirroring and indexing.
@@ -157,17 +187,12 @@ __optional__|The type (or types) of descriptors available.|< <<_descriptortype,D
 |**id** +
 __required__|An identifier of the version of this tool for this particular tool registry +
 **Example** : `"v1"`|string
-|**image** +
-__optional__|The docker path to the image (and version) for this tool +
-**Example** : `"quay.io/seqware/seqware_full/1.1"`|string
-|**image_name** +
-__optional__|Used in conjunction with a registry_url if provided to locate images|string
+|**images** +
+__optional__|All known docker images (and versions/hashes) used by this tool. If the tool has to evaluate any of the docker images strings at runtime, those ones cannot be reported here.|< <<_imagedata,ImageData>> > array
 |**meta_version** +
 __optional__|The version of this tool version in the registry. Iterates when fields like the description, author, etc. are updated.|string
 |**name** +
 __optional__|The name of the version.|string
-|**registry_url** +
-__optional__|A URL to a Singularity registry is provided when a specific type of image does not use ids in the Docker format. Used along with image_name to locate a specific image.|string
 |**url** +
 __required__|The URL for this tool in this registry +
 **Example** : `"http://agora.broadinstitute.org/tools/123456/1"`|string
