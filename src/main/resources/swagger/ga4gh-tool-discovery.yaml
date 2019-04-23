@@ -411,7 +411,7 @@ paths:
           description: There are no container specifications for this tool
           schema:
             $ref: '#/definitions/Error'
-  /metadata:
+  /service-info:
     get:
       summary: Return some metadata that is useful for describing this registry
       operationId: metadataGet
