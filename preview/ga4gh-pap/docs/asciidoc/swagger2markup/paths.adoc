@@ -5,7 +5,7 @@
 [[_metadataget]]
 === Return some metadata that is useful for describing this registry
 ....
-GET /metadata
+GET /service-info
 ....
 
 
