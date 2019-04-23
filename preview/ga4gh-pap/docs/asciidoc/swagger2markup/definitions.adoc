@@ -76,7 +76,7 @@ __Type__ : enum (Docker, Singularity, Conda)
 
 [[_serviceinfo]]
 === ServiceInfo
-Describes this registry to better allow for mirroring, indexing, and useful information about the running service, including supported versions and default settings..
+Describes this registry to better allow for mirroring, indexing, and useful information about the running service, including supported versions and default settings.
 
 
 [options="header", cols=".^3,.^11,.^4"]
