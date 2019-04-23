@@ -2,15 +2,15 @@
 [[_paths]]
 == Paths
 
-[[_metadataget]]
-=== Return some metadata that is useful for describing this registry
+[[_serviceinfoget]]
+=== Return some information that is useful for describing this registry
 ....
 GET /service-info
 ....
 
 
 ==== Description
-Return some metadata that is useful for describing this registry
+Return some information that is useful for describing this registry
 
 
 ==== Responses
@@ -18,7 +18,7 @@ Return some metadata that is useful for describing this registry
 [options="header", cols=".^2,.^14,.^4"]
 |===
 |HTTP Code|Description|Schema
-|**200**|A Metadata object describing this service.|<<_metadata,Metadata>>
+|**200**|A ServiceInfo object describing this service.|<<_serviceinfo,ServiceInfo>>
 |===
 
 

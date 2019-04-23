@@ -434,7 +434,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </li>
 <li><a href="#_paths">2. Paths</a>
 <ul class="sectlevel2">
-<li><a href="#_metadataget">2.1. Return some metadata that is useful for describing this registry</a>
+<li><a href="#_serviceinfoget">2.1. Return some information that is useful for describing this registry</a>
 <ul class="sectlevel3">
 <li><a href="#_description">2.1.1. Description</a></li>
 <li><a href="#_responses">2.1.2. Responses</a></li>
@@ -529,7 +529,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <li><a href="#_filewrapper">3.3. FileWrapper</a></li>
 <li><a href="#_imagedata">3.4. ImageData</a></li>
 <li><a href="#_imagetype">3.5. ImageType</a></li>
-<li><a href="#_metadata">3.6. Metadata</a></li>
+<li><a href="#_serviceinfo">3.6. ServiceInfo</a></li>
 <li><a href="#_tool">3.7. Tool</a></li>
 <li><a href="#_toolclass">3.8. ToolClass</a></li>
 <li><a href="#_toolfile">3.9. ToolFile</a></li>
@@ -587,7 +587,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <h2 id="_paths"><a class="anchor" href="#_paths"></a><a class="link" href="#_paths">2. Paths</a></h2>
 <div class="sectionbody">
 <div class="sect2">
-<h3 id="_metadataget"><a class="anchor" href="#_metadataget"></a><a class="link" href="#_metadataget">2.1. Return some metadata that is useful for describing this registry</a></h3>
+<h3 id="_serviceinfoget"><a class="anchor" href="#_serviceinfoget"></a><a class="link" href="#_serviceinfoget">2.1. Return some information that is useful for describing this registry</a></h3>
 <div class="literalblock">
 <div class="content">
 <pre>GET /service-info</pre>
@@ -596,7 +596,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <div class="sect3">
 <h4 id="_description"><a class="anchor" href="#_description"></a><a class="link" href="#_description">2.1.1. Description</a></h4>
 <div class="paragraph">
-<p>Return some metadata that is useful for describing this registry</p>
+<p>Return some information that is useful for describing this registry</p>
 </div>
 </div>
 <div class="sect3">
@@ -617,8 +617,8 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <tbody>
 <tr>
 <td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>200</strong></p></td>
-<td class="tableblock halign-left valign-middle"><p class="tableblock">A Metadata object describing this service.</p></td>
-<td class="tableblock halign-left valign-middle"><p class="tableblock"><a href="#_metadata">Metadata</a></p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">A ServiceInfo object describing this service.</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><a href="#_serviceinfo">ServiceInfo</a></p></td>
 </tr>
 </tbody>
 </table>
@@ -1718,9 +1718,9 @@ and Singularity recipes for Singularity images</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_metadata"><a class="anchor" href="#_metadata"></a><a class="link" href="#_metadata">3.6. Metadata</a></h3>
+<h3 id="_serviceinfo"><a class="anchor" href="#_serviceinfo"></a><a class="link" href="#_serviceinfo">3.6. ServiceInfo</a></h3>
 <div class="paragraph">
-<p>Describes this registry to better allow for mirroring and indexing.</p>
+<p>Describes this registry to better allow for mirroring, indexing, and useful information about the running service, including supported versions and default settings..</p>
 </div>
 <table class="tableblock frame-all grid-all spread">
 <colgroup>
@@ -1744,7 +1744,7 @@ and Singularity recipes for Singularity images</p>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>contact_info_url</strong><br>
-<em>optional</em></p></td>
+<em>required</em></p></td>
 <td class="tableblock halign-left valign-middle"><p class="tableblock">An email address URL (mailto:) or web page URL with contact information for the operator of a specific TRS endpoint. Users of the endpoint should use this to report problems or security vulnerabilities.</p></td>
 <td class="tableblock halign-left valign-middle"><p class="tableblock">string</p></td>
 </tr>
@@ -2047,7 +2047,7 @@ for registries. Can be used to match tools across registries.</p></td>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2019-04-23 15:35:39 UTC
+Last updated 2019-04-23 15:50:09 UTC
 </div>
 </div>
 </body>
