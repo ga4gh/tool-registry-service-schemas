@@ -1041,7 +1041,7 @@
       },
       "ServiceInfo": {
         "type": "object",
-        "description": "Describes this registry to better allow for mirroring, indexing, and useful information about the running service, including supported versions and default settings..",
+        "description": "Describes this registry to better allow for mirroring, indexing, and useful information about the running service, including supported versions and default settings.",
         "required": [
           "version",
           "api_version",
