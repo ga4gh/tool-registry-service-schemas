@@ -9,7 +9,7 @@ set('-v');
 mkdir('-p', 'spec')
 mkdir('-p', 'docs/web_deploy')
 
-cp('src/main/resources/swagger/openapi.yaml', 'spec/swagger.yaml');
+cp('openapi/openapi.yaml', 'spec/swagger.yaml');
 
 exec('npm run swagger bundle --        -o docs/web_deploy/swagger.json');
 exec('npm run swagger bundle -- --yaml -o docs/web_deploy/swagger.yaml');

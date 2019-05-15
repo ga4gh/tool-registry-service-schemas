@@ -43,7 +43,7 @@ ext {
 }
 
 convertSwagger2markup {
-    swaggerInput file("src/main/resources/swagger/ga4gh-tool-discovery.yaml").getAbsolutePath()
+    swaggerInput file("openapi/ga4gh-tool-discovery.yaml").getAbsolutePath()
     outputDir asciiDocOutputDir
     config = ['swagger2markup.markupLanguage' : 'ASCIIDOC',
               'swagger2markup.extensions.dynamicDefinitions.contentPath' : file('docs/asciidoc/swagger2markup/definitions').absolutePath,
