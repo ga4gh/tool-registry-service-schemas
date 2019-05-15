@@ -1720,7 +1720,7 @@ and Singularity recipes for Singularity images</p>
 <div class="sect2">
 <h3 id="_serviceinfo"><a class="anchor" href="#_serviceinfo"></a><a class="link" href="#_serviceinfo">3.6. ServiceInfo</a></h3>
 <div class="paragraph">
-<p>Describes this registry to better allow for mirroring, indexing, and useful information about the running service, including supported versions and default settings.</p>
+<p>Describes this registry to better allow for mirroring, indexing, and useful information about the running service, including supported versions and default settings. Partially synced with <a href="https://github.com/ga4gh-discovery/service-info" class="bare">https://github.com/ga4gh-discovery/service-info</a></p>
 </div>
 <table class="tableblock frame-all grid-all spread">
 <colgroup>
@@ -1739,13 +1739,15 @@ and Singularity recipes for Singularity images</p>
 <tr>
 <td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>api_version</strong><br>
 <em>required</em></p></td>
-<td class="tableblock halign-left valign-middle"><p class="tableblock">The version of the GA4GH tool-registry API supported by this registry</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">The version of the GA4GH tool-registry API supported by this registry<br>
+<strong>Example</strong> : <code>"v2"</code></p></td>
 <td class="tableblock halign-left valign-middle"><p class="tableblock">string</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>contact_info_url</strong><br>
-<em>required</em></p></td>
-<td class="tableblock halign-left valign-middle"><p class="tableblock">An email address URL (mailto:) or web page URL with contact information for the operator of a specific TRS endpoint. Users of the endpoint should use this to report problems or security vulnerabilities.</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>contactUrl</strong><br>
+<em>optional</em></p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">URL of the contact for the host/maintainer of this service, e.g. a link to a contact form (RFC 3986 format), or an email (RFC 2368 format). Users of the endpoint should use this to report problems or security vulnerabilities.<br>
+<strong>Example</strong> : <code>"mailto:support@example.com"</code></p></td>
 <td class="tableblock halign-left valign-middle"><p class="tableblock">string</p></td>
 </tr>
 <tr>
@@ -1755,15 +1757,44 @@ and Singularity recipes for Singularity images</p>
 <td class="tableblock halign-left valign-middle"><p class="tableblock">string</p></td>
 </tr>
 <tr>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>description</strong><br>
+<em>optional</em></p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">Description of the service.<br>
+<strong>Example</strong> : <code>"The 1000 Genomes Project is the largest public catalogue of human variation and genotype data."</code></p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">string</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>documentationUrl</strong><br>
+<em>optional</em></p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">URL of the documentation of this service (RFC 3986 format).<br>
+<strong>Example</strong> : <code>"https://docs.example.com"</code></p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">string</p></td>
+</tr>
+<tr>
 <td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>friendly_name</strong><br>
 <em>optional</em></p></td>
 <td class="tableblock halign-left valign-middle"><p class="tableblock">A friendly name that can be used in addition to the hostname to describe a registry</p></td>
 <td class="tableblock halign-left valign-middle"><p class="tableblock">string</p></td>
 </tr>
 <tr>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>id</strong><br>
+<em>required</em></p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">Unique ID of this service. Reverse domain name notation is recommended, though not required.<br>
+<strong>Example</strong> : <code>"org.ga4gh.service"</code></p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">string</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>name</strong><br>
+<em>required</em></p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">Name of this specific service.<br>
+<strong>Example</strong> : <code>"1000 Genomes Project"</code></p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">string</p></td>
+</tr>
+<tr>
 <td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>version</strong><br>
 <em>required</em></p></td>
-<td class="tableblock halign-left valign-middle"><p class="tableblock">The version of this registry</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">Version of the service.<br>
+<strong>Example</strong> : <code>"0.1"</code></p></td>
 <td class="tableblock halign-left valign-middle"><p class="tableblock">string</p></td>
 </tr>
 </tbody>
@@ -2047,7 +2078,7 @@ for registries. Can be used to match tools across registries.</p></td>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2019-05-15 19:59:37 UTC
+Last updated 2019-05-15 20:20:26 UTC
 </div>
 </div>
 </body>
