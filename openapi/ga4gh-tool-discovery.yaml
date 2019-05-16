@@ -124,6 +124,10 @@ paths:
           description: |-
             OPTIONAL for tool registries that support aliases.
             If provided will only return entries with the given alias.
+        - name: toolClass
+          type: string
+          in: query
+          description: 'Filter tools by the name of the subclass (#/definitions/ToolClass)'
         - name: registry
           in: query
           type: string
@@ -197,10 +201,10 @@ paths:
           required: true
           in: path
           description: >-
-            The output type of the descriptor.
-            Plain types return the bare descriptor while the "non-plain" types
-            return a descriptor wrapped with metadata. Allowable values include
-            "CWL", "WDL", "NFL", "PLAIN_CWL", "PLAIN_WDL", "PLAIN_NFL".
+            The output type of the descriptor. Plain types return the bare
+            descriptor while the "non-plain" types return a descriptor wrapped
+            with metadata. Allowable values include "CWL", "WDL", "NFL",
+            "PLAIN_CWL", "PLAIN_WDL", "PLAIN_NFL".
           type: string
         - name: id
           in: path
