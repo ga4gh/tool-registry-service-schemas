@@ -89,6 +89,8 @@ __optional__|Start index of paging. Pagination results can be based on numbers o
 __optional__|The organization in the registry that published the image.|string|
 |**Query**|**registry** +
 __optional__|The image registry that contains the image.|string|
+|**Query**|**toolClass** +
+__optional__|Filter tools by the name of the subclass (#/definitions/ToolClass)|string|
 |**Query**|**toolname** +
 __optional__|The name of the tool.|string|
 |===
