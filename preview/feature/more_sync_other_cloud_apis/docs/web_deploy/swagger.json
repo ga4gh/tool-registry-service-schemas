@@ -197,6 +197,14 @@
             }
           },
           {
+            "name": "toolClass",
+            "in": "query",
+            "description": "Filter tools by the name of the subclass (#/definitions/ToolClass)",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
             "name": "registry",
             "in": "query",
             "description": "The image registry that contains the image.",
