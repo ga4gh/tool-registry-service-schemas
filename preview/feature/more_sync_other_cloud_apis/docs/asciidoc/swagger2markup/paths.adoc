@@ -10,7 +10,7 @@ GET /service-info
 
 
 ==== Description
-Return some information that is useful for describing this registry
+Return some information that is useful for describing this registry.
 
 
 ==== Responses
@@ -35,7 +35,7 @@ GET /toolClasses
 
 
 ==== Description
-This endpoint returns all tool-classes available
+This endpoint returns all tool-classes available.
 
 
 ==== Responses
@@ -69,16 +69,16 @@ This endpoint returns all tools available or a filtered subset using metadata qu
 |===
 |Type|Name|Description|Schema|Default
 |**Query**|**alias** +
-__optional__|OPTIONAL for tool registries that support aliases.
+__optional__|Support for this parameter is optional for tool registries that support aliases.
 If provided will only return entries with the given alias.|string|
 |**Query**|**author** +
 __optional__|The author of the tool (TODO a thought occurs, are we assuming that the author of the CWL and the image are the same?).|string|
 |**Query**|**checker** +
-__optional__|Return only checker workflows|boolean|
+__optional__|Return only checker workflows.|boolean|
 |**Query**|**description** +
 __optional__|The description of the tool.|string|
 |**Query**|**id** +
-__optional__|A unique identifier of the tool, scoped to this registry, for example `123456`|string|
+__optional__|A unique identifier of the tool, scoped to this registry, for example `123456`.|string|
 |**Query**|**limit** +
 __optional__|Amount of records to return in a given page.|integer (int32)|`1000`
 |**Query**|**name** +
@@ -124,7 +124,7 @@ GET /tools/{id}
 
 
 ==== Description
-This endpoint returns one specific tool (which has ToolVersions nested inside it)
+This endpoint returns one specific tool (which has ToolVersions nested inside it).
 
 
 ==== Parameters
@@ -133,7 +133,7 @@ This endpoint returns one specific tool (which has ToolVersions nested inside it
 |===
 |Type|Name|Description|Schema
 |**Path**|**id** +
-__required__|A unique identifier of the tool, scoped to this registry, for example `123456`|string
+__required__|A unique identifier of the tool, scoped to this registry, for example `123456`.|string
 |===
 
 
@@ -160,7 +160,7 @@ GET /tools/{id}/versions
 
 
 ==== Description
-Returns all versions of the specified tool
+Returns all versions of the specified tool.
 
 
 ==== Parameters
@@ -169,7 +169,7 @@ Returns all versions of the specified tool
 |===
 |Type|Name|Description|Schema
 |**Path**|**id** +
-__required__|A unique identifier of the tool, scoped to this registry, for example `123456`|string
+__required__|A unique identifier of the tool, scoped to this registry, for example `123456`.|string
 |===
 
 
@@ -178,7 +178,7 @@ __required__|A unique identifier of the tool, scoped to this registry, for examp
 [options="header", cols=".^2,.^14,.^4"]
 |===
 |HTTP Code|Description|Schema
-|**200**|An array of tool versions|< <<_toolversion,ToolVersion>> > array
+|**200**|An array of tool versions.|< <<_toolversion,ToolVersion>> > array
 |===
 
 
@@ -195,7 +195,7 @@ GET /tools/{id}/versions/{version_id}
 
 
 ==== Description
-This endpoint returns one specific tool version
+This endpoint returns one specific tool version.
 
 
 ==== Parameters
@@ -204,9 +204,9 @@ This endpoint returns one specific tool version
 |===
 |Type|Name|Description|Schema
 |**Path**|**id** +
-__required__|A unique identifier of the tool, scoped to this registry, for example `123456`|string
+__required__|A unique identifier of the tool, scoped to this registry, for example `123456`.|string
 |**Path**|**version_id** +
-__required__|An identifier of the tool version, scoped to this registry, for example `v1`|string
+__required__|An identifier of the tool version, scoped to this registry, for example `v1`.|string
 |===
 
 
@@ -233,7 +233,7 @@ GET /tools/{id}/versions/{version_id}/containerfile
 
 
 ==== Description
-Returns the container specifications(s) for the specified image. For example, a CWL CommandlineTool can be associated with one specification for a container, a CWL Workflow can be associated with multiple specifications for containers
+Returns the container specifications(s) for the specified image. For example, a CWL CommandlineTool can be associated with one specification for a container, a CWL Workflow can be associated with multiple specifications for containers.
 
 
 ==== Parameters
@@ -242,9 +242,9 @@ Returns the container specifications(s) for the specified image. For example, a 
 |===
 |Type|Name|Description|Schema
 |**Path**|**id** +
-__required__|A unique identifier of the tool, scoped to this registry, for example `123456`|string
+__required__|A unique identifier of the tool, scoped to this registry, for example `123456`.|string
 |**Path**|**version_id** +
-__required__|An identifier of the tool version for this particular tool registry, for example `v1`|string
+__required__|An identifier of the tool version for this particular tool registry, for example `v1`.|string
 |===
 
 
@@ -254,7 +254,7 @@ __required__|An identifier of the tool version for this particular tool registry
 |===
 |HTTP Code|Description|Schema
 |**200**|The tool payload.|< <<_filewrapper,FileWrapper>> > array
-|**404**|There are no container specifications for this tool|<<_error,Error>>
+|**404**|There are no container specifications for this tool.|<<_error,Error>>
 |===
 
 
@@ -280,11 +280,11 @@ Returns the descriptor for the specified tool (examples include CWL, WDL, or Nex
 |===
 |Type|Name|Description|Schema
 |**Path**|**id** +
-__required__|A unique identifier of the tool, scoped to this registry, for example `123456`|string
+__required__|A unique identifier of the tool, scoped to this registry, for example `123456`.|string
 |**Path**|**type** +
 __required__|The output type of the descriptor. Plain types return the bare descriptor while the "non-plain" types return a descriptor wrapped with metadata. Allowable values include "CWL", "WDL", "NFL", "PLAIN_CWL", "PLAIN_WDL", "PLAIN_NFL".|string
 |**Path**|**version_id** +
-__required__|An identifier of the tool version, scoped to this registry, for example `v1`|string
+__required__|An identifier of the tool version, scoped to this registry, for example `v1`.|string
 |===
 
 
@@ -320,13 +320,13 @@ Descriptors can often include imports that refer to additional descriptors. This
 |===
 |Type|Name|Description|Schema
 |**Path**|**id** +
-__required__|A unique identifier of the tool, scoped to this registry, for example `123456`|string
+__required__|A unique identifier of the tool, scoped to this registry, for example `123456`.|string
 |**Path**|**relative_path** +
-__required__|A relative path to the additional file (same directory or subdirectories), for example 'foo.cwl' would return a 'foo.cwl' from the same directory as the main descriptor. 'nestedDirectory/foo.cwl' would return the file from a nested subdirectory. Unencoded paths such 'sampleDirectory/foo.cwl' should also be allowed|string
+__required__|A relative path to the additional file (same directory or subdirectories), for example 'foo.cwl' would return a 'foo.cwl' from the same directory as the main descriptor. 'nestedDirectory/foo.cwl' would return the file from a nested subdirectory. Unencoded paths such 'sampleDirectory/foo.cwl' should also be allowed.|string
 |**Path**|**type** +
 __required__|The output type of the descriptor. If not specified, it is up to the underlying implementation to determine which output type to return. Plain types return the bare descriptor while the "non-plain" types return a descriptor wrapped with metadata. Allowable values are "CWL", "WDL", "NFL", "PLAIN_CWL", "PLAIN_WDL", "PLAIN_NFL".|string
 |**Path**|**version_id** +
-__required__|An identifier of the tool version for this particular tool registry, for example `v1`|string
+__required__|An identifier of the tool version for this particular tool registry, for example `v1`.|string
 |===
 
 
@@ -362,11 +362,11 @@ Get a list of objects that contain the relative path and file type. The descript
 |===
 |Type|Name|Description|Schema
 |**Path**|**id** +
-__required__|A unique identifier of the tool, scoped to this registry, for example `123456`|string
+__required__|A unique identifier of the tool, scoped to this registry, for example `123456`.|string
 |**Path**|**type** +
 __required__|The output type of the descriptor. Examples of allowable values are "CWL", "WDL", and "NFL".|string
 |**Path**|**version_id** +
-__required__|An identifier of the tool version for this particular tool registry, for example `v1`|string
+__required__|An identifier of the tool version for this particular tool registry, for example `v1`.|string
 |===
 
 
@@ -402,11 +402,11 @@ Get a list of test JSONs (these allow you to execute the tool successfully) suit
 |===
 |Type|Name|Description|Schema
 |**Path**|**id** +
-__required__|A unique identifier of the tool, scoped to this registry, for example `123456`|string
+__required__|A unique identifier of the tool, scoped to this registry, for example `123456`.|string
 |**Path**|**type** +
 __required__|The type of the underlying descriptor. Allowable values include "CWL", "WDL", "NFL", "PLAIN_CWL", "PLAIN_WDL", "PLAIN_NFL". For example, "CWL" would return an list of ToolTests objects while "PLAIN_CWL" would return a bare JSON list with the content of the tests.|string
 |**Path**|**version_id** +
-__required__|An identifier of the tool version for this particular tool registry, for example `v1`|string
+__required__|An identifier of the tool version for this particular tool registry, for example `v1`.|string
 |===
 
 
