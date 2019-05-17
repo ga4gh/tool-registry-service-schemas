@@ -13,7 +13,7 @@ info:
     "tool" describes one of the triples as described above. In practice,
     examples of "tools" include CWL CommandLineTools, CWL Workflows, WDL
     workflows, and Nextflow workflows that reference containers in formats such
-    as Docker or Singularity. 
+    as Docker or Singularity.
   version: 2.0.0
 produces:
   - application/json
@@ -29,7 +29,7 @@ paths:
       operationId: toolsIdGet
       description: >-
         This endpoint returns one specific tool (which has ToolVersions nested
-        inside it)
+        inside it).
       tags:
         - GA4GH
       parameters:
@@ -39,7 +39,7 @@ paths:
           type: string
           description: >-
             A unique identifier of the tool, scoped to this registry, for
-            example `123456`
+            example `123456`.
       responses:
         '200':
           description: A tool.
@@ -53,7 +53,7 @@ paths:
     get:
       summary: List versions of a tool
       operationId: toolsIdVersionsGet
-      description: Returns all versions of the specified tool
+      description: Returns all versions of the specified tool.
       tags:
         - GA4GH
       parameters:
@@ -63,10 +63,10 @@ paths:
           type: string
           description: >-
             A unique identifier of the tool, scoped to this registry, for
-            example `123456`
+            example `123456`.
       responses:
         '200':
-          description: An array of tool versions
+          description: An array of tool versions.
           schema:
             type: array
             items:
@@ -75,7 +75,7 @@ paths:
     get:
       summary: 'List one specific tool version, acts as an anchor for self references'
       operationId: toolsIdVersionsVersionIdGet
-      description: This endpoint returns one specific tool version
+      description: This endpoint returns one specific tool version.
       tags:
         - GA4GH
       parameters:
@@ -85,14 +85,14 @@ paths:
           type: string
           description: >-
             A unique identifier of the tool, scoped to this registry, for
-            example `123456`
+            example `123456`.
         - name: version_id
           in: path
           required: true
           type: string
           description: >-
             An identifier of the tool version, scoped to this registry, for
-            example `v1`
+            example `v1`.
       responses:
         '200':
           description: A tool version.
@@ -117,12 +117,14 @@ paths:
           in: query
           description: >-
             A unique identifier of the tool, scoped to this registry, for
-            example `123456`
+            example `123456`.
         - name: alias
           type: string
           in: query
-          description: |-
-            OPTIONAL for tool registries that support aliases.
+          description: >-
+            Support for this parameter is optional for tool registries that
+            support aliases.
+
             If provided will only return entries with the given alias.
         - name: toolClass
           type: string
@@ -157,7 +159,7 @@ paths:
         - name: checker
           in: query
           type: boolean
-          description: Return only checker workflows
+          description: Return only checker workflows.
         - $ref: '#/parameters/offset'
         - $ref: '#/parameters/limit'
       responses:
@@ -171,21 +173,21 @@ paths:
             next_page:
               description: >-
                 A URL that can be used to reach the next page based on the
-                current offset and page record limit
+                current offset and page record limit.
               type: string
             last_page:
               description: >-
                 A URL that can be used to reach the last page based on the
-                current page record limit
+                current page record limit.
               type: string
             self_link:
-              description: A URL that can be used to return to the current page later
+              description: A URL that can be used to return to the current page later.
               type: string
             current_offset:
-              description: The current start index of the paging used for this result
+              description: The current start index of the paging used for this result.
               type: string
             current_limit:
-              description: The current page record limit used for this result
+              description: The current page record limit used for this result.
               type: integer
   '/tools/{id}/versions/{version_id}/{type}/descriptor':
     get:
@@ -210,7 +212,7 @@ paths:
           in: path
           description: >-
             A unique identifier of the tool, scoped to this registry, for
-            example `123456`
+            example `123456`.
           required: true
           type: string
         - name: version_id
@@ -219,7 +221,7 @@ paths:
           type: string
           description: >-
             An identifier of the tool version, scoped to this registry, for
-            example `v1`
+            example `v1`.
       responses:
         '200':
           description: The tool descriptor.
@@ -240,7 +242,7 @@ paths:
         This endpoint can be useful for workflow engine implementations like
         cwltool to programmatically download all the descriptors for a tool and
         run it. This can optionally include other files described with
-        FileWrappers such as test parameters and containerfiles. 
+        FileWrappers such as test parameters and containerfiles.
       tags:
         - GA4GH
       parameters:
@@ -258,7 +260,7 @@ paths:
           in: path
           description: >-
             A unique identifier of the tool, scoped to this registry, for
-            example `123456`
+            example `123456`.
           required: true
           type: string
         - name: version_id
@@ -267,7 +269,7 @@ paths:
           type: string
           description: >-
             An identifier of the tool version for this particular tool registry,
-            for example `v1`
+            for example `v1`.
         - name: relative_path
           in: path
           required: true
@@ -277,7 +279,7 @@ paths:
             subdirectories), for example 'foo.cwl' would return a 'foo.cwl' from
             the same directory as the main descriptor. 'nestedDirectory/foo.cwl'
             would return the file  from a nested subdirectory.  Unencoded paths
-            such 'sampleDirectory/foo.cwl' should also be allowed
+            such 'sampleDirectory/foo.cwl' should also be allowed.
           pattern: .+
       responses:
         '200':
@@ -306,13 +308,13 @@ paths:
             "CWL", "WDL", "NFL", "PLAIN_CWL", "PLAIN_WDL", "PLAIN_NFL". For
             example, "CWL" would return an list of ToolTests objects while
             "PLAIN_CWL" would return a bare JSON list with the content of the
-            tests. 
+            tests.
           type: string
         - name: id
           in: path
           description: >-
             A unique identifier of the tool, scoped to this registry, for
-            example `123456`
+            example `123456`.
           required: true
           type: string
         - name: version_id
@@ -321,7 +323,7 @@ paths:
           type: string
           description: >-
             An identifier of the tool version for this particular tool registry,
-            for example `v1`
+            for example `v1`.
       responses:
         '200':
           description: The tool test JSON response.
@@ -356,7 +358,7 @@ paths:
           in: path
           description: >-
             A unique identifier of the tool, scoped to this registry, for
-            example `123456`
+            example `123456`.
           required: true
           type: string
         - name: version_id
@@ -365,7 +367,7 @@ paths:
           type: string
           description: >-
             An identifier of the tool version for this particular tool registry,
-            for example `v1`
+            for example `v1`.
       responses:
         '200':
           description: The array of File JSON responses.
@@ -385,7 +387,7 @@ paths:
         Returns the container specifications(s) for the specified image. For
         example, a CWL CommandlineTool can be associated with one specification
         for a container, a CWL Workflow can be associated with multiple
-        specifications for containers
+        specifications for containers.
       tags:
         - GA4GH
       parameters:
@@ -393,7 +395,7 @@ paths:
           in: path
           description: >-
             A unique identifier of the tool, scoped to this registry, for
-            example `123456`
+            example `123456`.
           required: true
           type: string
         - name: version_id
@@ -402,7 +404,7 @@ paths:
           type: string
           description: >-
             An identifier of the tool version for this particular tool registry,
-            for example `v1`
+            for example `v1`.
       responses:
         '200':
           description: The tool payload.
@@ -411,14 +413,14 @@ paths:
             items:
               $ref: '#/definitions/FileWrapper'
         '404':
-          description: There are no container specifications for this tool
+          description: There are no container specifications for this tool.
           schema:
             $ref: '#/definitions/Error'
   /service-info:
     get:
       summary: Return some information that is useful for describing this registry
       operationId: serviceInfoGet
-      description: Return some information that is useful for describing this registry
+      description: Return some information that is useful for describing this registry.
       tags:
         - GA4GH
       responses:
@@ -431,7 +433,7 @@ paths:
       summary: List all tool types
       operationId: toolClassesGet
       description: |
-        This endpoint returns all tool-classes available
+        This endpoint returns all tool-classes available.
       tags:
         - GA4GH
       responses:
@@ -449,7 +451,7 @@ definitions:
         type: string
         description: >-
           Relative path of the file.  A descriptor's path can be used with the
-          GA4GH .../{type}/descriptor/{relative_path} endpoint
+          GA4GH .../{type}/descriptor/{relative_path} endpoint.
       file_type:
         type: string
         enum:
@@ -462,17 +464,17 @@ definitions:
     type: object
     description: >-
       Describes a class (type) of tool allowing us to categorize workflows,
-      tasks, and maybe even other entities (such as services) separately
+      tasks, and maybe even other entities (such as services) separately.
     properties:
       id:
         type: string
-        description: The unique identifier for the class
+        description: The unique identifier for the class.
       name:
         type: string
-        description: A short friendly name for the class
+        description: A short friendly name for the class.
       description:
         type: string
-        description: A longer explanation of what this class is and what it can accomplish
+        description: A longer explanation of what this class is and what it can accomplish.
   Tool:
     type: object
     description: >-
@@ -490,11 +492,11 @@ definitions:
       url:
         type: string
         example: 'http://agora.broadinstitute.org/tools/123456'
-        description: The URL for this tool in this registry
+        description: The URL for this tool in this registry.
       id:
         type: string
         example: 123456
-        description: 'A unique identifier of the tool, scoped to this registry'
+        description: 'A unique identifier of the tool, scoped to this registry.'
       aliases:
         type: array
         items:
@@ -503,10 +505,14 @@ definitions:
             - 630d31c3-381e-488d-b639-ce5d047a0142
             - 'dockstore.org:630d31c3-381e-488d-b639-ce5d047a0142'
             - 'bio.tools:630d31c3-381e-488d-b639-ce5d047a0142'
-        description: |-
-          OPTIONAL
+        description: >-
+          Support for this parameter is optional for tool registries that
+          support aliases.
+
           A list of strings that can be used to identify this tool.
+
           This can be used to expose alternative ids (such as GUIDs) for a tool
+
           for registries. Can be used to match tools across registries.
       organization:
         type: string
@@ -523,21 +529,21 @@ definitions:
         type: string
         description: >-
           Contact information for the author of this tool entry in the registry.
-          (More complex authorship information is handled by the descriptor)
+          (More complex authorship information is handled by the descriptor).
       meta_version:
         type: string
         description: >-
           The version of this tool in the registry. Iterates when fields like
           the description, author, etc. are updated.
       contains:
-        description: An array of IDs for the applications that are stored inside this tool
+        description: An array of IDs for the applications that are stored inside this tool.
         example: 'https://bio.tools/tool/mytum.de/SNAP2/1'
         type: array
         items:
           type: string
       has_checker:
         type: boolean
-        description: Whether this tool has a checker tool associated with it
+        description: Whether this tool has a checker tool associated with it.
       checker_url:
         type: string
         description: >-
@@ -547,17 +553,17 @@ definitions:
         type: boolean
         description: >-
           Reports whether this tool has been verified by a specific organization
-          or individual
+          or individual.
       verified_source:
         type: string
         description: >-
           Source of metadata that can support a verified tool, such as an email
-          or URL
+          or URL.
       signed:
         type: boolean
         description: Reports whether this tool has been signed.
       versions:
-        description: A list of versions for this tool
+        description: A list of versions for this tool.
         type: array
         items:
           $ref: '#/definitions/ToolVersion'
@@ -575,13 +581,13 @@ definitions:
         description: The name of the version.
       url:
         type: string
-        description: The URL for this tool in this registry
+        description: The URL for this tool in this registry.
         example: 'http://agora.broadinstitute.org/tools/123456/1'
       id:
         type: string
         description: >-
           An identifier of the version of this tool for this particular tool
-          registry
+          registry.
         example: v1
       images:
         description: >-
@@ -608,15 +614,15 @@ definitions:
         type: boolean
         description: >-
           Reports whether this tool has been verified by a specific organization
-          or individual
+          or individual.
       verified_source:
         type: string
         description: >-
           Source of metadata that can support a verified tool, such as an email
-          or URL
+          or URL.
   ImageData:
     type: object
-    description: Describes one container image
+    description: Describes one container image.
     properties:
       registry_host:
         type: string
@@ -627,13 +633,13 @@ definitions:
           - registry.hub.docker.com
       image_name:
         type: string
-        description: Used in conjunction with a registry_url if provided to locate images
+        description: Used in conjunction with a registry_url if provided to locate images.
         example:
           - quay.io/seqware/seqware_full/1.1
           - 'ubuntu:latest'
       size:
         type: integer
-        description: Size of the container in bytes
+        description: Size of the container in bytes.
       updated:
         type: string
         description: Last time the container was updated.
@@ -641,7 +647,7 @@ definitions:
         $ref: '#/definitions/ImageType'
   ImageType:
     type: string
-    description: Indicates what kind of container is this image is
+    description: Indicates what kind of container is this image is.
     enum:
       - Docker
       - Singularity
@@ -652,7 +658,7 @@ definitions:
       The type of descriptor that represents this version of the tool (e.g. CWL,
       WDL, or NFL). Note that these files can also include associated
       Docker/container files  and test parameters that further describe a
-      version of a tool
+      version of a tool.
     enum:
       - CWL
       - WDL
@@ -732,24 +738,34 @@ definitions:
           URL of the contact for the host/maintainer of this service, e.g. a
           link to a contact form (RFC 3986 format), or an email (RFC 2368
           format). Users of the endpoint should use this to report problems or
-          security vulnerabilities.    
+          security vulnerabilities.
         example: 'mailto:support@example.com'
       version:
         type: string
         description: Version of the service.
         example: '0.1'
       api_version:
-        type: string
-        description: The version of the GA4GH tool-registry API supported by this registry
-        example: v2
+        type: array
+        items:
+          type: string
+          example:
+            - '2.0'
+            - '2.1'
+            - '2.5'
+        description: >-
+          The versions of the GA4GH tool-registry API supported by this
+          registry. Note that this denotes the (likely minor) versions of the
+          API supported by the endpoints at the basePath specified above. The
+          service hosting this API may very well support different versions at a
+          different basePath (with its own ServiceInfo)
       country:
         type: string
-        description: A country code for the registry (ISO 3166-1 alpha-3)
+        description: A country code for the registry (ISO 3166-1 alpha-3).
       friendly_name:
         type: string
         description: >-
           A friendly name that can be used in addition to the hostname to
-          describe a registry
+          describe a registry.
   Error:
     type: object
     required:
