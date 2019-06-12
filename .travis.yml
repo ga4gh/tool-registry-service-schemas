@@ -6,7 +6,7 @@ jobs:
     - stage: commit-OpenAPI
       install: npm i -g swagger2openapi
       script:
-        - swagger2openapi src/main/resources/swagger/ga4gh-tool-discovery.yaml -o src/main/resources/swagger/openapi.yaml
+        - swagger2openapi openapi/ga4gh-tool-discovery.yaml -o openapi/openapi.yaml
       after_success:
         - git checkout -B ${TRAVIS_BRANCH}
         - bash scripts/openAPI3.sh
