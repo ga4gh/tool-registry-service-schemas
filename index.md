@@ -8,7 +8,7 @@ title: Table of Contents
 [html5](preview/develop/docs/html5)
 [pdf](preview/develop/docs/pdf/index.pdf)
 #### Other branches:
-feature/more_sync_other_cloud_apis: 
-[swagger-ui](preview/feature/more_sync_other_cloud_apis/docs/web_deploy/swagger-ui)
-[html5](preview/feature/more_sync_other_cloud_apis/docs/html5)
-[pdf](preview/feature/more_sync_other_cloud_apis/docs/pdf/index.pdf)
+feature/feature/fix_tooling_attempt_2: 
+[swagger-ui](preview/feature/feature/fix_tooling_attempt_2/docs/web_deploy/swagger-ui)
+[html5](preview/feature/feature/fix_tooling_attempt_2/docs/html5)
+[pdf](preview/feature/feature/fix_tooling_attempt_2/docs/pdf/index.pdf)
