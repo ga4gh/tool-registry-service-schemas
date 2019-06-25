@@ -8,7 +8,7 @@ title: Table of Contents
 [html5](preview/develop/docs/html5)
 [pdf](preview/develop/docs/pdf/index.pdf)
 #### Other branches:
-feature/feature/fix_tooling_attempt_2: 
-[swagger-ui](preview/feature/feature/fix_tooling_attempt_2/docs/web_deploy/swagger-ui)
-[html5](preview/feature/feature/fix_tooling_attempt_2/docs/html5)
-[pdf](preview/feature/feature/fix_tooling_attempt_2/docs/pdf/index.pdf)
+denis-yuen-patch-1: 
+[swagger-ui](preview/denis-yuen-patch-1/docs/web_deploy/swagger-ui)
+[html5](preview/denis-yuen-patch-1/docs/html5)
+[pdf](preview/denis-yuen-patch-1/docs/pdf/index.pdf)
