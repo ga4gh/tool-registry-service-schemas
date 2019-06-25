@@ -8,6 +8,8 @@ BRANCH=$(echo "$TRAVIS_BRANCH" | awk '{print tolower($0)}')
 BRANCH_PATH="preview/$BRANCH"
 git config --replace-all remote.origin.fetch +refs/heads/*:refs/remotes/origin/*
 git fetch origin gh-pages
+#TODO: changes in the package-lock.json are breaking the build, see https://api.travis-ci.org/v3/job/544918298/log.txt
+git checkout package-lock.json
 git checkout gh-pages
 rm -rf "${BRANCH_PATH}"
 mkdir -p "${BRANCH_PATH}"
