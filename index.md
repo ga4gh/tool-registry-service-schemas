@@ -7,3 +7,8 @@ title: Table of Contents
 [swagger-ui](preview/develop/docs/web_deploy/swagger-ui)
 [html5](preview/develop/docs/html5)
 [pdf](preview/develop/docs/pdf/index.pdf)
+#### Other branches:
+dependabot/npm_and_yarn/lodash-4.17.14: 
+[swagger-ui](preview/dependabot/npm_and_yarn/lodash-4.17.14/docs/web_deploy/swagger-ui)
+[html5](preview/dependabot/npm_and_yarn/lodash-4.17.14/docs/html5)
+[pdf](preview/dependabot/npm_and_yarn/lodash-4.17.14/docs/pdf/index.pdf)
