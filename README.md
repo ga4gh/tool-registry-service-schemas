@@ -30,6 +30,9 @@ What is the Tool Registry API Schema?
 
 This is the home of the schema for the GA4GH Tool Registry API. The GA4GH Tool Registry API is a standard for listing and describing available tools (both stand-alone, Docker-based tools as well as workflows in CWL, WDL or Nextflow) in a given registry. This defines a minimal, common API describing tools that we propose for support by multiple tool/workflow registries like [Dockstore](https://www.dockstore.org/), [BioContainers](https://biocontainers.pro), and [Agora](https://github.com/broadinstitute/agora) for the purposes of exchange, indexing, and searching.
 
+This repo uses the [hubflow](https://datasift.github.io/gitflow/) scheme which is closely based on [gitflow](https://nvie.com/posts/a-successful-git-branching-model/). In practice, this means that the master branch contains the last production release of the schema whereas the develop branch contains the lastest development changes which will end up in the next production release. 
+As of July 2019, this means that the 1.0 version is described on master wheras the develop branch contains the 2.0.0-beta.3 version which will evolve into the 2.0.0 production release.
+
 Our current proposal is to start with a read-only API due to potentially different views and approaches to registration/security.
 
 Key features of the current API proposal:
@@ -37,6 +40,7 @@ Key features of the current API proposal:
 * read-only API
 * May serve up CWL, WDL or Nextflow to describe a tool or represent a workflow depending on the tool/workflow submitter
 * ID:  globally unique across systems and also identifies the system that it came from (ex: 123456323@agora.broadinstitute.org )
+
 
 Outstanding questions:
 
