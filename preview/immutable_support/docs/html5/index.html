@@ -563,7 +563,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <div class="ulist">
 <ul>
 <li>
-<p>GA4GH : A group of web resources proposed as a common standard for tool repositories</p>
+<p>GA4GH : A set of resources proposed as a common standard for tool repositories</p>
 </li>
 </ul>
 </div>
@@ -1682,6 +1682,13 @@ and Singularity recipes for Singularity images</p>
 </thead>
 <tbody>
 <tr>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>hashcode</strong><br>
+<em>optional</em></p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">Helpful for immutable tool versions, but can be independent. This exposes the hashcode for specific image versions to verify that the container version pulled is actually the version that was indexed by the registry.<br>
+<strong>Example</strong> : <code>""</code></p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">string</p></td>
+</tr>
+<tr>
 <td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>image_name</strong><br>
 <em>optional</em></p></td>
 <td class="tableblock halign-left valign-middle"><p class="tableblock">Used in conjunction with a registry_url if provided to locate images.<br>
@@ -1758,6 +1765,12 @@ and Singularity recipes for Singularity images</p>
 <td class="tableblock halign-left valign-middle"><p class="tableblock">string</p></td>
 </tr>
 <tr>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>country</strong><br>
+<em>optional</em></p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">A country code for the registry (ISO 3166-1 alpha-3).</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">string</p></td>
+</tr>
+<tr>
 <td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>description</strong><br>
 <em>optional</em></p></td>
 <td class="tableblock halign-left valign-middle"><p class="tableblock">Description of the service.<br>
@@ -1824,7 +1837,7 @@ and Singularity recipes for Singularity images</p>
 <td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>aliases</strong><br>
 <em>optional</em></p></td>
 <td class="tableblock halign-left valign-middle"><p class="tableblock">Support for this parameter is optional for tool registries that support aliases.<br>
-A list of strings that can be used to identify this tool which could be straight up URLs.<br>
+A list of strings that can be used to identify this tool.<br>
 This can be used to expose alternative ids (such as GUIDs) for a tool<br>
 for registries. Can be used to match tools across registries.</p></td>
 <td class="tableblock halign-left valign-middle"><p class="tableblock">&lt; string &gt; array</p></td>
@@ -1874,12 +1887,6 @@ for registries. Can be used to match tools across registries.</p></td>
 <td class="tableblock halign-left valign-middle"><p class="tableblock">string</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>name</strong><br>
-<em>optional</em></p></td>
-<td class="tableblock halign-left valign-middle"><p class="tableblock">The name of the tool.</p></td>
-<td class="tableblock halign-left valign-middle"><p class="tableblock">string</p></td>
-</tr>
-<tr>
 <td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>organization</strong><br>
 <em>required</em></p></td>
 <td class="tableblock halign-left valign-middle"><p class="tableblock">The organization that published the image.</p></td>
@@ -1896,6 +1903,12 @@ for registries. Can be used to match tools across registries.</p></td>
 <em>required</em></p></td>
 <td class="tableblock halign-left valign-middle"></td>
 <td class="tableblock halign-left valign-middle"><p class="tableblock"><a href="#_toolclass">ToolClass</a></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>toolname</strong><br>
+<em>optional</em></p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">The name of the tool.</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">string</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>url</strong><br>
@@ -2041,6 +2054,12 @@ for registries. Can be used to match tools across registries.</p></td>
 <td class="tableblock halign-left valign-middle"><p class="tableblock">&lt; <a href="#_imagedata">ImageData</a> &gt; array</p></td>
 </tr>
 <tr>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>immutable</strong><br>
+<em>optional</em></p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">This version of a tool is guaranteed to not change over time (as opposed to a tool build from a develop or master branch in git).</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">boolean</p></td>
+</tr>
+<tr>
 <td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>meta_version</strong><br>
 <em>optional</em></p></td>
 <td class="tableblock halign-left valign-middle"><p class="tableblock">The version of this tool version in the registry. Iterates when fields like the description, author, etc. are updated.</p></td>
@@ -2079,7 +2098,7 @@ for registries. Can be used to match tools across registries.</p></td>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2019-07-15 18:52:25 UTC
+Last updated 2019-07-15 21:08:16 UTC
 </div>
 </div>
 </body>
