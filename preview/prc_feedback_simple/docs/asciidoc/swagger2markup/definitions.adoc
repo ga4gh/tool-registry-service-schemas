@@ -87,8 +87,6 @@ __required__|The versions of the GA4GH tool-registry API supported by this regis
 |**contactUrl** +
 __optional__|URL of the contact for the host/maintainer of this service, e.g. a link to a contact form (RFC 3986 format), or an email (RFC 2368 format). Users of the endpoint should use this to report problems or security vulnerabilities. +
 **Example** : `"mailto:support@example.com"`|string
-|**country** +
-__optional__|A country code for the registry (ISO 3166-1 alpha-3).|string
 |**description** +
 __optional__|Description of the service. +
 **Example** : `"The 1000 Genomes Project is the largest public catalogue of human variation and genotype data."`|string
@@ -119,7 +117,7 @@ A tool (or described tool) is defined as a tuple of a descriptor file (which pot
 |Name|Description|Schema
 |**aliases** +
 __optional__|Support for this parameter is optional for tool registries that support aliases.
-A list of strings that can be used to identify this tool.
+A list of strings that can be used to identify this tool which could be straight up URLs.
 This can be used to expose alternative ids (such as GUIDs) for a tool
 for registries. Can be used to match tools across registries.|< string > array
 |**author** +
@@ -138,14 +136,14 @@ __required__|A unique identifier of the tool, scoped to this registry. +
 **Example** : `"123456"`|string
 |**meta_version** +
 __optional__|The version of this tool in the registry. Iterates when fields like the description, author, etc. are updated.|string
+|**name** +
+__optional__|The name of the tool.|string
 |**organization** +
 __required__|The organization that published the image.|string
 |**signed** +
 __optional__|Reports whether this tool has been signed.|boolean
 |**toolclass** +
 __required__||<<_toolclass,ToolClass>>
-|**toolname** +
-__optional__|The name of the tool.|string
 |**url** +
 __required__|The URL for this tool in this registry. +
 **Example** : `"http://agora.broadinstitute.org/tools/123456"`|string

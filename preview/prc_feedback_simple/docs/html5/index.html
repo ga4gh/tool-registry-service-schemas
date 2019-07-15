@@ -563,7 +563,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <div class="ulist">
 <ul>
 <li>
-<p>GA4GH : A set of resources proposed as a common standard for tool repositories</p>
+<p>GA4GH : A group of web resources proposed as a common standard for tool repositories</p>
 </li>
 </ul>
 </div>
@@ -1758,12 +1758,6 @@ and Singularity recipes for Singularity images</p>
 <td class="tableblock halign-left valign-middle"><p class="tableblock">string</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>country</strong><br>
-<em>optional</em></p></td>
-<td class="tableblock halign-left valign-middle"><p class="tableblock">A country code for the registry (ISO 3166-1 alpha-3).</p></td>
-<td class="tableblock halign-left valign-middle"><p class="tableblock">string</p></td>
-</tr>
-<tr>
 <td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>description</strong><br>
 <em>optional</em></p></td>
 <td class="tableblock halign-left valign-middle"><p class="tableblock">Description of the service.<br>
@@ -1830,7 +1824,7 @@ and Singularity recipes for Singularity images</p>
 <td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>aliases</strong><br>
 <em>optional</em></p></td>
 <td class="tableblock halign-left valign-middle"><p class="tableblock">Support for this parameter is optional for tool registries that support aliases.<br>
-A list of strings that can be used to identify this tool.<br>
+A list of strings that can be used to identify this tool which could be straight up URLs.<br>
 This can be used to expose alternative ids (such as GUIDs) for a tool<br>
 for registries. Can be used to match tools across registries.</p></td>
 <td class="tableblock halign-left valign-middle"><p class="tableblock">&lt; string &gt; array</p></td>
@@ -1880,6 +1874,12 @@ for registries. Can be used to match tools across registries.</p></td>
 <td class="tableblock halign-left valign-middle"><p class="tableblock">string</p></td>
 </tr>
 <tr>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>name</strong><br>
+<em>optional</em></p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">The name of the tool.</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">string</p></td>
+</tr>
+<tr>
 <td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>organization</strong><br>
 <em>required</em></p></td>
 <td class="tableblock halign-left valign-middle"><p class="tableblock">The organization that published the image.</p></td>
@@ -1896,12 +1896,6 @@ for registries. Can be used to match tools across registries.</p></td>
 <em>required</em></p></td>
 <td class="tableblock halign-left valign-middle"></td>
 <td class="tableblock halign-left valign-middle"><p class="tableblock"><a href="#_toolclass">ToolClass</a></p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>toolname</strong><br>
-<em>optional</em></p></td>
-<td class="tableblock halign-left valign-middle"><p class="tableblock">The name of the tool.</p></td>
-<td class="tableblock halign-left valign-middle"><p class="tableblock">string</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>url</strong><br>
@@ -2085,7 +2079,7 @@ for registries. Can be used to match tools across registries.</p></td>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2019-07-15 18:33:46 UTC
+Last updated 2019-07-15 18:50:52 UTC
 </div>
 </div>
 </body>
