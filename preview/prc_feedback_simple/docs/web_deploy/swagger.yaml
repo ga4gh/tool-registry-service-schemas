@@ -5,7 +5,9 @@ info:
   version: 2.0.0
 tags:
   - name: GA4GH
-    description: A set of resources proposed as a common standard for tool repositories
+    description: A group of web resources proposed as a common standard for tool repositories
+    externalDocs:
+      url: 'https://ga4gh.github.io/tool-registry-service-schemas/Introduction/'
 paths:
   '/tools/{id}':
     get:
@@ -558,15 +560,16 @@ components:
               - 630d31c3-381e-488d-b639-ce5d047a0142
               - 'dockstore.org:630d31c3-381e-488d-b639-ce5d047a0142'
               - 'bio.tools:630d31c3-381e-488d-b639-ce5d047a0142'
+              - 'https://bio.tools/bioexcel_seqqc'
           description: |-
             Support for this parameter is optional for tool registries that support aliases.
-            A list of strings that can be used to identify this tool.
+            A list of strings that can be used to identify this tool which could be  straight up URLs. 
             This can be used to expose alternative ids (such as GUIDs) for a tool
             for registries. Can be used to match tools across registries.
         organization:
           type: string
           description: The organization that published the image.
-        toolname:
+        name:
           type: string
           description: The name of the tool.
         toolclass:
@@ -748,9 +751,6 @@ components:
               - '2.1'
               - '2.5'
           description: The versions of the GA4GH tool-registry API supported by this registry. Note that this denotes the (likely minor) versions of the API supported by the endpoints at the basePath specified above. The service hosting this API may very well support different versions at a different basePath (with its own ServiceInfo)
-        country:
-          type: string
-          description: A country code for the registry (ISO 3166-1 alpha-3).
         friendly_name:
           type: string
           description: A friendly name that can be used in addition to the hostname to describe a registry.
