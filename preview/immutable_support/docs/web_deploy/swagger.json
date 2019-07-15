@@ -131,7 +131,7 @@
             "name": "version_id",
             "in": "path",
             "required": true,
-            "description": "An identifier of the tool version, scoped to this registry, for example `v1`.",
+            "description": "An identifier of the tool version, scoped to this registry, for example `v1`. We recommend that versions use semantic versioning https://semver.org/spec/v2.0.0.html  (For example, `1.0.0` instead of `develop`)",
             "schema": {
               "type": "string"
             }
