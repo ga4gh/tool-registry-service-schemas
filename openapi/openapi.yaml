@@ -30,8 +30,8 @@ paths:
         - name: id
           in: path
           required: true
-          description: A unique identifier of the tool, scoped to this registry, for
-            example `123456`.
+          description: A unique identifier of the tool, scoped to this registry, with a
+            CURIE-like prefix for example `dockstore:123456`.
           schema:
             type: string
       responses:
@@ -64,8 +64,8 @@ paths:
         - name: id
           in: path
           required: true
-          description: A unique identifier of the tool, scoped to this registry, for
-            example `123456`.
+          description: A unique identifier of the tool, scoped to this registry, with a
+            CURIE-like prefix for example `dockstore:123456`.
           schema:
             type: string
       responses:
@@ -93,8 +93,8 @@ paths:
         - name: id
           in: path
           required: true
-          description: A unique identifier of the tool, scoped to this registry, for
-            example `123456`.
+          description: A unique identifier of the tool, scoped to this registry, with a
+            CURIE-like prefix for example `dockstore:123456`.
           schema:
             type: string
         - name: version_id
@@ -248,8 +248,8 @@ paths:
             type: string
         - name: id
           in: path
-          description: A unique identifier of the tool, scoped to this registry, for
-            example `123456`.
+          description: A unique identifier of the tool, scoped to this registry, with a
+            CURIE-like prefix for example `dockstore:123456`.
           required: true
           schema:
             type: string
@@ -305,8 +305,8 @@ paths:
             type: string
         - name: id
           in: path
-          description: A unique identifier of the tool, scoped to this registry, for
-            example `123456`.
+          description: A unique identifier of the tool, scoped to this registry, with a
+            CURIE-like prefix for example `dockstore:123456`.
           required: true
           schema:
             type: string
@@ -368,8 +368,8 @@ paths:
             type: string
         - name: id
           in: path
-          description: A unique identifier of the tool, scoped to this registry, for
-            example `123456`.
+          description: A unique identifier of the tool, scoped to this registry, with a
+            CURIE-like prefix for example `dockstore:123456`.
           required: true
           schema:
             type: string
@@ -423,8 +423,8 @@ paths:
             type: string
         - name: id
           in: path
-          description: A unique identifier of the tool, scoped to this registry, for
-            example `123456`.
+          description: A unique identifier of the tool, scoped to this registry, with a
+            CURIE-like prefix for example `dockstore:123456`.
           required: true
           schema:
             type: string
@@ -471,8 +471,8 @@ paths:
       parameters:
         - name: id
           in: path
-          description: A unique identifier of the tool, scoped to this registry, for
-            example `123456`.
+          description: A unique identifier of the tool, scoped to this registry, with a
+            CURIE-like prefix for example `dockstore:123456`.
           required: true
           schema:
             type: string
@@ -620,8 +620,16 @@ components:
           description: The URL for this tool in this registry.
         id:
           type: string
-          example: 123456
-          description: A unique identifier of the tool, scoped to this registry.
+          example: dockstore:123456
+          description: A unique identifier of the tool, scoped to this registry with a
+            CURIE-like prefix. See
+            https://github.com/ga4gh/tool-registry-service-schemas/blob/develop/registry.json
+            for the current list of prefixes and the registry that they
+            correspond to. TRS IDs are strings made up of uppercase and
+            lowercase letters, decimal digits, hypen, period, percent,
+            underscore and tilde [A-Za-z0-9.-%_~] to simplify parsing CURIE-like
+            prefixes. Special characters like slashes can be encoded to work
+            with these restrictions.
         aliases:
           type: array
           items:
