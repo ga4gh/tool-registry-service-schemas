@@ -38,8 +38,8 @@ paths:
           required: true
           type: string
           description: >-
-            A unique identifier of the tool, scoped to this registry, for
-            example `123456`.
+            A unique identifier of the tool, scoped to this registry, with a CURIE-like prefix for
+            example `dockstore:123456`.
       responses:
         '200':
           description: A tool.
@@ -62,8 +62,8 @@ paths:
           required: true
           type: string
           description: >-
-            A unique identifier of the tool, scoped to this registry, for
-            example `123456`.
+            A unique identifier of the tool, scoped to this registry, with a CURIE-like prefix for
+            example `dockstore:123456`.
       responses:
         '200':
           description: An array of tool versions.
@@ -84,8 +84,8 @@ paths:
           required: true
           type: string
           description: >-
-            A unique identifier of the tool, scoped to this registry, for
-            example `123456`.
+            A unique identifier of the tool, scoped to this registry, with a CURIE-like prefix for
+            example `dockstore:123456`.
         - name: version_id
           in: path
           required: true
@@ -211,8 +211,8 @@ paths:
         - name: id
           in: path
           description: >-
-            A unique identifier of the tool, scoped to this registry, for
-            example `123456`.
+            A unique identifier of the tool, scoped to this registry, with a CURIE-like prefix for
+            example `dockstore:123456`.
           required: true
           type: string
         - name: version_id
@@ -259,8 +259,8 @@ paths:
         - name: id
           in: path
           description: >-
-            A unique identifier of the tool, scoped to this registry, for
-            example `123456`.
+            A unique identifier of the tool, scoped to this registry, with a CURIE-like prefix for
+            example `dockstore:123456`.
           required: true
           type: string
         - name: version_id
@@ -313,8 +313,8 @@ paths:
         - name: id
           in: path
           description: >-
-            A unique identifier of the tool, scoped to this registry, for
-            example `123456`.
+            A unique identifier of the tool, scoped to this registry, with a CURIE-like prefix for
+            example `dockstore:123456`.
           required: true
           type: string
         - name: version_id
@@ -357,8 +357,8 @@ paths:
         - name: id
           in: path
           description: >-
-            A unique identifier of the tool, scoped to this registry, for
-            example `123456`.
+            A unique identifier of the tool, scoped to this registry, with a CURIE-like prefix for
+            example `dockstore:123456`.
           required: true
           type: string
         - name: version_id
@@ -394,8 +394,8 @@ paths:
         - name: id
           in: path
           description: >-
-            A unique identifier of the tool, scoped to this registry, for
-            example `123456`.
+            A unique identifier of the tool, scoped to this registry, with a CURIE-like prefix for
+            example `dockstore:123456`.
           required: true
           type: string
         - name: version_id
@@ -495,8 +495,9 @@ definitions:
         description: The URL for this tool in this registry.
       id:
         type: string
-        example: 123456
-        description: 'A unique identifier of the tool, scoped to this registry.'
+        example: dockstore:123456
+        description: >- 
+          A unique identifier of the tool, scoped to this registry with a CURIE-like prefix. See https://github.com/ga4gh/tool-registry-service-schemas/blob/develop/registry.json for the current list of prefixes and the registry that they correspond to. TRS IDs are strings made up of uppercase and lowercase letters, decimal digits, hypen, period, percent, underscore and tilde [A-Za-z0-9.-%_~] to simplify parsing CURIE-like prefixes. Special characters like slashes can be encoded to work with these restrictions.
       aliases:
         type: array
         items:
