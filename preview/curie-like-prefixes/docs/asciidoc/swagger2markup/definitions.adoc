@@ -52,9 +52,6 @@ Describes one container image.
 [options="header", cols=".^3,.^11,.^4"]
 |===
 |Name|Description|Schema
-|**hashcode** +
-__optional__|Helpful for immutable tool versions, but can be independent. This exposes the hashcode for specific image versions to verify that the container version pulled is actually the version that was indexed by the registry. +
-**Example** : `""`|string
 |**image_name** +
 __optional__|Used in conjunction with a registry_url if provided to locate images. +
 **Example** : `""`|string
@@ -137,8 +134,8 @@ __optional__|The description of the tool.|string
 |**has_checker** +
 __optional__|Whether this tool has a checker tool associated with it.|boolean
 |**id** +
-__required__|A unique identifier of the tool, scoped to this registry. +
-**Example** : `"123456"`|string
+__required__|A unique identifier of the tool, scoped to this registry with a CURIE-like prefix. See https://github.com/ga4gh/tool-registry-service-schemas/blob/develop/registry.json for the current list of prefixes and the registry that they correspond to. TRS IDs are strings made up of uppercase and lowercase letters, decimal digits, hypen, period, percent, underscore and tilde [A-Za-z0-9.-%_~] to simplify parsing CURIE-like prefixes. Special characters like slashes can be encoded to work with these restrictions. +
+**Example** : `"dockstore:123456"`|string
 |**meta_version** +
 __optional__|The version of this tool in the registry. Iterates when fields like the description, author, etc. are updated.|string
 |**organization** +
@@ -208,8 +205,6 @@ __required__|An identifier of the version of this tool for this particular tool 
 **Example** : `"v1"`|string
 |**images** +
 __optional__|All known docker images (and versions/hashes) used by this tool. If the tool has to evaluate any of the docker images strings at runtime, those ones cannot be reported here.|< <<_imagedata,ImageData>> > array
-|**immutable** +
-__optional__|This version of a tool is guaranteed to not change over time (as opposed to a tool build from a develop or master branch in git).|boolean
 |**meta_version** +
 __optional__|The version of this tool version in the registry. Iterates when fields like the description, author, etc. are updated.|string
 |**name** +

@@ -8,7 +8,7 @@ title: Table of Contents
 [html5](preview/develop/docs/html5)
 [pdf](preview/develop/docs/pdf/index.pdf)
 #### Other branches:
-immutable_support: 
-[swagger-ui](preview/immutable_support/docs/web_deploy/swagger-ui)
-[html5](preview/immutable_support/docs/html5)
-[pdf](preview/immutable_support/docs/pdf/index.pdf)
+curie-like-prefixes: 
+[swagger-ui](preview/curie-like-prefixes/docs/web_deploy/swagger-ui)
+[html5](preview/curie-like-prefixes/docs/html5)
+[pdf](preview/curie-like-prefixes/docs/pdf/index.pdf)

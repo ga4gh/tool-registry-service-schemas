@@ -131,7 +131,7 @@
             "name": "version_id",
             "in": "path",
             "required": true,
-            "description": "An identifier of the tool version, scoped to this registry, for example `v1`. We recommend that versions use semantic versioning https://semver.org/spec/v2.0.0.html  (For example, `1.0.0` instead of `develop`)",
+            "description": "An identifier of the tool version, scoped to this registry, for example `v1`.",
             "schema": {
               "type": "string"
             }
@@ -943,10 +943,6 @@
             "description": "An identifier of the version of this tool for this particular tool registry.",
             "example": "v1"
           },
-          "immutable": {
-            "type": "boolean",
-            "description": "This version of a tool is guaranteed to not change over time (as opposed to a  tool build from a develop or master branch in git)."
-          },
           "images": {
             "description": "All known docker images (and versions/hashes) used by this tool. If the tool has to evaluate any of the docker images strings at runtime, those ones cannot be reported here.",
             "type": "array",
@@ -1005,13 +1001,6 @@
           "updated": {
             "type": "string",
             "description": "Last time the container was updated."
-          },
-          "hashcode": {
-            "type": "string",
-            "description": "Helpful for immutable tool versions, but can be independent. This exposes the hashcode for specific image versions to verify that the container version pulled is actually the version that was indexed by the registry.",
-            "example": [
-              "sha256:77af4d6b9913e693e8d0b4b294fa62ade6054e6b2f1ffb617ac955dd63fb0182"
-            ]
           },
           "image_type": {
             "$ref": "#/components/schemas/ImageType"
