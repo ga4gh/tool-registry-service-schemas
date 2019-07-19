@@ -627,9 +627,11 @@ components:
             for the current list of prefixes and the registry that they
             correspond to. TRS IDs are strings made up of uppercase and
             lowercase letters, one colon, decimal digits, hyphen, period,
-            percent, underscore and tilde ([A-Za-z0-9.-_~%])+:[A-Za-z0-9.-_~%]+
-            to support CURIE-like prefixes. Special characters like slashes can
-            be encoded to work within these restrictions.
+            underscore and tilde ([A-Za-z0-9.-_~])+:[A-Za-z0-9.-_~]+ to support
+            CURIE-like prefixes. Special characters like slashes can be percent
+            encoded to work within these restrictions. This is based on
+            https://tools.ietf.org/html/rfc3986#section-3.3 which includes a
+            discussion on valid "path components."
         aliases:
           type: array
           items:
