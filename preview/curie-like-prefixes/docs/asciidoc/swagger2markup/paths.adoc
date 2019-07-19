@@ -78,7 +78,7 @@ __optional__|Return only checker workflows.|boolean|
 |**Query**|**description** +
 __optional__|The description of the tool.|string|
 |**Query**|**id** +
-__optional__|A unique identifier of the tool, scoped to this registry, for example `123456`.|string|
+__optional__|A unique identifier of the tool, scoped to this registry, with a CURIE-like prefix. An example would be `dockstore:123456`.|string|
 |**Query**|**limit** +
 __optional__|Amount of records to return in a given page.|integer (int32)|`1000`
 |**Query**|**name** +
@@ -133,7 +133,7 @@ This endpoint returns one specific tool (which has ToolVersions nested inside it
 |===
 |Type|Name|Description|Schema
 |**Path**|**id** +
-__required__|A unique identifier of the tool, scoped to this registry, for example `123456`.|string
+__required__|A unique identifier of the tool, scoped to this registry, with a CURIE-like prefix. An example would be `dockstore:123456`.|string
 |===
 
 
@@ -169,7 +169,7 @@ Returns all versions of the specified tool.
 |===
 |Type|Name|Description|Schema
 |**Path**|**id** +
-__required__|A unique identifier of the tool, scoped to this registry, for example `123456`.|string
+__required__|A unique identifier of the tool, scoped to this registry, with a CURIE-like prefix. An example would be `dockstore:123456`.|string
 |===
 
 
@@ -204,7 +204,7 @@ This endpoint returns one specific tool version.
 |===
 |Type|Name|Description|Schema
 |**Path**|**id** +
-__required__|A unique identifier of the tool, scoped to this registry, for example `123456`.|string
+__required__|A unique identifier of the tool, scoped to this registry, with a CURIE-like prefix. An example would be `dockstore:123456`.|string
 |**Path**|**version_id** +
 __required__|An identifier of the tool version, scoped to this registry, for example `v1`.|string
 |===
@@ -242,7 +242,7 @@ Returns the container specifications(s) for the specified image. For example, a 
 |===
 |Type|Name|Description|Schema
 |**Path**|**id** +
-__required__|A unique identifier of the tool, scoped to this registry, for example `123456`.|string
+__required__|A unique identifier of the tool, scoped to this registry, with a CURIE-like prefix. An example would be `dockstore:123456`.|string
 |**Path**|**version_id** +
 __required__|An identifier of the tool version for this particular tool registry, for example `v1`.|string
 |===
@@ -280,7 +280,7 @@ Returns the descriptor for the specified tool (examples include CWL, WDL, or Nex
 |===
 |Type|Name|Description|Schema
 |**Path**|**id** +
-__required__|A unique identifier of the tool, scoped to this registry, for example `123456`.|string
+__required__|A unique identifier of the tool, scoped to this registry, with a CURIE-like prefix. An example would be `dockstore:123456`.|string
 |**Path**|**type** +
 __required__|The output type of the descriptor. Plain types return the bare descriptor while the "non-plain" types return a descriptor wrapped with metadata. Allowable values include "CWL", "WDL", "NFL", "PLAIN_CWL", "PLAIN_WDL", "PLAIN_NFL".|string
 |**Path**|**version_id** +
@@ -320,7 +320,7 @@ Descriptors can often include imports that refer to additional descriptors. This
 |===
 |Type|Name|Description|Schema
 |**Path**|**id** +
-__required__|A unique identifier of the tool, scoped to this registry, for example `123456`.|string
+__required__|A unique identifier of the tool, scoped to this registry, with a CURIE-like prefix. An example would be `dockstore:123456`.|string
 |**Path**|**relative_path** +
 __required__|A relative path to the additional file (same directory or subdirectories), for example 'foo.cwl' would return a 'foo.cwl' from the same directory as the main descriptor. 'nestedDirectory/foo.cwl' would return the file from a nested subdirectory. Unencoded paths such 'sampleDirectory/foo.cwl' should also be allowed.|string
 |**Path**|**type** +
@@ -362,7 +362,7 @@ Get a list of objects that contain the relative path and file type. The descript
 |===
 |Type|Name|Description|Schema
 |**Path**|**id** +
-__required__|A unique identifier of the tool, scoped to this registry, for example `123456`.|string
+__required__|A unique identifier of the tool, scoped to this registry, with a CURIE-like prefix. An example would be `dockstore:123456`.|string
 |**Path**|**type** +
 __required__|The output type of the descriptor. Examples of allowable values are "CWL", "WDL", and "NFL".|string
 |**Path**|**version_id** +
@@ -402,7 +402,7 @@ Get a list of test JSONs (these allow you to execute the tool successfully) suit
 |===
 |Type|Name|Description|Schema
 |**Path**|**id** +
-__required__|A unique identifier of the tool, scoped to this registry, for example `123456`.|string
+__required__|A unique identifier of the tool, scoped to this registry, with a CURIE-like prefix. An example would be `dockstore:123456`.|string
 |**Path**|**type** +
 __required__|The type of the underlying descriptor. Allowable values include "CWL", "WDL", "NFL", "PLAIN_CWL", "PLAIN_WDL", "PLAIN_NFL". For example, "CWL" would return an list of ToolTests objects while "PLAIN_CWL" would return a bare JSON list with the content of the tests.|string
 |**Path**|**version_id** +
