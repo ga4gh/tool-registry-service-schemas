@@ -8,7 +8,7 @@ title: Table of Contents
 [html5](preview/develop/docs/html5)
 [pdf](preview/develop/docs/pdf/index.pdf)
 #### Other branches:
-gitflow_doc: 
-[swagger-ui](preview/gitflow_doc/docs/web_deploy/swagger-ui)
-[html5](preview/gitflow_doc/docs/html5)
-[pdf](preview/gitflow_doc/docs/pdf/index.pdf)
+immutable_support: 
+[swagger-ui](preview/immutable_support/docs/web_deploy/swagger-ui)
+[html5](preview/immutable_support/docs/html5)
+[pdf](preview/immutable_support/docs/pdf/index.pdf)
