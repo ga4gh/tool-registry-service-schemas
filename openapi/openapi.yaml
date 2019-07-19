@@ -31,7 +31,7 @@ paths:
           in: path
           required: true
           description: A unique identifier of the tool, scoped to this registry, with a
-            CURIE-like prefix for example `dockstore:123456`.
+            CURIE-like prefix. An example would be `dockstore:123456`.
           schema:
             type: string
       responses:
@@ -65,7 +65,7 @@ paths:
           in: path
           required: true
           description: A unique identifier of the tool, scoped to this registry, with a
-            CURIE-like prefix for example `dockstore:123456`.
+            CURIE-like prefix. An example would be `dockstore:123456`.
           schema:
             type: string
       responses:
@@ -94,7 +94,7 @@ paths:
           in: path
           required: true
           description: A unique identifier of the tool, scoped to this registry, with a
-            CURIE-like prefix for example `dockstore:123456`.
+            CURIE-like prefix. An example would be `dockstore:123456`.
           schema:
             type: string
         - name: version_id
@@ -135,8 +135,8 @@ paths:
       parameters:
         - name: id
           in: query
-          description: A unique identifier of the tool, scoped to this registry, for
-            example `123456`.
+          description: A unique identifier of the tool, scoped to this registry, with a
+            CURIE-like prefix. An example would be `dockstore:123456`.
           schema:
             type: string
         - name: alias
@@ -249,7 +249,7 @@ paths:
         - name: id
           in: path
           description: A unique identifier of the tool, scoped to this registry, with a
-            CURIE-like prefix for example `dockstore:123456`.
+            CURIE-like prefix. An example would be `dockstore:123456`.
           required: true
           schema:
             type: string
@@ -306,7 +306,7 @@ paths:
         - name: id
           in: path
           description: A unique identifier of the tool, scoped to this registry, with a
-            CURIE-like prefix for example `dockstore:123456`.
+            CURIE-like prefix. An example would be `dockstore:123456`.
           required: true
           schema:
             type: string
@@ -369,7 +369,7 @@ paths:
         - name: id
           in: path
           description: A unique identifier of the tool, scoped to this registry, with a
-            CURIE-like prefix for example `dockstore:123456`.
+            CURIE-like prefix. An example would be `dockstore:123456`.
           required: true
           schema:
             type: string
@@ -424,7 +424,7 @@ paths:
         - name: id
           in: path
           description: A unique identifier of the tool, scoped to this registry, with a
-            CURIE-like prefix for example `dockstore:123456`.
+            CURIE-like prefix. An example would be `dockstore:123456`.
           required: true
           schema:
             type: string
@@ -472,7 +472,7 @@ paths:
         - name: id
           in: path
           description: A unique identifier of the tool, scoped to this registry, with a
-            CURIE-like prefix for example `dockstore:123456`.
+            CURIE-like prefix. An example would be `dockstore:123456`.
           required: true
           schema:
             type: string
@@ -626,10 +626,10 @@ components:
             https://github.com/ga4gh/tool-registry-service-schemas/blob/develop/registry.json
             for the current list of prefixes and the registry that they
             correspond to. TRS IDs are strings made up of uppercase and
-            lowercase letters, decimal digits, hypen, period, percent,
+            lowercase letters, decimal digits, hyphen, period, percent,
             underscore and tilde [A-Za-z0-9.-%_~] to simplify parsing CURIE-like
             prefixes. Special characters like slashes can be encoded to work
-            with these restrictions.
+            within these restrictions.
         aliases:
           type: array
           items:
