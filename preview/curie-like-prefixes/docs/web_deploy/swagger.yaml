@@ -549,7 +549,7 @@ components:
         id:
           type: string
           example: 'dockstore:123456'
-          description: 'A unique identifier of the tool, scoped to this registry with a CURIE-like prefix. See https://github.com/ga4gh/tool-registry-service-schemas/blob/develop/registry.json for the current list of prefixes and the registry that they correspond to. TRS IDs are strings made up of uppercase and lowercase letters, decimal digits, hyphen, period, percent, underscore and tilde [A-Za-z0-9.-%_~] to simplify parsing CURIE-like prefixes. Special characters like slashes can be encoded to work within these restrictions.'
+          description: 'A unique identifier of the tool, scoped to this registry with a CURIE-like prefix. See https://github.com/ga4gh/tool-registry-service-schemas/blob/develop/registry.json for the current list of prefixes and the registry that they correspond to. TRS IDs are strings made up of uppercase and lowercase letters, one colon, decimal digits, hyphen, period, percent, underscore and tilde ([A-Za-z0-9.-_~%])+:[A-Za-z0-9.-_~%]+ to support CURIE-like prefixes. Special characters like slashes can be encoded to work within these restrictions.'
         aliases:
           type: array
           items:
