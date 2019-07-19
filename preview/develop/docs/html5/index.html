@@ -1055,7 +1055,7 @@ If provided will only return entries with the given alias.</p></td>
 <td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>Path</strong></p></td>
 <td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>version_id</strong><br>
 <em>required</em></p></td>
-<td class="tableblock halign-left valign-middle"><p class="tableblock">An identifier of the tool version, scoped to this registry, for example <code>v1</code>. We recommend that versions use semantic versioning <a href="https://semver.org/spec/v2.0.0.html" class="bare">https://semver.org/spec/v2.0.0.html</a> (For example, <code>1.0.0</code> instead of <code>develop</code>)</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">An identifier of the tool version, scoped to this registry, for example <code>v1</code>.</p></td>
 <td class="tableblock halign-left valign-middle"><p class="tableblock">string</p></td>
 </tr>
 </tbody>
@@ -1682,13 +1682,6 @@ and Singularity recipes for Singularity images</p>
 </thead>
 <tbody>
 <tr>
-<td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>hashcode</strong><br>
-<em>optional</em></p></td>
-<td class="tableblock halign-left valign-middle"><p class="tableblock">Helpful for immutable tool versions, but can be useful in other cases as well. This exposes the hashcode for specific image versions to verify that the container version pulled is actually the version that was indexed by the registry.<br>
-<strong>Example</strong> : <code>""</code></p></td>
-<td class="tableblock halign-left valign-middle"><p class="tableblock">string</p></td>
-</tr>
-<tr>
 <td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>image_name</strong><br>
 <em>optional</em></p></td>
 <td class="tableblock halign-left valign-middle"><p class="tableblock">Used in conjunction with a registry_url if provided to locate images.<br>
@@ -2054,12 +2047,6 @@ for registries. Can be used to match tools across registries.</p></td>
 <td class="tableblock halign-left valign-middle"><p class="tableblock">&lt; <a href="#_imagedata">ImageData</a> &gt; array</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>immutable</strong><br>
-<em>optional</em></p></td>
-<td class="tableblock halign-left valign-middle"><p class="tableblock">This version of a tool is guaranteed to not change over time (for example, a tool built from a tag in git as opposed to a branch).</p></td>
-<td class="tableblock halign-left valign-middle"><p class="tableblock">boolean</p></td>
-</tr>
-<tr>
 <td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>meta_version</strong><br>
 <em>optional</em></p></td>
 <td class="tableblock halign-left valign-middle"><p class="tableblock">The version of this tool version in the registry. Iterates when fields like the description, author, etc. are updated.</p></td>
@@ -2098,7 +2085,7 @@ for registries. Can be used to match tools across registries.</p></td>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2019-07-19 14:30:25 UTC
+Last updated 2019-07-19 14:39:52 UTC
 </div>
 </div>
 </body>

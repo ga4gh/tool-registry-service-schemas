@@ -52,9 +52,6 @@ Describes one container image.
 [options="header", cols=".^3,.^11,.^4"]
 |===
 |Name|Description|Schema
-|**hashcode** +
-__optional__|Helpful for immutable tool versions, but can be useful in other cases as well. This exposes the hashcode for specific image versions to verify that the container version pulled is actually the version that was indexed by the registry. +
-**Example** : `""`|string
 |**image_name** +
 __optional__|Used in conjunction with a registry_url if provided to locate images. +
 **Example** : `""`|string
@@ -208,8 +205,6 @@ __required__|An identifier of the version of this tool for this particular tool 
 **Example** : `"v1"`|string
 |**images** +
 __optional__|All known docker images (and versions/hashes) used by this tool. If the tool has to evaluate any of the docker images strings at runtime, those ones cannot be reported here.|< <<_imagedata,ImageData>> > array
-|**immutable** +
-__optional__|This version of a tool is guaranteed to not change over time (for example, a tool built from a tag in git as opposed to a branch).|boolean
 |**meta_version** +
 __optional__|The version of this tool version in the registry. Iterates when fields like the description, author, etc. are updated.|string
 |**name** +
