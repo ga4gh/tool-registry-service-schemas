@@ -8,7 +8,10 @@
   "tags": [
     {
       "name": "GA4GH",
-      "description": "A set of resources proposed as a common standard for tool repositories"
+      "description": "A group of web resources proposed as a common standard for tool repositories",
+      "externalDocs": {
+        "url": "https://ga4gh.github.io/tool-registry-service-schemas/Introduction/"
+      }
     }
   ],
   "paths": {
@@ -25,7 +28,7 @@
             "name": "id",
             "in": "path",
             "required": true,
-            "description": "A unique identifier of the tool, scoped to this registry, with a CURIE-like prefix. An example would be `dockstore:123456`.",
+            "description": "A unique identifier of the tool, scoped to this registry, for example `123456`.",
             "schema": {
               "type": "string"
             }
@@ -78,7 +81,7 @@
             "name": "id",
             "in": "path",
             "required": true,
-            "description": "A unique identifier of the tool, scoped to this registry, with a CURIE-like prefix. An example would be `dockstore:123456`.",
+            "description": "A unique identifier of the tool, scoped to this registry, for example `123456`.",
             "schema": {
               "type": "string"
             }
@@ -122,7 +125,7 @@
             "name": "id",
             "in": "path",
             "required": true,
-            "description": "A unique identifier of the tool, scoped to this registry, with a CURIE-like prefix. An example would be `dockstore:123456`.",
+            "description": "A unique identifier of the tool, scoped to this registry, for example `123456`.",
             "schema": {
               "type": "string"
             }
@@ -183,7 +186,7 @@
           {
             "name": "id",
             "in": "query",
-            "description": "A unique identifier of the tool, scoped to this registry, with a CURIE-like prefix. An example would be `dockstore:123456`.",
+            "description": "A unique identifier of the tool, scoped to this registry, for example `123456`.",
             "schema": {
               "type": "string"
             }
@@ -345,7 +348,7 @@
           {
             "name": "id",
             "in": "path",
-            "description": "A unique identifier of the tool, scoped to this registry, with a CURIE-like prefix. An example would be `dockstore:123456`.",
+            "description": "A unique identifier of the tool, scoped to this registry, for example `123456`.",
             "required": true,
             "schema": {
               "type": "string"
@@ -416,7 +419,7 @@
           {
             "name": "id",
             "in": "path",
-            "description": "A unique identifier of the tool, scoped to this registry, with a CURIE-like prefix. An example would be `dockstore:123456`.",
+            "description": "A unique identifier of the tool, scoped to this registry, for example `123456`.",
             "required": true,
             "schema": {
               "type": "string"
@@ -497,7 +500,7 @@
           {
             "name": "id",
             "in": "path",
-            "description": "A unique identifier of the tool, scoped to this registry, with a CURIE-like prefix. An example would be `dockstore:123456`.",
+            "description": "A unique identifier of the tool, scoped to this registry, for example `123456`.",
             "required": true,
             "schema": {
               "type": "string"
@@ -574,7 +577,7 @@
           {
             "name": "id",
             "in": "path",
-            "description": "A unique identifier of the tool, scoped to this registry, with a CURIE-like prefix. An example would be `dockstore:123456`.",
+            "description": "A unique identifier of the tool, scoped to this registry, for example `123456`.",
             "required": true,
             "schema": {
               "type": "string"
@@ -642,7 +645,7 @@
           {
             "name": "id",
             "in": "path",
-            "description": "A unique identifier of the tool, scoped to this registry, with a CURIE-like prefix. An example would be `dockstore:123456`.",
+            "description": "A unique identifier of the tool, scoped to this registry, for example `123456`.",
             "required": true,
             "schema": {
               "type": "string"
@@ -846,8 +849,8 @@
           },
           "id": {
             "type": "string",
-            "example": "dockstore:123456",
-            "description": "A unique identifier of the tool, scoped to this registry with a CURIE-like prefix. See https://github.com/ga4gh/tool-registry-service-schemas/blob/develop/registry.json for the current list of prefixes and the registry that they correspond to. TRS IDs are strings made up of uppercase and lowercase letters, one colon, decimal digits, hyphen, period, underscore and tilde ([A-Za-z0-9.-_~])+:[A-Za-z0-9.-_~]+ to support CURIE-like prefixes. Special characters like slashes can be percent encoded to work within these restrictions. This is based on https://tools.ietf.org/html/rfc3986#section-3.3 which includes a discussion on valid \"path components.\""
+            "example": 123456,
+            "description": "A unique identifier of the tool, scoped to this registry."
           },
           "aliases": {
             "type": "array",
@@ -856,16 +859,17 @@
               "example": [
                 "630d31c3-381e-488d-b639-ce5d047a0142",
                 "dockstore.org:630d31c3-381e-488d-b639-ce5d047a0142",
-                "bio.tools:630d31c3-381e-488d-b639-ce5d047a0142"
+                "bio.tools:630d31c3-381e-488d-b639-ce5d047a0142",
+                "https://bio.tools/bioexcel_seqqc"
               ]
             },
-            "description": "Support for this parameter is optional for tool registries that support aliases.\nA list of strings that can be used to identify this tool.\nThis can be used to expose alternative ids (such as GUIDs) for a tool\nfor registries. Can be used to match tools across registries."
+            "description": "Support for this parameter is optional for tool registries that support aliases.\nA list of strings that can be used to identify this tool which could be  straight up URLs. \nThis can be used to expose alternative ids (such as GUIDs) for a tool\nfor registries. Can be used to match tools across registries."
           },
           "organization": {
             "type": "string",
             "description": "The organization that published the image."
           },
-          "toolname": {
+          "name": {
             "type": "string",
             "description": "The name of the tool."
           },
@@ -1099,10 +1103,6 @@
               ]
             },
             "description": "The versions of the GA4GH tool-registry API supported by this registry. Note that this denotes the (likely minor) versions of the API supported by the endpoints at the basePath specified above. The service hosting this API may very well support different versions at a different basePath (with its own ServiceInfo)"
-          },
-          "country": {
-            "type": "string",
-            "description": "A country code for the registry (ISO 3166-1 alpha-3)."
           },
           "friendly_name": {
             "type": "string",
