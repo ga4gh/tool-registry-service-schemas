@@ -655,7 +655,9 @@ components:
           type: string
           description: The description of the tool.
         author:
-          type: string
+          type: array
+          items:
+            type: string
           description: Contact information for the author of this tool entry in the
             registry. (More complex authorship information is handled by the
             descriptor).
@@ -663,7 +665,7 @@ components:
           type: string
           description: The version of this tool in the registry. Iterates when fields like
             the description, author, etc. are updated.
-        contains:
+        included_apps:
           description: An array of IDs for the applications that are stored inside this
             tool.
           example: https://bio.tools/tool/mytum.de/SNAP2/1
@@ -682,7 +684,9 @@ components:
           description: Reports whether this tool has been verified by a specific
             organization or individual.
         verified_source:
-          type: string
+          type: array
+          items:
+            type: string
           description: Source of metadata that can support a verified tool, such as an
             email or URL.
         signed:
@@ -727,7 +731,9 @@ components:
             $ref: "#/components/schemas/DescriptorType"
         containerfile:
           type: boolean
-          description: Reports if this tool has a containerfile available.
+          description: Reports if this tool has a containerfile available. (For
+            Docker-based tools, this would indicate the presence of a
+            Dockerfile)
         meta_version:
           type: string
           description: The version of this tool version in the registry. Iterates when
@@ -737,7 +743,9 @@ components:
           description: Reports whether this tool has been verified by a specific
             organization or individual.
         verified_source:
-          type: string
+          type: array
+          items:
+            type: string
           description: Source of metadata that can support a verified tool, such as an
             email or URL.
     ImageData:
