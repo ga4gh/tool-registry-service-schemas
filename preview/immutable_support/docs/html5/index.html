@@ -563,7 +563,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <div class="ulist">
 <ul>
 <li>
-<p>GA4GH : A group of web resources proposed as a common standard for tool repositories</p>
+<p>GA4GH : A set of resources proposed as a common standard for tool repositories</p>
 </li>
 </ul>
 </div>
@@ -1055,7 +1055,7 @@ If provided will only return entries with the given alias.</p></td>
 <td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>Path</strong></p></td>
 <td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>version_id</strong><br>
 <em>required</em></p></td>
-<td class="tableblock halign-left valign-middle"><p class="tableblock">An identifier of the tool version, scoped to this registry, for example <code>v1</code>.</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">An identifier of the tool version, scoped to this registry, for example <code>v1</code>. We recommend that versions use semantic versioning <a href="https://semver.org/spec/v2.0.0.html" class="bare">https://semver.org/spec/v2.0.0.html</a> (For example, <code>1.0.0</code> instead of <code>develop</code>)</p></td>
 <td class="tableblock halign-left valign-middle"><p class="tableblock">string</p></td>
 </tr>
 </tbody>
@@ -1653,6 +1653,12 @@ and Singularity recipes for Singularity images</p>
 <td class="tableblock halign-left valign-middle"><p class="tableblock">string</p></td>
 </tr>
 <tr>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>hashcode</strong><br>
+<em>optional</em></p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">Helpful for immutable tool versions, but can be useful in other cases as well. This exposes a hashcode for specific files to verify whether the file has changed.</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">string</p></td>
+</tr>
+<tr>
 <td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>url</strong><br>
 <em>optional</em></p></td>
 <td class="tableblock halign-left valign-middle"><p class="tableblock">Optional url to the underlying content, should include version information, and can include a git hash. Note that this URL should resolve to the raw unwrapped content that would otherwise be available in content. One of url or content is required.<br>
@@ -1681,6 +1687,13 @@ and Singularity recipes for Singularity images</p>
 </tr>
 </thead>
 <tbody>
+<tr>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>hashcode</strong><br>
+<em>optional</em></p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">Helpful for immutable tool versions, but can be useful in other cases as well. This exposes the hashcode for specific image versions to verify that the container version pulled is actually the version that was indexed by the registry.<br>
+<strong>Example</strong> : <code>""</code></p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">string</p></td>
+</tr>
 <tr>
 <td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>image_name</strong><br>
 <em>optional</em></p></td>
@@ -1758,6 +1771,12 @@ and Singularity recipes for Singularity images</p>
 <td class="tableblock halign-left valign-middle"><p class="tableblock">string</p></td>
 </tr>
 <tr>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>country</strong><br>
+<em>optional</em></p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">A country code for the registry (ISO 3166-1 alpha-3).</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">string</p></td>
+</tr>
+<tr>
 <td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>description</strong><br>
 <em>optional</em></p></td>
 <td class="tableblock halign-left valign-middle"><p class="tableblock">Description of the service.<br>
@@ -1824,7 +1843,7 @@ and Singularity recipes for Singularity images</p>
 <td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>aliases</strong><br>
 <em>optional</em></p></td>
 <td class="tableblock halign-left valign-middle"><p class="tableblock">Support for this parameter is optional for tool registries that support aliases.<br>
-A list of strings that can be used to identify this tool which could be straight up URLs.<br>
+A list of strings that can be used to identify this tool.<br>
 This can be used to expose alternative ids (such as GUIDs) for a tool<br>
 for registries. Can be used to match tools across registries.</p></td>
 <td class="tableblock halign-left valign-middle"><p class="tableblock">&lt; string &gt; array</p></td>
@@ -1833,13 +1852,20 @@ for registries. Can be used to match tools across registries.</p></td>
 <td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>author</strong><br>
 <em>required</em></p></td>
 <td class="tableblock halign-left valign-middle"><p class="tableblock">Contact information for the author of this tool entry in the registry. (More complex authorship information is handled by the descriptor).</p></td>
-<td class="tableblock halign-left valign-middle"><p class="tableblock">&lt; string &gt; array</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">string</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>checker_url</strong><br>
 <em>optional</em></p></td>
 <td class="tableblock halign-left valign-middle"><p class="tableblock">Optional url to the checker tool that will exit successfully if this tool produced the expected result given test data.</p></td>
 <td class="tableblock halign-left valign-middle"><p class="tableblock">string</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>contains</strong><br>
+<em>optional</em></p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">An array of IDs for the applications that are stored inside this tool.<br>
+<strong>Example</strong> : <code>"https://bio.tools/tool/mytum.de/SNAP2/1"</code></p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">&lt; string &gt; array</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>description</strong><br>
@@ -1861,22 +1887,9 @@ for registries. Can be used to match tools across registries.</p></td>
 <td class="tableblock halign-left valign-middle"><p class="tableblock">string</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>included_apps</strong><br>
-<em>optional</em></p></td>
-<td class="tableblock halign-left valign-middle"><p class="tableblock">An array of IDs for the applications that are stored inside this tool.<br>
-<strong>Example</strong> : <code>[ "https://bio.tools/tool/mytum.de/SNAP2/1", "https://bio.tools/bioexcel_seqqc" ]</code></p></td>
-<td class="tableblock halign-left valign-middle"><p class="tableblock">&lt; string &gt; array</p></td>
-</tr>
-<tr>
 <td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>meta_version</strong><br>
 <em>optional</em></p></td>
 <td class="tableblock halign-left valign-middle"><p class="tableblock">The version of this tool in the registry. Iterates when fields like the description, author, etc. are updated.</p></td>
-<td class="tableblock halign-left valign-middle"><p class="tableblock">string</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>name</strong><br>
-<em>optional</em></p></td>
-<td class="tableblock halign-left valign-middle"><p class="tableblock">The name of the tool.</p></td>
 <td class="tableblock halign-left valign-middle"><p class="tableblock">string</p></td>
 </tr>
 <tr>
@@ -1898,6 +1911,12 @@ for registries. Can be used to match tools across registries.</p></td>
 <td class="tableblock halign-left valign-middle"><p class="tableblock"><a href="#_toolclass">ToolClass</a></p></td>
 </tr>
 <tr>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>toolname</strong><br>
+<em>optional</em></p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">The name of the tool.</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">string</p></td>
+</tr>
+<tr>
 <td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>url</strong><br>
 <em>required</em></p></td>
 <td class="tableblock halign-left valign-middle"><p class="tableblock">The URL for this tool in this registry.<br>
@@ -1914,7 +1933,7 @@ for registries. Can be used to match tools across registries.</p></td>
 <td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>verified_source</strong><br>
 <em>optional</em></p></td>
 <td class="tableblock halign-left valign-middle"><p class="tableblock">Source of metadata that can support a verified tool, such as an email or URL.</p></td>
-<td class="tableblock halign-left valign-middle"><p class="tableblock">&lt; string &gt; array</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">string</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>versions</strong><br>
@@ -2018,7 +2037,7 @@ for registries. Can be used to match tools across registries.</p></td>
 <tr>
 <td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>containerfile</strong><br>
 <em>optional</em></p></td>
-<td class="tableblock halign-left valign-middle"><p class="tableblock">Reports if this tool has a containerfile available. (For Docker-based tools, this would indicate the presence of a Dockerfile)</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">Reports if this tool has a containerfile available.</p></td>
 <td class="tableblock halign-left valign-middle"><p class="tableblock">boolean</p></td>
 </tr>
 <tr>
@@ -2039,6 +2058,12 @@ for registries. Can be used to match tools across registries.</p></td>
 <em>optional</em></p></td>
 <td class="tableblock halign-left valign-middle"><p class="tableblock">All known docker images (and versions/hashes) used by this tool. If the tool has to evaluate any of the docker images strings at runtime, those ones cannot be reported here.</p></td>
 <td class="tableblock halign-left valign-middle"><p class="tableblock">&lt; <a href="#_imagedata">ImageData</a> &gt; array</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>immutable</strong><br>
+<em>optional</em></p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">This version of a tool is guaranteed to not change over time (for example, a tool built from a tag in git as opposed to a branch).</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">boolean</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>meta_version</strong><br>
@@ -2069,7 +2094,7 @@ for registries. Can be used to match tools across registries.</p></td>
 <td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>verified_source</strong><br>
 <em>optional</em></p></td>
 <td class="tableblock halign-left valign-middle"><p class="tableblock">Source of metadata that can support a verified tool, such as an email or URL.</p></td>
-<td class="tableblock halign-left valign-middle"><p class="tableblock">&lt; string &gt; array</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">string</p></td>
 </tr>
 </tbody>
 </table>
@@ -2079,7 +2104,7 @@ for registries. Can be used to match tools across registries.</p></td>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2019-07-29 14:50:58 UTC
+Last updated 2019-07-29 15:25:43 UTC
 </div>
 </div>
 </body>
