@@ -133,7 +133,7 @@ __required__|A unique identifier of the tool, scoped to this registry. +
 **Example** : `"123456"`|string
 |**included_apps** +
 __optional__|An array of IDs for the applications that are stored inside this tool. +
-**Example** : `"https://bio.tools/tool/mytum.de/SNAP2/1"`|< string > array
+**Example** : `[ "https://bio.tools/tool/mytum.de/SNAP2/1", "https://bio.tools/bioexcel_seqqc" ]`|< string > array
 |**meta_version** +
 __optional__|The version of this tool in the registry. Iterates when fields like the description, author, etc. are updated.|string
 |**name** +
