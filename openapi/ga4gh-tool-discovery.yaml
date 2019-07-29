@@ -487,7 +487,6 @@ definitions:
       - url
       - id
       - organization
-      - author
       - toolclass
       - versions
     properties:
@@ -528,26 +527,11 @@ definitions:
       description:
         type: string
         description: The description of the tool.
-      author:
-        type: array
-        items:
-          type: string
-        description: >-
-          Contact information for the author of this tool entry in the registry.
-          (More complex authorship information is handled by the descriptor).
       meta_version:
         type: string
         description: >-
           The version of this tool in the registry. Iterates when fields like
           the description, author, etc. are updated.
-      included_apps:
-        description: An array of IDs for the applications that are stored inside this tool.
-        example: 
-          - 'https://bio.tools/tool/mytum.de/SNAP2/1'
-          - 'https://bio.tools/bioexcel_seqqc'
-        type: array
-        items:
-          type: string
       has_checker:
         type: boolean
         description: Whether this tool has a checker tool associated with it.
@@ -556,21 +540,6 @@ definitions:
         description: >-
           Optional url to the checker tool that will exit successfully if this
           tool produced the expected result given test data.
-      verified:
-        type: boolean
-        description: >-
-          Reports whether this tool has been verified by a specific organization
-          or individual.
-      verified_source:
-        type: array
-        items:
-          type: string
-        description: >-
-          Source of metadata that can support a verified tool, such as an email
-          or URL.
-      signed:
-        type: boolean
-        description: Reports whether this tool has been signed.
       versions:
         description: A list of versions for this tool.
         type: array
@@ -585,6 +554,13 @@ definitions:
       - url
       - id
     properties:
+      author:
+        type: array
+        items:
+          type: string
+        description: >-
+          Contact information for the author of this tool entry in the registry.
+          (More complex authorship information is handled by the descriptor).
       name:
         type: string
         description: The name of the version.
@@ -631,6 +607,17 @@ definitions:
         description: >-
           Source of metadata that can support a verified tool, such as an email
           or URL.
+      signed:
+        type: boolean
+        description: Reports whether this tool has been signed.
+      included_apps:
+        description: An array of IDs for the applications that are stored inside this tool.
+        example: 
+          - 'https://bio.tools/tool/mytum.de/SNAP2/1'
+          - 'https://bio.tools/bioexcel_seqqc'
+        type: array
+        items:
+          type: string
   ImageData:
     type: object
     description: Describes one container image.
