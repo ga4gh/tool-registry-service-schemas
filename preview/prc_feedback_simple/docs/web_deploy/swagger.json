@@ -859,8 +859,7 @@
               "example": [
                 "630d31c3-381e-488d-b639-ce5d047a0142",
                 "dockstore.org:630d31c3-381e-488d-b639-ce5d047a0142",
-                "bio.tools:630d31c3-381e-488d-b639-ce5d047a0142",
-                "https://bio.tools/bioexcel_seqqc"
+                "bio.tools:630d31c3-381e-488d-b639-ce5d047a0142"
               ]
             },
             "description": "Support for this parameter is optional for tool registries that support aliases.\nA list of strings that can be used to identify this tool which could be  straight up URLs. \nThis can be used to expose alternative ids (such as GUIDs) for a tool\nfor registries. Can be used to match tools across registries."
@@ -893,7 +892,10 @@
           },
           "included_apps": {
             "description": "An array of IDs for the applications that are stored inside this tool.",
-            "example": "https://bio.tools/tool/mytum.de/SNAP2/1",
+            "example": [
+              "https://bio.tools/tool/mytum.de/SNAP2/1",
+              "https://bio.tools/bioexcel_seqqc"
+            ],
             "type": "array",
             "items": {
               "type": "string"
