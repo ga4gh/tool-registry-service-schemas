@@ -1044,6 +1044,10 @@
             "type": "string",
             "description": "The content of the file itself. One of url or content is required."
           },
+          "hashcode": {
+            "type": "string",
+            "description": "Helpful for immutable tool versions, but can be useful in other cases as well. This exposes a hashcode for specific files to verify whether the file has changed."
+          },
           "url": {
             "type": "string",
             "description": "Optional url to the underlying content, should include version information, and can include a git hash.  Note that this URL should resolve to the raw unwrapped content that would otherwise be available in content. One of url or content is required.",
