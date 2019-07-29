@@ -507,7 +507,6 @@ definitions:
             - 630d31c3-381e-488d-b639-ce5d047a0142
             - 'dockstore.org:630d31c3-381e-488d-b639-ce5d047a0142'
             - 'bio.tools:630d31c3-381e-488d-b639-ce5d047a0142'
-            - 'https://bio.tools/bioexcel_seqqc'
         description: >-
           Support for this parameter is optional for tool registries that
           support aliases.
@@ -543,7 +542,9 @@ definitions:
           the description, author, etc. are updated.
       included_apps:
         description: An array of IDs for the applications that are stored inside this tool.
-        example: 'https://bio.tools/tool/mytum.de/SNAP2/1'
+        example: 
+          - 'https://bio.tools/tool/mytum.de/SNAP2/1'
+          - 'https://bio.tools/bioexcel_seqqc'
         type: array
         items:
           type: string
