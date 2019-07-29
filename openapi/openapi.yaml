@@ -16,7 +16,10 @@ info:
   version: 2.0.0
 tags:
   - name: GA4GH
-    description: A set of resources proposed as a common standard for tool repositories
+    description: A group of web resources proposed as a common standard for tool
+      repositories
+    externalDocs:
+      url: https://ga4gh.github.io/tool-registry-service-schemas/Introduction/
 paths:
   "/tools/{id}":
     get:
@@ -634,7 +637,7 @@ components:
             Support for this parameter is optional for tool registries that
             support aliases.
 
-            A list of strings that can be used to identify this tool.
+            A list of strings that can be used to identify this tool which could be  straight up URLs. 
 
             This can be used to expose alternative ids (such as GUIDs) for a tool
 
@@ -642,7 +645,7 @@ components:
         organization:
           type: string
           description: The organization that published the image.
-        toolname:
+        name:
           type: string
           description: The name of the tool.
         toolclass:
@@ -651,7 +654,9 @@ components:
           type: string
           description: The description of the tool.
         author:
-          type: string
+          type: array
+          items:
+            type: string
           description: Contact information for the author of this tool entry in the
             registry. (More complex authorship information is handled by the
             descriptor).
@@ -659,10 +664,12 @@ components:
           type: string
           description: The version of this tool in the registry. Iterates when fields like
             the description, author, etc. are updated.
-        contains:
+        included_apps:
           description: An array of IDs for the applications that are stored inside this
             tool.
-          example: https://bio.tools/tool/mytum.de/SNAP2/1
+          example:
+            - https://bio.tools/tool/mytum.de/SNAP2/1
+            - https://bio.tools/bioexcel_seqqc
           type: array
           items:
             type: string
@@ -678,7 +685,9 @@ components:
           description: Reports whether this tool has been verified by a specific
             organization or individual.
         verified_source:
-          type: string
+          type: array
+          items:
+            type: string
           description: Source of metadata that can support a verified tool, such as an
             email or URL.
         signed:
@@ -723,7 +732,9 @@ components:
             $ref: "#/components/schemas/DescriptorType"
         containerfile:
           type: boolean
-          description: Reports if this tool has a containerfile available.
+          description: Reports if this tool has a containerfile available. (For
+            Docker-based tools, this would indicate the presence of a
+            Dockerfile)
         meta_version:
           type: string
           description: The version of this tool version in the registry. Iterates when
@@ -733,7 +744,9 @@ components:
           description: Reports whether this tool has been verified by a specific
             organization or individual.
         verified_source:
-          type: string
+          type: array
+          items:
+            type: string
           description: Source of metadata that can support a verified tool, such as an
             email or URL.
     ImageData:
@@ -863,9 +876,6 @@ components:
             API supported by the endpoints at the basePath specified above. The
             service hosting this API may very well support different versions at
             a different basePath (with its own ServiceInfo)
-        country:
-          type: string
-          description: A country code for the registry (ISO 3166-1 alpha-3).
         friendly_name:
           type: string
           description: A friendly name that can be used in addition to the hostname to
