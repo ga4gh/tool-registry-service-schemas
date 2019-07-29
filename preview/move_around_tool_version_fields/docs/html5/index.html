@@ -1830,12 +1830,6 @@ for registries. Can be used to match tools across registries.</p></td>
 <td class="tableblock halign-left valign-middle"><p class="tableblock">&lt; string &gt; array</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>author</strong><br>
-<em>required</em></p></td>
-<td class="tableblock halign-left valign-middle"><p class="tableblock">Contact information for the author of this tool entry in the registry. (More complex authorship information is handled by the descriptor).</p></td>
-<td class="tableblock halign-left valign-middle"><p class="tableblock">&lt; string &gt; array</p></td>
-</tr>
-<tr>
 <td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>checker_url</strong><br>
 <em>optional</em></p></td>
 <td class="tableblock halign-left valign-middle"><p class="tableblock">Optional url to the checker tool that will exit successfully if this tool produced the expected result given test data.</p></td>
@@ -1861,13 +1855,6 @@ for registries. Can be used to match tools across registries.</p></td>
 <td class="tableblock halign-left valign-middle"><p class="tableblock">string</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>included_apps</strong><br>
-<em>optional</em></p></td>
-<td class="tableblock halign-left valign-middle"><p class="tableblock">An array of IDs for the applications that are stored inside this tool.<br>
-<strong>Example</strong> : <code>[ "https://bio.tools/tool/mytum.de/SNAP2/1", "https://bio.tools/bioexcel_seqqc" ]</code></p></td>
-<td class="tableblock halign-left valign-middle"><p class="tableblock">&lt; string &gt; array</p></td>
-</tr>
-<tr>
 <td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>meta_version</strong><br>
 <em>optional</em></p></td>
 <td class="tableblock halign-left valign-middle"><p class="tableblock">The version of this tool in the registry. Iterates when fields like the description, author, etc. are updated.</p></td>
@@ -1886,12 +1873,6 @@ for registries. Can be used to match tools across registries.</p></td>
 <td class="tableblock halign-left valign-middle"><p class="tableblock">string</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>signed</strong><br>
-<em>optional</em></p></td>
-<td class="tableblock halign-left valign-middle"><p class="tableblock">Reports whether this tool has been signed.</p></td>
-<td class="tableblock halign-left valign-middle"><p class="tableblock">boolean</p></td>
-</tr>
-<tr>
 <td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>toolclass</strong><br>
 <em>required</em></p></td>
 <td class="tableblock halign-left valign-middle"></td>
@@ -1903,18 +1884,6 @@ for registries. Can be used to match tools across registries.</p></td>
 <td class="tableblock halign-left valign-middle"><p class="tableblock">The URL for this tool in this registry.<br>
 <strong>Example</strong> : <code>"http://agora.broadinstitute.org/tools/123456"</code></p></td>
 <td class="tableblock halign-left valign-middle"><p class="tableblock">string</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>verified</strong><br>
-<em>optional</em></p></td>
-<td class="tableblock halign-left valign-middle"><p class="tableblock">Reports whether this tool has been verified by a specific organization or individual.</p></td>
-<td class="tableblock halign-left valign-middle"><p class="tableblock">boolean</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>verified_source</strong><br>
-<em>optional</em></p></td>
-<td class="tableblock halign-left valign-middle"><p class="tableblock">Source of metadata that can support a verified tool, such as an email or URL.</p></td>
-<td class="tableblock halign-left valign-middle"><p class="tableblock">&lt; string &gt; array</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>versions</strong><br>
@@ -2016,6 +1985,12 @@ for registries. Can be used to match tools across registries.</p></td>
 </thead>
 <tbody>
 <tr>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>author</strong><br>
+<em>optional</em></p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">Contact information for the author of this tool entry in the registry. (More complex authorship information is handled by the descriptor).</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">&lt; string &gt; array</p></td>
+</tr>
+<tr>
 <td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>containerfile</strong><br>
 <em>optional</em></p></td>
 <td class="tableblock halign-left valign-middle"><p class="tableblock">Reports if this tool has a containerfile available. (For Docker-based tools, this would indicate the presence of a Dockerfile)</p></td>
@@ -2041,6 +2016,13 @@ for registries. Can be used to match tools across registries.</p></td>
 <td class="tableblock halign-left valign-middle"><p class="tableblock">&lt; <a href="#_imagedata">ImageData</a> &gt; array</p></td>
 </tr>
 <tr>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>included_apps</strong><br>
+<em>optional</em></p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">An array of IDs for the applications that are stored inside this tool.<br>
+<strong>Example</strong> : <code>[ "https://bio.tools/tool/mytum.de/SNAP2/1", "https://bio.tools/bioexcel_seqqc" ]</code></p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">&lt; string &gt; array</p></td>
+</tr>
+<tr>
 <td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>meta_version</strong><br>
 <em>optional</em></p></td>
 <td class="tableblock halign-left valign-middle"><p class="tableblock">The version of this tool version in the registry. Iterates when fields like the description, author, etc. are updated.</p></td>
@@ -2051,6 +2033,12 @@ for registries. Can be used to match tools across registries.</p></td>
 <em>optional</em></p></td>
 <td class="tableblock halign-left valign-middle"><p class="tableblock">The name of the version.</p></td>
 <td class="tableblock halign-left valign-middle"><p class="tableblock">string</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>signed</strong><br>
+<em>optional</em></p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">Reports whether this tool has been signed.</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">boolean</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>url</strong><br>
@@ -2079,7 +2067,7 @@ for registries. Can be used to match tools across registries.</p></td>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2019-07-29 20:30:57 UTC
+Last updated 2019-07-29 20:37:34 UTC
 </div>
 </div>
 </body>
