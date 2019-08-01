@@ -626,8 +626,8 @@ components:
           description: The name of the version.
         url:
           type: string
-          description: The URL for this tool in this registry.
-          example: 'http://agora.broadinstitute.org/tools/123456/1'
+          description: The URL for this tool version in this registry.
+          example: 'http://agora.broadinstitute.org/tools/123456/versions/1'
         id:
           type: string
           description: An identifier of the version of this tool for this particular tool registry.
