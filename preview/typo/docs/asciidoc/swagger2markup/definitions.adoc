@@ -208,7 +208,7 @@ __optional__|The version of this tool version in the registry. Iterates when fie
 |**name** +
 __optional__|The name of the version.|string
 |**url** +
-__required__|The URL for this tool in this registry. +
+__required__|The URL for this tool version in this registry. +
 **Example** : `"http://agora.broadinstitute.org/tools/123456/versions/1"`|string
 |**verified** +
 __optional__|Reports whether this tool has been verified by a specific organization or individual.|boolean
