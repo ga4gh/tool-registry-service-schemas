@@ -7,8 +7,3 @@ title: Table of Contents
 [swagger-ui](preview/develop/docs/web_deploy/swagger-ui)
 [html5](preview/develop/docs/html5)
 [pdf](preview/develop/docs/pdf/index.pdf)
-#### Other branches:
-typo: 
-[swagger-ui](preview/typo/docs/web_deploy/swagger-ui)
-[html5](preview/typo/docs/html5)
-[pdf](preview/typo/docs/pdf/index.pdf)
