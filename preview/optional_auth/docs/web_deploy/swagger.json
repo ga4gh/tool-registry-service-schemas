@@ -65,7 +65,12 @@
               }
             }
           }
-        }
+        },
+        "security": [
+          {
+            "BEARER": []
+          }
+        ]
       }
     },
     "/tools/{id}/versions": {
@@ -109,7 +114,12 @@
               }
             }
           }
-        }
+        },
+        "security": [
+          {
+            "BEARER": []
+          }
+        ]
       }
     },
     "/tools/{id}/versions/{version_id}": {
@@ -171,7 +181,12 @@
               }
             }
           }
-        }
+        },
+        "security": [
+          {
+            "BEARER": []
+          }
+        ]
       }
     },
     "/tools": {
@@ -324,7 +339,12 @@
               }
             }
           }
-        }
+        },
+        "security": [
+          {
+            "BEARER": []
+          }
+        ]
       }
     },
     "/tools/{id}/versions/{version_id}/{type}/descriptor": {
@@ -395,7 +415,12 @@
               }
             }
           }
-        }
+        },
+        "security": [
+          {
+            "BEARER": []
+          }
+        ]
       }
     },
     "/tools/{id}/versions/{version_id}/{type}/descriptor/{relative_path}": {
@@ -476,7 +501,12 @@
               }
             }
           }
-        }
+        },
+        "security": [
+          {
+            "BEARER": []
+          }
+        ]
       }
     },
     "/tools/{id}/versions/{version_id}/{type}/tests": {
@@ -553,7 +583,12 @@
               }
             }
           }
-        }
+        },
+        "security": [
+          {
+            "BEARER": []
+          }
+        ]
       }
     },
     "/tools/{id}/versions/{version_id}/{type}/files": {
@@ -630,7 +665,12 @@
               }
             }
           }
-        }
+        },
+        "security": [
+          {
+            "BEARER": []
+          }
+        ]
       }
     },
     "/tools/{id}/versions/{version_id}/containerfile": {
@@ -698,7 +738,12 @@
               }
             }
           }
-        }
+        },
+        "security": [
+          {
+            "BEARER": []
+          }
+        ]
       }
     },
     "/service-info": {
@@ -725,7 +770,12 @@
               }
             }
           }
-        }
+        },
+        "security": [
+          {
+            "BEARER": []
+          }
+        ]
       }
     },
     "/toolClasses": {
@@ -758,7 +808,12 @@
               }
             }
           }
-        }
+        },
+        "security": [
+          {
+            "BEARER": []
+          }
+        ]
       }
     }
   },
@@ -790,6 +845,13 @@
         "schema": {
           "type": "string"
         }
+      }
+    },
+    "securitySchemes": {
+      "BEARER": {
+        "type": "apiKey",
+        "name": "Authorization",
+        "in": "header"
       }
     },
     "schemas": {
