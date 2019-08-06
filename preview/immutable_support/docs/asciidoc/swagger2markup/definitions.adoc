@@ -38,6 +38,8 @@ and Singularity recipes for Singularity images
 |Name|Description|Schema
 |**content** +
 __optional__|The content of the file itself. One of url or content is required.|string
+|**hashcode** +
+__optional__|A production (immutable) tool version is required to have a hashcode. Not required otherwise, but might be useful to detect changes. This exposes a hashcode for specific files to verify whether the file has changed.|string
 |**url** +
 __optional__|Optional url to the underlying content, should include version information, and can include a git hash. Note that this URL should resolve to the raw unwrapped content that would otherwise be available in content. One of url or content is required. +
 **Example** : `""`|string
@@ -52,6 +54,9 @@ Describes one container image.
 [options="header", cols=".^3,.^11,.^4"]
 |===
 |Name|Description|Schema
+|**hashcode** +
+__optional__|A production (immutable) tool version is required to have a hashcode. Not required otherwise, but might be useful to detect changes. This exposes the hashcode for specific image versions to verify that the container version pulled is actually the version that was indexed by the registry. +
+**Example** : `""`|string
 |**image_name** +
 __optional__|Used in conjunction with a registry_url if provided to locate images. +
 **Example** : `""`|string
@@ -87,6 +92,8 @@ __required__|The versions of the GA4GH tool-registry API supported by this regis
 |**contactUrl** +
 __optional__|URL of the contact for the host/maintainer of this service, e.g. a link to a contact form (RFC 3986 format), or an email (RFC 2368 format). Users of the endpoint should use this to report problems or security vulnerabilities. +
 **Example** : `"mailto:support@example.com"`|string
+|**country** +
+__optional__|A country code for the registry (ISO 3166-1 alpha-3).|string
 |**description** +
 __optional__|Description of the service. +
 **Example** : `"The 1000 Genomes Project is the largest public catalogue of human variation and genotype data."`|string
@@ -117,11 +124,16 @@ A tool (or described tool) is defined as a tuple of a descriptor file (which pot
 |Name|Description|Schema
 |**aliases** +
 __optional__|Support for this parameter is optional for tool registries that support aliases.
-A list of strings that can be used to identify this tool which could be straight up URLs.
+A list of strings that can be used to identify this tool.
 This can be used to expose alternative ids (such as GUIDs) for a tool
 for registries. Can be used to match tools across registries.|< string > array
+|**author** +
+__required__|Contact information for the author of this tool entry in the registry. (More complex authorship information is handled by the descriptor).|string
 |**checker_url** +
 __optional__|Optional url to the checker tool that will exit successfully if this tool produced the expected result given test data.|string
+|**contains** +
+__optional__|An array of IDs for the applications that are stored inside this tool. +
+**Example** : `"https://bio.tools/tool/mytum.de/SNAP2/1"`|< string > array
 |**description** +
 __optional__|The description of the tool.|string
 |**has_checker** +
@@ -131,15 +143,21 @@ __required__|A unique identifier of the tool, scoped to this registry. +
 **Example** : `"123456"`|string
 |**meta_version** +
 __optional__|The version of this tool in the registry. Iterates when fields like the description, author, etc. are updated.|string
-|**name** +
-__optional__|The name of the tool.|string
 |**organization** +
 __required__|The organization that published the image.|string
+|**signed** +
+__optional__|Reports whether this tool has been signed.|boolean
 |**toolclass** +
 __required__||<<_toolclass,ToolClass>>
+|**toolname** +
+__optional__|The name of the tool.|string
 |**url** +
 __required__|The URL for this tool in this registry. +
 **Example** : `"http://agora.broadinstitute.org/tools/123456"`|string
+|**verified** +
+__optional__|Reports whether this tool has been verified by a specific organization or individual.|boolean
+|**verified_source** +
+__optional__|Source of metadata that can support a verified tool, such as an email or URL.|string
 |**versions** +
 __required__|A list of versions for this tool.|< <<_toolversion,ToolVersion>> > array
 |===
@@ -183,10 +201,8 @@ A tool version describes a particular iteration of a tool as described by a refe
 [options="header", cols=".^3,.^11,.^4"]
 |===
 |Name|Description|Schema
-|**author** +
-__optional__|Contact information for the author of this version of the tool in the registry. (More complex authorship information is handled by the descriptor).|< string > array
 |**containerfile** +
-__optional__|Reports if this tool has a containerfile available. (For Docker-based tools, this would indicate the presence of a Dockerfile)|boolean
+__optional__|Reports if this tool has a containerfile available.|boolean
 |**descriptor_type** +
 __optional__|The type (or types) of descriptors available.|< <<_descriptortype,DescriptorType>> > array
 |**id** +
@@ -194,22 +210,19 @@ __required__|An identifier of the version of this tool for this particular tool 
 **Example** : `"v1"`|string
 |**images** +
 __optional__|All known docker images (and versions/hashes) used by this tool. If the tool has to evaluate any of the docker images strings at runtime, those ones cannot be reported here.|< <<_imagedata,ImageData>> > array
-|**included_apps** +
-__optional__|An array of IDs for the applications that are stored inside this tool. +
-**Example** : `[ "https://bio.tools/tool/mytum.de/SNAP2/1", "https://bio.tools/bioexcel_seqqc" ]`|< string > array
+|**is_production** +
+__optional__|This version of a tool is guaranteed to not change over time (for example, a tool built from a tag in git as opposed to a branch). A production quality tool is required to have a hashcode|boolean
 |**meta_version** +
 __optional__|The version of this tool version in the registry. Iterates when fields like the description, author, etc. are updated.|string
 |**name** +
 __optional__|The name of the version.|string
-|**signed** +
-__optional__|Reports whether this version of the tool has been signed.|boolean
 |**url** +
 __required__|The URL for this tool in this registry. +
 **Example** : `"http://agora.broadinstitute.org/tools/123456/1"`|string
 |**verified** +
 __optional__|Reports whether this tool has been verified by a specific organization or individual.|boolean
 |**verified_source** +
-__optional__|Source of metadata that can support a verified tool, such as an email or URL.|< string > array
+__optional__|Source of metadata that can support a verified tool, such as an email or URL.|string
 |===
 
 
