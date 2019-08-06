@@ -56,6 +56,8 @@ paths:
             text/plain:
               schema:
                 $ref: "#/components/schemas/Error"
+      security:
+        - BEARER: []
   "/tools/{id}/versions":
     get:
       summary: List versions of a tool
@@ -85,6 +87,8 @@ paths:
                 type: array
                 items:
                   $ref: "#/components/schemas/ToolVersion"
+      security:
+        - BEARER: []
   "/tools/{id}/versions/{version_id}":
     get:
       summary: List one specific tool version, acts as an anchor for self references
@@ -126,6 +130,8 @@ paths:
             text/plain:
               schema:
                 $ref: "#/components/schemas/Error"
+      security:
+        - BEARER: []
   /tools:
     get:
       summary: List all tools
@@ -231,6 +237,8 @@ paths:
                 type: array
                 items:
                   $ref: "#/components/schemas/Tool"
+      security:
+        - BEARER: []
   "/tools/{id}/versions/{version_id}/{type}/descriptor":
     get:
       summary: Get the tool descriptor for the specified tool
@@ -282,6 +290,8 @@ paths:
             text/plain:
               schema:
                 $ref: "#/components/schemas/Error"
+      security:
+        - BEARER: []
   "/tools/{id}/versions/{version_id}/{type}/descriptor/{relative_path}":
     get:
       summary: Get additional tool descriptor files relative to the main file
@@ -350,6 +360,8 @@ paths:
             text/plain:
               schema:
                 $ref: "#/components/schemas/Error"
+      security:
+        - BEARER: []
   "/tools/{id}/versions/{version_id}/{type}/tests":
     get:
       summary: Get a list of test JSONs
@@ -406,6 +418,8 @@ paths:
             text/plain:
               schema:
                 $ref: "#/components/schemas/Error"
+      security:
+        - BEARER: []
   "/tools/{id}/versions/{version_id}/{type}/files":
     get:
       summary: Get a list of objects that contain the relative path and file type
@@ -461,6 +475,8 @@ paths:
             text/plain:
               schema:
                 $ref: "#/components/schemas/Error"
+      security:
+        - BEARER: []
   "/tools/{id}/versions/{version_id}/containerfile":
     get:
       summary: Get the container specification(s) for the specified image.
@@ -509,6 +525,8 @@ paths:
             text/plain:
               schema:
                 $ref: "#/components/schemas/Error"
+      security:
+        - BEARER: []
   /service-info:
     get:
       summary: Return some information that is useful for describing this registry
@@ -526,6 +544,8 @@ paths:
             text/plain:
               schema:
                 $ref: "#/components/schemas/ServiceInfo"
+      security:
+        - BEARER: []
   /toolClasses:
     get:
       summary: List all tool types
@@ -548,6 +568,8 @@ paths:
                 type: array
                 items:
                   $ref: "#/components/schemas/ToolClass"
+      security:
+        - BEARER: []
 externalDocs:
   description: Description of GA4GH Tool Registry (Exchange) Schema
   url: https://github.com/ga4gh/tool-registry-schemas
@@ -573,6 +595,11 @@ components:
         results.
       schema:
         type: string
+  securitySchemes:
+    BEARER:
+      type: apiKey
+      name: Authorization
+      in: header
   schemas:
     ToolFile:
       type: object
