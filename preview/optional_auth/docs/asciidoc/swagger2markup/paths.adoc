@@ -27,6 +27,15 @@ Return some information that is useful for describing this registry.
 * GA4GH
 
 
+==== Security
+
+[options="header", cols=".^3,.^4"]
+|===
+|Type|Name
+|**apiKey**|**<<_bearer,BEARER>>**
+|===
+
+
 [[_toolclassesget]]
 === List all tool types
 ....
@@ -50,6 +59,15 @@ This endpoint returns all tool-classes available.
 ==== Tags
 
 * GA4GH
+
+
+==== Security
+
+[options="header", cols=".^3,.^4"]
+|===
+|Type|Name
+|**apiKey**|**<<_bearer,BEARER>>**
+|===
 
 
 [[_toolsget]]
@@ -116,6 +134,15 @@ __optional__|The name of the tool.|string|
 * GA4GH
 
 
+==== Security
+
+[options="header", cols=".^3,.^4"]
+|===
+|Type|Name
+|**apiKey**|**<<_bearer,BEARER>>**
+|===
+
+
 [[_toolsidget]]
 === List one specific tool, acts as an anchor for self references
 ....
@@ -150,6 +177,15 @@ __required__|A unique identifier of the tool, scoped to this registry, for examp
 ==== Tags
 
 * GA4GH
+
+
+==== Security
+
+[options="header", cols=".^3,.^4"]
+|===
+|Type|Name
+|**apiKey**|**<<_bearer,BEARER>>**
+|===
 
 
 [[_toolsidversionsget]]
@@ -187,6 +223,15 @@ __required__|A unique identifier of the tool, scoped to this registry, for examp
 * GA4GH
 
 
+==== Security
+
+[options="header", cols=".^3,.^4"]
+|===
+|Type|Name
+|**apiKey**|**<<_bearer,BEARER>>**
+|===
+
+
 [[_toolsidversionsversionidget]]
 === List one specific tool version, acts as an anchor for self references
 ....
@@ -206,7 +251,7 @@ This endpoint returns one specific tool version.
 |**Path**|**id** +
 __required__|A unique identifier of the tool, scoped to this registry, for example `123456`.|string
 |**Path**|**version_id** +
-__required__|An identifier of the tool version, scoped to this registry, for example `v1`. We recommend that versions use semantic versioning https://semver.org/spec/v2.0.0.html (For example, `1.0.0` instead of `develop`)|string
+__required__|An identifier of the tool version, scoped to this registry, for example `v1`.|string
 |===
 
 
@@ -223,6 +268,15 @@ __required__|An identifier of the tool version, scoped to this registry, for exa
 ==== Tags
 
 * GA4GH
+
+
+==== Security
+
+[options="header", cols=".^3,.^4"]
+|===
+|Type|Name
+|**apiKey**|**<<_bearer,BEARER>>**
+|===
 
 
 [[_toolsidversionsversionidcontainerfileget]]
@@ -263,6 +317,15 @@ __required__|An identifier of the tool version for this particular tool registry
 * GA4GH
 
 
+==== Security
+
+[options="header", cols=".^3,.^4"]
+|===
+|Type|Name
+|**apiKey**|**<<_bearer,BEARER>>**
+|===
+
+
 [[_toolsidversionsversionidtypedescriptorget]]
 === Get the tool descriptor for the specified tool
 ....
@@ -301,6 +364,15 @@ __required__|An identifier of the tool version, scoped to this registry, for exa
 ==== Tags
 
 * GA4GH
+
+
+==== Security
+
+[options="header", cols=".^3,.^4"]
+|===
+|Type|Name
+|**apiKey**|**<<_bearer,BEARER>>**
+|===
 
 
 [[_toolsidversionsversionidtypedescriptorrelativepathget]]
@@ -345,6 +417,15 @@ __required__|An identifier of the tool version for this particular tool registry
 * GA4GH
 
 
+==== Security
+
+[options="header", cols=".^3,.^4"]
+|===
+|Type|Name
+|**apiKey**|**<<_bearer,BEARER>>**
+|===
+
+
 [[_toolsidversionsversionidtypefilesget]]
 === Get a list of objects that contain the relative path and file type
 ....
@@ -385,6 +466,15 @@ __required__|An identifier of the tool version for this particular tool registry
 * GA4GH
 
 
+==== Security
+
+[options="header", cols=".^3,.^4"]
+|===
+|Type|Name
+|**apiKey**|**<<_bearer,BEARER>>**
+|===
+
+
 [[_toolsidversionsversionidtypetestsget]]
 === Get a list of test JSONs
 ....
@@ -423,6 +513,15 @@ __required__|An identifier of the tool version for this particular tool registry
 ==== Tags
 
 * GA4GH
+
+
+==== Security
+
+[options="header", cols=".^3,.^4"]
+|===
+|Type|Name
+|**apiKey**|**<<_bearer,BEARER>>**
+|===
 
 
 

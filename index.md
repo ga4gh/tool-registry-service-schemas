@@ -8,7 +8,7 @@ title: Table of Contents
 [html5](preview/develop/docs/html5)
 [pdf](preview/develop/docs/pdf/index.pdf)
 #### Other branches:
-immutable_support: 
-[swagger-ui](preview/immutable_support/docs/web_deploy/swagger-ui)
-[html5](preview/immutable_support/docs/html5)
-[pdf](preview/immutable_support/docs/pdf/index.pdf)
+optional_auth: 
+[swagger-ui](preview/optional_auth/docs/web_deploy/swagger-ui)
+[html5](preview/optional_auth/docs/html5)
+[pdf](preview/optional_auth/docs/pdf/index.pdf)
