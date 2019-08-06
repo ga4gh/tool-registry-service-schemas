@@ -711,10 +711,11 @@ components:
           description: An identifier of the version of this tool for this particular tool
             registry.
           example: v1
-        immutable:
+        is_production:
           type: boolean
           description: This version of a tool is guaranteed to not change over time (for
-            example, a  tool built from a tag in git as opposed to a branch).
+            example, a  tool built from a tag in git as opposed to a branch). A
+            production quality tool  is required to have a hashcode
         images:
           description: All known docker images (and versions/hashes) used by this tool. If
             the tool has to evaluate any of the docker images strings at
@@ -766,9 +767,10 @@ components:
           description: Last time the container was updated.
         hashcode:
           type: string
-          description: Helpful for immutable tool versions, but can be useful in other
-            cases as well. This exposes the hashcode for specific image versions
-            to verify that the container version pulled is actually the version
+          description: A production (immutable) tool version is required to have a
+            hashcode. Not required otherwise, but might be useful to detect
+            changes.  This exposes the hashcode for specific image versions to
+            verify that the container version pulled is actually the version
             that was indexed by the registry.
           example:
             - sha256:77af4d6b9913e693e8d0b4b294fa62ade6054e6b2f1ffb617ac955dd63fb0182
@@ -813,8 +815,9 @@ components:
           description: The content of the file itself. One of url or content is required.
         hashcode:
           type: string
-          description: Helpful for immutable tool versions, but can be useful in other
-            cases as well. This exposes a hashcode for specific files to verify
+          description: A production (immutable) tool version is required to have a
+            hashcode. Not required otherwise, but might be useful to detect
+            changes. This exposes a hashcode for specific files to verify
             whether the file has changed.
         url:
           type: string
