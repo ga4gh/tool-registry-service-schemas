@@ -74,6 +74,39 @@ Indicates what kind of container is this image is.
 __Type__ : enum (Docker, Singularity, Conda)
 
 
+[[_serviceinfo]]
+=== ServiceInfo
+Describes this registry to better allow for mirroring, indexing, and useful information about the running service, including supported versions and default settings. Partially synced with https://github.com/ga4gh-discovery/service-info
+
+
+[options="header", cols=".^3,.^11,.^4"]
+|===
+|Name|Description|Schema
+|**api_version** +
+__required__|The versions of the GA4GH tool-registry API supported by this registry. Note that this denotes the (likely minor) versions of the API supported by the endpoints at the basePath specified above. The service hosting this API may very well support different versions at a different basePath (with its own ServiceInfo)|< string > array
+|**contactUrl** +
+__optional__|URL of the contact for the host/maintainer of this service, e.g. a link to a contact form (RFC 3986 format), or an email (RFC 2368 format). Users of the endpoint should use this to report problems or security vulnerabilities. +
+**Example** : `"mailto:support@example.com"`|string
+|**description** +
+__optional__|Description of the service. +
+**Example** : `"The 1000 Genomes Project is the largest public catalogue of human variation and genotype data."`|string
+|**documentationUrl** +
+__optional__|URL of the documentation of this service (RFC 3986 format). +
+**Example** : `"https://docs.example.com"`|string
+|**friendly_name** +
+__optional__|A friendly name that can be used in addition to the hostname to describe a registry.|string
+|**id** +
+__required__|Unique ID of this service. Reverse domain name notation is recommended, though not required. +
+**Example** : `"org.ga4gh.service"`|string
+|**name** +
+__required__|Name of this specific service. +
+**Example** : `"1000 Genomes Project"`|string
+|**version** +
+__required__|Version of the service. +
+**Example** : `"0.1"`|string
+|===
+
+
 [[_tool]]
 === Tool
 A tool (or described tool) is defined as a tuple of a descriptor file (which potentially consists of multiple files), a set of container images, and a set of instructions for creating those images.
@@ -87,8 +120,6 @@ __optional__|Support for this parameter is optional for tool registries that sup
 A list of strings that can be used to identify this tool which could be straight up URLs.
 This can be used to expose alternative ids (such as GUIDs) for a tool
 for registries. Can be used to match tools across registries.|< string > array
-|**author** +
-__required__|Contact information for the author of this tool entry in the registry. (More complex authorship information is handled by the descriptor).|< string > array
 |**checker_url** +
 __optional__|Optional url to the checker tool that will exit successfully if this tool produced the expected result given test data.|string
 |**description** +
@@ -98,26 +129,17 @@ __optional__|Whether this tool has a checker tool associated with it.|boolean
 |**id** +
 __required__|A unique identifier of the tool, scoped to this registry. +
 **Example** : `"123456"`|string
-|**included_apps** +
-__optional__|An array of IDs for the applications that are stored inside this tool. +
-**Example** : `[ "https://bio.tools/tool/mytum.de/SNAP2/1", "https://bio.tools/bioexcel_seqqc" ]`|< string > array
 |**meta_version** +
 __optional__|The version of this tool in the registry. Iterates when fields like the description, author, etc. are updated.|string
 |**name** +
 __optional__|The name of the tool.|string
 |**organization** +
 __required__|The organization that published the image.|string
-|**signed** +
-__optional__|Reports whether this tool has been signed.|boolean
 |**toolclass** +
 __required__||<<_toolclass,ToolClass>>
 |**url** +
 __required__|The URL for this tool in this registry. +
 **Example** : `"http://agora.broadinstitute.org/tools/123456"`|string
-|**verified** +
-__optional__|Reports whether this tool has been verified by a specific organization or individual.|boolean
-|**verified_source** +
-__optional__|Source of metadata that can support a verified tool, such as an email or URL.|< string > array
 |**versions** +
 __required__|A list of versions for this tool.|< <<_toolversion,ToolVersion>> > array
 |===
@@ -161,6 +183,8 @@ A tool version describes a particular iteration of a tool as described by a refe
 [options="header", cols=".^3,.^11,.^4"]
 |===
 |Name|Description|Schema
+|**author** +
+__optional__|Contact information for the author of this version of the tool in the registry. (More complex authorship information is handled by the descriptor).|< string > array
 |**containerfile** +
 __optional__|Reports if this tool has a containerfile available. (For Docker-based tools, this would indicate the presence of a Dockerfile)|boolean
 |**descriptor_type** +
@@ -170,13 +194,18 @@ __required__|An identifier of the version of this tool for this particular tool 
 **Example** : `"v1"`|string
 |**images** +
 __optional__|All known docker images (and versions/hashes) used by this tool. If the tool has to evaluate any of the docker images strings at runtime, those ones cannot be reported here.|< <<_imagedata,ImageData>> > array
+|**included_apps** +
+__optional__|An array of IDs for the applications that are stored inside this tool. +
+**Example** : `[ "https://bio.tools/tool/mytum.de/SNAP2/1", "https://bio.tools/bioexcel_seqqc" ]`|< string > array
 |**meta_version** +
 __optional__|The version of this tool version in the registry. Iterates when fields like the description, author, etc. are updated.|string
 |**name** +
 __optional__|The name of the version.|string
+|**signed** +
+__optional__|Reports whether this version of the tool has been signed.|boolean
 |**url** +
-__required__|The URL for this tool version in this registry. +
-**Example** : `"http://agora.broadinstitute.org/tools/123456/versions/1"`|string
+__required__|The URL for this tool in this registry. +
+**Example** : `"http://agora.broadinstitute.org/tools/123456/1"`|string
 |**verified** +
 __optional__|Reports whether this tool has been verified by a specific organization or individual.|boolean
 |**verified_source** +

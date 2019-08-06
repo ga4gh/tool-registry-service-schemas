@@ -2,6 +2,31 @@
 [[_paths]]
 == Paths
 
+[[_serviceinfoget]]
+=== Return some information that is useful for describing this registry
+....
+GET /service-info
+....
+
+
+==== Description
+Return some information that is useful for describing this registry.
+
+
+==== Responses
+
+[options="header", cols=".^2,.^14,.^4"]
+|===
+|HTTP Code|Description|Schema
+|**200**|A ServiceInfo object describing this service.|<<_serviceinfo,ServiceInfo>>
+|===
+
+
+==== Tags
+
+* GA4GH
+
+
 [[_toolclassesget]]
 === List all tool types
 ....
