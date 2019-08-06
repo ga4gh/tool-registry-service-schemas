@@ -559,7 +559,7 @@ definitions:
         items:
           type: string
         description: >-
-          Contact information for the author of this tool entry in the registry.
+          Contact information for the author of this version of the tool in the registry.
           (More complex authorship information is handled by the descriptor).
       name:
         type: string
@@ -609,7 +609,7 @@ definitions:
           or URL.
       signed:
         type: boolean
-        description: Reports whether this tool has been signed.
+        description: Reports whether this version of the tool has been signed.
       included_apps:
         description: An array of IDs for the applications that are stored inside this tool.
         example: 
