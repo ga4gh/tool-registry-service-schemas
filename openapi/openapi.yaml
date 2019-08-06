@@ -509,23 +509,6 @@ paths:
             text/plain:
               schema:
                 $ref: "#/components/schemas/Error"
-  /service-info:
-    get:
-      summary: Return some information that is useful for describing this registry
-      operationId: serviceInfoGet
-      description: Return some information that is useful for describing this registry.
-      tags:
-        - GA4GH
-      responses:
-        "200":
-          description: A ServiceInfo object describing this service.
-          content:
-            application/json:
-              schema:
-                $ref: "#/components/schemas/ServiceInfo"
-            text/plain:
-              schema:
-                $ref: "#/components/schemas/ServiceInfo"
   /toolClasses:
     get:
       summary: List all tool types
@@ -821,65 +804,6 @@ components:
               url: https://raw.githubusercontent.com/ICGC-TCGA-PanCancer/pcawg_delly_workflow/ea2a5db69bd20a42976838790bc29294df3af02b/delly_docker/Delly.cwl
             containerfile:
               url: https://raw.githubusercontent.com/ICGC-TCGA-PanCancer/pcawg_delly_workflow/c83478829802b4d36374870843821abe1b625a71/delly_docker/Dockerfile
-    ServiceInfo:
-      type: object
-      description: Describes this registry to better allow for mirroring, indexing, and
-        useful information about the running service, including supported
-        versions and default settings. Partially synced with
-        https://github.com/ga4gh-discovery/service-info
-      required:
-        - id
-        - name
-        - version
-        - api_version
-        - contact_info_url
-      properties:
-        id:
-          type: string
-          description: Unique ID of this service. Reverse domain name notation is
-            recommended, though not required.
-          example: org.ga4gh.service
-        name:
-          type: string
-          description: Name of this specific service.
-          example: 1000 Genomes Project
-        description:
-          type: string
-          description: Description of the service.
-          example: The 1000 Genomes Project is the largest public catalogue of human
-            variation and genotype data.
-        documentationUrl:
-          type: string
-          description: URL of the documentation of this service (RFC 3986 format).
-          example: https://docs.example.com
-        contactUrl:
-          type: string
-          description: URL of the contact for the host/maintainer of this service, e.g. a
-            link to a contact form (RFC 3986 format), or an email (RFC 2368
-            format). Users of the endpoint should use this to report problems or
-            security vulnerabilities.
-          example: mailto:support@example.com
-        version:
-          type: string
-          description: Version of the service.
-          example: "0.1"
-        api_version:
-          type: array
-          items:
-            type: string
-            example:
-              - "2.0"
-              - "2.1"
-              - "2.5"
-          description: The versions of the GA4GH tool-registry API supported by this
-            registry. Note that this denotes the (likely minor) versions of the
-            API supported by the endpoints at the basePath specified above. The
-            service hosting this API may very well support different versions at
-            a different basePath (with its own ServiceInfo)
-        friendly_name:
-          type: string
-          description: A friendly name that can be used in addition to the hostname to
-            describe a registry.
     Error:
       type: object
       required:
