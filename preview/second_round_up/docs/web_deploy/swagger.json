@@ -863,6 +863,13 @@
             "type": "string",
             "description": "Optional url to the checker tool that will exit successfully if this tool produced the expected result given test data."
           },
+          "checked_versions": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "description": "Optional, if known, the IDs for the versions of this tool that are checked by the checker  tool from `checker_url`"
+          },
           "versions": {
             "description": "A list of versions for this tool.",
             "type": "array",
