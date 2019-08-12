@@ -579,7 +579,7 @@ components:
         - url
         - id
       properties:
-        author:
+        authors:
           type: array
           items:
             type: string
@@ -600,7 +600,7 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/ImageData'
-        descriptor_type:
+        descriptor_types:
           type: array
           description: The type (or types) of descriptors available.
           items:
@@ -614,7 +614,7 @@ components:
         verified:
           type: boolean
           description: Reports whether this tool has been verified by a specific organization or individual.
-        verified_source:
+        verified_sources:
           type: array
           items:
             type: string
