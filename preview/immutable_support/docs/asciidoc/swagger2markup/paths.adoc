@@ -2,6 +2,31 @@
 [[_paths]]
 == Paths
 
+[[_serviceinfoget]]
+=== Return some information that is useful for describing this registry
+....
+GET /service-info
+....
+
+
+==== Description
+Return some information that is useful for describing this registry.
+
+
+==== Responses
+
+[options="header", cols=".^2,.^14,.^4"]
+|===
+|HTTP Code|Description|Schema
+|**200**|A ServiceInfo object describing this service.|<<_serviceinfo,ServiceInfo>>
+|===
+
+
+==== Tags
+
+* GA4GH
+
+
 [[_toolclassesget]]
 === List all tool types
 ....
@@ -181,7 +206,7 @@ This endpoint returns one specific tool version.
 |**Path**|**id** +
 __required__|A unique identifier of the tool, scoped to this registry, for example `123456`.|string
 |**Path**|**version_id** +
-__required__|An identifier of the tool version, scoped to this registry, for example `v1`.|string
+__required__|An identifier of the tool version, scoped to this registry, for example `v1`. We recommend that versions use semantic versioning https://semver.org/spec/v2.0.0.html (For example, `1.0.0` instead of `develop`)|string
 |===
 
 
