@@ -446,6 +446,21 @@ paths:
             items:
               $ref: '#/definitions/ToolClass'
 definitions:
+  Checksum:
+    type: object
+    required: ['checksum', 'type']
+    properties:
+      checksum:
+        type: string
+        description: |-
+          The hex-string encoded checksum for the data. 
+      type:
+        type: string
+        description: |-
+          The digest method used to create the checksum.
+          The value (e.g. `sha-256`) SHOULD be listed as `Hash Name String` in the https://github.com/ga4gh-discovery/ga4gh-hash-alg-registry/blob/master/hash-alg.csv[GA4GH Hash Algorithm Registry].
+          Other values MAY be used, as long as implementors are aware of the issues discussed in https://tools.ietf.org/html/rfc6920#section-9.4[RFC6920].
+          GA4GH may provide more explicit guidance for use of non-IANA-registered algorithms in the future.
   ToolFile:
     type: object
     properties:
@@ -596,7 +611,7 @@ definitions:
         description: >-
           This version of a tool is guaranteed to not change over time (for example, a 
           tool built from a tag in git as opposed to a branch). A production quality tool 
-          is required to have a hashcode
+          is required to have a checksum
       images:
         description: >-
           All known docker images (and versions/hashes) used by this tool. If
@@ -651,13 +666,16 @@ definitions:
       updated:
         type: string
         description: Last time the container was updated.
-      hashcode:
-        type: string
+      checksum:
+        type: array
+        items:
+          $ref: '#/definitions/Checksum'
         description: >- 
           A production (immutable) tool version is required to have a hashcode. Not required otherwise, but might be useful to detect changes. 
           This exposes the hashcode for specific image versions to verify that the container version pulled is actually the version that was indexed by the registry.
         example: 
-          - 'sha256:77af4d6b9913e693e8d0b4b294fa62ade6054e6b2f1ffb617ac955dd63fb0182'
+          - checksum: '77af4d6b9913e693e8d0b4b294fa62ade6054e6b2f1ffb617ac955dd63fb0182' 
+            type: sha256
       image_type:
         $ref: '#/definitions/ImageType'
   ImageType:
@@ -699,11 +717,15 @@ definitions:
       content:
         type: string
         description: The content of the file itself. One of url or content is required.
-      hashcode:
-        type: string
+      checksum:
+        type: array
+        items:
+          $ref: '#/definitions/Checksum'
         description: >- 
-          A production (immutable) tool version is required to have a hashcode. Not required otherwise, but might be useful to detect changes.
-          This exposes a hashcode for specific files to verify whether the file has changed.
+          A production (immutable) tool version is required to have a hashcode. Not required otherwise, but might be useful to detect changes. 
+        example:
+          - checksum: ea2a5db69bd20a42976838790bc29294df3af02b
+            type: sha1
       url:
         type: string
         description: >-
