@@ -18,7 +18,7 @@ __BasePath__ : /ga4gh/trs/v2
 
 === Tags
 
-* GA4GH : A set of resources proposed as a common standard for tool repositories
+* GA4GH : A group of web resources proposed as a common standard for tool repositories
 
 
 === Produces
