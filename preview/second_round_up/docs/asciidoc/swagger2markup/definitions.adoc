@@ -87,6 +87,8 @@ __optional__|Support for this parameter is optional for tool registries that sup
 A list of strings that can be used to identify this tool which could be straight up URLs.
 This can be used to expose alternative ids (such as GUIDs) for a tool
 for registries. Can be used to match tools across registries.|< string > array
+|**checked_versions** +
+__optional__|Optional, if known, the IDs for the versions of this tool that are checked by the checker tool from `checker_url`|< string > array
 |**checker_url** +
 __optional__|Optional url to the checker tool that will exit successfully if this tool produced the expected result given test data.|string
 |**description** +
