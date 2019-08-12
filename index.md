@@ -8,7 +8,7 @@ title: Table of Contents
 [html5](preview/develop/docs/html5)
 [pdf](preview/develop/docs/pdf/index.pdf)
 #### Other branches:
-optional_auth: 
-[swagger-ui](preview/optional_auth/docs/web_deploy/swagger-ui)
-[html5](preview/optional_auth/docs/html5)
-[pdf](preview/optional_auth/docs/pdf/index.pdf)
+test_gradle_fix: 
+[swagger-ui](preview/test_gradle_fix/docs/web_deploy/swagger-ui)
+[html5](preview/test_gradle_fix/docs/html5)
+[pdf](preview/test_gradle_fix/docs/pdf/index.pdf)
