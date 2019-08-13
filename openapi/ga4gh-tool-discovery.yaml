@@ -19,6 +19,11 @@ produces:
   - application/json
   - text/plain
 basePath: /ga4gh/trs/v2
+securityDefinitions: 
+ BEARER: 
+  type: apiKey
+  name: Authorization
+  in: header
 tags:
   - name: GA4GH
     description: A group of web resources proposed as a common standard for tool repositories
@@ -51,6 +56,8 @@ paths:
           description: The tool can not be found.
           schema:
             $ref: '#/definitions/Error'
+      security:
+        - BEARER: []
   '/tools/{id}/versions':
     get:
       summary: List versions of a tool
@@ -73,6 +80,8 @@ paths:
             type: array
             items:
               $ref: '#/definitions/ToolVersion'
+      security:
+        - BEARER: []
   '/tools/{id}/versions/{version_id}':
     get:
       summary: 'List one specific tool version, acts as an anchor for self references'
@@ -104,6 +113,8 @@ paths:
           description: The tool can not be found.
           schema:
             $ref: '#/definitions/Error'
+      security:
+        - BEARER: []
   /tools:
     get:
       summary: List all tools
@@ -191,6 +202,8 @@ paths:
             current_limit:
               description: The current page record limit used for this result.
               type: integer
+      security:
+        - BEARER: []        
   '/tools/{id}/versions/{version_id}/{type}/descriptor':
     get:
       summary: Get the tool descriptor for the specified tool
@@ -233,6 +246,8 @@ paths:
           description: The tool descriptor can not be found.
           schema:
             $ref: '#/definitions/Error'
+      security:
+        - BEARER: []      
   '/tools/{id}/versions/{version_id}/{type}/descriptor/{relative_path}':
     get:
       summary: Get additional tool descriptor files relative to the main file
@@ -292,6 +307,8 @@ paths:
           description: The tool can not be output in the specified type.
           schema:
             $ref: '#/definitions/Error'
+      security:
+        - BEARER: []      
   '/tools/{id}/versions/{version_id}/{type}/tests':
     get:
       summary: Get a list of test JSONs
@@ -337,6 +354,8 @@ paths:
           description: The tool can not be output in the specified type.
           schema:
             $ref: '#/definitions/Error'
+      security:
+        - BEARER: []
   '/tools/{id}/versions/{version_id}/{type}/files':
     get:
       summary: Get a list of objects that contain the relative path and file type
@@ -381,6 +400,8 @@ paths:
           description: The tool can not be output in the specified type.
           schema:
             $ref: '#/definitions/Error'
+      security:
+        - BEARER: []      
   '/tools/{id}/versions/{version_id}/containerfile':
     get:
       summary: Get the container specification(s) for the specified image.
@@ -418,6 +439,8 @@ paths:
           description: There are no container specifications for this tool.
           schema:
             $ref: '#/definitions/Error'
+      security:
+        - BEARER: []      
   /toolClasses:
     get:
       summary: List all tool types
@@ -433,6 +456,8 @@ paths:
             type: array
             items:
               $ref: '#/definitions/ToolClass'
+      security:
+        - BEARER: []        
 definitions:
   ToolFile:
     type: object
