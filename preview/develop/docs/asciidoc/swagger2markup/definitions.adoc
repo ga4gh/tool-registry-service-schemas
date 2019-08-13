@@ -87,8 +87,6 @@ __optional__|Support for this parameter is optional for tool registries that sup
 A list of strings that can be used to identify this tool which could be straight up URLs.
 This can be used to expose alternative ids (such as GUIDs) for a tool
 for registries. Can be used to match tools across registries.|< string > array
-|**checked_versions** +
-__optional__|Optional, if known, the IDs for the versions of this tool that are checked by the checker tool from `checker_url`|< string > array
 |**checker_url** +
 __optional__|Optional url to the checker tool that will exit successfully if this tool produced the expected result given test data.|string
 |**description** +
@@ -152,11 +150,11 @@ A tool version describes a particular iteration of a tool as described by a refe
 [options="header", cols=".^3,.^11,.^4"]
 |===
 |Name|Description|Schema
-|**authors** +
+|**author** +
 __optional__|Contact information for the author of this version of the tool in the registry. (More complex authorship information is handled by the descriptor).|< string > array
 |**containerfile** +
 __optional__|Reports if this tool has a containerfile available. (For Docker-based tools, this would indicate the presence of a Dockerfile)|boolean
-|**descriptor_types** +
+|**descriptor_type** +
 __optional__|The type (or types) of descriptors available.|< <<_descriptortype,DescriptorType>> > array
 |**id** +
 __required__|An identifier of the version of this tool for this particular tool registry. +
@@ -177,7 +175,7 @@ __required__|The URL for this tool version in this registry. +
 **Example** : `"http://agora.broadinstitute.org/tools/123456/versions/1"`|string
 |**verified** +
 __optional__|Reports whether this tool has been verified by a specific organization or individual.|boolean
-|**verified_sources** +
+|**verified_source** +
 __optional__|Source of metadata that can support a verified tool, such as an email or URL.|< string > array
 |===
 

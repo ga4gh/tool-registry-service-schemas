@@ -65,7 +65,12 @@
               }
             }
           }
-        }
+        },
+        "security": [
+          {
+            "BEARER": []
+          }
+        ]
       }
     },
     "/tools/{id}/versions": {
@@ -109,7 +114,12 @@
               }
             }
           }
-        }
+        },
+        "security": [
+          {
+            "BEARER": []
+          }
+        ]
       }
     },
     "/tools/{id}/versions/{version_id}": {
@@ -171,7 +181,12 @@
               }
             }
           }
-        }
+        },
+        "security": [
+          {
+            "BEARER": []
+          }
+        ]
       }
     },
     "/tools": {
@@ -324,7 +339,12 @@
               }
             }
           }
-        }
+        },
+        "security": [
+          {
+            "BEARER": []
+          }
+        ]
       }
     },
     "/tools/{id}/versions/{version_id}/{type}/descriptor": {
@@ -395,7 +415,12 @@
               }
             }
           }
-        }
+        },
+        "security": [
+          {
+            "BEARER": []
+          }
+        ]
       }
     },
     "/tools/{id}/versions/{version_id}/{type}/descriptor/{relative_path}": {
@@ -476,7 +501,12 @@
               }
             }
           }
-        }
+        },
+        "security": [
+          {
+            "BEARER": []
+          }
+        ]
       }
     },
     "/tools/{id}/versions/{version_id}/{type}/tests": {
@@ -553,7 +583,12 @@
               }
             }
           }
-        }
+        },
+        "security": [
+          {
+            "BEARER": []
+          }
+        ]
       }
     },
     "/tools/{id}/versions/{version_id}/{type}/files": {
@@ -630,7 +665,12 @@
               }
             }
           }
-        }
+        },
+        "security": [
+          {
+            "BEARER": []
+          }
+        ]
       }
     },
     "/tools/{id}/versions/{version_id}/containerfile": {
@@ -698,7 +738,12 @@
               }
             }
           }
-        }
+        },
+        "security": [
+          {
+            "BEARER": []
+          }
+        ]
       }
     },
     "/toolClasses": {
@@ -731,7 +776,12 @@
               }
             }
           }
-        }
+        },
+        "security": [
+          {
+            "BEARER": []
+          }
+        ]
       }
     }
   },
@@ -763,6 +813,13 @@
         "schema": {
           "type": "string"
         }
+      }
+    },
+    "securitySchemes": {
+      "BEARER": {
+        "type": "apiKey",
+        "name": "Authorization",
+        "in": "header"
       }
     },
     "schemas": {
@@ -863,13 +920,6 @@
             "type": "string",
             "description": "Optional url to the checker tool that will exit successfully if this tool produced the expected result given test data."
           },
-          "checked_versions": {
-            "type": "array",
-            "items": {
-              "type": "string"
-            },
-            "description": "Optional, if known, the IDs for the versions of this tool that are checked by the checker  tool from `checker_url`"
-          },
           "versions": {
             "description": "A list of versions for this tool.",
             "type": "array",
@@ -887,7 +937,7 @@
           "id"
         ],
         "properties": {
-          "authors": {
+          "author": {
             "type": "array",
             "items": {
               "type": "string"
@@ -915,7 +965,7 @@
               "$ref": "#/components/schemas/ImageData"
             }
           },
-          "descriptor_types": {
+          "descriptor_type": {
             "type": "array",
             "description": "The type (or types) of descriptors available.",
             "items": {
@@ -934,7 +984,7 @@
             "type": "boolean",
             "description": "Reports whether this tool has been verified by a specific organization or individual."
           },
-          "verified_sources": {
+          "verified_source": {
             "type": "array",
             "items": {
               "type": "string"

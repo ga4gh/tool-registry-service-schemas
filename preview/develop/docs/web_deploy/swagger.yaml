@@ -42,6 +42,8 @@ paths:
             text/plain:
               schema:
                 $ref: '#/components/schemas/Error'
+      security:
+        - BEARER: []
   '/tools/{id}/versions':
     get:
       summary: List versions of a tool
@@ -70,6 +72,8 @@ paths:
                 type: array
                 items:
                   $ref: '#/components/schemas/ToolVersion'
+      security:
+        - BEARER: []
   '/tools/{id}/versions/{version_id}':
     get:
       summary: 'List one specific tool version, acts as an anchor for self references'
@@ -109,6 +113,8 @@ paths:
             text/plain:
               schema:
                 $ref: '#/components/schemas/Error'
+      security:
+        - BEARER: []
   /tools:
     get:
       summary: List all tools
@@ -207,6 +213,8 @@ paths:
                 type: array
                 items:
                   $ref: '#/components/schemas/Tool'
+      security:
+        - BEARER: []
   '/tools/{id}/versions/{version_id}/{type}/descriptor':
     get:
       summary: Get the tool descriptor for the specified tool
@@ -252,6 +260,8 @@ paths:
             text/plain:
               schema:
                 $ref: '#/components/schemas/Error'
+      security:
+        - BEARER: []
   '/tools/{id}/versions/{version_id}/{type}/descriptor/{relative_path}':
     get:
       summary: Get additional tool descriptor files relative to the main file
@@ -304,6 +314,8 @@ paths:
             text/plain:
               schema:
                 $ref: '#/components/schemas/Error'
+      security:
+        - BEARER: []
   '/tools/{id}/versions/{version_id}/{type}/tests':
     get:
       summary: Get a list of test JSONs
@@ -353,6 +365,8 @@ paths:
             text/plain:
               schema:
                 $ref: '#/components/schemas/Error'
+      security:
+        - BEARER: []
   '/tools/{id}/versions/{version_id}/{type}/files':
     get:
       summary: Get a list of objects that contain the relative path and file type
@@ -402,6 +416,8 @@ paths:
             text/plain:
               schema:
                 $ref: '#/components/schemas/Error'
+      security:
+        - BEARER: []
   '/tools/{id}/versions/{version_id}/containerfile':
     get:
       summary: Get the container specification(s) for the specified image.
@@ -445,6 +461,8 @@ paths:
             text/plain:
               schema:
                 $ref: '#/components/schemas/Error'
+      security:
+        - BEARER: []
   /toolClasses:
     get:
       summary: List all tool types
@@ -467,6 +485,8 @@ paths:
                 type: array
                 items:
                   $ref: '#/components/schemas/ToolClass'
+      security:
+        - BEARER: []
 externalDocs:
   description: Description of GA4GH Tool Registry (Exchange) Schema
   url: 'https://github.com/ga4gh/tool-registry-schemas'
@@ -488,6 +508,11 @@ components:
       description: 'Start index of paging. Pagination results can be based on numbers or other values chosen by the registry implementor (for example, SHA values). If this exceeds the current result set return an empty set.  If not specified in the request, this will start at the beginning of the results.'
       schema:
         type: string
+  securitySchemes:
+    BEARER:
+      type: apiKey
+      name: Authorization
+      in: header
   schemas:
     ToolFile:
       type: object
@@ -567,11 +592,6 @@ components:
         checker_url:
           type: string
           description: Optional url to the checker tool that will exit successfully if this tool produced the expected result given test data.
-        checked_versions:
-          type: array
-          items:
-            type: string
-          description: 'Optional, if known, the IDs for the versions of this tool that are checked by the checker  tool from `checker_url`'
         versions:
           description: A list of versions for this tool.
           type: array
@@ -584,7 +604,7 @@ components:
         - url
         - id
       properties:
-        authors:
+        author:
           type: array
           items:
             type: string
@@ -605,7 +625,7 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/ImageData'
-        descriptor_types:
+        descriptor_type:
           type: array
           description: The type (or types) of descriptors available.
           items:
@@ -619,7 +639,7 @@ components:
         verified:
           type: boolean
           description: Reports whether this tool has been verified by a specific organization or individual.
-        verified_sources:
+        verified_source:
           type: array
           items:
             type: string
