@@ -2,6 +2,22 @@
 [[_definitions]]
 == Definitions
 
+[[_checksum]]
+=== Checksum
+
+[options="header", cols=".^3,.^11,.^4"]
+|===
+|Name|Description|Schema
+|**checksum** +
+__required__|The hex-string encoded checksum for the data.|string
+|**type** +
+__required__|The digest method used to create the checksum.
+The value (e.g. `sha-256`) SHOULD be listed as `Hash Name String` in the https://github.com/ga4gh-discovery/ga4gh-hash-alg-registry/blob/master/hash-alg.csv[GA4GH Hash Algorithm Registry].
+Other values MAY be used, as long as implementors are aware of the issues discussed in https://tools.ietf.org/html/rfc6920#section-9.4[RFC6920].
+GA4GH may provide more explicit guidance for use of non-IANA-registered algorithms in the future.|string
+|===
+
+
 [[_descriptortype]]
 === DescriptorType
 The type of descriptor that represents this version of the tool (e.g. CWL, WDL, or NFL). Note that these files can also include associated Docker/container files and test parameters that further describe a version of a tool.
@@ -36,6 +52,12 @@ and Singularity recipes for Singularity images
 [options="header", cols=".^3,.^11,.^4"]
 |===
 |Name|Description|Schema
+|**checksum** +
+__optional__|A production (immutable) tool version is required to have a hashcode. Not required otherwise, but might be useful to detect changes. +
+**Example** : `[ {
+  "checksum" : "ea2a5db69bd20a42976838790bc29294df3af02b",
+  "type" : "sha1"
+} ]`|< <<_checksum,Checksum>> > array
 |**content** +
 __optional__|The content of the file itself. One of url or content is required.|string
 |**url** +
@@ -52,6 +74,12 @@ Describes one container image.
 [options="header", cols=".^3,.^11,.^4"]
 |===
 |Name|Description|Schema
+|**checksum** +
+__optional__|A production (immutable) tool version is required to have a hashcode. Not required otherwise, but might be useful to detect changes. This exposes the hashcode for specific image versions to verify that the container version pulled is actually the version that was indexed by the registry. +
+**Example** : `[ {
+  "checksum" : "77af4d6b9913e693e8d0b4b294fa62ade6054e6b2f1ffb617ac955dd63fb0182",
+  "type" : "sha256"
+} ]`|< <<_checksum,Checksum>> > array
 |**image_name** +
 __optional__|Used in conjunction with a registry_url if provided to locate images. +
 **Example** : `""`|string
@@ -164,6 +192,8 @@ __optional__|All known docker images (and versions/hashes) used by this tool. If
 |**included_apps** +
 __optional__|An array of IDs for the applications that are stored inside this tool. +
 **Example** : `[ "https://bio.tools/tool/mytum.de/SNAP2/1", "https://bio.tools/bioexcel_seqqc" ]`|< string > array
+|**is_production** +
+__optional__|This version of a tool is guaranteed to not change over time (for example, a tool built from a tag in git as opposed to a branch). A production quality tool is required to have a checksum|boolean
 |**meta_version** +
 __optional__|The version of this tool version in the registry. Iterates when fields like the description, author, etc. are updated.|string
 |**name** +
