@@ -28,4 +28,6 @@ jobs:
       - "chmod +x gradlew"
       - "./gradlew installSwagger buildSwagger asciidoctor"
       after_success:
+        - git branch
+        - git branch -r 
         - bash scripts/update-ghpages.sh
