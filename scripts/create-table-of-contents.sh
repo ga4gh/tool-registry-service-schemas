@@ -3,9 +3,9 @@ set -e
 set -u
 set -x
 set -o pipefail
-
+FILENAME="TableOfContents.md"
 # Remove index.md if it exists
-[ -e index.md ] && rm index.md
+[ -e $FILENAME ] && rm $FILENAME
 
 # Create the Jekyll header
 {
@@ -18,7 +18,7 @@ set -o pipefail
   echo "[swagger-ui](preview/develop/docs/web_deploy/swagger-ui)"
   echo "[html5](preview/develop/docs/html5)"
   echo "[pdf](preview/develop/docs/pdf/index.pdf)"
-} >> index.md
+} >> $FILENAME
 
 # Loop through Git branches and add links
 for branch in $(git branch | cut -c 3-);
@@ -31,7 +31,7 @@ do
 		  echo "[swagger-ui](preview/$branch/docs/web_deploy/swagger-ui)"
 		  echo "[html5](preview/$branch/docs/html5)"
 		  echo "[pdf](preview/$branch/docs/pdf/index.pdf)"
-	        } >> index.md
+	        } >> $FILENAME
 	fi
 done
 
