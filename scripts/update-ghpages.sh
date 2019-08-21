@@ -4,7 +4,7 @@ set -o pipefail
 set -o nounset
 set -o xtrace
 set -u
-BRANCH=$(echo "$TRAVIS_BRANCH" | awk '{print tolower($0)}')
+BRANCH=$(echo "$TRAVIS_BRANCH")
 BRANCH_PATH="preview/$BRANCH"
 git config --replace-all remote.origin.fetch +refs/heads/*:refs/remotes/origin/*
 git fetch --deepen=50000
