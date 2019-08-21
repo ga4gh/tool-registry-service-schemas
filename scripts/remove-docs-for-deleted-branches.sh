@@ -9,7 +9,7 @@ for folder in preview/*; do
         # Only get the directory name, not anything before it
         folder2=${folder##*/}
         # If there isn't a git branch with that name, delete it 
-        if ! git branch | cut -c 3- | grep -q "${folder2}"; then
+        if ! git branch -r --sort=-committerdate | cut -d "/" -f 2 | grep -q "${folder2}"; then
                 rm -rf "${folder}"
         fi
 done
