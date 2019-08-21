@@ -28,6 +28,7 @@ jobs:
       - "chmod +x gradlew"
       - "./gradlew installSwagger buildSwagger asciidoctor"
       after_success:
+        - git config remote.origin.fetch "+refs/heads/*:refs/remotes/origin/*"
+        - git fetch --deepen=50000
         - git branch
-        - git branch -r 
         - bash scripts/update-ghpages.sh
