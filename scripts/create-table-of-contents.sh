@@ -18,10 +18,29 @@ FILENAME="TableOfContents.md"
   echo "[swagger-ui](preview/develop/docs/web_deploy/swagger-ui)"
   echo "[html5](preview/develop/docs/html5)"
   echo "[pdf](preview/develop/docs/pdf/index.pdf)"
+} >> $FILENAME
+
+{
+  echo ""
+  echo "#### Tags: "
+} >> $FILENAME
+
+# Loop through Git tags and add links
+for branch in $(git tag --sort=-committerdate | cut -d "/" -f 2-);
+do
+		{ 
+		  echo ""
+		  echo "$branch: "
+		  echo "[swagger-ui](preview/$branch/docs/web_deploy/swagger-ui)"
+		  echo "[html5](preview/$branch/docs/html5)"
+		  echo "[pdf](preview/$branch/docs/pdf/index.pdf)"
+	        } >> $FILENAME
+done
+
+{
   echo ""
   echo "#### Other branches:"
 } >> $FILENAME
-
 
 # Loop through Git branches and add links
 for branch in $(git branch -r --sort=-committerdate | cut -d "/" -f 2-);
