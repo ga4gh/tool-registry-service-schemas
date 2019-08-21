@@ -62,21 +62,6 @@ readme_link_fix:
 [html5](preview/readme_link_fix/docs/html5)
 [pdf](preview/readme_link_fix/docs/pdf/index.pdf)
 
-HEAD: 
-[swagger-ui](preview/HEAD/docs/web_deploy/swagger-ui)
-[html5](preview/HEAD/docs/html5)
-[pdf](preview/HEAD/docs/pdf/index.pdf)
-
-->: 
-[swagger-ui](preview/->/docs/web_deploy/swagger-ui)
-[html5](preview/->/docs/html5)
-[pdf](preview/->/docs/pdf/index.pdf)
-
-origin/develop: 
-[swagger-ui](preview/origin/develop/docs/web_deploy/swagger-ui)
-[html5](preview/origin/develop/docs/html5)
-[pdf](preview/origin/develop/docs/pdf/index.pdf)
-
 second_round_up: 
 [swagger-ui](preview/second_round_up/docs/web_deploy/swagger-ui)
 [html5](preview/second_round_up/docs/html5)
