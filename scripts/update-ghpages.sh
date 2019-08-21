@@ -4,10 +4,10 @@ set -o pipefail
 set -o nounset
 set -o xtrace
 set -u
-BRANCH=$(echo "$TRAVIS_BRANCH" | awk '{print tolower($0)}')
+BRANCH=$(echo "$TRAVIS_BRANCH")
 BRANCH_PATH="preview/$BRANCH"
 git config --replace-all remote.origin.fetch +refs/heads/*:refs/remotes/origin/*
-git fetch origin gh-pages
+git fetch --deepen=50000
 #TODO: changes in the package-lock.json are breaking the build, see https://api.travis-ci.org/v3/job/544918298/log.txt
 git checkout package-lock.json
 git checkout gh-pages
@@ -23,7 +23,7 @@ if [[ -n "$(git status --porcelain "${BRANCH_PATH}")" && ${TRAVIS_PULL_REQUEST} 
   bash scripts/create-table-of-contents.sh
   bash scripts/remove-docs-for-deleted-branches.sh
   git add preview
-  git add index.md
+  git add TableOfContents.md
   git commit -m "Docs changed for "${TRAVIS_BRANCH}""
   git push git@github.com:"${TRAVIS_REPO_SLUG}" gh-pages
 else
