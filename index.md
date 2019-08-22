@@ -41,7 +41,7 @@ Registry developers will be able to develop services to either aggregate, index,
 In summary, we envision a world where bioinformatics workflows (and workflows from other interested fields) can be freely exchanged with no technical barriers between a variety of cloud environments, allowing researchers to easily re-use workflows and reduce the effort of reimplementing workflows for use in different platforms. 
 
 
-Discussion of the models and endpoints in details continues at [Data Model](../DataModel)
+Discussion of the models and endpoints in details continues at [Data Model](DataModel)
 
 
 #### TRS V1 vs TRS V2
