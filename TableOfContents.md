@@ -57,20 +57,15 @@ title: Table of Contents
 
 #### Other branches:
 
-HEAD: 
-[swagger-ui](preview/HEAD/docs/web_deploy/swagger-ui)
-[html5](preview/HEAD/docs/html5)
-[pdf](preview/HEAD/docs/pdf/index.pdf)
+fixGetBranches: 
+[swagger-ui](preview/fixGetBranches/docs/web_deploy/swagger-ui)
+[html5](preview/fixGetBranches/docs/html5)
+[pdf](preview/fixGetBranches/docs/pdf/index.pdf)
 
-->: 
-[swagger-ui](preview/->/docs/web_deploy/swagger-ui)
-[html5](preview/->/docs/html5)
-[pdf](preview/->/docs/pdf/index.pdf)
-
-origin/develop: 
-[swagger-ui](preview/origin/develop/docs/web_deploy/swagger-ui)
-[html5](preview/origin/develop/docs/html5)
-[pdf](preview/origin/develop/docs/pdf/index.pdf)
+master: 
+[swagger-ui](preview/master/docs/web_deploy/swagger-ui)
+[html5](preview/master/docs/html5)
+[pdf](preview/master/docs/pdf/index.pdf)
 
 second_round_up: 
 [swagger-ui](preview/second_round_up/docs/web_deploy/swagger-ui)
@@ -81,8 +76,3 @@ v1_v2_documentation:
 [swagger-ui](preview/v1_v2_documentation/docs/web_deploy/swagger-ui)
 [html5](preview/v1_v2_documentation/docs/html5)
 [pdf](preview/v1_v2_documentation/docs/pdf/index.pdf)
-
-master: 
-[swagger-ui](preview/master/docs/web_deploy/swagger-ui)
-[html5](preview/master/docs/html5)
-[pdf](preview/master/docs/pdf/index.pdf)
