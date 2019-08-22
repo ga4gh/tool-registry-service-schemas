@@ -4,6 +4,7 @@ set -u
 set -x
 set -o pipefail
 FILENAME="TableOfContents.md"
+GIT_REPO="https://github.com/ga4gh/tool-registry-service-schemas.git"
 # Remove index.md if it exists
 [ -e $FILENAME ] && rm $FILENAME
 
@@ -43,7 +44,7 @@ done
 } >> $FILENAME
 
 # Loop through Git branches and add links
-for branch in $(git branch -r --sort=-committerdate | cut -d "/" -f 2-);
+for branch in $(git ls-remote --heads $GIT_REPO | cut -d "/" -f 3-);
 do
 	if [[ $branch != 'gh-pages' && $branch != 'develop' ]];
 	then
