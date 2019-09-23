@@ -3,6 +3,6 @@
     "https://dockstore.org/api/api/ga4gh/v2/metadata"
   ],
   "biocontainers": [
-    "https://api.biocontainers.pro//api/ga4gh/v2/metadata"
+    "https://api.biocontainers.pro/api/ga4gh/v2/metadata"
   ]
 }
