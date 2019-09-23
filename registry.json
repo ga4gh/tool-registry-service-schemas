@@ -1,5 +1,8 @@
 {
-  "dockstore" : [
-      "https://www.dockstore.org:8443/api/v1/metadata"
-    ]
+  "dockstore": [
+    "https://dockstore.org/api/api/ga4gh/v2/metadata"
+  ],
+  "biocontainers": [
+    "https://api.biocontainers.pro/api/ga4gh/v2/metadata"
+  ]
 }
