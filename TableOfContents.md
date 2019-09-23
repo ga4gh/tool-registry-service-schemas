@@ -57,11 +57,6 @@ title: Table of Contents
 
 #### Other branches:
 
-fixGetBranches: 
-[swagger-ui](preview/fixGetBranches/docs/web_deploy/swagger-ui)
-[html5](preview/fixGetBranches/docs/html5)
-[pdf](preview/fixGetBranches/docs/pdf/index.pdf)
-
 master: 
 [swagger-ui](preview/master/docs/web_deploy/swagger-ui)
 [html5](preview/master/docs/html5)
@@ -71,6 +66,11 @@ second_round_up:
 [swagger-ui](preview/second_round_up/docs/web_deploy/swagger-ui)
 [html5](preview/second_round_up/docs/html5)
 [pdf](preview/second_round_up/docs/pdf/index.pdf)
+
+update_registry_listing: 
+[swagger-ui](preview/update_registry_listing/docs/web_deploy/swagger-ui)
+[html5](preview/update_registry_listing/docs/html5)
+[pdf](preview/update_registry_listing/docs/pdf/index.pdf)
 
 v1_v2_documentation: 
 [swagger-ui](preview/v1_v2_documentation/docs/web_deploy/swagger-ui)
