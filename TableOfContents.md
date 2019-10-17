@@ -10,6 +10,11 @@ title: Table of Contents
 
 #### Tags: 
 
+2.0.0: 
+[swagger-ui](preview/2.0.0/docs/web_deploy/swagger-ui)
+[html5](preview/2.0.0/docs/html5)
+[pdf](preview/2.0.0/docs/pdf/index.pdf)
+
 2.0.0-beta.5: 
 [swagger-ui](preview/2.0.0-beta.5/docs/web_deploy/swagger-ui)
 [html5](preview/2.0.0-beta.5/docs/html5)
@@ -61,13 +66,3 @@ master:
 [swagger-ui](preview/master/docs/web_deploy/swagger-ui)
 [html5](preview/master/docs/html5)
 [pdf](preview/master/docs/pdf/index.pdf)
-
-second_round_up: 
-[swagger-ui](preview/second_round_up/docs/web_deploy/swagger-ui)
-[html5](preview/second_round_up/docs/html5)
-[pdf](preview/second_round_up/docs/pdf/index.pdf)
-
-v1_v2_documentation: 
-[swagger-ui](preview/v1_v2_documentation/docs/web_deploy/swagger-ui)
-[html5](preview/v1_v2_documentation/docs/html5)
-[pdf](preview/v1_v2_documentation/docs/pdf/index.pdf)
