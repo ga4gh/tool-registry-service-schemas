@@ -15,6 +15,9 @@
     }
   ],
   "paths": {
+    "/service-info": {
+      "$ref": "https://raw.githubusercontent.com/ga4gh-discovery/ga4gh-service-info/develop/service-info.yaml#/paths/~1service-info"
+    },
     "/tools/{id}": {
       "get": {
         "summary": "List one specific tool, acts as an anchor for self references",
