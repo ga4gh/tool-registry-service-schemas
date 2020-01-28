@@ -66,3 +66,13 @@ master:
 [swagger-ui](preview/master/docs/web_deploy/swagger-ui)
 [html5](preview/master/docs/html5)
 [pdf](preview/master/docs/pdf/index.pdf)
+
+release/v2.0.1: 
+[swagger-ui](preview/release/v2.0.1/docs/web_deploy/swagger-ui)
+[html5](preview/release/v2.0.1/docs/html5)
+[pdf](preview/release/v2.0.1/docs/pdf/index.pdf)
+
+service-info: 
+[swagger-ui](preview/service-info/docs/web_deploy/swagger-ui)
+[html5](preview/service-info/docs/html5)
+[pdf](preview/service-info/docs/pdf/index.pdf)
