@@ -31,8 +31,8 @@ tags:
       url: https://ga4gh.github.io/tool-registry-service-schemas/Introduction/
 paths:
   '/service-info':
-    # Links to the latest version of service-info. Use a tag once service-info is released instead.
-    $ref: 'https://raw.githubusercontent.com/ga4gh-discovery/ga4gh-service-info/develop/service-info.yaml#/paths/~1service-info'
+    # Links to the latest version of service-info.
+    $ref: 'https://raw.githubusercontent.com/ga4gh-discovery/ga4gh-service-info/v1.0.0/service-info.yaml#/paths/~1service-info'
   '/tools/{id}':
     get:
       summary: 'List one specific tool, acts as an anchor for self references'
