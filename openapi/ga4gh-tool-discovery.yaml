@@ -367,6 +367,9 @@ paths:
         /tools/{id}/versions/{version_id}/{type}/descriptor/{relative_path}
         endpoint.
       operationId: toolsIdVersionsVersionIdTypeFilesGet
+      produces:
+        - application/json
+        - application/zip
       tags:
         - GA4GH
       parameters:
@@ -391,6 +394,12 @@ paths:
           description: >-
             An identifier of the tool version for this particular tool registry,
             for example `v1`.
+        - name: format
+          in: query
+          required: false
+          type: string
+          enum:
+            - zip
       responses:
         '200':
           description: The array of File JSON responses.
