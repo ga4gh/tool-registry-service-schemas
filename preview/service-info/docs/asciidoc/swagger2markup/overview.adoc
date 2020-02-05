@@ -8,7 +8,7 @@ Proposed API for GA4GH (Global Alliance for Genomics &amp; Health) tool reposito
 
 === Version information
 [%hardbreaks]
-__Version__ : 2.0.0
+__Version__ : 2.0.1
 
 
 === URI scheme
