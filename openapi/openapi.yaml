@@ -454,6 +454,13 @@ paths:
             for example `v1`.
           schema:
             type: string
+        - name: format
+          in: query
+          required: false
+          schema:
+            type: string
+            enum:
+              - zip
       responses:
         "200":
           description: The array of File JSON responses.
@@ -463,7 +470,7 @@ paths:
                 type: array
                 items:
                   $ref: "#/components/schemas/ToolFile"
-            text/plain:
+            application/zip:
               schema:
                 type: array
                 items:
@@ -474,7 +481,7 @@ paths:
             application/json:
               schema:
                 $ref: "#/components/schemas/Error"
-            text/plain:
+            application/zip:
               schema:
                 $ref: "#/components/schemas/Error"
       security:
