@@ -67,11 +67,6 @@ feature/116/bundles:
 [html5](preview/feature/116/bundles/docs/html5)
 [pdf](preview/feature/116/bundles/docs/pdf/index.pdf)
 
-feature/removeDuplicateSwagger-UI: 
-[swagger-ui](swagger-ui?url=../preview/feature/removeDuplicateSwagger-UI/docs/web_deploy/swagger.json)
-[html5](preview/feature/removeDuplicateSwagger-UI/docs/html5)
-[pdf](preview/feature/removeDuplicateSwagger-UI/docs/pdf/index.pdf)
-
 master: 
 [swagger-ui](swagger-ui?url=../preview/master/docs/web_deploy/swagger.json)
 [html5](preview/master/docs/html5)
