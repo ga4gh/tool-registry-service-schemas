@@ -67,10 +67,15 @@ feature/116/bundles:
 [html5](preview/feature/116/bundles/docs/html5)
 [pdf](preview/feature/116/bundles/docs/pdf/index.pdf)
 
-feature/fixCI: 
-[swagger-ui](preview/feature/fixCI/docs/web_deploy/swagger-ui)
-[html5](preview/feature/fixCI/docs/html5)
-[pdf](preview/feature/fixCI/docs/pdf/index.pdf)
+feature/removeDuplicateSwagger-UI: 
+[swagger-ui](swagger-ui?url=/preview/feature/removeDuplicateSwagger-UI/docs/web_deploy/swagger.json)
+[html5](preview/feature/removeDuplicateSwagger-UI/docs/html5)
+[pdf](preview/feature/removeDuplicateSwagger-UI/docs/pdf/index.pdf)
+
+fixSwaggerPathToFile: 
+[swagger-ui](swagger-ui?url=/preview/fixSwaggerPathToFile/docs/web_deploy/swagger.json)
+[html5](preview/fixSwaggerPathToFile/docs/html5)
+[pdf](preview/fixSwaggerPathToFile/docs/pdf/index.pdf)
 
 master: 
 [swagger-ui](swagger-ui?url=/preview/master/docs/web_deploy/swagger.json)
@@ -86,8 +91,3 @@ service-info:
 [swagger-ui](swagger-ui?url=/preview/service-info/docs/web_deploy/swagger.json)
 [html5](preview/service-info/docs/html5)
 [pdf](preview/service-info/docs/pdf/index.pdf)
-
-swagger-ui: 
-[swagger-ui](preview/swagger-ui/docs/web_deploy/swagger-ui)
-[html5](preview/swagger-ui/docs/html5)
-[pdf](preview/swagger-ui/docs/pdf/index.pdf)
