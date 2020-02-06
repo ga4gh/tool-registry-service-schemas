@@ -365,7 +365,7 @@ paths:
         Get a list of objects that contain the relative path and file type. The
         descriptors are intended for use with the
         /tools/{id}/versions/{version_id}/{type}/descriptor/{relative_path}
-        endpoint. If format=zip is specified, a zip file of all files available will be gotten instead.
+        endpoint. Specify format=zip to get a zip file of all files available instead.
       operationId: toolsIdVersionsVersionIdTypeFilesGet
       produces:
         - application/json
