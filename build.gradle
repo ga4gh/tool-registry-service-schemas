@@ -94,14 +94,5 @@ liveReload {
 
 
 task wrapper(type: Wrapper) {
-    gradleVersion = '3.5'
+    gradleVersion = '4.10.2'
 }
-
-task installSwagger(type: NpmTask) {
-    npmCommand = ["install"]
-}
-
-task buildSwagger(type: NpmTask) {
-    npmCommand = ["run", "build"]
-}
-
