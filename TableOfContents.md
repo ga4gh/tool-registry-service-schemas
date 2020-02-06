@@ -67,11 +67,6 @@ feature/116/bundles:
 [html5](preview/feature/116/bundles/docs/html5)
 [pdf](preview/feature/116/bundles/docs/pdf/index.pdf)
 
-feature/fixCI: 
-[swagger-ui](swagger-ui?url=../preview/feature/fixCI/docs/web_deploy/swagger.json)
-[html5](preview/feature/fixCI/docs/html5)
-[pdf](preview/feature/fixCI/docs/pdf/index.pdf)
-
 master: 
 [swagger-ui](swagger-ui?url=../preview/master/docs/web_deploy/swagger.json)
 [html5](preview/master/docs/html5)
