@@ -4,7 +4,7 @@ jdk: openjdk8
 
 # looks like papa32 plugin 1.5.0 is no longer compatible with gradle 5, the other option is to try running without it
 before_install:
-  - wget http://services.gradle.org/distributions/gradle-4.10.2-bin.zip
+  - wget https://services.gradle.org/distributions/gradle-4.10.2-bin.zip
   - unzip -qq gradle-4.10.2-bin.zip
   - export GRADLE_HOME=$PWD/gradle-4.10.2
   - export PATH=$GRADLE_HOME/bin:$PATH
