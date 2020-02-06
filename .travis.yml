@@ -26,6 +26,6 @@ jobs:
       script:
       - "gradle wrapper"
       - "chmod +x gradlew"
-      - "./gradlew installSwagger buildSwagger asciidoctor"
+      - "./gradlew asciidoctor"
       after_success:
         - bash scripts/update-ghpages.sh

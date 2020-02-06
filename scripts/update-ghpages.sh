@@ -8,8 +8,7 @@ BRANCH=$(echo "$TRAVIS_BRANCH")
 BRANCH_PATH="preview/$BRANCH"
 git config --replace-all remote.origin.fetch +refs/heads/*:refs/remotes/origin/*
 git fetch --deepen=50000
-#TODO: changes in the package-lock.json are breaking the build, see https://api.travis-ci.org/v3/job/544918298/log.txt
-git checkout package-lock.json
+mkdir -p docs/web_deploy && cp openapi/openapi.yaml docs/web_deploy/swagger.json
 git checkout gh-pages
 rm -rf "${BRANCH_PATH}"
 mkdir -p "${BRANCH_PATH}"
