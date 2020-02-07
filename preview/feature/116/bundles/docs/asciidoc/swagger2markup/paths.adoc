@@ -400,7 +400,7 @@ GET /tools/{id}/versions/{version_id}/{type}/files
 
 
 ==== Description
-Get a list of objects that contain the relative path and file type. The descriptors are intended for use with the /tools/{id}/versions/{version_id}/{type}/descriptor/{relative_path} endpoint. Specify format=zip to download a zip file of all files instead.
+Get a list of objects that contain the relative path and file type. The descriptors are intended for use with the /tools/{id}/versions/{version_id}/{type}/descriptor/{relative_path} endpoint. Returns a zip file of all files when format=zip is specified.
 
 
 ==== Parameters
@@ -415,7 +415,7 @@ __required__|The output type of the descriptor. Examples of allowable values are
 |**Path**|**version_id** +
 __required__|An identifier of the tool version for this particular tool registry, for example `v1`.|string
 |**Query**|**format** +
-__optional__|Specify format=zip to download a zip file of all files instead.|enum (zip)
+__optional__|Returns a zip file of all files when format=zip is specified.|enum (zip)
 |===
 
 
