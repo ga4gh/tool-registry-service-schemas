@@ -27,4 +27,10 @@ __BasePath__ : /ga4gh/trs/v2
 * `text/plain`
 
 
+=== External Docs
+[%hardbreaks]
+__Description__ : Description of GA4GH Tool Registry (Exchange) Schema
+__URL__ : https://github.com/ga4gh/tool-registry-schemas
+
+
 

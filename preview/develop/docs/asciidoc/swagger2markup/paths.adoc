@@ -15,7 +15,7 @@ This endpoint returns all tool-classes available.
 
 ==== Responses
 
-[options="header", cols=".^2,.^14,.^4"]
+[options="header", cols=".^2a,.^14a,.^4a"]
 |===
 |HTTP Code|Description|Schema
 |**200**|A list of potential tool classes.|< <<_toolclass,ToolClass>> > array
@@ -29,7 +29,7 @@ This endpoint returns all tool-classes available.
 
 ==== Security
 
-[options="header", cols=".^3,.^4"]
+[options="header", cols=".^3a,.^4a"]
 |===
 |Type|Name
 |**apiKey**|**<<_bearer,BEARER>>**
@@ -49,7 +49,7 @@ This endpoint returns all tools available or a filtered subset using metadata qu
 
 ==== Parameters
 
-[options="header", cols=".^2,.^3,.^9,.^4,.^2"]
+[options="header", cols=".^2a,.^3a,.^9a,.^4a,.^2a"]
 |===
 |Type|Name|Description|Schema|Default
 |**Query**|**alias** +
@@ -82,7 +82,7 @@ __optional__|The name of the tool.|string|
 
 ==== Responses
 
-[options="header", cols=".^2,.^14,.^4"]
+[options="header", cols=".^2a,.^14a,.^4a"]
 |===
 |HTTP Code|Description|Schema
 |**200**|An array of Tools that match the filter. +
@@ -102,7 +102,7 @@ __optional__|The name of the tool.|string|
 
 ==== Security
 
-[options="header", cols=".^3,.^4"]
+[options="header", cols=".^3a,.^4a"]
 |===
 |Type|Name
 |**apiKey**|**<<_bearer,BEARER>>**
@@ -122,7 +122,7 @@ This endpoint returns one specific tool (which has ToolVersions nested inside it
 
 ==== Parameters
 
-[options="header", cols=".^2,.^3,.^9,.^4"]
+[options="header", cols=".^2a,.^3a,.^9a,.^4a"]
 |===
 |Type|Name|Description|Schema
 |**Path**|**id** +
@@ -132,7 +132,7 @@ __required__|A unique identifier of the tool, scoped to this registry, for examp
 
 ==== Responses
 
-[options="header", cols=".^2,.^14,.^4"]
+[options="header", cols=".^2a,.^14a,.^4a"]
 |===
 |HTTP Code|Description|Schema
 |**200**|A tool.|<<_tool,Tool>>
@@ -147,7 +147,7 @@ __required__|A unique identifier of the tool, scoped to this registry, for examp
 
 ==== Security
 
-[options="header", cols=".^3,.^4"]
+[options="header", cols=".^3a,.^4a"]
 |===
 |Type|Name
 |**apiKey**|**<<_bearer,BEARER>>**
@@ -167,7 +167,7 @@ Returns all versions of the specified tool.
 
 ==== Parameters
 
-[options="header", cols=".^2,.^3,.^9,.^4"]
+[options="header", cols=".^2a,.^3a,.^9a,.^4a"]
 |===
 |Type|Name|Description|Schema
 |**Path**|**id** +
@@ -177,7 +177,7 @@ __required__|A unique identifier of the tool, scoped to this registry, for examp
 
 ==== Responses
 
-[options="header", cols=".^2,.^14,.^4"]
+[options="header", cols=".^2a,.^14a,.^4a"]
 |===
 |HTTP Code|Description|Schema
 |**200**|An array of tool versions.|< <<_toolversion,ToolVersion>> > array
@@ -191,7 +191,7 @@ __required__|A unique identifier of the tool, scoped to this registry, for examp
 
 ==== Security
 
-[options="header", cols=".^3,.^4"]
+[options="header", cols=".^3a,.^4a"]
 |===
 |Type|Name
 |**apiKey**|**<<_bearer,BEARER>>**
@@ -211,7 +211,7 @@ This endpoint returns one specific tool version.
 
 ==== Parameters
 
-[options="header", cols=".^2,.^3,.^9,.^4"]
+[options="header", cols=".^2a,.^3a,.^9a,.^4a"]
 |===
 |Type|Name|Description|Schema
 |**Path**|**id** +
@@ -223,7 +223,7 @@ __required__|An identifier of the tool version, scoped to this registry, for exa
 
 ==== Responses
 
-[options="header", cols=".^2,.^14,.^4"]
+[options="header", cols=".^2a,.^14a,.^4a"]
 |===
 |HTTP Code|Description|Schema
 |**200**|A tool version.|<<_toolversion,ToolVersion>>
@@ -238,7 +238,7 @@ __required__|An identifier of the tool version, scoped to this registry, for exa
 
 ==== Security
 
-[options="header", cols=".^3,.^4"]
+[options="header", cols=".^3a,.^4a"]
 |===
 |Type|Name
 |**apiKey**|**<<_bearer,BEARER>>**
@@ -258,7 +258,7 @@ Returns the container specifications(s) for the specified image. For example, a 
 
 ==== Parameters
 
-[options="header", cols=".^2,.^3,.^9,.^4"]
+[options="header", cols=".^2a,.^3a,.^9a,.^4a"]
 |===
 |Type|Name|Description|Schema
 |**Path**|**id** +
@@ -270,7 +270,7 @@ __required__|An identifier of the tool version for this particular tool registry
 
 ==== Responses
 
-[options="header", cols=".^2,.^14,.^4"]
+[options="header", cols=".^2a,.^14a,.^4a"]
 |===
 |HTTP Code|Description|Schema
 |**200**|The tool payload.|< <<_filewrapper,FileWrapper>> > array
@@ -285,7 +285,7 @@ __required__|An identifier of the tool version for this particular tool registry
 
 ==== Security
 
-[options="header", cols=".^3,.^4"]
+[options="header", cols=".^3a,.^4a"]
 |===
 |Type|Name
 |**apiKey**|**<<_bearer,BEARER>>**
@@ -305,7 +305,7 @@ Returns the descriptor for the specified tool (examples include CWL, WDL, or Nex
 
 ==== Parameters
 
-[options="header", cols=".^2,.^3,.^9,.^4"]
+[options="header", cols=".^2a,.^3a,.^9a,.^4a"]
 |===
 |Type|Name|Description|Schema
 |**Path**|**id** +
@@ -319,7 +319,7 @@ __required__|An identifier of the tool version, scoped to this registry, for exa
 
 ==== Responses
 
-[options="header", cols=".^2,.^14,.^4"]
+[options="header", cols=".^2a,.^14a,.^4a"]
 |===
 |HTTP Code|Description|Schema
 |**200**|The tool descriptor.|<<_filewrapper,FileWrapper>>
@@ -334,7 +334,7 @@ __required__|An identifier of the tool version, scoped to this registry, for exa
 
 ==== Security
 
-[options="header", cols=".^3,.^4"]
+[options="header", cols=".^3a,.^4a"]
 |===
 |Type|Name
 |**apiKey**|**<<_bearer,BEARER>>**
@@ -354,7 +354,7 @@ Descriptors can often include imports that refer to additional descriptors. This
 
 ==== Parameters
 
-[options="header", cols=".^2,.^3,.^9,.^4"]
+[options="header", cols=".^2a,.^3a,.^9a,.^4a"]
 |===
 |Type|Name|Description|Schema
 |**Path**|**id** +
@@ -370,7 +370,7 @@ __required__|An identifier of the tool version for this particular tool registry
 
 ==== Responses
 
-[options="header", cols=".^2,.^14,.^4"]
+[options="header", cols=".^2a,.^14a,.^4a"]
 |===
 |HTTP Code|Description|Schema
 |**200**|The tool descriptor.|<<_filewrapper,FileWrapper>>
@@ -385,7 +385,7 @@ __required__|An identifier of the tool version for this particular tool registry
 
 ==== Security
 
-[options="header", cols=".^3,.^4"]
+[options="header", cols=".^3a,.^4a"]
 |===
 |Type|Name
 |**apiKey**|**<<_bearer,BEARER>>**
@@ -405,7 +405,7 @@ Get a list of objects that contain the relative path and file type. The descript
 
 ==== Parameters
 
-[options="header", cols=".^2,.^3,.^9,.^4"]
+[options="header", cols=".^2a,.^3a,.^9a,.^4a"]
 |===
 |Type|Name|Description|Schema
 |**Path**|**id** +
@@ -419,7 +419,7 @@ __required__|An identifier of the tool version for this particular tool registry
 
 ==== Responses
 
-[options="header", cols=".^2,.^14,.^4"]
+[options="header", cols=".^2a,.^14a,.^4a"]
 |===
 |HTTP Code|Description|Schema
 |**200**|The array of File JSON responses.|< <<_toolfile,ToolFile>> > array
@@ -434,7 +434,7 @@ __required__|An identifier of the tool version for this particular tool registry
 
 ==== Security
 
-[options="header", cols=".^3,.^4"]
+[options="header", cols=".^3a,.^4a"]
 |===
 |Type|Name
 |**apiKey**|**<<_bearer,BEARER>>**
@@ -454,7 +454,7 @@ Get a list of test JSONs (these allow you to execute the tool successfully) suit
 
 ==== Parameters
 
-[options="header", cols=".^2,.^3,.^9,.^4"]
+[options="header", cols=".^2a,.^3a,.^9a,.^4a"]
 |===
 |Type|Name|Description|Schema
 |**Path**|**id** +
@@ -468,7 +468,7 @@ __required__|An identifier of the tool version for this particular tool registry
 
 ==== Responses
 
-[options="header", cols=".^2,.^14,.^4"]
+[options="header", cols=".^2a,.^14a,.^4a"]
 |===
 |HTTP Code|Description|Schema
 |**200**|The tool test JSON response.|< <<_filewrapper,FileWrapper>> > array
@@ -483,7 +483,7 @@ __required__|An identifier of the tool version for this particular tool registry
 
 ==== Security
 
-[options="header", cols=".^3,.^4"]
+[options="header", cols=".^3a,.^4a"]
 |===
 |Type|Name
 |**apiKey**|**<<_bearer,BEARER>>**
