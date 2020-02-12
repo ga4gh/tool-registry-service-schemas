@@ -78,7 +78,7 @@ asciidoctor {
 
 dependencies {
     // add converters and extensions using `asciidoctor` configuration
-    asciidoctor 'org.asciidoctor:asciidoctorj-pdf:1.5.0-alpha.15'
+    asciidoctor 'org.asciidoctor:asciidoctorj-pdf:1.5.0'
 }
 
 watch {
