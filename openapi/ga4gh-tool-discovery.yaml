@@ -707,6 +707,7 @@ definitions:
       - CWL
       - WDL
       - NFL
+      - GXFORMAT2
   FileWrapper:
     type: object
     description: >
