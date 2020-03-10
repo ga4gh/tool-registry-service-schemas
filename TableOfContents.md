@@ -62,15 +62,25 @@ title: Table of Contents
 
 #### Other branches:
 
-dependabot/gradle/org.asciidoctor-asciidoctorj-pdf-1.5.0-rc.3: 
-[swagger-ui](swagger-ui?url=../preview/dependabot/gradle/org.asciidoctor-asciidoctorj-pdf-1.5.0-rc.3/docs/web_deploy/swagger.json)
-[html5](preview/dependabot/gradle/org.asciidoctor-asciidoctorj-pdf-1.5.0-rc.3/docs/html5)
-[pdf](preview/dependabot/gradle/org.asciidoctor-asciidoctorj-pdf-1.5.0-rc.3/docs/pdf/index.pdf)
+dependabot/gradle/org.asciidoctor-asciidoctor-gradle-plugin-1.6.1: 
+[swagger-ui](swagger-ui?url=../preview/dependabot/gradle/org.asciidoctor-asciidoctor-gradle-plugin-1.6.1/docs/web_deploy/swagger.json)
+[html5](preview/dependabot/gradle/org.asciidoctor-asciidoctor-gradle-plugin-1.6.1/docs/html5)
+[pdf](preview/dependabot/gradle/org.asciidoctor-asciidoctor-gradle-plugin-1.6.1/docs/pdf/index.pdf)
+
+dependabot/gradle/org.asciidoctor-asciidoctorj-pdf-1.5.2: 
+[swagger-ui](swagger-ui?url=../preview/dependabot/gradle/org.asciidoctor-asciidoctorj-pdf-1.5.2/docs/web_deploy/swagger.json)
+[html5](preview/dependabot/gradle/org.asciidoctor-asciidoctorj-pdf-1.5.2/docs/html5)
+[pdf](preview/dependabot/gradle/org.asciidoctor-asciidoctorj-pdf-1.5.2/docs/pdf/index.pdf)
 
 feature/116/bundles: 
 [swagger-ui](swagger-ui?url=../preview/feature/116/bundles/docs/web_deploy/swagger.json)
 [html5](preview/feature/116/bundles/docs/html5)
 [pdf](preview/feature/116/bundles/docs/pdf/index.pdf)
+
+galaxy_support: 
+[swagger-ui](swagger-ui?url=../preview/galaxy_support/docs/web_deploy/swagger.json)
+[html5](preview/galaxy_support/docs/html5)
+[pdf](preview/galaxy_support/docs/pdf/index.pdf)
 
 master: 
 [swagger-ui](swagger-ui?url=../preview/master/docs/web_deploy/swagger.json)
