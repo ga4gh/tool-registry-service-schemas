@@ -5,7 +5,7 @@ info:
     Proposed API for GA4GH (Global Alliance for Genomics & Health) tool
     repositories. A tool consists of a set of container images that are paired
     with a set of documents. Examples of documents include CWL (Common Workflow
-    Language) or WDL (Workflow Description Language) or NFL (Nextflow) that
+    Language), WDL (Workflow Description Language), NFL (Nextflow), or GXFORMAT2 (Galaxy) that
     describe how to use those images and a set of specifications for those
     images (examples are Dockerfiles or Singularity recipes) that describe how
     to reproduce those images in the future. We use the following terminology, a
