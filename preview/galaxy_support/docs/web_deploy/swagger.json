@@ -25,8 +25,8 @@ paths:
     get:
       summary: List one specific tool, acts as an anchor for self references
       operationId: toolsIdGet
-      description: This endpoint returns one specific tool (which has ToolVersions nested
-        inside it).
+      description: This endpoint returns one specific tool (which has ToolVersions
+        nested inside it).
       tags:
         - GA4GH
       parameters:
@@ -207,13 +207,13 @@ paths:
           description: An array of Tools that match the filter.
           headers:
             next_page:
-              description: A URL that can be used to reach the next page based on the
-                current offset and page record limit.
+              description: A URL that can be used to reach the next page based on the current
+                offset and page record limit.
               schema:
                 type: string
             last_page:
-              description: A URL that can be used to reach the last page based on the
-                current page record limit.
+              description: A URL that can be used to reach the last page based on the current
+                page record limit.
               schema:
                 type: string
             self_link:
@@ -245,8 +245,8 @@ paths:
     get:
       summary: Get the tool descriptor for the specified tool
       operationId: toolsIdVersionsVersionIdTypeDescriptorGet
-      description: Returns the descriptor for the specified tool (examples include CWL,
-        WDL, or Nextflow documents).
+      description: Returns the descriptor for the specified tool (examples include
+        CWL, WDL, or Nextflow documents).
       tags:
         - GA4GH
       parameters:
@@ -311,11 +311,11 @@ paths:
         - name: type
           in: path
           required: true
-          description: The output type of the descriptor. If not specified, it is up to the
-            underlying implementation to determine which output type to return.
-            Plain types return the bare descriptor while the "non-plain" types
-            return a descriptor wrapped with metadata. Allowable values are
-            "CWL", "WDL", "NFL", "PLAIN_CWL", "PLAIN_WDL", "PLAIN_NFL".
+          description: The output type of the descriptor. If not specified, it is up to
+            the underlying implementation to determine which output type to
+            return. Plain types return the bare descriptor while the "non-plain"
+            types return a descriptor wrapped with metadata. Allowable values
+            are "CWL", "WDL", "NFL", "PLAIN_CWL", "PLAIN_WDL", "PLAIN_NFL".
           schema:
             type: string
         - name: id
@@ -328,8 +328,8 @@ paths:
         - name: version_id
           in: path
           required: true
-          description: An identifier of the tool version for this particular tool registry,
-            for example `v1`.
+          description: An identifier of the tool version for this particular tool
+            registry, for example `v1`.
           schema:
             type: string
         - name: relative_path
@@ -393,8 +393,8 @@ paths:
         - name: version_id
           in: path
           required: true
-          description: An identifier of the tool version for this particular tool registry,
-            for example `v1`.
+          description: An identifier of the tool version for this particular tool
+            registry, for example `v1`.
           schema:
             type: string
       responses:
@@ -425,8 +425,8 @@ paths:
   "/tools/{id}/versions/{version_id}/{type}/files":
     get:
       summary: Get a list of objects that contain the relative path and file type
-      description: Get a list of objects that contain the relative path and file type. The
-        descriptors are intended for use with the
+      description: Get a list of objects that contain the relative path and file type.
+        The descriptors are intended for use with the
         /tools/{id}/versions/{version_id}/{type}/descriptor/{relative_path}
         endpoint.
       operationId: toolsIdVersionsVersionIdTypeFilesGet
@@ -450,8 +450,8 @@ paths:
         - name: version_id
           in: path
           required: true
-          description: An identifier of the tool version for this particular tool registry,
-            for example `v1`.
+          description: An identifier of the tool version for this particular tool
+            registry, for example `v1`.
           schema:
             type: string
       responses:
@@ -483,10 +483,10 @@ paths:
     get:
       summary: Get the container specification(s) for the specified image.
       operationId: toolsIdVersionsVersionIdContainerfileGet
-      description: Returns the container specifications(s) for the specified image. For
-        example, a CWL CommandlineTool can be associated with one specification
-        for a container, a CWL Workflow can be associated with multiple
-        specifications for containers.
+      description: Returns the container specifications(s) for the specified image.
+        For example, a CWL CommandlineTool can be associated with one
+        specification for a container, a CWL Workflow can be associated with
+        multiple specifications for containers.
       tags:
         - GA4GH
       parameters:
@@ -500,8 +500,8 @@ paths:
         - name: version_id
           in: path
           required: true
-          description: An identifier of the tool version for this particular tool registry,
-            for example `v1`.
+          description: An identifier of the tool version for this particular tool
+            registry, for example `v1`.
           schema:
             type: string
       responses:
@@ -571,8 +571,8 @@ components:
     offset:
       name: offset
       in: query
-      description: Start index of paging. Pagination results can be based on numbers or
-        other values chosen by the registry implementor (for example, SHA
+      description: Start index of paging. Pagination results can be based on numbers
+        or other values chosen by the registry implementor (for example, SHA
         values). If this exceeds the current result set return an empty set.  If
         not specified in the request, this will start at the beginning of the
         results.
@@ -608,8 +608,8 @@ components:
       properties:
         path:
           type: string
-          description: Relative path of the file.  A descriptor's path can be used with the
-            GA4GH .../{type}/descriptor/{relative_path} endpoint.
+          description: Relative path of the file.  A descriptor's path can be used with
+            the GA4GH .../{type}/descriptor/{relative_path} endpoint.
         file_type:
           type: string
           enum:
@@ -620,8 +620,9 @@ components:
             - OTHER
     ToolClass:
       type: object
-      description: Describes a class (type) of tool allowing us to categorize workflows,
-        tasks, and maybe even other entities (such as services) separately.
+      description: Describes a class (type) of tool allowing us to categorize
+        workflows, tasks, and maybe even other entities (such as services)
+        separately.
       properties:
         id:
           type: string
@@ -635,8 +636,8 @@ components:
             accomplish.
     Tool:
       type: object
-      description: A tool (or described tool) is defined as a tuple of a descriptor file
-        (which potentially consists of multiple files), a set of container
+      description: A tool (or described tool) is defined as a tuple of a descriptor
+        file (which potentially consists of multiple files), a set of container
         images, and a set of instructions for creating those images.
       required:
         - url
@@ -690,8 +691,8 @@ components:
           description: Whether this tool has a checker tool associated with it.
         checker_url:
           type: string
-          description: Optional url to the checker tool that will exit successfully if this
-            tool produced the expected result given test data.
+          description: Optional url to the checker tool that will exit successfully if
+            this tool produced the expected result given test data.
         versions:
           description: A list of versions for this tool.
           type: array
@@ -699,8 +700,8 @@ components:
             $ref: "#/components/schemas/ToolVersion"
     ToolVersion:
       type: object
-      description: A tool version describes a particular iteration of a tool as described
-        by a reference to a specific image and/or documents.
+      description: A tool version describes a particular iteration of a tool as
+        described by a reference to a specific image and/or documents.
       required:
         - url
         - id
@@ -817,14 +818,15 @@ components:
         - Conda
     DescriptorType:
       type: string
-      description: The type of descriptor that represents this version of the tool (e.g.
-        CWL, WDL, or NFL). Note that these files can also include associated
-        Docker/container files  and test parameters that further describe a
-        version of a tool.
+      description: The type of descriptor that represents this version of the tool
+        (e.g. CWL, WDL, or NFL). Note that these files can also include
+        associated Docker/container files  and test parameters that further
+        describe a version of a tool.
       enum:
         - CWL
         - WDL
         - NFL
+        - GXFORMAT2
     FileWrapper:
       type: object
       description: >
