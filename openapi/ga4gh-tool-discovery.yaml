@@ -365,8 +365,11 @@ paths:
         Get a list of objects that contain the relative path and file type. The
         descriptors are intended for use with the
         /tools/{id}/versions/{version_id}/{type}/descriptor/{relative_path}
-        endpoint.
+        endpoint. Returns a zip file of all files when format=zip is specified.
       operationId: toolsIdVersionsVersionIdTypeFilesGet
+      produces:
+        - application/json
+        - application/zip
       tags:
         - GA4GH
       parameters:
@@ -391,6 +394,13 @@ paths:
           description: >-
             An identifier of the tool version for this particular tool registry,
             for example `v1`.
+        - name: format
+          in: query
+          required: false
+          type: string
+          description: Returns a zip file of all files when format=zip is specified.
+          enum:
+            - zip
       responses:
         '200':
           description: The array of File JSON responses.
