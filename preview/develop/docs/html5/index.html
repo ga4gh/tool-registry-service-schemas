@@ -511,8 +511,9 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <li><a href="#_description_9">2.9.1. Description</a></li>
 <li><a href="#_parameters_8">2.9.2. Parameters</a></li>
 <li><a href="#_responses_9">2.9.3. Responses</a></li>
-<li><a href="#_tags_10">2.9.4. Tags</a></li>
-<li><a href="#_security_9">2.9.5. Security</a></li>
+<li><a href="#_produces_2">2.9.4. Produces</a></li>
+<li><a href="#_tags_10">2.9.5. Tags</a></li>
+<li><a href="#_security_9">2.9.6. Security</a></li>
 </ul>
 </li>
 <li><a href="#_toolsidversionsversionidtypetestsget">2.10. Get a list of test JSONs</a>
@@ -1839,7 +1840,7 @@ If provided will only return entries with the given alias.</p>
 <div class="sect3">
 <h4 id="_description_9"><a class="anchor" href="#_description_9"></a><a class="link" href="#_description_9">2.9.1. Description</a></h4>
 <div class="paragraph">
-<p>Get a list of objects that contain the relative path and file type. The descriptors are intended for use with the /tools/{id}/versions/{version_id}/{type}/descriptor/{relative_path} endpoint.</p>
+<p>Get a list of objects that contain the relative path and file type. The descriptors are intended for use with the /tools/{id}/versions/{version_id}/{type}/descriptor/{relative_path} endpoint. Returns a zip file of all files when format=zip is specified.</p>
 </div>
 </div>
 <div class="sect3">
@@ -1905,6 +1906,21 @@ If provided will only return entries with the given alias.</p>
 <p>string</p>
 </div></div></td>
 </tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p><strong>Query</strong></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p><strong>format</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p>Returns a zip file of all files when format=zip is specified.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p>enum (zip)</p>
+</div></div></td>
+</tr>
 </tbody>
 </table>
 </div>
@@ -1950,7 +1966,20 @@ If provided will only return entries with the given alias.</p>
 </table>
 </div>
 <div class="sect3">
-<h4 id="_tags_10"><a class="anchor" href="#_tags_10"></a><a class="link" href="#_tags_10">2.9.4. Tags</a></h4>
+<h4 id="_produces_2"><a class="anchor" href="#_produces_2"></a><a class="link" href="#_produces_2">2.9.4. Produces</a></h4>
+<div class="ulist">
+<ul>
+<li>
+<p><code>application/json</code></p>
+</li>
+<li>
+<p><code>application/zip</code></p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_tags_10"><a class="anchor" href="#_tags_10"></a><a class="link" href="#_tags_10">2.9.5. Tags</a></h4>
 <div class="ulist">
 <ul>
 <li>
@@ -1960,7 +1989,7 @@ If provided will only return entries with the given alias.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_security_9"><a class="anchor" href="#_security_9"></a><a class="link" href="#_security_9">2.9.5. Security</a></h4>
+<h4 id="_security_9"><a class="anchor" href="#_security_9"></a><a class="link" href="#_security_9">2.9.6. Security</a></h4>
 <table class="tableblock frame-all grid-all spread">
 <colgroup>
 <col style="width: 42.8571%;">
@@ -2862,7 +2891,7 @@ for registries. Can be used to match tools across registries.</p>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2020-02-10 18:15:03 UTC
+Last updated 2020-03-13 15:34:53 UTC
 </div>
 </div>
 </body>
