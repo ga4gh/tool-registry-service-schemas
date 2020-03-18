@@ -300,7 +300,7 @@ GET /tools/{id}/versions/{version_id}/{type}/descriptor
 
 
 ==== Description
-Returns the descriptor for the specified tool (examples include CWL, WDL, or Nextflow documents).
+Returns the descriptor for the specified tool (examples include CWL, WDL, Nextflow, or Galaxy documents).
 
 
 ==== Parameters
@@ -311,7 +311,7 @@ Returns the descriptor for the specified tool (examples include CWL, WDL, or Nex
 |**Path**|**id** +
 __required__|A unique identifier of the tool, scoped to this registry, for example `123456`.|string
 |**Path**|**type** +
-__required__|The output type of the descriptor. Plain types return the bare descriptor while the "non-plain" types return a descriptor wrapped with metadata. Allowable values include "CWL", "WDL", "NFL", "PLAIN_CWL", "PLAIN_WDL", "PLAIN_NFL".|string
+__required__|The output type of the descriptor. Plain types return the bare descriptor while the "non-plain" types return a descriptor wrapped with metadata. Allowable values include "CWL", "WDL", "NFL", "GALAXY", "PLAIN_CWL", "PLAIN_WDL", "PLAIN_NFL", "PLAIN_GALAXY".|string
 |**Path**|**version_id** +
 __required__|An identifier of the tool version, scoped to this registry, for example `v1`.|string
 |===
@@ -362,7 +362,7 @@ __required__|A unique identifier of the tool, scoped to this registry, for examp
 |**Path**|**relative_path** +
 __required__|A relative path to the additional file (same directory or subdirectories), for example 'foo.cwl' would return a 'foo.cwl' from the same directory as the main descriptor. 'nestedDirectory/foo.cwl' would return the file from a nested subdirectory. Unencoded paths such 'sampleDirectory/foo.cwl' should also be allowed.|string
 |**Path**|**type** +
-__required__|The output type of the descriptor. If not specified, it is up to the underlying implementation to determine which output type to return. Plain types return the bare descriptor while the "non-plain" types return a descriptor wrapped with metadata. Allowable values are "CWL", "WDL", "NFL", "PLAIN_CWL", "PLAIN_WDL", "PLAIN_NFL".|string
+__required__|The output type of the descriptor. If not specified, it is up to the underlying implementation to determine which output type to return. Plain types return the bare descriptor while the "non-plain" types return a descriptor wrapped with metadata. Allowable values are "CWL", "WDL", "NFL", "GALAXY", "PLAIN_CWL", "PLAIN_WDL", "PLAIN_NFL", "PLAIN_GALAXY".|string
 |**Path**|**version_id** +
 __required__|An identifier of the tool version for this particular tool registry, for example `v1`.|string
 |===
@@ -411,7 +411,7 @@ Get a list of objects that contain the relative path and file type. The descript
 |**Path**|**id** +
 __required__|A unique identifier of the tool, scoped to this registry, for example `123456`.|string
 |**Path**|**type** +
-__required__|The output type of the descriptor. Examples of allowable values are "CWL", "WDL", and "NFL".|string
+__required__|The output type of the descriptor. Examples of allowable values are "CWL", "WDL", "NFL", "GALAXY".|string
 |**Path**|**version_id** +
 __required__|An identifier of the tool version for this particular tool registry, for example `v1`.|string
 |===
@@ -460,7 +460,7 @@ Get a list of test JSONs (these allow you to execute the tool successfully) suit
 |**Path**|**id** +
 __required__|A unique identifier of the tool, scoped to this registry, for example `123456`.|string
 |**Path**|**type** +
-__required__|The type of the underlying descriptor. Allowable values include "CWL", "WDL", "NFL", "PLAIN_CWL", "PLAIN_WDL", "PLAIN_NFL". For example, "CWL" would return an list of ToolTests objects while "PLAIN_CWL" would return a bare JSON list with the content of the tests.|string
+__required__|The type of the underlying descriptor. Allowable values include "CWL", "WDL", "NFL", "GALAXY", "PLAIN_CWL", "PLAIN_WDL", "PLAIN_NFL", "PLAIN_GALAXY". For example, "CWL" would return an list of ToolTests objects while "PLAIN_CWL" would return a bare JSON list with the content of the tests.|string
 |**Path**|**version_id** +
 __required__|An identifier of the tool version for this particular tool registry, for example `v1`.|string
 |===
