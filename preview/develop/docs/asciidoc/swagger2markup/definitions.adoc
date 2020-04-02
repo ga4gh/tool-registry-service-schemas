@@ -20,9 +20,9 @@ GA4GH may provide more explicit guidance for use of non-IANA-registered algorith
 
 [[_descriptortype]]
 === DescriptorType
-The type of descriptor that represents this version of the tool (e.g. CWL, WDL, or NFL). Note that these files can also include associated Docker/container files and test parameters that further describe a version of a tool.
+The type of descriptor that represents this version of the tool (e.g. CWL, WDL, NFL, or GALAXY). Note that these files can also include associated Docker/container files and test parameters that further describe a version of a tool.
 
-__Type__ : enum (CWL, WDL, NFL)
+__Type__ : enum (CWL, WDL, NFL, GALAXY)
 
 
 [[_error]]
