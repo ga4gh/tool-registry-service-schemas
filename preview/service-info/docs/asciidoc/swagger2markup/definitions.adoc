@@ -5,7 +5,7 @@
 [[_checksum]]
 === Checksum
 
-[options="header", cols=".^3,.^11,.^4"]
+[options="header", cols=".^3a,.^11a,.^4a"]
 |===
 |Name|Description|Schema
 |**checksum** +
@@ -20,15 +20,15 @@ GA4GH may provide more explicit guidance for use of non-IANA-registered algorith
 
 [[_descriptortype]]
 === DescriptorType
-The type of descriptor that represents this version of the tool (e.g. CWL, WDL, or NFL). Note that these files can also include associated Docker/container files and test parameters that further describe a version of a tool.
+The type of descriptor that represents this version of the tool (e.g. CWL, WDL, NFL, or GALAXY). Note that these files can also include associated Docker/container files and test parameters that further describe a version of a tool.
 
-__Type__ : enum (CWL, WDL, NFL)
+__Type__ : enum (CWL, WDL, NFL, GALAXY)
 
 
 [[_error]]
 === Error
 
-[options="header", cols=".^3,.^11,.^4"]
+[options="header", cols=".^3a,.^11a,.^4a"]
 |===
 |Name|Description|Schema
 |**code** +
@@ -49,7 +49,7 @@ container image. Examples include Dockerfiles for creating Docker images
 and Singularity recipes for Singularity images
 
 
-[options="header", cols=".^3,.^11,.^4"]
+[options="header", cols=".^3a,.^11a,.^4a"]
 |===
 |Name|Description|Schema
 |**checksum** +
@@ -71,7 +71,7 @@ __optional__|Optional url to the underlying content, should include version info
 Describes one container image.
 
 
-[options="header", cols=".^3,.^11,.^4"]
+[options="header", cols=".^3a,.^11a,.^4a"]
 |===
 |Name|Description|Schema
 |**checksum** +
@@ -107,7 +107,7 @@ __Type__ : enum (Docker, Singularity, Conda)
 A tool (or described tool) is defined as a tuple of a descriptor file (which potentially consists of multiple files), a set of container images, and a set of instructions for creating those images.
 
 
-[options="header", cols=".^3,.^11,.^4"]
+[options="header", cols=".^3a,.^11a,.^4a"]
 |===
 |Name|Description|Schema
 |**aliases** +
@@ -145,7 +145,7 @@ __required__|A list of versions for this tool.|< <<_toolversion,ToolVersion>> > 
 Describes a class (type) of tool allowing us to categorize workflows, tasks, and maybe even other entities (such as services) separately.
 
 
-[options="header", cols=".^3,.^11,.^4"]
+[options="header", cols=".^3a,.^11a,.^4a"]
 |===
 |Name|Description|Schema
 |**description** +
@@ -160,7 +160,7 @@ __optional__|A short friendly name for the class.|string
 [[_toolfile]]
 === ToolFile
 
-[options="header", cols=".^3,.^11,.^4"]
+[options="header", cols=".^3a,.^11a,.^4a"]
 |===
 |Name|Description|Schema
 |**file_type** +
@@ -175,7 +175,7 @@ __optional__|Relative path of the file. A descriptor's path can be used with the
 A tool version describes a particular iteration of a tool as described by a reference to a specific image and/or documents.
 
 
-[options="header", cols=".^3,.^11,.^4"]
+[options="header", cols=".^3a,.^11a,.^4a"]
 |===
 |Name|Description|Schema
 |**author** +

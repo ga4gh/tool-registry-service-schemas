@@ -3,7 +3,7 @@
 
 [[_overview]]
 == Overview
-Proposed API for GA4GH (Global Alliance for Genomics &amp; Health) tool repositories. A tool consists of a set of container images that are paired with a set of documents. Examples of documents include CWL (Common Workflow Language) or WDL (Workflow Description Language) or NFL (Nextflow) that describe how to use those images and a set of specifications for those images (examples are Dockerfiles or Singularity recipes) that describe how to reproduce those images in the future. We use the following terminology, a "container image" describes a container as stored at rest on a filesystem, a "tool" describes one of the triples as described above. In practice, examples of "tools" include CWL CommandLineTools, CWL Workflows, WDL workflows, and Nextflow workflows that reference containers in formats such as Docker or Singularity.
+Proposed API for GA4GH (Global Alliance for Genomics &amp; Health) tool repositories. A tool consists of a set of container images that are paired with a set of documents. Examples of documents include CWL (Common Workflow Language), WDL (Workflow Description Language), NFL (Nextflow), or GXFORMAT2 (Galaxy) that describe how to use those images and a set of specifications for those images (examples are Dockerfiles or Singularity recipes) that describe how to reproduce those images in the future. We use the following terminology, a "container image" describes a container as stored at rest on a filesystem, a "tool" describes one of the triples as described above. In practice, examples of "tools" include CWL CommandLineTools, CWL Workflows, WDL workflows, and Nextflow workflows that reference containers in formats such as Docker or Singularity.
 
 
 === Version information
@@ -25,6 +25,12 @@ __BasePath__ : /ga4gh/trs/v2
 
 * `application/json`
 * `text/plain`
+
+
+=== External Docs
+[%hardbreaks]
+__Description__ : Description of GA4GH Tool Registry (Exchange) Schema
+__URL__ : https://github.com/ga4gh/tool-registry-schemas
 
 
 
