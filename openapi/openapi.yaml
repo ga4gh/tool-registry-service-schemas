@@ -4,15 +4,15 @@ info:
   description: Proposed API for GA4GH (Global Alliance for Genomics & Health) tool
     repositories. A tool consists of a set of container images that are paired
     with a set of documents. Examples of documents include CWL (Common Workflow
-    Language) or WDL (Workflow Description Language) or NFL (Nextflow) that
-    describe how to use those images and a set of specifications for those
-    images (examples are Dockerfiles or Singularity recipes) that describe how
-    to reproduce those images in the future. We use the following terminology, a
-    "container image" describes a container as stored at rest on a filesystem, a
-    "tool" describes one of the triples as described above. In practice,
-    examples of "tools" include CWL CommandLineTools, CWL Workflows, WDL
-    workflows, and Nextflow workflows that reference containers in formats such
-    as Docker or Singularity.
+    Language), WDL (Workflow Description Language), NFL (Nextflow), or GXFORMAT2
+    (Galaxy) that describe how to use those images and a set of specifications
+    for those images (examples are Dockerfiles or Singularity recipes) that
+    describe how to reproduce those images in the future. We use the following
+    terminology, a "container image" describes a container as stored at rest on
+    a filesystem, a "tool" describes one of the triples as described above. In
+    practice, examples of "tools" include CWL CommandLineTools, CWL Workflows,
+    WDL workflows, and Nextflow workflows that reference containers in formats
+    such as Docker or Singularity.
   version: 2.0.0
 tags:
   - name: GA4GH
@@ -25,8 +25,8 @@ paths:
     get:
       summary: List one specific tool, acts as an anchor for self references
       operationId: toolsIdGet
-      description: This endpoint returns one specific tool (which has ToolVersions nested
-        inside it).
+      description: This endpoint returns one specific tool (which has ToolVersions
+        nested inside it).
       tags:
         - GA4GH
       parameters:
@@ -207,13 +207,13 @@ paths:
           description: An array of Tools that match the filter.
           headers:
             next_page:
-              description: A URL that can be used to reach the next page based on the
-                current offset and page record limit.
+              description: A URL that can be used to reach the next page based on the current
+                offset and page record limit.
               schema:
                 type: string
             last_page:
-              description: A URL that can be used to reach the last page based on the
-                current page record limit.
+              description: A URL that can be used to reach the last page based on the current
+                page record limit.
               schema:
                 type: string
             self_link:
@@ -245,8 +245,8 @@ paths:
     get:
       summary: Get the tool descriptor for the specified tool
       operationId: toolsIdVersionsVersionIdTypeDescriptorGet
-      description: Returns the descriptor for the specified tool (examples include CWL,
-        WDL, or Nextflow documents).
+      description: Returns the descriptor for the specified tool (examples include
+        CWL, WDL, Nextflow, or Galaxy documents).
       tags:
         - GA4GH
       parameters:
@@ -256,7 +256,7 @@ paths:
           description: The output type of the descriptor. Plain types return the bare
             descriptor while the "non-plain" types return a descriptor wrapped
             with metadata. Allowable values include "CWL", "WDL", "NFL",
-            "PLAIN_CWL", "PLAIN_WDL", "PLAIN_NFL".
+            "GALAXY", "PLAIN_CWL", "PLAIN_WDL", "PLAIN_NFL", "PLAIN_GALAXY".
           schema:
             type: string
         - name: id
@@ -311,11 +311,12 @@ paths:
         - name: type
           in: path
           required: true
-          description: The output type of the descriptor. If not specified, it is up to the
-            underlying implementation to determine which output type to return.
-            Plain types return the bare descriptor while the "non-plain" types
-            return a descriptor wrapped with metadata. Allowable values are
-            "CWL", "WDL", "NFL", "PLAIN_CWL", "PLAIN_WDL", "PLAIN_NFL".
+          description: The output type of the descriptor. If not specified, it is up to
+            the underlying implementation to determine which output type to
+            return. Plain types return the bare descriptor while the "non-plain"
+            types return a descriptor wrapped with metadata. Allowable values
+            are "CWL", "WDL", "NFL", "GALAXY", "PLAIN_CWL", "PLAIN_WDL",
+            "PLAIN_NFL", "PLAIN_GALAXY".
           schema:
             type: string
         - name: id
@@ -328,8 +329,8 @@ paths:
         - name: version_id
           in: path
           required: true
-          description: An identifier of the tool version for this particular tool registry,
-            for example `v1`.
+          description: An identifier of the tool version for this particular tool
+            registry, for example `v1`.
           schema:
             type: string
         - name: relative_path
@@ -377,10 +378,10 @@ paths:
           required: true
           in: path
           description: The type of the underlying descriptor. Allowable values include
-            "CWL", "WDL", "NFL", "PLAIN_CWL", "PLAIN_WDL", "PLAIN_NFL". For
-            example, "CWL" would return an list of ToolTests objects while
-            "PLAIN_CWL" would return a bare JSON list with the content of the
-            tests.
+            "CWL", "WDL", "NFL", "GALAXY", "PLAIN_CWL", "PLAIN_WDL",
+            "PLAIN_NFL", "PLAIN_GALAXY". For example, "CWL" would return an list
+            of ToolTests objects while "PLAIN_CWL" would return a bare JSON list
+            with the content of the tests.
           schema:
             type: string
         - name: id
@@ -393,8 +394,8 @@ paths:
         - name: version_id
           in: path
           required: true
-          description: An identifier of the tool version for this particular tool registry,
-            for example `v1`.
+          description: An identifier of the tool version for this particular tool
+            registry, for example `v1`.
           schema:
             type: string
       responses:
@@ -425,8 +426,8 @@ paths:
   "/tools/{id}/versions/{version_id}/{type}/files":
     get:
       summary: Get a list of objects that contain the relative path and file type
-      description: Get a list of objects that contain the relative path and file type. The
-        descriptors are intended for use with the
+      description: Get a list of objects that contain the relative path and file type.
+        The descriptors are intended for use with the
         /tools/{id}/versions/{version_id}/{type}/descriptor/{relative_path}
         endpoint. Returns a zip file of all files when format=zip is specified.
       operationId: toolsIdVersionsVersionIdTypeFilesGet
@@ -437,7 +438,7 @@ paths:
           required: true
           in: path
           description: The output type of the descriptor. Examples of allowable values are
-            "CWL", "WDL", and "NFL".
+            "CWL", "WDL", "NFL", "GALAXY".
           schema:
             type: string
         - name: id
@@ -450,8 +451,8 @@ paths:
         - name: version_id
           in: path
           required: true
-          description: An identifier of the tool version for this particular tool registry,
-            for example `v1`.
+          description: An identifier of the tool version for this particular tool
+            registry, for example `v1`.
           schema:
             type: string
         - name: format
@@ -491,10 +492,10 @@ paths:
     get:
       summary: Get the container specification(s) for the specified image.
       operationId: toolsIdVersionsVersionIdContainerfileGet
-      description: Returns the container specifications(s) for the specified image. For
-        example, a CWL CommandlineTool can be associated with one specification
-        for a container, a CWL Workflow can be associated with multiple
-        specifications for containers.
+      description: Returns the container specifications(s) for the specified image.
+        For example, a CWL CommandlineTool can be associated with one
+        specification for a container, a CWL Workflow can be associated with
+        multiple specifications for containers.
       tags:
         - GA4GH
       parameters:
@@ -508,8 +509,8 @@ paths:
         - name: version_id
           in: path
           required: true
-          description: An identifier of the tool version for this particular tool registry,
-            for example `v1`.
+          description: An identifier of the tool version for this particular tool
+            registry, for example `v1`.
           schema:
             type: string
       responses:
@@ -579,8 +580,8 @@ components:
     offset:
       name: offset
       in: query
-      description: Start index of paging. Pagination results can be based on numbers or
-        other values chosen by the registry implementor (for example, SHA
+      description: Start index of paging. Pagination results can be based on numbers
+        or other values chosen by the registry implementor (for example, SHA
         values). If this exceeds the current result set return an empty set.  If
         not specified in the request, this will start at the beginning of the
         results.
@@ -616,8 +617,8 @@ components:
       properties:
         path:
           type: string
-          description: Relative path of the file.  A descriptor's path can be used with the
-            GA4GH .../{type}/descriptor/{relative_path} endpoint.
+          description: Relative path of the file.  A descriptor's path can be used with
+            the GA4GH .../{type}/descriptor/{relative_path} endpoint.
         file_type:
           type: string
           enum:
@@ -628,8 +629,9 @@ components:
             - OTHER
     ToolClass:
       type: object
-      description: Describes a class (type) of tool allowing us to categorize workflows,
-        tasks, and maybe even other entities (such as services) separately.
+      description: Describes a class (type) of tool allowing us to categorize
+        workflows, tasks, and maybe even other entities (such as services)
+        separately.
       properties:
         id:
           type: string
@@ -643,8 +645,8 @@ components:
             accomplish.
     Tool:
       type: object
-      description: A tool (or described tool) is defined as a tuple of a descriptor file
-        (which potentially consists of multiple files), a set of container
+      description: A tool (or described tool) is defined as a tuple of a descriptor
+        file (which potentially consists of multiple files), a set of container
         images, and a set of instructions for creating those images.
       required:
         - url
@@ -698,8 +700,8 @@ components:
           description: Whether this tool has a checker tool associated with it.
         checker_url:
           type: string
-          description: Optional url to the checker tool that will exit successfully if this
-            tool produced the expected result given test data.
+          description: Optional url to the checker tool that will exit successfully if
+            this tool produced the expected result given test data.
         versions:
           description: A list of versions for this tool.
           type: array
@@ -707,8 +709,8 @@ components:
             $ref: "#/components/schemas/ToolVersion"
     ToolVersion:
       type: object
-      description: A tool version describes a particular iteration of a tool as described
-        by a reference to a specific image and/or documents.
+      description: A tool version describes a particular iteration of a tool as
+        described by a reference to a specific image and/or documents.
       required:
         - url
         - id
@@ -825,14 +827,15 @@ components:
         - Conda
     DescriptorType:
       type: string
-      description: The type of descriptor that represents this version of the tool (e.g.
-        CWL, WDL, or NFL). Note that these files can also include associated
-        Docker/container files  and test parameters that further describe a
-        version of a tool.
+      description: The type of descriptor that represents this version of the tool
+        (e.g. CWL, WDL, NFL, or GALAXY). Note that these files can also include
+        associated Docker/container files  and test parameters that further
+        describe a version of a tool.
       enum:
         - CWL
         - WDL
         - NFL
+        - GALAXY
     FileWrapper:
       type: object
       description: >
