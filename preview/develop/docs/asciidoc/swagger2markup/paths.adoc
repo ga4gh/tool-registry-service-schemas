@@ -2,6 +2,27 @@
 [[_paths]]
 == Paths
 
+[[_getserviceinfo]]
+=== Show information about this service. It is assumed that removing this endpoint from a URL will result in a valid URL to query against
+....
+GET /service-info
+....
+
+
+==== Responses
+
+[options="header", cols=".^2a,.^14a,.^4a"]
+|===
+|HTTP Code|Description|Schema
+|**200**|A successful operation to request the service information about this running service.|No Content
+|===
+
+
+==== Tags
+
+* service-info
+
+
 [[_toolclassesget]]
 === List all tool types
 ....

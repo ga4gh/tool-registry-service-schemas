@@ -81,8 +81,3 @@ release/v2.0.1:
 [swagger-ui](swagger-ui?url=../preview/release/v2.0.1/docs/web_deploy/swagger.json)
 [html5](preview/release/v2.0.1/docs/html5)
 [pdf](preview/release/v2.0.1/docs/pdf/index.pdf)
-
-service-info: 
-[swagger-ui](swagger-ui?url=../preview/service-info/docs/web_deploy/swagger.json)
-[html5](preview/service-info/docs/html5)
-[pdf](preview/service-info/docs/pdf/index.pdf)
