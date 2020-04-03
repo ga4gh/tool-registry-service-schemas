@@ -62,6 +62,16 @@ title: Table of Contents
 
 #### Other branches:
 
+dependabot/gradle/com.moowork.gradle-gradle-node-plugin-1.3.1: 
+[swagger-ui](swagger-ui?url=../preview/dependabot/gradle/com.moowork.gradle-gradle-node-plugin-1.3.1/docs/web_deploy/swagger.json)
+[html5](preview/dependabot/gradle/com.moowork.gradle-gradle-node-plugin-1.3.1/docs/html5)
+[pdf](preview/dependabot/gradle/com.moowork.gradle-gradle-node-plugin-1.3.1/docs/pdf/index.pdf)
+
+dependabot/gradle/io.github.swagger2markup-swagger2markup-import-files-ext-1.3.3: 
+[swagger-ui](swagger-ui?url=../preview/dependabot/gradle/io.github.swagger2markup-swagger2markup-import-files-ext-1.3.3/docs/web_deploy/swagger.json)
+[html5](preview/dependabot/gradle/io.github.swagger2markup-swagger2markup-import-files-ext-1.3.3/docs/html5)
+[pdf](preview/dependabot/gradle/io.github.swagger2markup-swagger2markup-import-files-ext-1.3.3/docs/pdf/index.pdf)
+
 master: 
 [swagger-ui](swagger-ui?url=../preview/master/docs/web_deploy/swagger.json)
 [html5](preview/master/docs/html5)
