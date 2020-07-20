@@ -62,6 +62,11 @@ title: Table of Contents
 
 #### Other branches:
 
+dependabot/gradle/org.kordamp.gradle-livereload-gradle-plugin-0.3.0: 
+[swagger-ui](swagger-ui?url=../preview/dependabot/gradle/org.kordamp.gradle-livereload-gradle-plugin-0.3.0/docs/web_deploy/swagger.json)
+[html5](preview/dependabot/gradle/org.kordamp.gradle-livereload-gradle-plugin-0.3.0/docs/html5)
+[pdf](preview/dependabot/gradle/org.kordamp.gradle-livereload-gradle-plugin-0.3.0/docs/pdf/index.pdf)
+
 master: 
 [swagger-ui](swagger-ui?url=../preview/master/docs/web_deploy/swagger.json)
 [html5](preview/master/docs/html5)
