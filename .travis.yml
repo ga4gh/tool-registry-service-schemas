@@ -2,14 +2,6 @@ dist: xenial
 language: java
 jdk: openjdk8
 
-# looks like papa32 plugin 1.5.0 is no longer compatible with gradle 5, the other option is to try running without it
-before_install:
-  - wget https://services.gradle.org/distributions/gradle-4.10.2-bin.zip
-  - unzip -qq gradle-4.10.2-bin.zip
-  - export GRADLE_HOME=$PWD/gradle-4.10.2
-  - export PATH=$GRADLE_HOME/bin:$PATH
-  - gradle -v
-
 jobs:
   include:
     - stage: check-links
@@ -24,8 +16,7 @@ jobs:
         - bash scripts/openAPI3.sh
     - stage: build_pages
       script:
-      - "gradle wrapper"
-      - "chmod +x gradlew"
-      - "./gradlew asciidoctor"
+      - npm ci
+      - npx gh-openapi-docs
       after_success:
         - bash scripts/update-ghpages.sh
