@@ -1,5 +1,5 @@
 dist: xenial
-languaige: node_js
+language: node_js
 node_js:
   - "12"
 
@@ -16,8 +16,7 @@ jobs:
         - git checkout -B ${TRAVIS_BRANCH}
         - bash scripts/openAPI3.sh
     - stage: build_pages
-      script:
-      - npm ci
-      - npx gh-openapi-docs
+      install: npm ci
+      script: npx gh-openapi-docs
       after_success:
         - bash scripts/update-ghpages.sh
