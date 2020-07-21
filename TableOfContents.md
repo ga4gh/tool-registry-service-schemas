@@ -62,6 +62,11 @@ title: Table of Contents
 
 #### Other branches:
 
+2.0.0_gxformat2: 
+[swagger-ui](swagger-ui?url=../preview/2.0.0_gxformat2/docs/web_deploy/swagger.json)
+[html5](preview/2.0.0_gxformat2/docs/html5)
+[pdf](preview/2.0.0_gxformat2/docs/pdf/index.pdf)
+
 dependabot/gradle/org.kordamp.gradle-livereload-gradle-plugin-0.3.0: 
 [swagger-ui](swagger-ui?url=../preview/dependabot/gradle/org.kordamp.gradle-livereload-gradle-plugin-0.3.0/docs/web_deploy/swagger.json)
 [html5](preview/dependabot/gradle/org.kordamp.gradle-livereload-gradle-plugin-0.3.0/docs/html5)
