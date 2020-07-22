@@ -145,6 +145,10 @@ paths:
           type: string
           in: query
           description: 'Filter tools by the name of the subclass (#/definitions/ToolClass)'
+        - name: descriptorType
+          type: string
+          in: query
+          description: 'Filter tools by the name of the descriptor type (#/definitions/DescriptorType)'
         - name: registry
           in: query
           type: string
