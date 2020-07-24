@@ -67,16 +67,6 @@ title: Table of Contents
 [html5](preview/2.0.0_gxformat2/docs/html5)
 [pdf](preview/2.0.0_gxformat2/docs/pdf/index.pdf)
 
-dependabot/gradle/org.kordamp.gradle-livereload-gradle-plugin-0.3.0: 
-[swagger-ui](swagger-ui?url=../preview/dependabot/gradle/org.kordamp.gradle-livereload-gradle-plugin-0.3.0/docs/web_deploy/swagger.json)
-[html5](preview/dependabot/gradle/org.kordamp.gradle-livereload-gradle-plugin-0.3.0/docs/html5)
-[pdf](preview/dependabot/gradle/org.kordamp.gradle-livereload-gradle-plugin-0.3.0/docs/pdf/index.pdf)
-
-feature/3596/newDocSystem: 
-[swagger-ui](swagger-ui?url=../preview/feature/3596/newDocSystem/docs/web_deploy/swagger.json)
-[html5](preview/feature/3596/newDocSystem/docs/html5)
-[pdf](preview/feature/3596/newDocSystem/docs/pdf/index.pdf)
-
 master: 
 [swagger-ui](swagger-ui?url=../preview/master/docs/web_deploy/swagger.json)
 [html5](preview/master/docs/html5)
