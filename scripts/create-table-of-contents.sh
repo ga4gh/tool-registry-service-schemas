@@ -5,6 +5,17 @@ set -x
 set -o pipefail
 FILENAME="TableOfContents.md"
 GIT_REPO="https://github.com/ga4gh/tool-registry-service-schemas.git"
+
+function createLinks {
+  echo "[swagger-ui](swagger-ui?url=../preview/$1/docs/web_deploy/swagger.json)"
+  echo "[html5](preview/$1/docs/html5)"
+  echo "[pdf](preview/$1/docs/pdf/index.pdf)"
+  REDOC_FILE="preview/$1/docs/index.html"
+  if test -f "$REDOC_FILE"; then
+    echo "[redoc]($REDOC_FILE)"
+  fi
+}
+
 # Remove index.md if it exists
 [ -e $FILENAME ] && rm $FILENAME
 
@@ -16,13 +27,7 @@ GIT_REPO="https://github.com/ga4gh/tool-registry-service-schemas.git"
   echo "---"
   echo "### Table of Contents"
   echo "#### Latest V2 API release from the \`develop\` branch:"
-  echo "[swagger-ui](swagger-ui?url=../preview/develop/docs/web_deploy/swagger.json)"
-  echo "[html5](preview/develop/docs/html5)"
-  echo "[pdf](preview/develop/docs/pdf/index.pdf)"
-  REDOC_FILE="preview/develop/docs/index.html"
-  if test -f "$REDOC_FILE"; then
-    echo "[redoc]($REDOC_FILE)"
-  fi
+  createLinks develop
 } >> $FILENAME
 
 {
@@ -36,13 +41,7 @@ do
 		{ 
 		  echo ""
 		  echo "$branch: "
-		  echo "[swagger-ui](swagger-ui?url=../preview/$branch/docs/web_deploy/swagger.json)"
-		  echo "[html5](preview/$branch/docs/html5)"
-		  echo "[pdf](preview/$branch/docs/pdf/index.pdf)"
-		  REDOC_FILE="preview/$branch/docs/index.html"
-                  if test -f "$REDOC_FILE"; then
-                    echo "[redoc]($REDOC_FILE)"
-                  fi
+		  createLinks $branch
 	        } >> $FILENAME
 done
 
@@ -59,14 +58,9 @@ do
 		{ 
 		  echo ""
 		  echo "$branch: "
-		  echo "[swagger-ui](swagger-ui?url=../preview/$branch/docs/web_deploy/swagger.json)"
-		  echo "[html5](preview/$branch/docs/html5)"
-		  echo "[pdf](preview/$branch/docs/pdf/index.pdf)"
-		  REDOC_FILE="preview/$branch/docs/index.html"
-                  if test -f "$REDOC_FILE"; then
-                    echo "[redoc]($REDOC_FILE)"
-                  fi
+		  createLinks $branch
 	        } >> $FILENAME
 	fi
 done
+
 
