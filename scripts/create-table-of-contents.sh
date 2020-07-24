@@ -19,6 +19,7 @@ GIT_REPO="https://github.com/ga4gh/tool-registry-service-schemas.git"
   echo "[swagger-ui](swagger-ui?url=../preview/develop/docs/web_deploy/swagger.json)"
   echo "[html5](preview/develop/docs/html5)"
   echo "[pdf](preview/develop/docs/pdf/index.pdf)"
+  echo "[redoc](preview/develop/docs/index.html)"
 } >> $FILENAME
 
 {
@@ -35,6 +36,7 @@ do
 		  echo "[swagger-ui](swagger-ui?url=../preview/$branch/docs/web_deploy/swagger.json)"
 		  echo "[html5](preview/$branch/docs/html5)"
 		  echo "[pdf](preview/$branch/docs/pdf/index.pdf)"
+		  echo "[redoc](preview/$branch/docs/index.html)"
 	        } >> $FILENAME
 done
 
@@ -54,6 +56,7 @@ do
 		  echo "[swagger-ui](swagger-ui?url=../preview/$branch/docs/web_deploy/swagger.json)"
 		  echo "[html5](preview/$branch/docs/html5)"
 		  echo "[pdf](preview/$branch/docs/pdf/index.pdf)"
+		  echo "[redoc](preview/$branch/docs/index.html)"
 	        } >> $FILENAME
 	fi
 done
