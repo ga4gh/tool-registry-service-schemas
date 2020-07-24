@@ -7,9 +7,18 @@ FILENAME="TableOfContents.md"
 GIT_REPO="https://github.com/ga4gh/tool-registry-service-schemas.git"
 
 function createLinks {
-  echo "[swagger-ui](swagger-ui?url=../preview/$1/docs/web_deploy/swagger.json)"
-  echo "[html5](preview/$1/docs/html5)"
-  echo "[pdf](preview/$1/docs/pdf/index.pdf)"
+  SWAGGER_FILE="preview/$1/docs/web_deploy/swagger.json"
+  if test -f "$SWAGGER_FILE"; then
+    echo "[swagger-ui](swagger-ui?url=../$SWAGGER_FILE)"
+  fi
+  HTML_FILE="preview/$1/docs/html5/index.html"
+  if test -f "$HTML_FILE"; then
+    echo "[html5]($HTML_FILE)"
+  fi
+  PDF_FILE="preview/$1/docs/pdf/index.pdf"
+  if test -f "$PDF_FILE"; then
+    echo "[pdf]($PDF_FILE)"
+  fi
   REDOC_FILE="preview/$1/docs/index.html"
   if test -f "$REDOC_FILE"; then
     echo "[redoc]($REDOC_FILE)"
