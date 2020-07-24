@@ -21,7 +21,7 @@ function createLinks {
   fi
   REDOC_FILE="preview/$1/docs/index.html"
   if test -f "$REDOC_FILE"; then
-    echo "[redoc]($REDOC_FILE)"
+    echo "[ReDoc]($REDOC_FILE)"
   fi
 }
 

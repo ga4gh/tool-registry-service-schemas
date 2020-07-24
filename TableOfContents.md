@@ -7,7 +7,7 @@ title: Table of Contents
 [swagger-ui](swagger-ui?url=../preview/develop/docs/web_deploy/swagger.json)
 [html5](preview/develop/docs/html5/index.html)
 [pdf](preview/develop/docs/pdf/index.pdf)
-[redoc](preview/develop/docs/index.html)
+[ReDoc](preview/develop/docs/index.html)
 
 #### Tags: 
 
