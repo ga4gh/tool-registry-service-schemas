@@ -1,0 +1,25 @@
+{
+  "name": "tool-registry-service-schemas",
+  "version": "1.0.0",
+  "description": "![ga4gh logo](https://github.com/dockstore/dockstore-ui2/raw/develop/src/assets/images/sponsors/coloured/ga4gh.png)",
+  "main": "index.js",
+  "dependencies": {
+    "@ga4gh/gh-openapi-docs": "^0.2.1",
+    "@redocly/openapi-cli": "^1.0.0-beta.4",
+    "redoc-cli": "^0.9.8"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ga4gh/tool-registry-service-schemas.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ga4gh/tool-registry-service-schemas/issues"
+  },
+  "homepage": "https://github.com/ga4gh/tool-registry-service-schemas#readme"
+}
