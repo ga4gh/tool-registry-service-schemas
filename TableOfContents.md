@@ -67,6 +67,16 @@ title: Table of Contents
 [html5](preview/2.0.0_gxformat2/docs/html5)
 [pdf](preview/2.0.0_gxformat2/docs/pdf/index.pdf)
 
+dependabot/npm_and_yarn/redoc-cli-0.9.9: 
+[swagger-ui](swagger-ui?url=../preview/dependabot/npm_and_yarn/redoc-cli-0.9.9/docs/web_deploy/swagger.json)
+[html5](preview/dependabot/npm_and_yarn/redoc-cli-0.9.9/docs/html5)
+[pdf](preview/dependabot/npm_and_yarn/redoc-cli-0.9.9/docs/pdf/index.pdf)
+
+dependabot/npm_and_yarn/redocly/openapi-cli-1.0.0-beta.7: 
+[swagger-ui](swagger-ui?url=../preview/dependabot/npm_and_yarn/redocly/openapi-cli-1.0.0-beta.7/docs/web_deploy/swagger.json)
+[html5](preview/dependabot/npm_and_yarn/redocly/openapi-cli-1.0.0-beta.7/docs/html5)
+[pdf](preview/dependabot/npm_and_yarn/redocly/openapi-cli-1.0.0-beta.7/docs/pdf/index.pdf)
+
 master: 
 [swagger-ui](swagger-ui?url=../preview/master/docs/web_deploy/swagger.json)
 [html5](preview/master/docs/html5)
