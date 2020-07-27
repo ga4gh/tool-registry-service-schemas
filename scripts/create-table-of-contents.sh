@@ -5,6 +5,26 @@ set -x
 set -o pipefail
 FILENAME="TableOfContents.md"
 GIT_REPO="https://github.com/ga4gh/tool-registry-service-schemas.git"
+
+function createLinks {
+  SWAGGER_FILE="preview/$1/docs/web_deploy/swagger.json"
+  if test -f "$SWAGGER_FILE"; then
+    echo "[swagger-ui](swagger-ui?url=../$SWAGGER_FILE)"
+  fi
+  HTML_FILE="preview/$1/docs/html5/index.html"
+  if test -f "$HTML_FILE"; then
+    echo "[html5]($HTML_FILE)"
+  fi
+  PDF_FILE="preview/$1/docs/pdf/index.pdf"
+  if test -f "$PDF_FILE"; then
+    echo "[pdf]($PDF_FILE)"
+  fi
+  REDOC_FILE="preview/$1/docs/index.html"
+  if test -f "$REDOC_FILE"; then
+    echo "[ReDoc]($REDOC_FILE)"
+  fi
+}
+
 # Remove index.md if it exists
 [ -e $FILENAME ] && rm $FILENAME
 
@@ -16,9 +36,7 @@ GIT_REPO="https://github.com/ga4gh/tool-registry-service-schemas.git"
   echo "---"
   echo "### Table of Contents"
   echo "#### Latest V2 API release from the \`develop\` branch:"
-  echo "[swagger-ui](swagger-ui?url=../preview/develop/docs/web_deploy/swagger.json)"
-  echo "[html5](preview/develop/docs/html5)"
-  echo "[pdf](preview/develop/docs/pdf/index.pdf)"
+  createLinks develop
 } >> $FILENAME
 
 {
@@ -32,9 +50,7 @@ do
 		{ 
 		  echo ""
 		  echo "$branch: "
-		  echo "[swagger-ui](swagger-ui?url=../preview/$branch/docs/web_deploy/swagger.json)"
-		  echo "[html5](preview/$branch/docs/html5)"
-		  echo "[pdf](preview/$branch/docs/pdf/index.pdf)"
+		  createLinks $branch
 	        } >> $FILENAME
 done
 
@@ -51,10 +67,9 @@ do
 		{ 
 		  echo ""
 		  echo "$branch: "
-		  echo "[swagger-ui](swagger-ui?url=../preview/$branch/docs/web_deploy/swagger.json)"
-		  echo "[html5](preview/$branch/docs/html5)"
-		  echo "[pdf](preview/$branch/docs/pdf/index.pdf)"
+		  createLinks $branch
 	        } >> $FILENAME
 	fi
 done
+
 
