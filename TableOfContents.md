@@ -72,7 +72,17 @@ master:
 [html5](preview/master/docs/html5)
 [pdf](preview/master/docs/pdf/index.pdf)
 
+readme-gh-openapi-docs: 
+[swagger-ui](swagger-ui?url=../preview/readme-gh-openapi-docs/docs/web_deploy/swagger.json)
+[html5](preview/readme-gh-openapi-docs/docs/html5)
+[pdf](preview/readme-gh-openapi-docs/docs/pdf/index.pdf)
+
 release/v2.0.1: 
 [swagger-ui](swagger-ui?url=../preview/release/v2.0.1/docs/web_deploy/swagger.json)
 [html5](preview/release/v2.0.1/docs/html5)
 [pdf](preview/release/v2.0.1/docs/pdf/index.pdf)
+
+testNewTableOfContents: 
+[swagger-ui](swagger-ui?url=../preview/testNewTableOfContents/docs/web_deploy/swagger.json)
+[html5](preview/testNewTableOfContents/docs/html5)
+[pdf](preview/testNewTableOfContents/docs/pdf/index.pdf)
