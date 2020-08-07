@@ -52,6 +52,9 @@ title: Table of Contents
 [html5](preview/2.0.0_gxformat2/docs/html5/index.html)
 [pdf](preview/2.0.0_gxformat2/docs/pdf/index.pdf)
 
+dependabot/npm_and_yarn/prismjs-1.21.0: 
+[ReDoc](preview/dependabot/npm_and_yarn/prismjs-1.21.0/docs/index.html)
+
 master: 
 [swagger-ui](swagger-ui?url=../preview/master/docs/web_deploy/swagger.json)
 [html5](preview/master/docs/html5/index.html)
