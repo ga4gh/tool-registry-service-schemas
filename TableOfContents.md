@@ -55,8 +55,8 @@ title: Table of Contents
 dependabot/npm_and_yarn/node-fetch-2.6.1: 
 [ReDoc](preview/dependabot/npm_and_yarn/node-fetch-2.6.1/docs/index.html)
 
-dependabot/npm_and_yarn/prismjs-1.21.0: 
-[ReDoc](preview/dependabot/npm_and_yarn/prismjs-1.21.0/docs/index.html)
+dependabot/npm_and_yarn/prismjs-1.22.0: 
+[ReDoc](preview/dependabot/npm_and_yarn/prismjs-1.22.0/docs/index.html)
 
 master: 
 [swagger-ui](swagger-ui?url=../preview/master/docs/web_deploy/swagger.json)
