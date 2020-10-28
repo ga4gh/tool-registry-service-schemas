@@ -52,11 +52,11 @@ title: Table of Contents
 [html5](preview/2.0.0_gxformat2/docs/html5/index.html)
 [pdf](preview/2.0.0_gxformat2/docs/pdf/index.pdf)
 
+dependabot/npm_and_yarn/dot-prop-4.2.1: 
+[ReDoc](preview/dependabot/npm_and_yarn/dot-prop-4.2.1/docs/index.html)
+
 dependabot/npm_and_yarn/node-fetch-2.6.1: 
 [ReDoc](preview/dependabot/npm_and_yarn/node-fetch-2.6.1/docs/index.html)
-
-dependabot/npm_and_yarn/prismjs-1.22.0: 
-[ReDoc](preview/dependabot/npm_and_yarn/prismjs-1.22.0/docs/index.html)
 
 master: 
 [swagger-ui](swagger-ui?url=../preview/master/docs/web_deploy/swagger.json)
