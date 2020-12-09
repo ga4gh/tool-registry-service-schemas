@@ -8,13 +8,6 @@ jobs:
     - stage: check-links
       install: npm i -g markdown-link-check
       script: markdown-link-check ./README.md
-    - stage: commit-OpenAPI
-      install: npm i -g swagger2openapi
-      script:
-        - swagger2openapi openapi/ga4gh-tool-discovery.yaml -o openapi/openapi.yaml
-      after_success:
-        - git checkout -B ${TRAVIS_BRANCH}
-        - bash scripts/openAPI3.sh
     - stage: build_pages
       install: npm ci
       script: npx gh-openapi-docs
