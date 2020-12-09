@@ -47,6 +47,8 @@ title: Table of Contents
 
 #### Other branches:
 
+149/updateDoc: 
+
 2.0.0_gxformat2: 
 [swagger-ui](swagger-ui?url=../preview/2.0.0_gxformat2/docs/web_deploy/swagger.json)
 [html5](preview/2.0.0_gxformat2/docs/html5/index.html)
@@ -57,6 +59,8 @@ dependabot/npm_and_yarn/dot-prop-4.2.1:
 
 dependabot/npm_and_yarn/node-fetch-2.6.1: 
 [ReDoc](preview/dependabot/npm_and_yarn/node-fetch-2.6.1/docs/index.html)
+
+feature/142/removeSwaggerUseOpenAPI: 
 
 master: 
 [swagger-ui](swagger-ui?url=../preview/master/docs/web_deploy/swagger.json)
