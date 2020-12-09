@@ -64,4 +64,4 @@ As a brief summary, some changes include
 * ` /tools/{id}/versions/{version_id}/{type}/files` endpoint added to describe all avaliable files for a tool
 * checker workflows ([26](https://github.com/ga4gh/tool-registry-service-schemas/pull/26))
 * process for auto-generation of OpenAPI 3 copy of the schema
-* removal of service-info
+* removal of the /metadata endpoint in favor of a /serivce-info endpoint to be added in 2.0.1
