@@ -32,13 +32,7 @@ paths:
       tags:
         - GA4GH
       parameters:
-        - name: id
-          in: path
-          required: true
-          description: A unique identifier of the tool, scoped to this registry, for
-            example `123456`.
-          schema:
-            type: string
+        - $ref: "#/components/parameters/id"
       responses:
         "200":
           description: A tool.
@@ -48,14 +42,11 @@ paths:
                 $ref: "#/components/schemas/Tool"
             text/plain:
               schema:
-                $ref: "#/components/schemas/Tool"
+                type: string
         "404":
           description: The tool can not be found.
           content:
             application/json:
-              schema:
-                $ref: "#/components/schemas/Error"
-            text/plain:
               schema:
                 $ref: "#/components/schemas/Error"
       security:
@@ -68,23 +59,12 @@ paths:
       tags:
         - GA4GH
       parameters:
-        - name: id
-          in: path
-          required: true
-          description: A unique identifier of the tool, scoped to this registry, for
-            example `123456`.
-          schema:
-            type: string
+        - $ref: "#/components/parameters/id"
       responses:
         "200":
           description: An array of tool versions.
           content:
             application/json:
-              schema:
-                type: array
-                items:
-                  $ref: "#/components/schemas/ToolVersion"
-            text/plain:
               schema:
                 type: array
                 items:
@@ -99,22 +79,8 @@ paths:
       tags:
         - GA4GH
       parameters:
-        - name: id
-          in: path
-          required: true
-          description: A unique identifier of the tool, scoped to this registry, for
-            example `123456`.
-          schema:
-            type: string
-        - name: version_id
-          in: path
-          required: true
-          description: An identifier of the tool version, scoped to this registry, for
-            example `v1`. We recommend that versions use semantic versioning
-            https://semver.org/spec/v2.0.0.html  (For example, `1.0.0` instead
-            of `develop`)
-          schema:
-            type: string
+        - $ref: "#/components/parameters/id"
+        - $ref: "#/components/parameters/version_id"
       responses:
         "200":
           description: A tool version.
@@ -122,16 +88,10 @@ paths:
             application/json:
               schema:
                 $ref: "#/components/schemas/ToolVersion"
-            text/plain:
-              schema:
-                $ref: "#/components/schemas/ToolVersion"
         "404":
           description: The tool can not be found.
           content:
             application/json:
-              schema:
-                $ref: "#/components/schemas/Error"
-            text/plain:
               schema:
                 $ref: "#/components/schemas/Error"
       security:
@@ -169,9 +129,8 @@ paths:
         - name: descriptorType
           in: query
           description: Filter tools by the name of the descriptor type
-            (#/definitions/DescriptorType)
           schema:
-            type: string
+            $ref: '#/components/schemas/DescriptorType' 
         - name: registry
           in: query
           description: The image registry that contains the image.
@@ -258,29 +217,9 @@ paths:
       tags:
         - GA4GH
       parameters:
-        - name: type
-          required: true
-          in: path
-          description: The output type of the descriptor. Plain types return the bare
-            descriptor while the "non-plain" types return a descriptor wrapped
-            with metadata. Allowable values include "CWL", "WDL", "NFL",
-            "GALAXY", "PLAIN_CWL", "PLAIN_WDL", "PLAIN_NFL", "PLAIN_GALAXY".
-          schema:
-            type: string
-        - name: id
-          in: path
-          description: A unique identifier of the tool, scoped to this registry, for
-            example `123456`.
-          required: true
-          schema:
-            type: string
-        - name: version_id
-          in: path
-          required: true
-          description: An identifier of the tool version, scoped to this registry, for
-            example `v1`.
-          schema:
-            type: string
+        - $ref: "#/components/parameters/id"
+        - $ref: "#/components/parameters/type"
+        - $ref: "#/components/parameters/version_id"
       responses:
         "200":
           description: The tool descriptor.
@@ -290,14 +229,11 @@ paths:
                 $ref: "#/components/schemas/FileWrapper"
             text/plain:
               schema:
-                $ref: "#/components/schemas/FileWrapper"
+                type: string
         "404":
           description: The tool descriptor can not be found.
           content:
             application/json:
-              schema:
-                $ref: "#/components/schemas/Error"
-            text/plain:
               schema:
                 $ref: "#/components/schemas/Error"
       security:
@@ -316,31 +252,9 @@ paths:
       tags:
         - GA4GH
       parameters:
-        - name: type
-          in: path
-          required: true
-          description: The output type of the descriptor. If not specified, it is up to
-            the underlying implementation to determine which output type to
-            return. Plain types return the bare descriptor while the "non-plain"
-            types return a descriptor wrapped with metadata. Allowable values
-            are "CWL", "WDL", "NFL", "GALAXY", "PLAIN_CWL", "PLAIN_WDL",
-            "PLAIN_NFL", "PLAIN_GALAXY".
-          schema:
-            type: string
-        - name: id
-          in: path
-          description: A unique identifier of the tool, scoped to this registry, for
-            example `123456`.
-          required: true
-          schema:
-            type: string
-        - name: version_id
-          in: path
-          required: true
-          description: An identifier of the tool version for this particular tool
-            registry, for example `v1`.
-          schema:
-            type: string
+        - $ref: "#/components/parameters/id"
+        - $ref: "#/components/parameters/type"
+        - $ref: "#/components/parameters/version_id"
         - name: relative_path
           in: path
           required: true
@@ -361,14 +275,11 @@ paths:
                 $ref: "#/components/schemas/FileWrapper"
             text/plain:
               schema:
-                $ref: "#/components/schemas/FileWrapper"
+                type: string
         "404":
           description: The tool can not be output in the specified type.
           content:
             application/json:
-              schema:
-                $ref: "#/components/schemas/Error"
-            text/plain:
               schema:
                 $ref: "#/components/schemas/Error"
       security:
@@ -382,30 +293,9 @@ paths:
       tags:
         - GA4GH
       parameters:
-        - name: type
-          required: true
-          in: path
-          description: The type of the underlying descriptor. Allowable values include
-            "CWL", "WDL", "NFL", "GALAXY", "PLAIN_CWL", "PLAIN_WDL",
-            "PLAIN_NFL", "PLAIN_GALAXY". For example, "CWL" would return an list
-            of ToolTests objects while "PLAIN_CWL" would return a bare JSON list
-            with the content of the tests.
-          schema:
-            type: string
-        - name: id
-          in: path
-          description: A unique identifier of the tool, scoped to this registry, for
-            example `123456`.
-          required: true
-          schema:
-            type: string
-        - name: version_id
-          in: path
-          required: true
-          description: An identifier of the tool version for this particular tool
-            registry, for example `v1`.
-          schema:
-            type: string
+        - $ref: "#/components/parameters/id"
+        - $ref: "#/components/parameters/type"
+        - $ref: "#/components/parameters/version_id"
       responses:
         "200":
           description: The tool test JSON response.
@@ -442,27 +332,14 @@ paths:
       tags:
         - GA4GH
       parameters:
+        - $ref: "#/components/parameters/id"
         - name: type
           required: true
           in: path
-          description: The output type of the descriptor. Examples of allowable values are
-            "CWL", "WDL", "NFL", "GALAXY".
+          description: The output type of the descriptor.
           schema:
-            type: string
-        - name: id
-          in: path
-          description: A unique identifier of the tool, scoped to this registry, for
-            example `123456`.
-          required: true
-          schema:
-            type: string
-        - name: version_id
-          in: path
-          required: true
-          description: An identifier of the tool version for this particular tool
-            registry, for example `v1`.
-          schema:
-            type: string
+            $ref: '#/components/schemas/DescriptorType'
+        - $ref: "#/components/parameters/version_id"
         - name: format
           in: query
           required: false
@@ -507,20 +384,8 @@ paths:
       tags:
         - GA4GH
       parameters:
-        - name: id
-          in: path
-          description: A unique identifier of the tool, scoped to this registry, for
-            example `123456`.
-          required: true
-          schema:
-            type: string
-        - name: version_id
-          in: path
-          required: true
-          description: An identifier of the tool version for this particular tool
-            registry, for example `v1`.
-          schema:
-            type: string
+        - $ref: "#/components/parameters/id"
+        - $ref: "#/components/parameters/version_id"
       responses:
         "200":
           description: The tool payload.
@@ -577,6 +442,31 @@ servers:
   - url: /ga4gh/trs/v2
 components:
   parameters:
+    version_id:
+      name: version_id
+      in: path
+      required: true
+      description: An identifier of the tool version for this particular tool
+        registry, for example `v1`.
+      schema:
+        type: string
+    type:
+      name: type
+      required: true
+      in: path
+      description: The output type of the descriptor. Plain types return the bare
+        descriptor while the "non-plain" types return a descriptor wrapped
+        with metadata.
+      schema:
+        $ref: '#/components/schemas/DescriptorTypeWithPlain'
+    id:
+      name: id
+      in: path
+      required: true
+      description: A unique identifier of the tool, scoped to this registry, for
+        example `123456`.
+      schema:
+        type: string
     limit:
       name: limit
       in: query
@@ -835,8 +725,7 @@ components:
         - Conda
     DescriptorType:
       type: string
-      description: The type of descriptor that represents this version of the tool
-        (e.g. CWL, WDL, NFL, or GALAXY). Note that these files can also include
+      description: The type of descriptor that represents this version of the tool. Note that these files can also include
         associated Docker/container files  and test parameters that further
         describe a version of a tool.
       enum:
@@ -844,6 +733,18 @@ components:
         - WDL
         - NFL
         - GALAXY
+    DescriptorTypeWithPlain:
+      type: string
+      description: The output type of the descriptor. Plain types return the raw text while the "non-plain" types return the application/json
+      enum:
+        - CWL
+        - WDL
+        - NFL
+        - GALAXY
+        - PLAIN_CWL
+        - PLAIN_WDL
+        - PLAIN_NFL
+        - PLAIN_GALAXY
     FileWrapper:
       type: object
       description: >
@@ -897,3 +798,4 @@ components:
         message:
           type: string
           default: Internal Server Error
+
