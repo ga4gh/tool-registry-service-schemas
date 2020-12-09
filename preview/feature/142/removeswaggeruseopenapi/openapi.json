@@ -28,13 +28,7 @@
         ],
         "parameters": [
           {
-            "name": "id",
-            "in": "path",
-            "required": true,
-            "description": "A unique identifier of the tool, scoped to this registry, for example `123456`.",
-            "schema": {
-              "type": "string"
-            }
+            "$ref": "#/components/parameters/id"
           }
         ],
         "responses": {
@@ -48,7 +42,7 @@
               },
               "text/plain": {
                 "schema": {
-                  "$ref": "#/components/schemas/Tool"
+                  "type": "string"
                 }
               }
             }
@@ -57,11 +51,6 @@
             "description": "The tool can not be found.",
             "content": {
               "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/Error"
-                }
-              },
-              "text/plain": {
                 "schema": {
                   "$ref": "#/components/schemas/Error"
                 }
@@ -86,13 +75,7 @@
         ],
         "parameters": [
           {
-            "name": "id",
-            "in": "path",
-            "required": true,
-            "description": "A unique identifier of the tool, scoped to this registry, for example `123456`.",
-            "schema": {
-              "type": "string"
-            }
+            "$ref": "#/components/parameters/id"
           }
         ],
         "responses": {
@@ -100,14 +83,6 @@
             "description": "An array of tool versions.",
             "content": {
               "application/json": {
-                "schema": {
-                  "type": "array",
-                  "items": {
-                    "$ref": "#/components/schemas/ToolVersion"
-                  }
-                }
-              },
-              "text/plain": {
                 "schema": {
                   "type": "array",
                   "items": {
@@ -135,22 +110,10 @@
         ],
         "parameters": [
           {
-            "name": "id",
-            "in": "path",
-            "required": true,
-            "description": "A unique identifier of the tool, scoped to this registry, for example `123456`.",
-            "schema": {
-              "type": "string"
-            }
+            "$ref": "#/components/parameters/id"
           },
           {
-            "name": "version_id",
-            "in": "path",
-            "required": true,
-            "description": "An identifier of the tool version, scoped to this registry, for example `v1`. We recommend that versions use semantic versioning https://semver.org/spec/v2.0.0.html  (For example, `1.0.0` instead of `develop`)",
-            "schema": {
-              "type": "string"
-            }
+            "$ref": "#/components/parameters/version_id"
           }
         ],
         "responses": {
@@ -161,11 +124,6 @@
                 "schema": {
                   "$ref": "#/components/schemas/ToolVersion"
                 }
-              },
-              "text/plain": {
-                "schema": {
-                  "$ref": "#/components/schemas/ToolVersion"
-                }
               }
             }
           },
@@ -173,11 +131,6 @@
             "description": "The tool can not be found.",
             "content": {
               "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/Error"
-                }
-              },
-              "text/plain": {
                 "schema": {
                   "$ref": "#/components/schemas/Error"
                 }
@@ -228,9 +181,9 @@
           {
             "name": "descriptorType",
             "in": "query",
-            "description": "Filter tools by the name of the descriptor type (#/definitions/DescriptorType)",
+            "description": "Filter tools by the name of the descriptor type",
             "schema": {
-              "type": "string"
+              "$ref": "#/components/schemas/DescriptorType"
             }
           },
           {
@@ -339,14 +292,6 @@
                     "$ref": "#/components/schemas/Tool"
                   }
                 }
-              },
-              "text/plain": {
-                "schema": {
-                  "type": "array",
-                  "items": {
-                    "$ref": "#/components/schemas/Tool"
-                  }
-                }
               }
             }
           }
@@ -368,31 +313,13 @@
         ],
         "parameters": [
           {
-            "name": "type",
-            "required": true,
-            "in": "path",
-            "description": "The output type of the descriptor. Plain types return the bare descriptor while the \"non-plain\" types return a descriptor wrapped with metadata. Allowable values include \"CWL\", \"WDL\", \"NFL\", \"GALAXY\", \"PLAIN_CWL\", \"PLAIN_WDL\", \"PLAIN_NFL\", \"PLAIN_GALAXY\".",
-            "schema": {
-              "type": "string"
-            }
+            "$ref": "#/components/parameters/id"
           },
           {
-            "name": "id",
-            "in": "path",
-            "description": "A unique identifier of the tool, scoped to this registry, for example `123456`.",
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
+            "$ref": "#/components/parameters/type"
           },
           {
-            "name": "version_id",
-            "in": "path",
-            "required": true,
-            "description": "An identifier of the tool version, scoped to this registry, for example `v1`.",
-            "schema": {
-              "type": "string"
-            }
+            "$ref": "#/components/parameters/version_id"
           }
         ],
         "responses": {
@@ -406,7 +333,7 @@
               },
               "text/plain": {
                 "schema": {
-                  "$ref": "#/components/schemas/FileWrapper"
+                  "type": "string"
                 }
               }
             }
@@ -415,11 +342,6 @@
             "description": "The tool descriptor can not be found.",
             "content": {
               "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/Error"
-                }
-              },
-              "text/plain": {
                 "schema": {
                   "$ref": "#/components/schemas/Error"
                 }
@@ -444,31 +366,13 @@
         ],
         "parameters": [
           {
-            "name": "type",
-            "in": "path",
-            "required": true,
-            "description": "The output type of the descriptor. If not specified, it is up to the underlying implementation to determine which output type to return. Plain types return the bare descriptor while the \"non-plain\" types return a descriptor wrapped with metadata. Allowable values are \"CWL\", \"WDL\", \"NFL\", \"GALAXY\", \"PLAIN_CWL\", \"PLAIN_WDL\", \"PLAIN_NFL\", \"PLAIN_GALAXY\".",
-            "schema": {
-              "type": "string"
-            }
+            "$ref": "#/components/parameters/id"
           },
           {
-            "name": "id",
-            "in": "path",
-            "description": "A unique identifier of the tool, scoped to this registry, for example `123456`.",
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
+            "$ref": "#/components/parameters/type"
           },
           {
-            "name": "version_id",
-            "in": "path",
-            "required": true,
-            "description": "An identifier of the tool version for this particular tool registry, for example `v1`.",
-            "schema": {
-              "type": "string"
-            }
+            "$ref": "#/components/parameters/version_id"
           },
           {
             "name": "relative_path",
@@ -492,7 +396,7 @@
               },
               "text/plain": {
                 "schema": {
-                  "$ref": "#/components/schemas/FileWrapper"
+                  "type": "string"
                 }
               }
             }
@@ -501,11 +405,6 @@
             "description": "The tool can not be output in the specified type.",
             "content": {
               "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/Error"
-                }
-              },
-              "text/plain": {
                 "schema": {
                   "$ref": "#/components/schemas/Error"
                 }
@@ -530,31 +429,13 @@
         ],
         "parameters": [
           {
-            "name": "type",
-            "required": true,
-            "in": "path",
-            "description": "The type of the underlying descriptor. Allowable values include \"CWL\", \"WDL\", \"NFL\", \"GALAXY\", \"PLAIN_CWL\", \"PLAIN_WDL\", \"PLAIN_NFL\", \"PLAIN_GALAXY\". For example, \"CWL\" would return an list of ToolTests objects while \"PLAIN_CWL\" would return a bare JSON list with the content of the tests.",
-            "schema": {
-              "type": "string"
-            }
+            "$ref": "#/components/parameters/id"
           },
           {
-            "name": "id",
-            "in": "path",
-            "description": "A unique identifier of the tool, scoped to this registry, for example `123456`.",
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
+            "$ref": "#/components/parameters/type"
           },
           {
-            "name": "version_id",
-            "in": "path",
-            "required": true,
-            "description": "An identifier of the tool version for this particular tool registry, for example `v1`.",
-            "schema": {
-              "type": "string"
-            }
+            "$ref": "#/components/parameters/version_id"
           }
         ],
         "responses": {
@@ -586,11 +467,6 @@
                 "schema": {
                   "$ref": "#/components/schemas/Error"
                 }
-              },
-              "text/plain": {
-                "schema": {
-                  "$ref": "#/components/schemas/Error"
-                }
               }
             }
           }
@@ -612,31 +488,19 @@
         ],
         "parameters": [
           {
+            "$ref": "#/components/parameters/id"
+          },
+          {
             "name": "type",
             "required": true,
             "in": "path",
-            "description": "The output type of the descriptor. Examples of allowable values are \"CWL\", \"WDL\", \"NFL\", \"GALAXY\".",
+            "description": "The output type of the descriptor.",
             "schema": {
-              "type": "string"
+              "$ref": "#/components/schemas/DescriptorType"
             }
           },
           {
-            "name": "id",
-            "in": "path",
-            "description": "A unique identifier of the tool, scoped to this registry, for example `123456`.",
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
-          },
-          {
-            "name": "version_id",
-            "in": "path",
-            "required": true,
-            "description": "An identifier of the tool version for this particular tool registry, for example `v1`.",
-            "schema": {
-              "type": "string"
-            }
+            "$ref": "#/components/parameters/version_id"
           },
           {
             "name": "format",
@@ -680,11 +544,6 @@
                 "schema": {
                   "$ref": "#/components/schemas/Error"
                 }
-              },
-              "application/zip": {
-                "schema": {
-                  "$ref": "#/components/schemas/Error"
-                }
               }
             }
           }
@@ -706,22 +565,10 @@
         ],
         "parameters": [
           {
-            "name": "id",
-            "in": "path",
-            "description": "A unique identifier of the tool, scoped to this registry, for example `123456`.",
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
+            "$ref": "#/components/parameters/id"
           },
           {
-            "name": "version_id",
-            "in": "path",
-            "required": true,
-            "description": "An identifier of the tool version for this particular tool registry, for example `v1`.",
-            "schema": {
-              "type": "string"
-            }
+            "$ref": "#/components/parameters/version_id"
           }
         ],
         "responses": {
@@ -735,14 +582,6 @@
                     "$ref": "#/components/schemas/FileWrapper"
                   }
                 }
-              },
-              "text/plain": {
-                "schema": {
-                  "type": "array",
-                  "items": {
-                    "$ref": "#/components/schemas/FileWrapper"
-                  }
-                }
               }
             }
           },
@@ -750,11 +589,6 @@
             "description": "There are no container specifications for this tool.",
             "content": {
               "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/Error"
-                }
-              },
-              "text/plain": {
                 "schema": {
                   "$ref": "#/components/schemas/Error"
                 }
@@ -788,14 +622,6 @@
                     "$ref": "#/components/schemas/ToolClass"
                   }
                 }
-              },
-              "text/plain": {
-                "schema": {
-                  "type": "array",
-                  "items": {
-                    "$ref": "#/components/schemas/ToolClass"
-                  }
-                }
               }
             }
           }
@@ -819,6 +645,33 @@
   ],
   "components": {
     "parameters": {
+      "version_id": {
+        "name": "version_id",
+        "in": "path",
+        "required": true,
+        "description": "An identifier of the tool version, scoped to this registry, for example `v1`. We recommend that versions use semantic versioning https://semver.org/spec/v2.0.0.html  (For example, `1.0.0` instead of `develop`)",
+        "schema": {
+          "type": "string"
+        }
+      },
+      "type": {
+        "name": "type",
+        "required": true,
+        "in": "path",
+        "description": "The output type of the descriptor. Plain types return the bare descriptor while the \"non-plain\" types return a descriptor wrapped with metadata.",
+        "schema": {
+          "$ref": "#/components/schemas/DescriptorTypeWithPlain"
+        }
+      },
+      "id": {
+        "name": "id",
+        "in": "path",
+        "required": true,
+        "description": "A unique identifier of the tool, scoped to this registry, for example `123456`.",
+        "schema": {
+          "type": "string"
+        }
+      },
       "limit": {
         "name": "limit",
         "in": "query",
@@ -1108,12 +961,26 @@
       },
       "DescriptorType": {
         "type": "string",
-        "description": "The type of descriptor that represents this version of the tool (e.g. CWL, WDL, NFL, or GALAXY). Note that these files can also include associated Docker/container files  and test parameters that further describe a version of a tool.",
+        "description": "The type of descriptor that represents this version of the tool. Note that these files can also include associated Docker/container files  and test parameters that further describe a version of a tool.",
         "enum": [
           "CWL",
           "WDL",
           "NFL",
           "GALAXY"
+        ]
+      },
+      "DescriptorTypeWithPlain": {
+        "type": "string",
+        "description": "The output type of the descriptor. Plain types return the raw text while the \"non-plain\" types return the application/json",
+        "enum": [
+          "CWL",
+          "WDL",
+          "NFL",
+          "GALAXY",
+          "PLAIN_CWL",
+          "PLAIN_WDL",
+          "PLAIN_NFL",
+          "PLAIN_GALAXY"
         ]
       },
       "FileWrapper": {
