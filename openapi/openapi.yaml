@@ -201,11 +201,6 @@ paths:
                 type: array
                 items:
                   $ref: "#/components/schemas/Tool"
-            text/plain:
-              schema:
-                type: array
-                items:
-                  $ref: "#/components/schemas/Tool"
       security:
         - BEARER: []
   "/tools/{id}/versions/{version_id}/{type}/descriptor":
@@ -316,9 +311,6 @@ paths:
             application/json:
               schema:
                 $ref: "#/components/schemas/Error"
-            text/plain:
-              schema:
-                $ref: "#/components/schemas/Error"
       security:
         - BEARER: []
   "/tools/{id}/versions/{version_id}/{type}/files":
@@ -368,9 +360,6 @@ paths:
             application/json:
               schema:
                 $ref: "#/components/schemas/Error"
-            application/zip:
-              schema:
-                $ref: "#/components/schemas/Error"
       security:
         - BEARER: []
   "/tools/{id}/versions/{version_id}/containerfile":
@@ -395,18 +384,10 @@ paths:
                 type: array
                 items:
                   $ref: "#/components/schemas/FileWrapper"
-            text/plain:
-              schema:
-                type: array
-                items:
-                  $ref: "#/components/schemas/FileWrapper"
         "404":
           description: There are no container specifications for this tool.
           content:
             application/json:
-              schema:
-                $ref: "#/components/schemas/Error"
-            text/plain:
               schema:
                 $ref: "#/components/schemas/Error"
       security:
@@ -424,11 +405,6 @@ paths:
           description: A list of potential tool classes.
           content:
             application/json:
-              schema:
-                type: array
-                items:
-                  $ref: "#/components/schemas/ToolClass"
-            text/plain:
               schema:
                 type: array
                 items:
