@@ -46,9 +46,9 @@ Discussion of the models and endpoints in details continues at [Data Model](Data
 
 #### TRS V1 vs TRS V2
 
-TRS V1 is the initial release of the schema and is intended for production sites that desire stability. It is available at https://github.com/ga4gh/tool-registry-service-schemas/releases/tag/1.0.0 . TRS V2 is an ongoing version of the schema that is currently undergoing beta development and is under review by GA4GH as an official standard. Currently, it proposes a number of changes both major and minor. As of the current date (August 12, 2019) it includes the [following changes](https://github.com/ga4gh/tool-registry-service-schemas/compare/1.0.0...2.0.0-beta.3)
+TRS V1 is the initial release of the schema. It is available at https://github.com/ga4gh/tool-registry-service-schemas/releases/tag/1.0.0 . TRS V2 is a newer version of the schema, it proposes a number of changes both major and minor. V2 is recommended. As of the current date (December 9, 2020) it includes the [following changes](https://github.com/ga4gh/tool-registry-service-schemas/compare/1.0.0...2.0.0)
 
-As a brief summary, changes include
+As a brief summary, some changes include
 
 ##### Breaking Changes
 * conversion of many parameters and object properties from kebab case (hyphens) to snake case (underscores) to better support Javascript tooling and to better match other GA4GH cloud workstream APIs
@@ -64,3 +64,4 @@ As a brief summary, changes include
 * ` /tools/{id}/versions/{version_id}/{type}/files` endpoint added to describe all avaliable files for a tool
 * checker workflows ([26](https://github.com/ga4gh/tool-registry-service-schemas/pull/26))
 * process for auto-generation of OpenAPI 3 copy of the schema
+* removal of the /metadata endpoint in favor of a /serivce-info endpoint to be added in 2.0.1
