@@ -732,6 +732,9 @@
               "CONTAINERFILE",
               "OTHER"
             ]
+          },
+          "checksum": {
+            "$ref": "#/components/schemas/Checksum"
           }
         }
       },
