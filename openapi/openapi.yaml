@@ -503,6 +503,8 @@ components:
             - SECONDARY_DESCRIPTOR
             - CONTAINERFILE
             - OTHER
+        checksum:
+          $ref: "#/components/schemas/Checksum"
     ToolClass:
       type: object
       description: Describes a class (type) of tool allowing us to categorize
