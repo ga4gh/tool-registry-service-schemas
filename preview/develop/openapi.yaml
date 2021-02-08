@@ -528,6 +528,8 @@ components:
             - SECONDARY_DESCRIPTOR
             - CONTAINERFILE
             - OTHER
+        checksum:
+          $ref: '#/components/schemas/Checksum'
     ToolClass:
       type: object
       description: >-
