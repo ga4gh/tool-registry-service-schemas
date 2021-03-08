@@ -58,6 +58,9 @@ dependabot/npm_and_yarn/dompurify-2.2.6:
 dependabot/npm_and_yarn/dot-prop-4.2.1: 
 [ReDoc](preview/dependabot/npm_and_yarn/dot-prop-4.2.1/docs/index.html)
 
+dependabot/npm_and_yarn/elliptic-6.5.4: 
+[ReDoc](preview/dependabot/npm_and_yarn/elliptic-6.5.4/docs/index.html)
+
 dependabot/npm_and_yarn/ini-1.3.7: 
 [ReDoc](preview/dependabot/npm_and_yarn/ini-1.3.7/docs/index.html)
 
@@ -66,9 +69,6 @@ dependabot/npm_and_yarn/ini-1.3.8:
 
 dependabot/npm_and_yarn/node-fetch-2.6.1: 
 [ReDoc](preview/dependabot/npm_and_yarn/node-fetch-2.6.1/docs/index.html)
-
-dependabot/npm_and_yarn/prismjs-1.23.0: 
-[ReDoc](preview/dependabot/npm_and_yarn/prismjs-1.23.0/docs/index.html)
 
 master: 
 [swagger-ui](swagger-ui?url=../preview/master/docs/web_deploy/swagger.json)
