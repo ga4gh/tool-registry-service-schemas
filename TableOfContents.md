@@ -70,8 +70,8 @@ dependabot/npm_and_yarn/ini-1.3.8:
 dependabot/npm_and_yarn/node-fetch-2.6.1: 
 [ReDoc](preview/dependabot/npm_and_yarn/node-fetch-2.6.1/docs/index.html)
 
-dependabot/npm_and_yarn/y18n-4.0.1: 
-[ReDoc](preview/dependabot/npm_and_yarn/y18n-4.0.1/docs/index.html)
+dependabot/npm_and_yarn/y18n-4.0.2: 
+[ReDoc](preview/dependabot/npm_and_yarn/y18n-4.0.2/docs/index.html)
 
 master: 
 [swagger-ui](swagger-ui?url=../preview/master/docs/web_deploy/swagger.json)
