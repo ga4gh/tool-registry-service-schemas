@@ -1,4 +1,4 @@
-![ga4gh logo](https://github.com/dockstore/dockstore-ui2/raw/develop/src/assets/images/sponsors/coloured/ga4gh.png)
+![ga4gh logo](https://raw.githubusercontent.com/dockstore/dockstore-ui2/2.7.4/images/high-res/ga4gh.png)
 
 [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.3374001.svg)](https://doi.org/10.5281/zenodo.3374001)
 
