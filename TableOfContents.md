@@ -52,8 +52,7 @@ title: Table of Contents
 [html5](preview/2.0.0_gxformat2/docs/html5/index.html)
 [pdf](preview/2.0.0_gxformat2/docs/pdf/index.pdf)
 
-dependabot/npm_and_yarn/dompurify-2.2.7: 
-[ReDoc](preview/dependabot/npm_and_yarn/dompurify-2.2.7/docs/index.html)
+dependabot/npm_and_yarn/dompurify-2.2.8: 
 
 dependabot/npm_and_yarn/dot-prop-4.2.1: 
 [ReDoc](preview/dependabot/npm_and_yarn/dot-prop-4.2.1/docs/index.html)
@@ -61,17 +60,26 @@ dependabot/npm_and_yarn/dot-prop-4.2.1:
 dependabot/npm_and_yarn/elliptic-6.5.4: 
 [ReDoc](preview/dependabot/npm_and_yarn/elliptic-6.5.4/docs/index.html)
 
+dependabot/npm_and_yarn/handlebars-4.7.7: 
+
 dependabot/npm_and_yarn/ini-1.3.7: 
 [ReDoc](preview/dependabot/npm_and_yarn/ini-1.3.7/docs/index.html)
 
 dependabot/npm_and_yarn/ini-1.3.8: 
 [ReDoc](preview/dependabot/npm_and_yarn/ini-1.3.8/docs/index.html)
 
+dependabot/npm_and_yarn/json-pointer-0.6.1: 
+
+dependabot/npm_and_yarn/lodash-4.17.21: 
+
 dependabot/npm_and_yarn/node-fetch-2.6.1: 
 [ReDoc](preview/dependabot/npm_and_yarn/node-fetch-2.6.1/docs/index.html)
 
 dependabot/npm_and_yarn/y18n-4.0.3: 
 [ReDoc](preview/dependabot/npm_and_yarn/y18n-4.0.3/docs/index.html)
+
+garyluu-patch-1: 
+[ReDoc](preview/garyluu-patch-1/docs/index.html)
 
 master: 
 [swagger-ui](swagger-ui?url=../preview/master/docs/web_deploy/swagger.json)
