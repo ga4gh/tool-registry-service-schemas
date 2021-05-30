@@ -75,11 +75,11 @@ dependabot/npm_and_yarn/lodash-4.17.21:
 dependabot/npm_and_yarn/node-fetch-2.6.1: 
 [ReDoc](preview/dependabot/npm_and_yarn/node-fetch-2.6.1/docs/index.html)
 
+dependabot/npm_and_yarn/ws-7.4.6: 
+[ReDoc](preview/dependabot/npm_and_yarn/ws-7.4.6/docs/index.html)
+
 dependabot/npm_and_yarn/y18n-4.0.3: 
 [ReDoc](preview/dependabot/npm_and_yarn/y18n-4.0.3/docs/index.html)
-
-garyluu-patch-1: 
-[ReDoc](preview/garyluu-patch-1/docs/index.html)
 
 master: 
 [swagger-ui](swagger-ui?url=../preview/master/docs/web_deploy/swagger.json)
