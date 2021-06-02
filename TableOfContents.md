@@ -52,7 +52,8 @@ title: Table of Contents
 [html5](preview/2.0.0_gxformat2/docs/html5/index.html)
 [pdf](preview/2.0.0_gxformat2/docs/pdf/index.pdf)
 
-dependabot/npm_and_yarn/dompurify-2.2.8: 
+dependabot/npm_and_yarn/dompurify-2.2.9: 
+[ReDoc](preview/dependabot/npm_and_yarn/dompurify-2.2.9/docs/index.html)
 
 dependabot/npm_and_yarn/dot-prop-4.2.1: 
 [ReDoc](preview/dependabot/npm_and_yarn/dot-prop-4.2.1/docs/index.html)
