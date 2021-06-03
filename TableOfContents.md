@@ -11,6 +11,9 @@ title: Table of Contents
 
 #### Tags: 
 
+2.0.1-beta.0: 
+[ReDoc](preview/2.0.1-beta.0/docs/index.html)
+
 2.0.0: 
 [swagger-ui](swagger-ui?url=../preview/2.0.0/docs/web_deploy/swagger.json)
 [html5](preview/2.0.0/docs/html5/index.html)
