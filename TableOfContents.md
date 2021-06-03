@@ -91,3 +91,4 @@ release/v2.0.1:
 [swagger-ui](swagger-ui?url=../preview/release/v2.0.1/docs/web_deploy/swagger.json)
 [html5](preview/release/v2.0.1/docs/html5/index.html)
 [pdf](preview/release/v2.0.1/docs/pdf/index.pdf)
+[ReDoc](preview/release/v2.0.1/docs/index.html)
