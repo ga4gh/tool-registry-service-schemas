@@ -64,6 +64,8 @@ dependabot/npm_and_yarn/dot-prop-4.2.1:
 dependabot/npm_and_yarn/elliptic-6.5.4: 
 [ReDoc](preview/dependabot/npm_and_yarn/elliptic-6.5.4/docs/index.html)
 
+dependabot/npm_and_yarn/glob-parent-5.1.2: 
+
 dependabot/npm_and_yarn/handlebars-4.7.7: 
 
 dependabot/npm_and_yarn/ini-1.3.7: 
@@ -75,6 +77,9 @@ dependabot/npm_and_yarn/ini-1.3.8:
 dependabot/npm_and_yarn/json-pointer-0.6.1: 
 
 dependabot/npm_and_yarn/lodash-4.17.21: 
+
+dependabot/npm_and_yarn/merge-deep-3.0.3: 
+[ReDoc](preview/dependabot/npm_and_yarn/merge-deep-3.0.3/docs/index.html)
 
 dependabot/npm_and_yarn/node-fetch-2.6.1: 
 [ReDoc](preview/dependabot/npm_and_yarn/node-fetch-2.6.1/docs/index.html)
