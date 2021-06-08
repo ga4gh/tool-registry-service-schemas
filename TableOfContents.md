@@ -65,6 +65,7 @@ dependabot/npm_and_yarn/elliptic-6.5.4:
 [ReDoc](preview/dependabot/npm_and_yarn/elliptic-6.5.4/docs/index.html)
 
 dependabot/npm_and_yarn/glob-parent-5.1.2: 
+[ReDoc](preview/dependabot/npm_and_yarn/glob-parent-5.1.2/docs/index.html)
 
 dependabot/npm_and_yarn/handlebars-4.7.7: 
 
