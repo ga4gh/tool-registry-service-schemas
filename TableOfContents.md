@@ -85,6 +85,9 @@ dependabot/npm_and_yarn/merge-deep-3.0.3:
 dependabot/npm_and_yarn/node-fetch-2.6.1: 
 [ReDoc](preview/dependabot/npm_and_yarn/node-fetch-2.6.1/docs/index.html)
 
+dependabot/npm_and_yarn/normalize-url-4.5.1: 
+[ReDoc](preview/dependabot/npm_and_yarn/normalize-url-4.5.1/docs/index.html)
+
 dependabot/npm_and_yarn/ws-7.4.6: 
 [ReDoc](preview/dependabot/npm_and_yarn/ws-7.4.6/docs/index.html)
 
