@@ -88,6 +88,9 @@ dependabot/npm_and_yarn/node-fetch-2.6.1:
 dependabot/npm_and_yarn/normalize-url-4.5.1: 
 [ReDoc](preview/dependabot/npm_and_yarn/normalize-url-4.5.1/docs/index.html)
 
+dependabot/npm_and_yarn/path-parse-1.0.7: 
+[ReDoc](preview/dependabot/npm_and_yarn/path-parse-1.0.7/docs/index.html)
+
 dependabot/npm_and_yarn/prismjs-1.24.1: 
 
 dependabot/npm_and_yarn/ws-7.4.6: 
