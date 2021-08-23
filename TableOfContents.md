@@ -67,17 +67,11 @@ dependabot/npm_and_yarn/elliptic-6.5.4:
 dependabot/npm_and_yarn/glob-parent-5.1.2: 
 [ReDoc](preview/dependabot/npm_and_yarn/glob-parent-5.1.2/docs/index.html)
 
-dependabot/npm_and_yarn/handlebars-4.7.7: 
-
 dependabot/npm_and_yarn/ini-1.3.7: 
 [ReDoc](preview/dependabot/npm_and_yarn/ini-1.3.7/docs/index.html)
 
 dependabot/npm_and_yarn/ini-1.3.8: 
 [ReDoc](preview/dependabot/npm_and_yarn/ini-1.3.8/docs/index.html)
-
-dependabot/npm_and_yarn/json-pointer-0.6.1: 
-
-dependabot/npm_and_yarn/lodash-4.17.21: 
 
 dependabot/npm_and_yarn/merge-deep-3.0.3: 
 [ReDoc](preview/dependabot/npm_and_yarn/merge-deep-3.0.3/docs/index.html)
@@ -102,6 +96,8 @@ dependabot/npm_and_yarn/ws-7.5.3:
 
 dependabot/npm_and_yarn/y18n-4.0.3: 
 [ReDoc](preview/dependabot/npm_and_yarn/y18n-4.0.3/docs/index.html)
+
+feature/auditFix: 
 
 master: 
 [swagger-ui](swagger-ui?url=../preview/master/docs/web_deploy/swagger.json)
