@@ -67,7 +67,8 @@ do
 		{ 
 		  echo ""
 		  echo "$branch: "
-		  createLinks $branch
+		  LBN=$(echo $branch | tr '[:upper:]' '[:lower:]')
+		  createLinks $LBN
 	        } >> $FILENAME
 	fi
 done
