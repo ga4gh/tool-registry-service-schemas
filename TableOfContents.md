@@ -98,8 +98,10 @@ dependabot/npm_and_yarn/y18n-4.0.3:
 [ReDoc](preview/dependabot/npm_and_yarn/y18n-4.0.3/docs/index.html)
 
 feature/auditFix: 
+[ReDoc](preview/feature/auditfix/docs/index.html)
 
 feature/testUppercase: 
+[ReDoc](preview/feature/testuppercase/docs/index.html)
 
 master: 
 [swagger-ui](swagger-ui?url=../preview/master/docs/web_deploy/swagger.json)
