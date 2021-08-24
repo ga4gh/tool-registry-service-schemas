@@ -68,3 +68,6 @@ release/v2.0.1:
 [html5](preview/release/v2.0.1/docs/html5/index.html)
 [pdf](preview/release/v2.0.1/docs/pdf/index.pdf)
 [ReDoc](preview/release/v2.0.1/docs/index.html)
+
+uniqueg-add_snakemake: 
+[ReDoc](preview/uniqueg-add_snakemake/docs/index.html)
