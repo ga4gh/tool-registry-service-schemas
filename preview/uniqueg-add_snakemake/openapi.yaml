@@ -758,7 +758,8 @@ components:
         - CWL
         - WDL
         - NFL
-        - GALAXY SMK
+        - GALAXY
+        - SMK
     DescriptorTypeWithPlain:
       type: string
       description: >-
@@ -772,7 +773,8 @@ components:
         - PLAIN_CWL
         - PLAIN_WDL
         - PLAIN_NFL
-        - PLAIN_GALAXY PLAIN_SMK
+        - PLAIN_GALAXY
+        - PLAIN_SMK
     FileWrapper:
       type: object
       description: >

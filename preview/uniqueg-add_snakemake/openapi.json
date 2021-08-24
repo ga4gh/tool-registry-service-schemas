@@ -969,7 +969,8 @@
           "CWL",
           "WDL",
           "NFL",
-          "GALAXY SMK"
+          "GALAXY",
+          "SMK"
         ]
       },
       "DescriptorTypeWithPlain": {
@@ -983,7 +984,8 @@
           "PLAIN_CWL",
           "PLAIN_WDL",
           "PLAIN_NFL",
-          "PLAIN_GALAXY PLAIN_SMK"
+          "PLAIN_GALAXY",
+          "PLAIN_SMK"
         ]
       },
       "FileWrapper": {
