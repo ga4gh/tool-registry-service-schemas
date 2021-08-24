@@ -2,7 +2,7 @@
   "openapi": "3.0.0",
   "info": {
     "title": "GA4GH Tool Discovery API",
-    "description": "Proposed API for GA4GH (Global Alliance for Genomics & Health) tool repositories. A tool consists of a set of container images that are paired with a set of documents. Examples of documents include CWL (Common Workflow Language), WDL (Workflow Description Language), NFL (Nextflow), or GXFORMAT2 (Galaxy) that describe how to use those images and a set of specifications for those images (examples are Dockerfiles or Singularity recipes) that describe how to reproduce those images in the future. We use the following terminology, a \"container image\" describes a container as stored at rest on a filesystem, a \"tool\" describes one of the triples as described above. In practice, examples of \"tools\" include CWL CommandLineTools, CWL Workflows, WDL workflows, and Nextflow workflows that reference containers in formats such as Docker or Singularity.",
+    "description": "Proposed API for GA4GH (Global Alliance for Genomics & Health) tool repositories. A tool consists of a set of container images that are paired with a set of documents. Examples of documents include CWL (Common Workflow Language), WDL (Workflow Description Language), NFL (Nextflow), GXFORMAT2 (Galaxy) or SMK (Snakemake) that describe how to use those images and a set of specifications for those images (examples are Dockerfiles or Singularity recipes) that describe how to reproduce those images in the future. We use the following terminology, a \"container image\" describes a container as stored at rest on a filesystem, a \"tool\" describes one of the triples as described above. In practice, examples of \"tools\" include CWL CommandLineTools, CWL Workflows, WDL workflows, and Nextflow workflows that reference containers in formats such as Docker or Singularity.",
     "version": "2.0.1"
   },
   "tags": [
@@ -307,7 +307,7 @@
       "get": {
         "summary": "Get the tool descriptor for the specified tool",
         "operationId": "toolsIdVersionsVersionIdTypeDescriptorGet",
-        "description": "Returns the descriptor for the specified tool (examples include CWL, WDL, Nextflow, or Galaxy documents).",
+        "description": "Returns the descriptor for the specified tool (examples include CWL, WDL, Nextflow, Galaxy, or Snakemake documents).",
         "tags": [
           "GA4GH"
         ],
@@ -969,7 +969,7 @@
           "CWL",
           "WDL",
           "NFL",
-          "GALAXY"
+          "GALAXY SMK"
         ]
       },
       "DescriptorTypeWithPlain": {
@@ -983,7 +983,7 @@
           "PLAIN_CWL",
           "PLAIN_WDL",
           "PLAIN_NFL",
-          "PLAIN_GALAXY"
+          "PLAIN_GALAXY PLAIN_SMK"
         ]
       },
       "FileWrapper": {
