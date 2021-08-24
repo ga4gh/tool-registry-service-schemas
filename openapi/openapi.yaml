@@ -713,7 +713,7 @@ components:
         - WDL
         - NFL
         - GALAXY
-          SMK
+        - SMK
     DescriptorTypeWithPlain:
       type: string
       description: The output type of the descriptor. Plain types return the raw text while the "non-plain" types return the application/json
@@ -726,7 +726,7 @@ components:
         - PLAIN_WDL
         - PLAIN_NFL
         - PLAIN_GALAXY
-          PLAIN_SMK
+        - PLAIN_SMK
     FileWrapper:
       type: object
       description: >
