@@ -130,7 +130,7 @@ paths:
           in: query
           description: Filter tools by the name of the descriptor type
           schema:
-            $ref: '#/components/schemas/DescriptorType' 
+            $ref: '#/components/schemas/DescriptorType'
         - name: registry
           in: query
           description: The image registry that contains the image.
@@ -422,10 +422,10 @@ components:
       name: version_id
       in: path
       required: true
-      description: An identifier of the tool version, scoped to this registry, for	
-            example `v1`. We recommend that versions use semantic versioning	
-            https://semver.org/spec/v2.0.0.html  (For example, `1.0.0` instead	
-            of `develop`)
+      description: An identifier of the tool version, scoped to this registry, for
+        example `v1`. We recommend that versions use semantic versioning
+        https://semver.org/spec/v2.0.0.html  (For example, `1.0.0` instead
+        of `develop`)
       schema:
         type: string
     type:
@@ -757,6 +757,11 @@ components:
           example:
             - checksum: ea2a5db69bd20a42976838790bc29294df3af02b
               type: sha1
+        image_type:
+          description: "Optionally return additional information on the type of file this is"
+          oneOf:
+            - $ref: "#/components/schemas/ImageType"
+            - $ref: "#/components/schemas/DescriptorType"
         url:
           type: string
           description: Optional url to the underlying content, should include version
