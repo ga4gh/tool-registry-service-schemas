@@ -4,7 +4,7 @@ set -o pipefail
 set -o nounset
 set -o xtrace
 set -u
-BRANCH=$(echo "$GITHUB_REF" | awk '{print tolower($0)}')
+BRANCH=$(echo "$GITHUB_REF##*/" | awk '{print tolower($0)}')
 BRANCH_PATH="preview/$BRANCH"
 mv preview preview2
 git config --replace-all remote.origin.fetch +refs/heads/*:refs/remotes/origin/*
@@ -19,7 +19,7 @@ if [[ -n "$(git status --porcelain "${BRANCH_PATH}")" ]]; then
   bash scripts/remove-docs-for-deleted-branches.sh
   git add preview
   git add TableOfContents.md
-  git commit -m "Docs changed for "${GITHUB_REF}""
+  git commit -m "Docs changed for "${GITHUB_REF##*/}""
   git push git@github.com:"${GITHUB_REPOSITORY}" gh-pages
 else
   echo "No changes"
