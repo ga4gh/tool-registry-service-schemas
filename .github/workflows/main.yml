@@ -26,4 +26,5 @@ jobs:
        with:
          node-version: 12.x
      - run: npm ci
+     - run: npx gh-openapi-docs
      - run: bash scripts/update-ghpages.sh
