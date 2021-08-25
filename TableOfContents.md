@@ -63,6 +63,9 @@ master:
 [html5](preview/master/docs/html5/index.html)
 [pdf](preview/master/docs/pdf/index.pdf)
 
+migrate_gh_actions: 
+[ReDoc](preview/migrate_gh_actions/docs/index.html)
+
 release/v2.0.1: 
 [swagger-ui](swagger-ui?url=../preview/release/v2.0.1/docs/web_deploy/swagger.json)
 [html5](preview/release/v2.0.1/docs/html5/index.html)
