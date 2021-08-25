@@ -55,22 +55,13 @@ title: Table of Contents
 [html5](preview/2.0.0_gxformat2/docs/html5/index.html)
 [pdf](preview/2.0.0_gxformat2/docs/pdf/index.pdf)
 
-feature/testUppercase: 
-[ReDoc](preview/feature/testuppercase/docs/index.html)
-
 master: 
 [swagger-ui](swagger-ui?url=../preview/master/docs/web_deploy/swagger.json)
 [html5](preview/master/docs/html5/index.html)
 [pdf](preview/master/docs/pdf/index.pdf)
-
-migrate_gh_actions: 
-[ReDoc](preview/migrate_gh_actions/docs/index.html)
 
 release/v2.0.1: 
 [swagger-ui](swagger-ui?url=../preview/release/v2.0.1/docs/web_deploy/swagger.json)
 [html5](preview/release/v2.0.1/docs/html5/index.html)
 [pdf](preview/release/v2.0.1/docs/pdf/index.pdf)
 [ReDoc](preview/release/v2.0.1/docs/index.html)
-
-uniqueg-add_snakemake: 
-[ReDoc](preview/uniqueg-add_snakemake/docs/index.html)
