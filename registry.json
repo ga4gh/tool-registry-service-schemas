@@ -4,5 +4,9 @@
   ],
   "biocontainers": [
     "https://api.biocontainers.pro/ga4gh/trs/v2/service-info"
+  ],
+  "workflowhub": [
+    "https://workflowhub.eu/ga4gh/trs/v2/service-info"
   ]
+  
 }
