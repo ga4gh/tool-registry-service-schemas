@@ -12,7 +12,7 @@ info:
     a filesystem, a "tool" describes one of the triples as described above. In
     practice, examples of "tools" include CWL CommandLineTools, CWL Workflows,
     WDL workflows, and Nextflow workflows that reference containers in formats
-    such as Docker or Singularity.
+    such as Docker or Singularity. This is a test, do not merge
   version: 2.0.1
 tags:
   - name: GA4GH
