@@ -722,6 +722,7 @@ components:
         - WDL
         - NFL
         - GALAXY
+        - SMK
         - PLAIN_CWL
         - PLAIN_WDL
         - PLAIN_NFL
