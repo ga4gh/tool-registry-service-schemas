@@ -22,7 +22,7 @@ if [[ -n "$(git status --porcelain "${BRANCH_PATH}")" ]]; then
   git add preview
   git add TableOfContents.md
   git commit -m "Docs changed for "${GITHUB_REF##*/}""
-  git remote set-url origin https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/$GITHUB_REPOSITORY
+  git remote set-url origin https://x-access-token:${GITHUB_TOKEN}@github.com/$GITHUB_REPOSITORY
   git push git@github.com:"${GITHUB_REPOSITORY}" gh-pages
 else
   echo "No changes"
