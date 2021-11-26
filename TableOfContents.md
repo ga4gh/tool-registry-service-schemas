@@ -55,8 +55,17 @@ title: Table of Contents
 [html5](preview/2.0.0_gxformat2/docs/html5/index.html)
 [pdf](preview/2.0.0_gxformat2/docs/pdf/index.pdf)
 
+add-missing-SMK-to-enum: 
+
 containerfile_type_info: 
 [ReDoc](preview/containerfile_type_info/docs/index.html)
+
+denis-yuen-patch-1: 
+[ReDoc](preview/denis-yuen-patch-1/docs/index.html)
+
+dependabot/npm_and_yarn/prismjs-1.25.0: 
+
+dependabot/npm_and_yarn/redocly/openapi-cli-1.0.0-beta.59: 
 
 master: 
 [swagger-ui](swagger-ui?url=../preview/master/docs/web_deploy/swagger.json)
