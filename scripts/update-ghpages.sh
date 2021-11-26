@@ -15,6 +15,7 @@ mv preview2 preview
 git status
 # looks like github automatically does not make secrets available to forks https://docs.github.com/en/actions/reference/encrypted-secrets
 if [[ -n "$(git status --porcelain "${BRANCH_PATH}")" ]]; then
+  export GITHUB_TOKEN=${{ secrets.GITHUB_TOKEN }}
   git config --global user.email "theglobalalliance@genomicsandhealth.org"
   git config --global user.name "Automatic documentation build"
   bash scripts/create-table-of-contents.sh
