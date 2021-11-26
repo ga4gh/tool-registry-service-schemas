@@ -56,12 +56,10 @@ title: Table of Contents
 [pdf](preview/2.0.0_gxformat2/docs/pdf/index.pdf)
 
 add-missing-SMK-to-enum: 
+[ReDoc](preview/add-missing-smk-to-enum/docs/index.html)
 
 containerfile_type_info: 
 [ReDoc](preview/containerfile_type_info/docs/index.html)
-
-denis-yuen-patch-1: 
-[ReDoc](preview/denis-yuen-patch-1/docs/index.html)
 
 dependabot/npm_and_yarn/prismjs-1.25.0: 
 
