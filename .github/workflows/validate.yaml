@@ -12,4 +12,4 @@ jobs:
       - name: Validate OpenAPI definition
         uses: char0n/swagger-editor-validate@v1
         with:
-          definition-file: examples/openapi-2-0.yaml
+          definition-file: openapi/openapi.yaml
