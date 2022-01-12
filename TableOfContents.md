@@ -60,8 +60,6 @@ add-missing-SMK-to-enum:
 containerfile_type_info: 
 [ReDoc](preview/containerfile_type_info/docs/index.html)
 
-dependabot/npm_and_yarn/prismjs-1.25.0: 
-
 master: 
 [swagger-ui](swagger-ui?url=../preview/master/docs/web_deploy/swagger.json)
 [html5](preview/master/docs/html5/index.html)
@@ -72,5 +70,8 @@ release/v2.0.1:
 [html5](preview/release/v2.0.1/docs/html5/index.html)
 [pdf](preview/release/v2.0.1/docs/pdf/index.pdf)
 [ReDoc](preview/release/v2.0.1/docs/index.html)
+
+validate_yaml: 
+[ReDoc](preview/validate_yaml/docs/index.html)
 
 versioned_trs_uris: 
