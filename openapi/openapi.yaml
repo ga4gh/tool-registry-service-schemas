@@ -636,12 +636,14 @@ components:
             `descriptor_type`
           example: |
             {
-              "WDL": "1.0",
-              "CWL": "v1.0.2",
-              "NFL": "22.04.0"
+              "WDL": ["1.0"],
+              "CWL": ["v1.0.2"],
+              "NFL": ["DSL2"]
             }
           additionalProperties:
-            $ref: "#/components/schemas/DescriptorTypeVersion"
+            type: array
+            items:
+              $ref: "#/components/schemas/DescriptorTypeVersion"
         containerfile:
           type: boolean
           description: Reports if this tool has a containerfile available. (For
