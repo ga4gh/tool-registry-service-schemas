@@ -632,7 +632,7 @@ components:
         descriptor_type_version:
           type: object
           description: A map providing information about the language versions used in this tool. The keys should be the
-            same values in the `descriptor_type` table, and the value should be the actual language version for the given
+            same values in the `descriptor_type` table, and the value should be an array of the the actual language version for the given
             `descriptor_type`
           example: |
             {
