@@ -629,6 +629,22 @@ components:
           description: The type (or types) of descriptors available.
           items:
             $ref: "#/components/schemas/DescriptorType"
+        descriptor_type_version:
+          type: object
+          description: A map providing information about the language versions used in this tool. The keys should be the
+            same values used in the `descriptor_type` field, and the value should be an array of all the language versions used 
+            for the given `descriptor_type`. Depending on the `descriptor_type` (e.g. CWL) multiple version values may be used
+            in a single tool.
+          example: |
+            {
+              "WDL": ["1.0", "1.0"],
+              "CWL": ["v1.0.2"],
+              "NFL": ["DSL2"]
+            }
+          additionalProperties:
+            type: array
+            items:
+              $ref: "#/components/schemas/DescriptorTypeVersion"
         containerfile:
           type: boolean
           description: Reports if this tool has a containerfile available. (For
@@ -713,7 +729,12 @@ components:
         - WDL
         - NFL
         - GALAXY
-        - SMK
+        - SMK        
+    DescriptorTypeVersion:
+      type: string
+      description: The language version for a given descriptor type. The version should correspond
+        to the actual declared version of the descriptor. For example, tools defined in CWL could have a version of `v1.0.2`
+        whereas WDL tools may have a version of `1.0` or `draft-2`
     DescriptorTypeWithPlain:
       type: string
       description: The output type of the descriptor. Plain types return the raw text while the "non-plain" types return the application/json
