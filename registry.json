@@ -1,8 +1,11 @@
 {
   "dockstore": [
-    "https://dockstore.org/api/api/ga4gh/v2/metadata"
+    "https://dockstore.org/api/ga4gh/trs/v2/service-info"
   ],
   "biocontainers": [
-    "https://api.biocontainers.pro/api/ga4gh/v2/metadata"
+    "https://api.biocontainers.pro/ga4gh/trs/v2/service-info"
+  ],
+  "workflowhub": [
+    "https://workflowhub.eu/ga4gh/trs/v2/service-info"
   ]
 }
