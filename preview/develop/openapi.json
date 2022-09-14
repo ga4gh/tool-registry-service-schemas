@@ -2,7 +2,7 @@
   "openapi": "3.0.0",
   "info": {
     "title": "GA4GH Tool Discovery API",
-    "description": "Proposed API for GA4GH (Global Alliance for Genomics & Health) tool repositories. A tool consists of a set of container images that are paired with a set of documents. Examples of documents include CWL (Common Workflow Language), WDL (Workflow Description Language), NFL (Nextflow), or GXFORMAT2 (Galaxy) that describe how to use those images and a set of specifications for those images (examples are Dockerfiles or Singularity recipes) that describe how to reproduce those images in the future. We use the following terminology, a \"container image\" describes a container as stored at rest on a filesystem, a \"tool\" describes one of the triples as described above. In practice, examples of \"tools\" include CWL CommandLineTools, CWL Workflows, WDL workflows, and Nextflow workflows that reference containers in formats such as Docker or Singularity.",
+    "description": "Proposed API for GA4GH (Global Alliance for Genomics & Health) tool repositories. A tool consists of a set of container images that are paired with a set of documents. Examples of documents include CWL (Common Workflow Language), WDL (Workflow Description Language), NFL (Nextflow), GXFORMAT2 (Galaxy) or SMK (Snakemake) that describe how to use those images and a set of specifications for those images (examples are Dockerfiles or Singularity recipes) that describe how to reproduce those images in the future. We use the following terminology, a \"container image\" describes a container as stored at rest on a filesystem, a \"tool\" describes one of the triples as described above. In practice, examples of \"tools\" include CWL CommandLineTools, CWL Workflows, WDL workflows, and Nextflow workflows that reference containers in formats such as Docker or Singularity.",
     "version": "2.0.1"
   },
   "tags": [
@@ -325,7 +325,7 @@
       "get": {
         "summary": "Get the tool descriptor for the specified tool",
         "operationId": "toolsIdVersionsVersionIdTypeDescriptorGet",
-        "description": "Returns the descriptor for the specified tool (examples include CWL, WDL, Nextflow, or Galaxy documents).",
+        "description": "Returns the descriptor for the specified tool (examples include CWL, WDL, Nextflow, Galaxy, or Snakemake documents).",
         "tags": [
           "GA4GH"
         ],
@@ -890,6 +890,17 @@
               "$ref": "#/components/schemas/DescriptorType"
             }
           },
+          "descriptor_type_version": {
+            "type": "object",
+            "description": "A map providing information about the language versions used in this tool. The keys should be the same values used in the `descriptor_type` field, and the value should be an array of all the language versions used for the given `descriptor_type`. Depending on the `descriptor_type` (e.g. CWL) multiple version values may be used in a single tool.",
+            "example": "{\n  \"WDL\": [\"1.0\", \"1.0\"],\n  \"CWL\": [\"v1.0.2\"],\n  \"NFL\": [\"DSL2\"]\n}\n",
+            "additionalProperties": {
+              "type": "array",
+              "items": {
+                "$ref": "#/components/schemas/DescriptorTypeVersion"
+              }
+            }
+          },
           "containerfile": {
             "type": "boolean",
             "description": "Reports if this tool has a containerfile available. (For Docker-based tools, this would indicate the presence of a Dockerfile)"
@@ -987,8 +998,13 @@
           "CWL",
           "WDL",
           "NFL",
-          "GALAXY"
+          "GALAXY",
+          "SMK"
         ]
+      },
+      "DescriptorTypeVersion": {
+        "type": "string",
+        "description": "The language version for a given descriptor type. The version should correspond to the actual declared version of the descriptor. For example, tools defined in CWL could have a version of `v1.0.2` whereas WDL tools may have a version of `1.0` or `draft-2`"
       },
       "DescriptorTypeWithPlain": {
         "type": "string",
@@ -998,10 +1014,12 @@
           "WDL",
           "NFL",
           "GALAXY",
+          "SMK",
           "PLAIN_CWL",
           "PLAIN_WDL",
           "PLAIN_NFL",
-          "PLAIN_GALAXY"
+          "PLAIN_GALAXY",
+          "PLAIN_SMK"
         ]
       },
       "FileWrapper": {
@@ -1022,6 +1040,17 @@
               {
                 "checksum": "ea2a5db69bd20a42976838790bc29294df3af02b",
                 "type": "sha1"
+              }
+            ]
+          },
+          "image_type": {
+            "description": "Optionally return additional information on the type of file this is",
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/ImageType"
+              },
+              {
+                "$ref": "#/components/schemas/DescriptorType"
               }
             ]
           },

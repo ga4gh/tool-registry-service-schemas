@@ -55,11 +55,6 @@ title: Table of Contents
 [html5](preview/2.0.0_gxformat2/docs/html5/index.html)
 [pdf](preview/2.0.0_gxformat2/docs/pdf/index.pdf)
 
-add-missing-SMK-to-enum: 
-
-containerfile_type_info: 
-[ReDoc](preview/containerfile_type_info/docs/index.html)
-
 master: 
 [swagger-ui](swagger-ui?url=../preview/master/docs/web_deploy/swagger.json)
 [html5](preview/master/docs/html5/index.html)
@@ -70,8 +65,3 @@ release/v2.0.1:
 [html5](preview/release/v2.0.1/docs/html5/index.html)
 [pdf](preview/release/v2.0.1/docs/pdf/index.pdf)
 [ReDoc](preview/release/v2.0.1/docs/index.html)
-
-validate_yaml: 
-[ReDoc](preview/validate_yaml/docs/index.html)
-
-versioned_trs_uris: 
