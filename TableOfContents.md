@@ -11,6 +11,8 @@ title: Table of Contents
 
 #### Tags: 
 
+2.0.1: 
+
 2.0.1-beta.0: 
 [ReDoc](preview/2.0.1-beta.0/docs/index.html)
 
@@ -48,6 +50,8 @@ title: Table of Contents
 0.1: 
 [swagger-ui](swagger-ui?url=../preview/0.1/docs/web_deploy/swagger.json)
 
+v2.0.1: 
+
 #### Other branches:
 
 2.0.0_gxformat2: 
@@ -55,13 +59,15 @@ title: Table of Contents
 [html5](preview/2.0.0_gxformat2/docs/html5/index.html)
 [pdf](preview/2.0.0_gxformat2/docs/pdf/index.pdf)
 
+dependabot/npm_and_yarn/cookiejar-2.1.4: 
+
+dependabot/npm_and_yarn/json5-1.0.2: 
+
+dependabot/npm_and_yarn/loader-utils-1.4.2: 
+
+dependabot/npm_and_yarn/minimatch-3.1.2: 
+
 master: 
 [swagger-ui](swagger-ui?url=../preview/master/docs/web_deploy/swagger.json)
 [html5](preview/master/docs/html5/index.html)
 [pdf](preview/master/docs/pdf/index.pdf)
-
-release/v2.0.1: 
-[swagger-ui](swagger-ui?url=../preview/release/v2.0.1/docs/web_deploy/swagger.json)
-[html5](preview/release/v2.0.1/docs/html5/index.html)
-[pdf](preview/release/v2.0.1/docs/pdf/index.pdf)
-[ReDoc](preview/release/v2.0.1/docs/index.html)
