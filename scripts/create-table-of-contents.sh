@@ -7,7 +7,7 @@ FILENAME="TableOfContents.md"
 GIT_REPO="https://github.com/ga4gh/tool-registry-service-schemas.git"
 
 function createLinks {
-  SWAGGER_FILE="preview/$1/docs/web_deploy/swagger.json"
+  SWAGGER_FILE="preview/$1/openapi.yaml"
   if test -f "$SWAGGER_FILE"; then
     echo "[swagger-ui](swagger-ui?url=../$SWAGGER_FILE)"
   fi
