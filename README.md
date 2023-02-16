@@ -6,7 +6,7 @@
 Schemas for the GA4GH Tool Registry API
 =======================================
 
-This repository is the home for the schema for the GA4GH Tool Registry API.  The goal of the API is to provide a standardized way to describe the availability of tools and workflows.  In this way, we can have multiple repositories that share Docker-based tools and WDL/CWL/Nextflow/Galaxy/Snakemake-based workflows and have a consistent way to interact, search, and retrieve information from these various registries.  The end goal is to make it much easier to share scientific tools and workflows, enhancing our ability to make research reproducible, sharable, and transparent.
+This repository is the home for the schema for the GA4GH Tool Registry API.  The goal of the API is to provide a standardized way to describe the availability of tools and workflows.  In this way, we can have multiple repositories that share containerized (or alternative containerized) tools and WDL/CWL/Nextflow/Galaxy/Snakemake-based workflows and have a consistent way to interact, search, and retrieve information from these various registries.  The end goal is to make it much easier to share scientific tools and workflows, enhancing our ability to make research reproducible, sharable, and transparent.
 
 **See the human-readable [Reference Documentation](https://ga4gh.github.io/tool-registry-service-schemas). You can also explore the specification in the [Swagger Editor](https://editor.swagger.io/?url=https://raw.githubusercontent.com/ga4gh/tool-registry-schemas/develop/openapi/openapi.yaml).**  *Manually load the JSON if working from a non-develop branch version.* Preview documentation from the [gh-openapi-docs](https://github.com/ga4gh/gh-openapi-docs) for the development branch [here](https://ga4gh.github.io/tool-registry-service-schemas/preview/develop/docs/index.html)
 
@@ -22,7 +22,7 @@ We work with many different Driver Projects to develop, enhance, test, and use t
 What is the Tool Registry API Schema?
 -------------------------------------
 
-This is the home of the schema for the GA4GH Tool Registry API. The GA4GH Tool Registry API is a standard for listing and describing available tools (both stand-alone, Docker-based tools as well as workflows in CWL, WDL, Nextflow, Galaxy or Snakemake) in a given registry. This defines a minimal, common API describing tools that we propose for support by multiple tool/workflow registries like [Dockstore](https://www.dockstore.org/), [BioContainers](https://biocontainers.pro), and [Agora](https://github.com/broadinstitute/agora) for the purposes of exchange, indexing, and searching.
+This is the home of the schema for the GA4GH Tool Registry API. The GA4GH Tool Registry API is a standard for listing and describing available tools (both stand-alone, containerized tools as well as workflows in CWL, WDL, Nextflow, Galaxy or Snakemake) in a given registry. This defines a minimal, common API describing tools that we propose for support by multiple tool/workflow registries like [Dockstore](https://www.dockstore.org/), [BioContainers](https://biocontainers.pro), and [Agora](https://github.com/broadinstitute/agora) for the purposes of exchange, indexing, and searching.
 
 This repo uses the [HubFlow](https://datasift.github.io/gitflow/) scheme which is closely based on [GitFlow](https://nvie.com/posts/a-successful-git-branching-model/). In practice, this means that the master branch contains the last production release of the schema whereas the develop branch contains the latest development changes which will end up in the next production release. 
 As of February 2022, this means that the 2.0.1 version is described on master whereas the develop branch contains work which will accumulate and evolve into a 2.1 production release.
@@ -37,7 +37,8 @@ Key features of the current API:
 * Interrogate the language versions of these workflows
 * Get specific versions of workflows and tools, potentially with immutable versions with checksums on their files
 * ID: globally unique across systems and also identifies the system that it came from (ex: 123456323@agora.broadinstitute.org )
-
+* Refer to our [data model](https://ga4gh.github.io/tool-registry-service-schemas/DataModel/) for information on how to define TRS URIs if desired
+* provides more structure than a simple un-formatted list of tools but it is also a standard for registries to implement as opposed to a registry implementation itself
 
 Outstanding questions:
 
