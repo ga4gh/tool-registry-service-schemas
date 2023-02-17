@@ -10,7 +10,7 @@
       "name": "GA4GH",
       "description": "A group of web resources proposed as a common standard for tool repositories",
       "externalDocs": {
-        "url": "https://ga4gh.github.io/tool-registry-service-schemas/Introduction/"
+        "url": "https://ga4gh.github.io/tool-registry-service-schemas/"
       }
     }
   ],
