@@ -58,7 +58,7 @@ How to contribute changes
 
 Take cues for now from the [CONTRIBUTING.md](https://github.com/ga4gh/tool-registry-service-schemas/blob/develop/CONTRIBUTING.md) document.
 
-At the very least, create an issue in our [Github tracker](https://github.com/ga4gh/tool-registry-schemas/issues).
+At the very least, create an issue in our [GitHub tracker](https://github.com/ga4gh/tool-registry-schemas/issues).
 
 Even better, fork the codebase, fix the issue, and create a pull request back to the project along with your ticket.
 
