@@ -9,11 +9,11 @@ GIT_REPO="https://github.com/ga4gh/tool-registry-service-schemas.git"
 function createLinks {
   SWAGGER_FILE="preview/$1/docs/web_deploy/swagger.json"
   if test -f "$SWAGGER_FILE"; then
-    echo "[openapi swagger-ui](swagger-ui?url=../$SWAGGER_FILE)"
+    echo "[swagger swagger-ui](swagger-ui?url=../$SWAGGER_FILE)"
   fi  
   OPENAPI_FILE="preview/$1/openapi.yaml"
   if test -f "$OPENAPI_FILE"; then
-    echo "[swagger swagger-ui](swagger-ui?url=../$OPENAPI_FILE)"
+    echo "[openapi swagger-ui](swagger-ui?url=../$OPENAPI_FILE)"
   fi
   HTML_FILE="preview/$1/docs/html5/index.html"
   if test -f "$HTML_FILE"; then
