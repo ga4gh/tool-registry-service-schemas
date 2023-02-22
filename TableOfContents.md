@@ -74,3 +74,7 @@ master:
 release-2.0.1: 
 [openapi swagger-ui](swagger-ui?url=../preview/release-2.0.1/openapi.yaml)
 [ReDoc](preview/release-2.0.1/docs/index.html)
+
+small_comment_round_up: 
+[openapi swagger-ui](swagger-ui?url=../preview/small_comment_round_up/openapi.yaml)
+[ReDoc](preview/small_comment_round_up/docs/index.html)
