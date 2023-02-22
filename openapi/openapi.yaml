@@ -656,6 +656,9 @@ components:
           description: Reports if this tool has a containerfile available. (For
             Docker-based tools, this would indicate the presence of a
             Dockerfile)
+        description:
+          type: string
+          description: The description of the tool version. This allows for documentation of a specific tool version as a tool evolves over time.
         meta_version:
           type: string
           description: The version of this tool version in the registry. Iterates when
