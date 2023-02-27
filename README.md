@@ -31,13 +31,13 @@ Our current iteration focuses on a read-only API due to potentially different vi
 
 Key features of the current API:
 
-* read-only API
+* Read-only API
 * Serve tool and workflow resources via specifically designed schemas that encourage rich metadata annotation and help enable software [FAIRification](https://doi.org/10.1038/s41597-022-01710-x)
 * Download individual workflow descriptor files or an archive of all workflow and accessory files (e.g., test files)
 * Allow integrators to interrogate the language versions of these workflows (e.g. CWL 1.1, CWL 1.2 or Nextflow DSL2) to identify compatible workflows
 * Get specific versions of workflows and tools, potentially with immutable versions with checksums on their files
 * Assign globally unique [TRS URIs](https://ga4gh.github.io/tool-registry-service-schemas/DataModel/) to specific versions of tool and workflow resources
-* Provides more structure than a simple un-formatted list of tools but it is also a standard for registries to implement as opposed to a registry implementation itself
+* Provides more structure than a simple unformatted list of tools but it is also a standard for registries to implement as opposed to a registry implementation itself
 
 Open questions:
 ---------------
