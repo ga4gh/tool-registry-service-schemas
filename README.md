@@ -2,6 +2,8 @@
 
 [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.1193735.svg)](https://doi.org/10.5281/zenodo.1193735)
 
+![release_badge](https://img.shields.io/github/v/tag/ga4gh/tool-registry-service-schemas)
+
 
 Schemas for the GA4GH Tool Registry API
 =======================================
