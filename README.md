@@ -1,51 +1,54 @@
 ![ga4gh logo](https://raw.githubusercontent.com/dockstore/dockstore-ui2/2.7.4/images/high-res/ga4gh.png)
 
-[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.3374001.svg)](https://doi.org/10.5281/zenodo.3374001)
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.1193735.svg)](https://doi.org/10.5281/zenodo.1193735)
+
+![release_badge](https://img.shields.io/github/v/tag/ga4gh/tool-registry-service-schemas)
 
 
 Schemas for the GA4GH Tool Registry API
 =======================================
 
-This repository is the home for the schema for the GA4GH Tool Registry API.  The goal of the API is to provide a standardized way to describe the availability of tools and workflows.  In this way, we can have multiple repositories that share Docker-based tools and WDL/CWL/Nextflow/Galaxy/Snakemake-based workflows and have a consistent way to interact, search, and retrieve information from these various registries.  The end goal is to make it much easier to share scientific tools and workflows, enhancing our ability to make research reproducible, sharable, and transparent.
+This repository is the home for the schema for the GA4GH Tool Registry API.  The goal of the API is to provide a standardized way to describe the availability of tools and workflows.  In this way, we can have multiple repositories that share tools and workflows of various types that are described in workflow languages (e.g. WDL, CWL, Nextflow, Galaxy, Snakemake), have their dependencies embedded as containers (e.g. Docker, Singularity) or suitable alternatives (e.g., Conda), and have a consistent way to interact, search, and retrieve information from these various registries.  The end goal is to make it much easier to share scientific tools and workflows, enhancing our ability to make research reproducible, sharable, and transparent.
 
 **See the human-readable [Reference Documentation](https://ga4gh.github.io/tool-registry-service-schemas). You can also explore the specification in the [Swagger Editor](https://editor.swagger.io/?url=https://raw.githubusercontent.com/ga4gh/tool-registry-schemas/develop/openapi/openapi.yaml).**  *Manually load the JSON if working from a non-develop branch version.* Preview documentation from the [gh-openapi-docs](https://github.com/ga4gh/gh-openapi-docs) for the development branch [here](https://ga4gh.github.io/tool-registry-service-schemas/preview/develop/docs/index.html)
 
 The [Global Alliance for Genomics and Health](http://genomicsandhealth.org/) (GA4GH) is an international
 coalition, formed to enable the sharing of genomic and clinical data.
 
-The GA4GH [Data Working Group](http://ga4gh.org/#/) concentrates on data representation, storage,
-and analysis, including working with platform development partners and
-industry leaders to develop standards that will facilitate
-interoperability.
-
-Containers and Workflows Task Team
+Cloud Work Stream
 ----------------------------------
 
-The Containers & Workflows working group is an informal, multi-vendor working group born out of the BOSC 2014 codefest, consisting of various organizations and individuals that have an interest in portability of data analysis workflows. Our goal is to create specifications that enable data scientists to describe analysis tools and workflows that are powerful, easy to use, portable, and support reproducibility for a variety of problem areas including data-intensive science like bioinformatics, physics, and astronomy; and business analytics such as log analysis, data mining, and ETL.
+The Cloud Work Stream is focused on creating specific standards for defining, sharing, and executing portable workflows and self-contained tasks, and accessing data across clouds.
+We work with many different Driver Projects to develop, enhance, test, and use the Cloud Work Stream APIs.
 
 What is the Tool Registry API Schema?
 -------------------------------------
 
-This is the home of the schema for the GA4GH Tool Registry API. The GA4GH Tool Registry API is a standard for listing and describing available tools (both stand-alone, Docker-based tools as well as workflows in CWL, WDL, Nextflow, Galaxy or Snakemake) in a given registry. This defines a minimal, common API describing tools that we propose for support by multiple tool/workflow registries like [Dockstore](https://www.dockstore.org/), [BioContainers](https://biocontainers.pro), and [Agora](https://github.com/broadinstitute/agora) for the purposes of exchange, indexing, and searching.
+This is the home of the schema for the GA4GH Tool Registry API. The GA4GH Tool Registry API is a standard for listing and describing available tools (both stand-alone, self-contained tools and workflows in CWL, WDL, Nextflow, Galaxy or Snakemake) in a given registry. This defines a minimal, common API describing tools that we propose for support by multiple tool/workflow registries like [Dockstore](https://www.dockstore.org/), [BioContainers](https://biocontainers.pro), and [Agora](https://github.com/broadinstitute/agora) for the purposes of exchange, indexing, and searching.
 
 This repo uses the [HubFlow](https://datasift.github.io/gitflow/) scheme which is closely based on [GitFlow](https://nvie.com/posts/a-successful-git-branching-model/). In practice, this means that the master branch contains the last production release of the schema whereas the develop branch contains the latest development changes which will end up in the next production release. 
-As of July 2019, this means that the 1.0.0 version is described on master whereas the develop branch contains the 2.0.0-beta.3 version which will evolve into the 2.0.0 production release.
+As of February 2022,  the master branch contains the last production release (currently ![release_badge](https://img.shields.io/github/v/tag/ga4gh/tool-registry-service-schemas))) whereas the develop branch contains work which will accumulate and evolve into a 2.1 production release.
 
-Our current proposal is to start with a read-only API due to potentially different views and approaches to registration/security.
+Our current iteration focuses on a read-only API due to potentially different views and approaches to registration/security.
 
-Key features of the current API proposal:
+Key features of the current API:
 
-* read-only API
-* May serve up CWL, WDL, Nextflow, Galaxy or Snakemake to describe a tool or represent a workflow 
-  depending on the tool/workflow submitter
-* ID:  globally unique across systems and also identifies the system that it came from (ex: 123456323@agora.broadinstitute.org )
+* Read-only API
+* Serve tool and workflow resources via specifically designed schemas that encourage rich metadata annotation and help enable software [FAIRification](https://doi.org/10.1038/s41597-022-01710-x)
+* Download individual workflow descriptor files or an archive of all workflow and accessory files (e.g., test files)
+* Allow integrators to interrogate the language versions of these workflows (e.g. CWL 1.1, CWL 1.2 or Nextflow DSL2) to identify compatible workflows
+* Get specific versions of workflows and tools, potentially with immutable versions with checksums on their files
+* Assign globally unique [TRS URIs](https://ga4gh.github.io/tool-registry-service-schemas/DataModel/) to specific versions of tool and workflow resources
+* Provides more structure than a simple unformatted list of tools but it is also a standard for registries to implement as opposed to a registry implementation itself
 
+Open questions:
+---------------
 
-Outstanding questions:
+Questions TRS currently does not (comprehensively) address include the following:
 
 * How do we track authorship? Should we track authorship of the tool metadata, the Docker image, or the underlying algorithm, or all of above?
-* How to describe indexing and external services like an external [sparql](https://github.com/common-workflow-language/workflows#sparql) service.
-* Terminology discussion (do we describe triples separately from tools? should we describe them as aggregations of tools for just the case that documents have more than one tool? etc.)
+* How to describe indexing and external services like an external [SPARQL](https://github.com/common-workflow-language/workflows#sparql) service?
+* How to better interoperate with the GA4GH [Workflow Execution Service (WES)](https://github.com/ga4gh/workflow-execution-service-schemas) and [Task Execution Service (TES)](https://github.com/ga4gh/task-execution-schemas/) APIs for triggering workflow and tool runs
 
 
 How to view
@@ -59,7 +62,7 @@ How to contribute changes
 
 Take cues for now from the [CONTRIBUTING.md](https://github.com/ga4gh/tool-registry-service-schemas/blob/develop/CONTRIBUTING.md) document.
 
-At the very least, create an issue in our [Github tracker](https://github.com/ga4gh/tool-registry-schemas/issues).
+At the very least, create an issue in our [GitHub tracker](https://github.com/ga4gh/tool-registry-schemas/issues).
 
 Even better, fork the codebase, fix the issue, and create a pull request back to the project along with your ticket.
 
@@ -86,7 +89,11 @@ See the [LICENSE](LICENSE)
 For more information
 --------------------
 
-* http://genomicsandhealth.org/
-* [LICENSE](LICENSE)
-* [Google Groups - old](https://groups.google.com/forum/#!forum/ga4gh-dwg-containers-workflows)
-* [Google Groups - new](https://groups.google.com/a/genomicsandhealth.org/forum/#!forum/ga4gh-dwg-containers-workflows)
+* [GA4GH Cloud Work Stream](https://github.com/ga4gh/wiki/wiki) - the wiki and meeting notes for the workstream
+* APIs that we co-ordinate/meet with
+  * [DRS](https://github.com/ga4gh/wiki/wiki/Data-Repository-Service)
+  * [TES](https://github.com/ga4gh/wiki/wiki/Task-Execution-Service)
+  * [WES](https://github.com/ga4gh/wiki/wiki/Workflow-Execution-Service)
+* [Global Alliance for Genomics and Health](https://www.ga4gh.org/) - GA4GH's main page
+* [GA4GH Technical Alignment Sub Committee (TASC)](https://github.com/ga4gh/TASC) - we try to co-ordinate GA4GH API decisions here
+* [GA4GH Slack](https://ga4gh.slack.com/) - although you may need an invitation from a GA4GH administrator if your email domain name has not been allow-listed, see [https://github.com/ga4gh/TASC/issues/44](https://github.com/ga4gh/TASC/issues/44)
