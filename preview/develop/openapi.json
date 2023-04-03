@@ -3,14 +3,14 @@
   "info": {
     "title": "GA4GH Tool Discovery API",
     "description": "Proposed API for GA4GH (Global Alliance for Genomics & Health) tool repositories. A tool consists of a set of container images that are paired with a set of documents. Examples of documents include CWL (Common Workflow Language), WDL (Workflow Description Language), NFL (Nextflow), GXFORMAT2 (Galaxy) or SMK (Snakemake) that describe how to use those images and a set of specifications for those images (examples are Dockerfiles or Singularity recipes) that describe how to reproduce those images in the future. We use the following terminology, a \"container image\" describes a container as stored at rest on a filesystem, a \"tool\" describes one of the triples as described above. In practice, examples of \"tools\" include CWL CommandLineTools, CWL Workflows, WDL workflows, and Nextflow workflows that reference containers in formats such as Docker or Singularity.",
-    "version": "2.0.1"
+    "version": "2.1.0"
   },
   "tags": [
     {
       "name": "GA4GH",
       "description": "A group of web resources proposed as a common standard for tool repositories",
       "externalDocs": {
-        "url": "https://ga4gh.github.io/tool-registry-service-schemas/Introduction/"
+        "url": "https://ga4gh.github.io/tool-registry-service-schemas/"
       }
     }
   ],
@@ -56,11 +56,6 @@
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/Tool"
-                }
-              },
-              "text/plain": {
-                "schema": {
-                  "type": "string"
                 }
               }
             }

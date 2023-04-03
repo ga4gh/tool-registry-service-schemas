@@ -14,14 +14,14 @@ info:
     described above. In practice, examples of "tools" include CWL
     CommandLineTools, CWL Workflows, WDL workflows, and Nextflow workflows that
     reference containers in formats such as Docker or Singularity.
-  version: 2.0.1
+  version: 2.1.0
 tags:
   - name: GA4GH
     description: >-
       A group of web resources proposed as a common standard for tool
       repositories
     externalDocs:
-      url: 'https://ga4gh.github.io/tool-registry-service-schemas/Introduction/'
+      url: 'https://ga4gh.github.io/tool-registry-service-schemas/'
 paths:
   /service-info:
     get:
@@ -58,9 +58,6 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Tool'
-            text/plain:
-              schema:
-                type: string
         '404':
           description: The tool can not be found.
           content:
