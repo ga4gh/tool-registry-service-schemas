@@ -147,6 +147,15 @@ paths:
           description: Filter tools by the name of the descriptor type
           schema:
             $ref: '#/components/schemas/DescriptorType'
+        - name: tags
+          in: query
+          description: Filter tools by registry specific tags
+          schema:
+            type: array
+            items:
+              type: string
+            minItems: 1
+          explode: false
         - name: registry
           in: query
           description: The image registry that contains the image.
@@ -701,6 +710,11 @@ components:
             Reports if this tool has a containerfile available. (For
             Docker-based tools, this would indicate the presence of a
             Dockerfile)
+        description:
+          type: string
+          description: >-
+            The description of the tool version. This allows for documentation
+            of a specific tool version as a tool evolves over time.
         meta_version:
           type: string
           description: >-
