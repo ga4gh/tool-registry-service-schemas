@@ -2,6 +2,7 @@
 
 [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.1193735.svg)](https://doi.org/10.5281/zenodo.1193735)
 
+
 ![release_badge](https://img.shields.io/github/v/tag/ga4gh/tool-registry-service-schemas)
 
 
@@ -19,6 +20,7 @@ Cloud Work Stream
 ----------------------------------
 
 The Cloud Work Stream is focused on creating specific standards for defining, sharing, and executing portable workflows and self-contained tasks, and accessing data across clouds.
+
 We work with many different Driver Projects to develop, enhance, test, and use the Cloud Work Stream APIs.
 
 What is the Tool Registry API Schema?

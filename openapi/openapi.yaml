@@ -128,6 +128,15 @@ paths:
           description: Filter tools by the name of the descriptor type
           schema:
             $ref: '#/components/schemas/DescriptorType'
+        - name: tags
+          in: query
+          description: Filter tools by registry specific tags
+          schema:
+            type: array
+            items:
+              type: string
+            minItems: 1
+          explode: false
         - name: registry
           in: query
           description: The image registry that contains the image.
@@ -629,7 +638,7 @@ components:
         descriptor_type_version:
           type: object
           description: A map providing information about the language versions used in this tool. The keys should be the
-            same values used in the `descriptor_type` field, and the value should be an array of all the language versions used 
+            same values used in the `descriptor_type` field, and the value should be an array of all the language versions used
             for the given `descriptor_type`. Depending on the `descriptor_type` (e.g. CWL) multiple version values may be used
             in a single tool.
           example: |
@@ -647,6 +656,9 @@ components:
           description: Reports if this tool has a containerfile available. (For
             Docker-based tools, this would indicate the presence of a
             Dockerfile)
+        description:
+          type: string
+          description: The description of the tool version. This allows for documentation of a specific tool version as a tool evolves over time.
         meta_version:
           type: string
           description: The version of this tool version in the registry. Iterates when
@@ -726,7 +738,7 @@ components:
         - WDL
         - NFL
         - GALAXY
-        - SMK        
+        - SMK
     DescriptorTypeVersion:
       type: string
       description: The language version for a given descriptor type. The version should correspond
