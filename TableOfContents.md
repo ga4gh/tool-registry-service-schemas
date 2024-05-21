@@ -56,11 +56,19 @@ v2.0.1:
 
 #### Other branches:
 
+dependabot/npm_and_yarn/debug-3.2.7: 
+
 dependabot/npm_and_yarn/json5-1.0.2: 
 
 dependabot/npm_and_yarn/loader-utils-1.4.2: 
 
 dependabot/npm_and_yarn/minimatch-3.1.2: 
+
+dependabot/npm_and_yarn/semver-5.7.2: 
+
+fix-files-zip-response-schema: 
+[openapi swagger-ui](swagger-ui?url=../preview/fix-files-zip-response-schema/openapi.yaml)
+[ReDoc](preview/fix-files-zip-response-schema/docs/index.html)
 
 master: 
 [swagger swagger-ui](swagger-ui?url=../preview/master/docs/web_deploy/swagger.json)
