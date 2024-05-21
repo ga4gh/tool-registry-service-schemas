@@ -82,3 +82,7 @@ master:
 release-2.0.1: 
 [openapi swagger-ui](swagger-ui?url=../preview/release-2.0.1/openapi.yaml)
 [ReDoc](preview/release-2.0.1/docs/index.html)
+
+upgrade_gh_actions: 
+[openapi swagger-ui](swagger-ui?url=../preview/upgrade_gh_actions/openapi.yaml)
+[ReDoc](preview/upgrade_gh_actions/docs/index.html)
