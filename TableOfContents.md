@@ -56,6 +56,10 @@ v2.0.1:
 
 #### Other branches:
 
+broken_link: 
+[openapi swagger-ui](swagger-ui?url=../preview/broken_link/openapi.yaml)
+[ReDoc](preview/broken_link/docs/index.html)
+
 dependabot/npm_and_yarn/debug-3.2.7: 
 
 dependabot/npm_and_yarn/json5-1.0.2: 
