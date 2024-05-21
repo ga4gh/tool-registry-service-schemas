@@ -555,10 +555,8 @@
               },
               "application/zip": {
                 "schema": {
-                  "type": "array",
-                  "items": {
-                    "$ref": "#/components/schemas/ToolFile"
-                  }
+                  "type": "string",
+                  "format": "binary"
                 }
               }
             }

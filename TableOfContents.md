@@ -56,10 +56,6 @@ v2.0.1:
 
 #### Other branches:
 
-broken_link: 
-[openapi swagger-ui](swagger-ui?url=../preview/broken_link/openapi.yaml)
-[ReDoc](preview/broken_link/docs/index.html)
-
 dependabot/npm_and_yarn/debug-3.2.7: 
 
 dependabot/npm_and_yarn/json5-1.0.2: 
@@ -82,7 +78,3 @@ master:
 release-2.0.1: 
 [openapi swagger-ui](swagger-ui?url=../preview/release-2.0.1/openapi.yaml)
 [ReDoc](preview/release-2.0.1/docs/index.html)
-
-upgrade_gh_actions: 
-[openapi swagger-ui](swagger-ui?url=../preview/upgrade_gh_actions/openapi.yaml)
-[ReDoc](preview/upgrade_gh_actions/docs/index.html)

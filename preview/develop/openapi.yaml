@@ -384,9 +384,8 @@ paths:
                   $ref: '#/components/schemas/ToolFile'
             application/zip:
               schema:
-                type: array
-                items:
-                  $ref: '#/components/schemas/ToolFile'
+                type: string
+                format: binary
         '404':
           description: The tool can not be output in the specified type.
           content:
