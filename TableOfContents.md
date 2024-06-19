@@ -66,6 +66,10 @@ dependabot/npm_and_yarn/minimatch-3.1.2:
 
 dependabot/npm_and_yarn/semver-5.7.2: 
 
+feature/allow_dependabot_builds: 
+[openapi swagger-ui](swagger-ui?url=../preview/feature/allow_dependabot_builds/openapi.yaml)
+[ReDoc](preview/feature/allow_dependabot_builds/docs/index.html)
+
 fix-files-zip-response-schema: 
 [openapi swagger-ui](swagger-ui?url=../preview/fix-files-zip-response-schema/openapi.yaml)
 [ReDoc](preview/fix-files-zip-response-schema/docs/index.html)
