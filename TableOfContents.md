@@ -57,6 +57,8 @@ v2.0.1:
 #### Other branches:
 
 dependabot/npm_and_yarn/babel/traverse-7.24.7: 
+[openapi swagger-ui](swagger-ui?url=../preview/dependabot/npm_and_yarn/babel/traverse-7.24.7/openapi.yaml)
+[ReDoc](preview/dependabot/npm_and_yarn/babel/traverse-7.24.7/docs/index.html)
 
 dependabot/npm_and_yarn/braces-3.0.3: 
 [openapi swagger-ui](swagger-ui?url=../preview/dependabot/npm_and_yarn/braces-3.0.3/openapi.yaml)
