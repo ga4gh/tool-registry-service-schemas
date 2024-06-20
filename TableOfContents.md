@@ -56,6 +56,14 @@ v2.0.1:
 
 #### Other branches:
 
+dependabot/npm_and_yarn/babel/traverse-7.24.7: 
+
+dependabot/npm_and_yarn/braces-3.0.3: 
+
+dependabot/npm_and_yarn/browserify-sign-4.2.3: 
+[openapi swagger-ui](swagger-ui?url=../preview/dependabot/npm_and_yarn/browserify-sign-4.2.3/openapi.yaml)
+[ReDoc](preview/dependabot/npm_and_yarn/browserify-sign-4.2.3/docs/index.html)
+
 dependabot/npm_and_yarn/debug-3.2.7: 
 
 dependabot/npm_and_yarn/json5-1.0.2: 
@@ -65,10 +73,6 @@ dependabot/npm_and_yarn/loader-utils-1.4.2:
 dependabot/npm_and_yarn/minimatch-3.1.2: 
 
 dependabot/npm_and_yarn/semver-5.7.2: 
-
-feature/allow_dependabot_builds: 
-[openapi swagger-ui](swagger-ui?url=../preview/feature/allow_dependabot_builds/openapi.yaml)
-[ReDoc](preview/feature/allow_dependabot_builds/docs/index.html)
 
 fix-files-zip-response-schema: 
 [openapi swagger-ui](swagger-ui?url=../preview/fix-files-zip-response-schema/openapi.yaml)
