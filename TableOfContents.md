@@ -56,10 +56,6 @@ v2.0.1:
 
 #### Other branches:
 
-dependabot/npm_and_yarn/babel/traverse-7.24.7: 
-[openapi swagger-ui](swagger-ui?url=../preview/dependabot/npm_and_yarn/babel/traverse-7.24.7/openapi.yaml)
-[ReDoc](preview/dependabot/npm_and_yarn/babel/traverse-7.24.7/docs/index.html)
-
 dependabot/npm_and_yarn/braces-3.0.3: 
 [openapi swagger-ui](swagger-ui?url=../preview/dependabot/npm_and_yarn/braces-3.0.3/openapi.yaml)
 [ReDoc](preview/dependabot/npm_and_yarn/braces-3.0.3/docs/index.html)
@@ -72,25 +68,9 @@ dependabot/npm_and_yarn/debug-3.2.7:
 [openapi swagger-ui](swagger-ui?url=../preview/dependabot/npm_and_yarn/debug-3.2.7/openapi.yaml)
 [ReDoc](preview/dependabot/npm_and_yarn/debug-3.2.7/docs/index.html)
 
-dependabot/npm_and_yarn/json5-1.0.2: 
-[openapi swagger-ui](swagger-ui?url=../preview/dependabot/npm_and_yarn/json5-1.0.2/openapi.yaml)
-[ReDoc](preview/dependabot/npm_and_yarn/json5-1.0.2/docs/index.html)
-
-dependabot/npm_and_yarn/loader-utils-1.4.2: 
-[openapi swagger-ui](swagger-ui?url=../preview/dependabot/npm_and_yarn/loader-utils-1.4.2/openapi.yaml)
-[ReDoc](preview/dependabot/npm_and_yarn/loader-utils-1.4.2/docs/index.html)
-
-dependabot/npm_and_yarn/minimatch-3.1.2: 
-[openapi swagger-ui](swagger-ui?url=../preview/dependabot/npm_and_yarn/minimatch-3.1.2/openapi.yaml)
-[ReDoc](preview/dependabot/npm_and_yarn/minimatch-3.1.2/docs/index.html)
-
-dependabot/npm_and_yarn/semver-5.7.2: 
-[openapi swagger-ui](swagger-ui?url=../preview/dependabot/npm_and_yarn/semver-5.7.2/openapi.yaml)
-[ReDoc](preview/dependabot/npm_and_yarn/semver-5.7.2/docs/index.html)
-
-dependabot/npm_and_yarn/ws-7.5.10: 
-[openapi swagger-ui](swagger-ui?url=../preview/dependabot/npm_and_yarn/ws-7.5.10/openapi.yaml)
-[ReDoc](preview/dependabot/npm_and_yarn/ws-7.5.10/docs/index.html)
+dependabot/npm_and_yarn/redocly/openapi-cli-1.0.0-beta.95: 
+[openapi swagger-ui](swagger-ui?url=../preview/dependabot/npm_and_yarn/redocly/openapi-cli-1.0.0-beta.95/openapi.yaml)
+[ReDoc](preview/dependabot/npm_and_yarn/redocly/openapi-cli-1.0.0-beta.95/docs/index.html)
 
 fix-files-zip-response-schema: 
 [openapi swagger-ui](swagger-ui?url=../preview/fix-files-zip-response-schema/openapi.yaml)
