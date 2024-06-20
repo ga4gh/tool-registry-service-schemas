@@ -71,6 +71,8 @@ dependabot/npm_and_yarn/debug-3.2.7:
 [ReDoc](preview/dependabot/npm_and_yarn/debug-3.2.7/docs/index.html)
 
 dependabot/npm_and_yarn/json5-1.0.2: 
+[openapi swagger-ui](swagger-ui?url=../preview/dependabot/npm_and_yarn/json5-1.0.2/openapi.yaml)
+[ReDoc](preview/dependabot/npm_and_yarn/json5-1.0.2/docs/index.html)
 
 dependabot/npm_and_yarn/loader-utils-1.4.2: 
 [openapi swagger-ui](swagger-ui?url=../preview/dependabot/npm_and_yarn/loader-utils-1.4.2/openapi.yaml)
