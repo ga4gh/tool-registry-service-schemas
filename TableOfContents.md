@@ -65,6 +65,8 @@ dependabot/npm_and_yarn/browserify-sign-4.2.3:
 [ReDoc](preview/dependabot/npm_and_yarn/browserify-sign-4.2.3/docs/index.html)
 
 dependabot/npm_and_yarn/debug-3.2.7: 
+[openapi swagger-ui](swagger-ui?url=../preview/dependabot/npm_and_yarn/debug-3.2.7/openapi.yaml)
+[ReDoc](preview/dependabot/npm_and_yarn/debug-3.2.7/docs/index.html)
 
 dependabot/npm_and_yarn/json5-1.0.2: 
 
