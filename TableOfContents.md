@@ -77,6 +77,8 @@ dependabot/npm_and_yarn/loader-utils-1.4.2:
 [ReDoc](preview/dependabot/npm_and_yarn/loader-utils-1.4.2/docs/index.html)
 
 dependabot/npm_and_yarn/minimatch-3.1.2: 
+[openapi swagger-ui](swagger-ui?url=../preview/dependabot/npm_and_yarn/minimatch-3.1.2/openapi.yaml)
+[ReDoc](preview/dependabot/npm_and_yarn/minimatch-3.1.2/docs/index.html)
 
 dependabot/npm_and_yarn/semver-5.7.2: 
 
