@@ -56,21 +56,9 @@ v2.0.1:
 
 #### Other branches:
 
-dependabot/npm_and_yarn/braces-3.0.3: 
-[openapi swagger-ui](swagger-ui?url=../preview/dependabot/npm_and_yarn/braces-3.0.3/openapi.yaml)
-[ReDoc](preview/dependabot/npm_and_yarn/braces-3.0.3/docs/index.html)
-
-dependabot/npm_and_yarn/browserify-sign-4.2.3: 
-[openapi swagger-ui](swagger-ui?url=../preview/dependabot/npm_and_yarn/browserify-sign-4.2.3/openapi.yaml)
-[ReDoc](preview/dependabot/npm_and_yarn/browserify-sign-4.2.3/docs/index.html)
-
-dependabot/npm_and_yarn/debug-3.2.7: 
-[openapi swagger-ui](swagger-ui?url=../preview/dependabot/npm_and_yarn/debug-3.2.7/openapi.yaml)
-[ReDoc](preview/dependabot/npm_and_yarn/debug-3.2.7/docs/index.html)
-
-dependabot/npm_and_yarn/redocly/openapi-cli-1.0.0-beta.95: 
-[openapi swagger-ui](swagger-ui?url=../preview/dependabot/npm_and_yarn/redocly/openapi-cli-1.0.0-beta.95/openapi.yaml)
-[ReDoc](preview/dependabot/npm_and_yarn/redocly/openapi-cli-1.0.0-beta.95/docs/index.html)
+dependabot/npm_and_yarn/multi-ede31ed50d: 
+[openapi swagger-ui](swagger-ui?url=../preview/dependabot/npm_and_yarn/multi-ede31ed50d/openapi.yaml)
+[ReDoc](preview/dependabot/npm_and_yarn/multi-ede31ed50d/docs/index.html)
 
 fix-files-zip-response-schema: 
 [openapi swagger-ui](swagger-ui?url=../preview/fix-files-zip-response-schema/openapi.yaml)
