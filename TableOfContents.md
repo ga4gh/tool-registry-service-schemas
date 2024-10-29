@@ -56,9 +56,9 @@ v2.0.1:
 
 #### Other branches:
 
-dependabot/npm_and_yarn/multi-ede31ed50d: 
-[openapi swagger-ui](swagger-ui?url=../preview/dependabot/npm_and_yarn/multi-ede31ed50d/openapi.yaml)
-[ReDoc](preview/dependabot/npm_and_yarn/multi-ede31ed50d/docs/index.html)
+dependabot/npm_and_yarn/multi-11335aa023: 
+[openapi swagger-ui](swagger-ui?url=../preview/dependabot/npm_and_yarn/multi-11335aa023/openapi.yaml)
+[ReDoc](preview/dependabot/npm_and_yarn/multi-11335aa023/docs/index.html)
 
 fix-files-zip-response-schema: 
 [openapi swagger-ui](swagger-ui?url=../preview/fix-files-zip-response-schema/openapi.yaml)
