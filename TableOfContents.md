@@ -67,6 +67,8 @@ dependabot/npm_and_yarn/minimist-1.2.6:
 dependabot/npm_and_yarn/multi-eae40b5552: 
 
 dependabot/npm_and_yarn/pbkdf2-3.1.3: 
+[openapi swagger-ui](swagger-ui?url=../preview/dependabot/npm_and_yarn/pbkdf2-3.1.3/openapi.yaml)
+[ReDoc](preview/dependabot/npm_and_yarn/pbkdf2-3.1.3/docs/index.html)
 
 fix-files-zip-response-schema: 
 [openapi swagger-ui](swagger-ui?url=../preview/fix-files-zip-response-schema/openapi.yaml)
