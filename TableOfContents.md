@@ -63,6 +63,8 @@ dependabot/npm_and_yarn/minimist-1.2.6:
 [ReDoc](preview/dependabot/npm_and_yarn/minimist-1.2.6/docs/index.html)
 
 dependabot/npm_and_yarn/multi-eae40b5552: 
+[openapi swagger-ui](swagger-ui?url=../preview/dependabot/npm_and_yarn/multi-eae40b5552/openapi.yaml)
+[ReDoc](preview/dependabot/npm_and_yarn/multi-eae40b5552/docs/index.html)
 
 dependabot/npm_and_yarn/pbkdf2-3.1.3: 
 
