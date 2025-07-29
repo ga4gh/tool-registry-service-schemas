@@ -60,6 +60,10 @@ dependabot/npm_and_yarn/form-data-2.5.5:
 
 dependabot/npm_and_yarn/pbkdf2-3.1.3: 
 
+feature/fix_builds: 
+[openapi swagger-ui](swagger-ui?url=../preview/feature/fix_builds/openapi.yaml)
+[ReDoc](preview/feature/fix_builds/docs/index.html)
+
 feature/fix_npm: 
 [openapi swagger-ui](swagger-ui?url=../preview/feature/fix_npm/openapi.yaml)
 [ReDoc](preview/feature/fix_npm/docs/index.html)
