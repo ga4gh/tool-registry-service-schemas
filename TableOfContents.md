@@ -56,19 +56,9 @@ v2.0.1:
 
 #### Other branches:
 
-dependabot/npm_and_yarn/form-data-2.5.5: 
-[openapi swagger-ui](swagger-ui?url=../preview/dependabot/npm_and_yarn/form-data-2.5.5/openapi.yaml)
-[ReDoc](preview/dependabot/npm_and_yarn/form-data-2.5.5/docs/index.html)
-
-dependabot/npm_and_yarn/minimist-1.2.6: 
-[openapi swagger-ui](swagger-ui?url=../preview/dependabot/npm_and_yarn/minimist-1.2.6/openapi.yaml)
-[ReDoc](preview/dependabot/npm_and_yarn/minimist-1.2.6/docs/index.html)
-
-dependabot/npm_and_yarn/multi-eae40b5552: 
-
-dependabot/npm_and_yarn/pbkdf2-3.1.3: 
-[openapi swagger-ui](swagger-ui?url=../preview/dependabot/npm_and_yarn/pbkdf2-3.1.3/openapi.yaml)
-[ReDoc](preview/dependabot/npm_and_yarn/pbkdf2-3.1.3/docs/index.html)
+feature/2_0_2_readme: 
+[openapi swagger-ui](swagger-ui?url=../preview/feature/2_0_2_readme/openapi.yaml)
+[ReDoc](preview/feature/2_0_2_readme/docs/index.html)
 
 fix-files-zip-response-schema: 
 [openapi swagger-ui](swagger-ui?url=../preview/fix-files-zip-response-schema/openapi.yaml)
@@ -78,7 +68,3 @@ master:
 [swagger swagger-ui](swagger-ui?url=../preview/master/docs/web_deploy/swagger.json)
 [html5](preview/master/docs/html5/index.html)
 [pdf](preview/master/docs/pdf/index.pdf)
-
-release-2.0.1: 
-[openapi swagger-ui](swagger-ui?url=../preview/release-2.0.1/openapi.yaml)
-[ReDoc](preview/release-2.0.1/docs/index.html)
