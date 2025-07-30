@@ -26,17 +26,18 @@ We work with many different Driver Projects to develop, enhance, test, and use t
 What is the Tool Registry API Schema?
 -------------------------------------
 
-This is the home of the schema for the GA4GH Tool Registry API. The GA4GH Tool Registry API is a standard for listing and describing available tools (both stand-alone, self-contained tools and workflows in CWL, WDL, Nextflow, Galaxy or Snakemake) in a given registry. This defines a minimal, common API describing tools that we propose for support by multiple tool/workflow registries like [Dockstore](https://www.dockstore.org/), [BioContainers](https://biocontainers.pro), and [Agora](https://github.com/broadinstitute/agora) for the purposes of exchange, indexing, and searching.
+This is the home of the schema for the GA4GH Tool Registry API. The GA4GH Tool Registry API is a standard for listing and describing available tools (both stand-alone, self-contained tools and workflows in CWL, WDL, Nextflow, Galaxy or Snakemake) in a given registry. This defines a minimal, common API describing tools that we propose for support by multiple tool/workflow registries like [Dockstore](https://www.dockstore.org/), [BioContainers](https://biocontainers.pro), and [Agora](https://github.com/broadinstitute/agora) for the purposes of exchange, indexing, and searching. Our current iteration focuses on a read-only API due to potentially different views and approaches to registration/security.
 
 This repo uses the [HubFlow](https://github.com/dockstore/hubflow) scheme which is closely based on 
 [GitFlow](https://nvie.com/posts/a-successful-git-branching-model/). In practice, this means that 
 the master branch contains the last production release of the schema whereas the develop branch 
 contains the latest development changes which will end up in the next production release. As of 
-February 2022,  the master branch contains the last production release (currently 
+July 2025, the master branch contains the last production release (currently 
 ![release_badge](https://img.shields.io/github/v/tag/ga4gh/tool-registry-service-schemas))) whereas 
-the develop branch contains work which will accumulate and evolve into a 2.1 production release.
+the develop branch contains work which will accumulate and evolve. In addition, TRS has largely reached a stable state where relatively few changes are expected in the near future. TRS is actively used by [Galaxy](https://usegalaxy.org/workflows/trs_search), [WorkflowHub.eu](https://training.galaxyproject.org/training-material/faqs/galaxy/workflows_import_search.html), [Broad Terra](https://support.terra.bio/hc/en-us/articles/360038137292-How-to-import-a-workflow-and-its-parameter-file-from-Dockstore-into-Terra), [DNAstack workbench](https://dnastack.com/workbench/), [Sapporo](https://pmc.ncbi.nlm.nih.gov/articles/PMC11282396/), and more!     
 
-Our current iteration focuses on a read-only API due to potentially different views and approaches to registration/security.
+A future substantial update could add a write-API, metrics submission, or assist with search feederation. 
+
 
 Key features of the current API:
 
