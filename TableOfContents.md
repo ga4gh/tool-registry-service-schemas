@@ -56,9 +56,9 @@ v2.0.1:
 
 #### Other branches:
 
-dependabot/npm_and_yarn/cipher-base-1.0.6: 
-[openapi swagger-ui](swagger-ui?url=../preview/dependabot/npm_and_yarn/cipher-base-1.0.6/openapi.yaml)
-[ReDoc](preview/dependabot/npm_and_yarn/cipher-base-1.0.6/docs/index.html)
+dependabot/npm_and_yarn/sha.js-2.4.12: 
+[openapi swagger-ui](swagger-ui?url=../preview/dependabot/npm_and_yarn/sha.js-2.4.12/openapi.yaml)
+[ReDoc](preview/dependabot/npm_and_yarn/sha.js-2.4.12/docs/index.html)
 
 feature/2_0_2_readme: 
 [openapi swagger-ui](swagger-ui?url=../preview/feature/2_0_2_readme/openapi.yaml)
