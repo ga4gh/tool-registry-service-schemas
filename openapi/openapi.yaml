@@ -13,13 +13,13 @@ info:
     described above. In practice, examples of "tools" include CWL
     CommandLineTools, CWL Workflows, WDL workflows, and Nextflow workflows that
     reference containers in formats such as Docker or Singularity.
-  version: 2.0.1
+  version: 2.1.0
 tags:
   - name: GA4GH
     description: A group of web resources proposed as a common standard for tool
       repositories
     externalDocs:
-      url: https://ga4gh.github.io/tool-registry-service-schemas/Introduction/
+      url: https://ga4gh.github.io/tool-registry-service-schemas/
 paths:
   /service-info:
     $ref: https://raw.githubusercontent.com/ga4gh-discovery/ga4gh-service-info/v1.0.0/service-info.yaml#/paths/~1service-info
@@ -40,9 +40,6 @@ paths:
             application/json:
               schema:
                 $ref: "#/components/schemas/Tool"
-            text/plain:
-              schema:
-                type: string
         "404":
           description: The tool can not be found.
           content:
@@ -131,6 +128,15 @@ paths:
           description: Filter tools by the name of the descriptor type
           schema:
             $ref: '#/components/schemas/DescriptorType'
+        - name: tags
+          in: query
+          description: Filter tools by registry specific tags
+          schema:
+            type: array
+            items:
+              type: string
+            minItems: 1
+          explode: false
         - name: registry
           in: query
           description: The image registry that contains the image.
@@ -351,9 +357,8 @@ paths:
                   $ref: "#/components/schemas/ToolFile"
             application/zip:
               schema:
-                type: array
-                items:
-                  $ref: "#/components/schemas/ToolFile"
+                type: string
+                format: binary
         "404":
           description: The tool can not be output in the specified type.
           content:
@@ -632,12 +637,12 @@ components:
         descriptor_type_version:
           type: object
           description: A map providing information about the language versions used in this tool. The keys should be the
-            same values used in the `descriptor_type` field, and the value should be an array of all the language versions used 
+            same values used in the `descriptor_type` field, and the value should be an array of all the language versions used
             for the given `descriptor_type`. Depending on the `descriptor_type` (e.g. CWL) multiple version values may be used
             in a single tool.
           example: |
             {
-              "WDL": ["1.0", "1.0"],
+              "WDL": ["1.0", "1.1"],
               "CWL": ["v1.0.2"],
               "NFL": ["DSL2"]
             }
@@ -650,6 +655,9 @@ components:
           description: Reports if this tool has a containerfile available. (For
             Docker-based tools, this would indicate the presence of a
             Dockerfile)
+        description:
+          type: string
+          description: The description of the tool version. This allows for documentation of a specific tool version as a tool evolves over time.
         meta_version:
           type: string
           description: The version of this tool version in the registry. Iterates when
@@ -729,7 +737,7 @@ components:
         - WDL
         - NFL
         - GALAXY
-        - SMK        
+        - SMK
     DescriptorTypeVersion:
       type: string
       description: The language version for a given descriptor type. The version should correspond

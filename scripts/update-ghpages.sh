@@ -4,7 +4,7 @@ set -o pipefail
 set -o nounset
 set -o xtrace
 set -u
-BRANCH=$(echo "${GITHUB_REF##*/}" | awk '{print tolower($0)}')
+BRANCH=$(echo "${GITHUB_REF#refs/heads/}" | awk '{print tolower($0)}')
 BRANCH_PATH="preview/$BRANCH"
 mv preview preview2
 git config --replace-all remote.origin.fetch +refs/heads/*:refs/remotes/origin/*
