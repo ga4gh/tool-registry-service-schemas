@@ -52,17 +52,11 @@ title: Table of Contents
 0.1: 
 [swagger swagger-ui](swagger-ui?url=../preview/0.1/docs/web_deploy/swagger.json)
 
+2.0.2: 
+
 v2.0.1: 
 
 #### Other branches:
-
-dependabot/npm_and_yarn/sha.js-2.4.12: 
-[openapi swagger-ui](swagger-ui?url=../preview/dependabot/npm_and_yarn/sha.js-2.4.12/openapi.yaml)
-[ReDoc](preview/dependabot/npm_and_yarn/sha.js-2.4.12/docs/index.html)
-
-feature/2_0_2_readme: 
-[openapi swagger-ui](swagger-ui?url=../preview/feature/2_0_2_readme/openapi.yaml)
-[ReDoc](preview/feature/2_0_2_readme/docs/index.html)
 
 fix-files-zip-response-schema: 
 [openapi swagger-ui](swagger-ui?url=../preview/fix-files-zip-response-schema/openapi.yaml)
