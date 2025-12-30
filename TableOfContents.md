@@ -58,9 +58,9 @@ v2.0.1:
 
 #### Other branches:
 
-fix-files-zip-response-schema: 
-[openapi swagger-ui](swagger-ui?url=../preview/fix-files-zip-response-schema/openapi.yaml)
-[ReDoc](preview/fix-files-zip-response-schema/docs/index.html)
+dependabot/npm_and_yarn/qs-6.14.1: 
+[openapi swagger-ui](swagger-ui?url=../preview/dependabot/npm_and_yarn/qs-6.14.1/openapi.yaml)
+[ReDoc](preview/dependabot/npm_and_yarn/qs-6.14.1/docs/index.html)
 
 master: 
 [swagger swagger-ui](swagger-ui?url=../preview/master/docs/web_deploy/swagger.json)
