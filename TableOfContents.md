@@ -58,6 +58,10 @@ v2.0.1:
 
 #### Other branches:
 
+dependabot/npm_and_yarn/lodash-4.17.23: 
+[openapi swagger-ui](swagger-ui?url=../preview/dependabot/npm_and_yarn/lodash-4.17.23/openapi.yaml)
+[ReDoc](preview/dependabot/npm_and_yarn/lodash-4.17.23/docs/index.html)
+
 dependabot/npm_and_yarn/qs-6.14.1: 
 [openapi swagger-ui](swagger-ui?url=../preview/dependabot/npm_and_yarn/qs-6.14.1/openapi.yaml)
 [ReDoc](preview/dependabot/npm_and_yarn/qs-6.14.1/docs/index.html)
