@@ -62,6 +62,10 @@ dependabot/npm_and_yarn/lodash-4.17.23:
 [openapi swagger-ui](swagger-ui?url=../preview/dependabot/npm_and_yarn/lodash-4.17.23/openapi.yaml)
 [ReDoc](preview/dependabot/npm_and_yarn/lodash-4.17.23/docs/index.html)
 
+dependabot/npm_and_yarn/multi-e2e7e3f815: 
+[openapi swagger-ui](swagger-ui?url=../preview/dependabot/npm_and_yarn/multi-e2e7e3f815/openapi.yaml)
+[ReDoc](preview/dependabot/npm_and_yarn/multi-e2e7e3f815/docs/index.html)
+
 dependabot/npm_and_yarn/qs-6.14.2: 
 [openapi swagger-ui](swagger-ui?url=../preview/dependabot/npm_and_yarn/qs-6.14.2/openapi.yaml)
 [ReDoc](preview/dependabot/npm_and_yarn/qs-6.14.2/docs/index.html)
