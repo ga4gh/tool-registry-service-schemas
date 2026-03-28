@@ -62,6 +62,10 @@ dependabot/npm_and_yarn/brace-expansion-1.1.13:
 [openapi swagger-ui](swagger-ui?url=../preview/dependabot/npm_and_yarn/brace-expansion-1.1.13/openapi.yaml)
 [ReDoc](preview/dependabot/npm_and_yarn/brace-expansion-1.1.13/docs/index.html)
 
+dependabot/npm_and_yarn/handlebars-4.7.9: 
+[openapi swagger-ui](swagger-ui?url=../preview/dependabot/npm_and_yarn/handlebars-4.7.9/openapi.yaml)
+[ReDoc](preview/dependabot/npm_and_yarn/handlebars-4.7.9/docs/index.html)
+
 dependabot/npm_and_yarn/lodash-4.17.23: 
 [openapi swagger-ui](swagger-ui?url=../preview/dependabot/npm_and_yarn/lodash-4.17.23/openapi.yaml)
 [ReDoc](preview/dependabot/npm_and_yarn/lodash-4.17.23/docs/index.html)
