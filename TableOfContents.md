@@ -77,6 +77,8 @@ dependabot/npm_and_yarn/minimatch-3.1.5:
 dependabot/npm_and_yarn/multi-ac76316de5: 
 
 dependabot/npm_and_yarn/qs-6.16.0: 
+[openapi swagger-ui](swagger-ui?url=../preview/dependabot/npm_and_yarn/qs-6.16.0/openapi.yaml)
+[ReDoc](preview/dependabot/npm_and_yarn/qs-6.16.0/docs/index.html)
 
 dependabot/npm_and_yarn/yaml-1.10.3: 
 [openapi swagger-ui](swagger-ui?url=../preview/dependabot/npm_and_yarn/yaml-1.10.3/openapi.yaml)
