@@ -59,6 +59,8 @@ v2.0.1:
 #### Other branches:
 
 dependabot/npm_and_yarn/brace-expansion-1.1.21: 
+[openapi swagger-ui](swagger-ui?url=../preview/dependabot/npm_and_yarn/brace-expansion-1.1.21/openapi.yaml)
+[ReDoc](preview/dependabot/npm_and_yarn/brace-expansion-1.1.21/docs/index.html)
 
 dependabot/npm_and_yarn/handlebars-4.7.9: 
 [openapi swagger-ui](swagger-ui?url=../preview/dependabot/npm_and_yarn/handlebars-4.7.9/openapi.yaml)
@@ -73,8 +75,6 @@ dependabot/npm_and_yarn/minimatch-3.1.5:
 [ReDoc](preview/dependabot/npm_and_yarn/minimatch-3.1.5/docs/index.html)
 
 dependabot/npm_and_yarn/multi-ac76316de5: 
-[openapi swagger-ui](swagger-ui?url=../preview/dependabot/npm_and_yarn/multi-ac76316de5/openapi.yaml)
-[ReDoc](preview/dependabot/npm_and_yarn/multi-ac76316de5/docs/index.html)
 
 dependabot/npm_and_yarn/qs-6.16.0: 
 
