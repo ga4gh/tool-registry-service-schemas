@@ -23,7 +23,7 @@ jobs:
        with:
          node-version: 20.x
      - run: npm i -g markdown-link-check
-     - run: markdown-link-check ./README.md
+     - run: markdown-link-check -c .github/workflows/mlc_config.json ./README.md
    buildPage:
      runs-on: ubuntu-latest
      steps:

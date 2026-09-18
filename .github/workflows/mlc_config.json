@@ -1,0 +1,6 @@
+{
+  "ignorePatterns": [
+    { "pattern": "^https://ga4gh\\.slack\\.com" },
+    { "pattern": "^https://support\\.terra\\.bio" }
+  ]
+}
