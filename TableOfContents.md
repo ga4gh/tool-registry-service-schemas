@@ -58,9 +58,7 @@ v2.0.1:
 
 #### Other branches:
 
-dependabot/npm_and_yarn/brace-expansion-1.1.13: 
-[openapi swagger-ui](swagger-ui?url=../preview/dependabot/npm_and_yarn/brace-expansion-1.1.13/openapi.yaml)
-[ReDoc](preview/dependabot/npm_and_yarn/brace-expansion-1.1.13/docs/index.html)
+dependabot/npm_and_yarn/brace-expansion-1.1.21: 
 
 dependabot/npm_and_yarn/handlebars-4.7.9: 
 [openapi swagger-ui](swagger-ui?url=../preview/dependabot/npm_and_yarn/handlebars-4.7.9/openapi.yaml)
@@ -74,17 +72,15 @@ dependabot/npm_and_yarn/minimatch-3.1.5:
 [openapi swagger-ui](swagger-ui?url=../preview/dependabot/npm_and_yarn/minimatch-3.1.5/openapi.yaml)
 [ReDoc](preview/dependabot/npm_and_yarn/minimatch-3.1.5/docs/index.html)
 
-dependabot/npm_and_yarn/qs-6.14.2: 
-[openapi swagger-ui](swagger-ui?url=../preview/dependabot/npm_and_yarn/qs-6.14.2/openapi.yaml)
-[ReDoc](preview/dependabot/npm_and_yarn/qs-6.14.2/docs/index.html)
+dependabot/npm_and_yarn/multi-ac76316de5: 
+[openapi swagger-ui](swagger-ui?url=../preview/dependabot/npm_and_yarn/multi-ac76316de5/openapi.yaml)
+[ReDoc](preview/dependabot/npm_and_yarn/multi-ac76316de5/docs/index.html)
+
+dependabot/npm_and_yarn/qs-6.16.0: 
 
 dependabot/npm_and_yarn/yaml-1.10.3: 
 [openapi swagger-ui](swagger-ui?url=../preview/dependabot/npm_and_yarn/yaml-1.10.3/openapi.yaml)
 [ReDoc](preview/dependabot/npm_and_yarn/yaml-1.10.3/docs/index.html)
-
-fix/markdown-link-check-ignore-blocked-urls: 
-[openapi swagger-ui](swagger-ui?url=../preview/fix/markdown-link-check-ignore-blocked-urls/openapi.yaml)
-[ReDoc](preview/fix/markdown-link-check-ignore-blocked-urls/docs/index.html)
 
 master: 
 [swagger swagger-ui](swagger-ui?url=../preview/master/docs/web_deploy/swagger.json)
