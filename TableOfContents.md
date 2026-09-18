@@ -82,6 +82,10 @@ dependabot/npm_and_yarn/yaml-1.10.3:
 [openapi swagger-ui](swagger-ui?url=../preview/dependabot/npm_and_yarn/yaml-1.10.3/openapi.yaml)
 [ReDoc](preview/dependabot/npm_and_yarn/yaml-1.10.3/docs/index.html)
 
+fix/markdown-link-check-ignore-blocked-urls: 
+[openapi swagger-ui](swagger-ui?url=../preview/fix/markdown-link-check-ignore-blocked-urls/openapi.yaml)
+[ReDoc](preview/fix/markdown-link-check-ignore-blocked-urls/docs/index.html)
+
 master: 
 [swagger swagger-ui](swagger-ui?url=../preview/master/docs/web_deploy/swagger.json)
 [html5](preview/master/docs/html5/index.html)
