@@ -470,9 +470,8 @@ components:
         type: string
   securitySchemes:
     BEARER:
-      type: apiKey
-      name: Authorization
-      in: header
+      type: http
+      scheme: bearer
   schemas:
     Checksum:
       type: object
