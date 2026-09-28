@@ -33,6 +33,7 @@ paths:
         - GA4GH
       parameters:
         - $ref: "#/components/parameters/id"
+        - $ref: "#/components/parameters/includeVersions"
       responses:
         "200":
           description: A tool.
@@ -52,14 +53,40 @@ paths:
     get:
       summary: List versions of a tool
       operationId: toolsIdVersionsGet
-      description: Returns all versions of the specified tool.
+      description: Returns all versions of the specified tool. Results may be
+        paginated using the offset and limit query parameters.
       tags:
         - GA4GH
       parameters:
         - $ref: "#/components/parameters/id"
+        - $ref: "#/components/parameters/offset"
+        - $ref: "#/components/parameters/limit"
       responses:
         "200":
           description: An array of tool versions.
+          headers:
+            next_page:
+              description: A URL that can be used to reach the next page based on the current
+                offset and page record limit.
+              schema:
+                type: string
+            last_page:
+              description: A URL that can be used to reach the last page based on the current
+                page record limit.
+              schema:
+                type: string
+            self_link:
+              description: A URL that can be used to return to the current page later.
+              schema:
+                type: string
+            current_offset:
+              description: The current start index of the paging used for this result.
+              schema:
+                type: string
+            current_limit:
+              description: The current page record limit used for this result.
+              schema:
+                type: integer
           content:
             application/json:
               schema:
@@ -173,6 +200,7 @@ paths:
           description: Return only checker workflows.
           schema:
             type: boolean
+        - $ref: "#/components/parameters/includeVersions"
         - $ref: "#/components/parameters/offset"
         - $ref: "#/components/parameters/limit"
       responses:
@@ -468,6 +496,18 @@ components:
         results.
       schema:
         type: string
+    includeVersions:
+      name: includeVersions
+      in: query
+      description: >-
+        Support for this parameter is optional for tool registries.
+
+        If false, the `versions` array of each returned tool will be empty. Use
+        `/tools/{id}/versions` to retrieve the versions of a tool. If not
+        specified in the request, versions are included.
+      schema:
+        type: boolean
+        default: true
   securitySchemes:
     BEARER:
       type: http
@@ -585,7 +625,10 @@ components:
           description: Optional url to the checker tool that will exit successfully if
             this tool produced the expected result given test data.
         versions:
-          description: A list of versions for this tool.
+          description: A list of versions for this tool. For tools with many
+            versions, registries may return only a subset of versions here. Use
+            `/tools/{id}/versions` to retrieve the complete, paginated list of
+            versions.
           type: array
           items:
             $ref: "#/components/schemas/ToolVersion"
