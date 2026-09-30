@@ -58,6 +58,10 @@ v2.0.1:
 
 #### Other branches:
 
+feature/fix_build_issues: 
+[openapi swagger-ui](swagger-ui?url=../preview/feature/fix_build_issues/openapi.yaml)
+[ReDoc](preview/feature/fix_build_issues/docs/index.html)
+
 feature/version_pagination: 
 [openapi swagger-ui](swagger-ui?url=../preview/feature/version_pagination/openapi.yaml)
 [ReDoc](preview/feature/version_pagination/docs/index.html)
