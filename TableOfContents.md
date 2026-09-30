@@ -58,6 +58,10 @@ v2.0.1:
 
 #### Other branches:
 
+feature/version_pagination: 
+[openapi swagger-ui](swagger-ui?url=../preview/feature/version_pagination/openapi.yaml)
+[ReDoc](preview/feature/version_pagination/docs/index.html)
+
 master: 
 [swagger swagger-ui](swagger-ui?url=../preview/master/docs/web_deploy/swagger.json)
 [html5](preview/master/docs/html5/index.html)
