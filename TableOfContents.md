@@ -58,6 +58,10 @@ v2.0.1:
 
 #### Other branches:
 
+dependabot/npm_and_yarn/handlebars-4.7.10: 
+[openapi swagger-ui](swagger-ui?url=../preview/dependabot/npm_and_yarn/handlebars-4.7.10/openapi.yaml)
+[ReDoc](preview/dependabot/npm_and_yarn/handlebars-4.7.10/docs/index.html)
+
 feature/fix_build_issues: 
 [openapi swagger-ui](swagger-ui?url=../preview/feature/fix_build_issues/openapi.yaml)
 [ReDoc](preview/feature/fix_build_issues/docs/index.html)
