@@ -62,6 +62,10 @@ dependabot/npm_and_yarn/handlebars-4.7.10:
 [openapi swagger-ui](swagger-ui?url=../preview/dependabot/npm_and_yarn/handlebars-4.7.10/openapi.yaml)
 [ReDoc](preview/dependabot/npm_and_yarn/handlebars-4.7.10/docs/index.html)
 
+dependabot/npm_and_yarn/pbkdf2-3.1.7: 
+[openapi swagger-ui](swagger-ui?url=../preview/dependabot/npm_and_yarn/pbkdf2-3.1.7/openapi.yaml)
+[ReDoc](preview/dependabot/npm_and_yarn/pbkdf2-3.1.7/docs/index.html)
+
 feature/fix_build_issues: 
 [openapi swagger-ui](swagger-ui?url=../preview/feature/fix_build_issues/openapi.yaml)
 [ReDoc](preview/feature/fix_build_issues/docs/index.html)
